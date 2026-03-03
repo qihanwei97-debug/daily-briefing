@@ -4,7 +4,7 @@ on:
   # 当 briefings/ 目录有新文件 push 时触发
   push:
     paths:
-      - 'briefings/晨报_*.md'
+      - 'briefings/**'
 
   # 支持手动触发
   workflow_dispatch:
