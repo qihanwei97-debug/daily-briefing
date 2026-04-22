@@ -95,13 +95,41 @@
 - 律新社：https://www.lvxinews.com
 - Stanford CodeX：https://law.stanford.edu/codex-the-stanford-center-for-legal-informatics/
 
-### 一手信源 WebFetch 强制规则
+### 三层信源获取策略（R3/R5 适配 Routine 沙箱）
 
-搜索只负责"发现新闻"，引用必须 fetch 原文：
+**背景：** Routine 在 Anthropic 云端数据中心运行，聚合媒体（CNBC/Reuters/CNN/Bloomberg/WSJ 等）的 Cloudflare/Akamai 会对数据中心 IP 回复 403。因此采用三层分工：
 
-- **R3 头条一手信源：** 每条头条（AI 深度报道和国际大事）**必须额外 WebFetch 至少 1 个一手信源**——公司官方 PR/ IR 财报页、官方博客、论文 arXiv 页、法院判决书 PDF、官方社媒原帖等。聚合媒体（CNBC/Reuters/CNN 等）只能作为辅助交叉验证。若一手信源找不到公开 URL，必须在正文说明"未见官方公告"。
+**层一｜WebSearch（发现层）**
+- 主力：§三 新闻轨 5-8 次 + 技巧轨 2-3 次
+- 产出：发现事件 + 初步 URL + 搜索摘要
 
-- **R5 跟进条目实时数据：** "跟进"类条目中涉及的实时数据（Polymarket 赔率、GitHub commit、官方 changelog、blog 更新、Twitter/X 推文等）**必须 WebFetch 当前实际页面**，不得凭搜索摘要或记忆推测。若 fetch 失败则明确标注"截至 YYYY-MM-DD HH:MM 官方页面未更新"。
+**层二｜Perplexity Sonar API（聚合媒体精准引用）**
+- 仅用于头条（R3）和关键跟进（R5）——**每期 3-5 次调用，不滥用**
+- 通过 Bash `curl` 调用（需环境变量 `PERPLEXITY_API_KEY`，由 claude.ai 环境设置注入）：
+```bash
+curl -s https://api.perplexity.ai/chat/completions \
+  -H "Authorization: Bearer $PERPLEXITY_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model":"sonar-pro",
+    "messages":[{"role":"user","content":"Quote CNBC April 22 2026 on Trump Iran ceasefire extension, include exact figures and source URL"}],
+    "search_recency_filter":"day"
+  }'
+```
+- 解析：`choices[0].message.content` 含真实段落；`citations` 字段含源 URL 列表
+- 定价：sonar-pro 约 $0.01-0.015/次，每期增量 **~$0.05**
+
+**层三｜WebFetch（一手原文）**
+- 用于在 Routine 沙箱里可稳定访问的站点：**arxiv.org、github.com、公司自家域名**（anthropic.com / openai.com / ir.*.com）、**政府/法院文书 PDF**
+- 聚合媒体（CNBC/Reuters/CNN/Bloomberg/WSJ/FT/The Verge/TechCrunch/36氪/虎嗅）**不要 WebFetch**，直接用层二
+
+**R3 头条一手信源：** 每条头条至少有 1 次层二（Perplexity 返回的原段落+citations）或层三（WebFetch 到的一手 URL）的真实引用——不得仅凭 WebSearch 摘要落笔。
+
+**R5 跟进实时数据：** Polymarket 赔率、GitHub commit、官方 changelog、Twitter/X 推文等，优先层二（Perplexity with `search_recency_filter:"hour"` 或 `"day"`）或层三（WebFetch GitHub/官方站）。
+
+**优雅降级（防止整个流程挂掉）：**
+- 若 `$PERPLEXITY_API_KEY` 未设置或 API 调用返回错误：自动回退到 WebSearch 摘要，**整篇晨报在页脚加注**"⚠️ 本期 Perplexity 不可用，部分引用基于搜索摘要"，但流程继续
+- 若 WebFetch 返回 403/超时：同样标注，继续行文
 
 ## 四、简报结构（8个板块）
 
