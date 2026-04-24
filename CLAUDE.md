@@ -100,12 +100,8 @@
 搜索只负责"发现新闻"，引用必须 fetch 原文：
 
 - **R3 头条一手信源：** 每条头条（AI 深度报道和国际大事）**必须额外 WebFetch 至少 1 个一手信源**——公司官方 PR/ IR 财报页、官方博客、论文 arXiv 页、法院判决书 PDF、官方社媒原帖等。聚合媒体（CNBC/Reuters/CNN 等）只能作为辅助交叉验证。若一手信源找不到公开 URL，必须在正文说明"未见官方公告"。
-  - ⚠️ **WebFetch 域名白名单**（云端 Routine 环境下，只对以下域名尝试 WebFetch——聚合媒体 403 率 >95%，不要浪费时间尝试）：`anthropic.com`、`openai.com`、`deepmind.google`、`arxiv.org`、`github.com`、`huggingface.co`、`*.gov`、`*.courts.*`、`code.claude.com`、公司自有 IR 域名（如 `ir.meta.com`、`aboutamazon.com`）
-  - ⚠️ **禁止 WebFetch 的域名**（云端环境 100% 会 403，不要尝试）：`cnbc.com`、`reuters.com`、`cnn.com`、`bloomberg.com`、`wsj.com`、`ft.com`、`techcrunch.com`、`theverge.com`、`nytimes.com` 及其他聚合新闻站。这些站的内容通过 WebSearch 搜索摘要获取即可
-  - 本地 CLI 环境不受此限制，可 fetch 任意域名
 
 - **R5 跟进条目实时数据：** "跟进"类条目中涉及的实时数据（Polymarket 赔率、GitHub commit、官方 changelog、blog 更新、Twitter/X 推文等）**必须 WebFetch 当前实际页面**，不得凭搜索摘要或记忆推测。若 fetch 失败则明确标注"截至 YYYY-MM-DD HH:MM 官方页面未更新"。
-  - ⚠️ 同样遵守上述域名白名单/黑名单。GitHub/arXiv/官方 changelog 页面可 fetch；Polymarket 等第三方交易平台若 403 则用搜索摘要兜底
 
 ## 四、简报结构（8个板块）
 
