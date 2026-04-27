@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年4月14日 星期二</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年4月14日 星期二</span>
+    <span>覆盖24小时 · 预计阅读10-12分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Stanford AI Index 2026年度报告发布——中国AI性能已追平美国，GenAI三年触达53%人口采用率超PC和互联网，SWE-bench编程测试一年内从60%飙至近100%，但22-25岁软件开发者就业下降近20%</strong>。<strong>匈牙利变天：Orbán执政16年终结，Péter Magyar领导的Tisza党以53.6%得票率赢得超级多数（138/199席），承诺重建与EU和NATO关系</strong>。<strong>霍尔木兹海峡封锁生效Day 1：油价跳涨后回落，Brent收于$99、WTI约$96；美军已在伊朗行动中累计损失24架MQ-9 Reaper无人机，总值$7.2亿</strong>。<strong>GPT-6传闻的"4月14日发布"日期已到——如预期般零动静，OpenAI仍在安全评估中；此前4月6日已悄然发布ChatGPT 5.5并推出Super App（合并ChatGPT+Codex+Atlas）</strong>。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Stanford AI Index 2026——全球AI年度权威体检报告，中国追平美国、就业冲击从预测变为现实</h3><p>Stanford HAI于4月13日发布<strong>2026年度AI Index报告</strong>——全球最权威的AI发展年度评估。今年的数据揭示了AI发展中前所未有的"分裂"：技术突飞猛进、采用率狂飙，但公众焦虑加深、就业冲击开始显现。</p><p><strong>技术进步：</strong>
+- AI模型已在<strong>博士级科学问题、数学和多模态推理</strong>上达到或超越人类水平
+- 编程benchmark <strong>SWE-bench Verified</strong>：一年内从<strong>60%飙升至接近100%</strong>——几乎解决了所有标准化编程任务
+- 但模型透明度反而下降：基础模型透明度指数从去年的<strong>58分降至40分</strong></p><p><strong>采用率创纪录：</strong>
+- GenAI在三年内触达<strong>53%人口采用率</strong>——速度超过个人电脑和互联网
+- 组织采用率达<strong>88%</strong>，4/5大学生使用GenAI
+- GenAI工具为美国消费者创造的估算年价值达<strong>$1,720亿</strong></p><p><strong>中美AI竞争格局翻转：</strong>
+- <strong>中国已抹平与美国的AI性能差距</strong>——在专利、论文、自主机器人领域领先
+- 美国仍在<strong>资本、基础设施、AI芯片</strong>方面保持优势
+- <strong>90%以上有影响力的AI模型来自私营企业</strong>，学术界份额持续萎缩</p><p><strong>就业冲击从预测变为现实：</strong>
+- <strong>22-25岁软件开发者就业自2022年以来下降近20%</strong>——年轻工人首当其冲
+- AI专家普遍乐观，但公众对就业、医疗和经济影响的焦虑持续加深——两群人之间的"认知鸿沟"在扩大</p><p><strong>环境代价：</strong>
+- 训练单个AI模型产生的碳排放约等于<strong>16,000次旧金山-纽约往返航班</strong></p><div class="callout"><strong>为什么重要：</strong> 这份报告是决策者、投资人和从业者理解AI全局的年度必读。三个关键信号：①中国AI不再是"追赶者"而是"并行者"——对出口管制政策的有效性提出质疑；②编程自动化已接近天花板，就业冲击不再是理论推演；③模型越来越强，但透明度却在倒退——监管真空正在扩大。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford HAI官网</a> 免费下载</li><li>💡 上手：直接阅读12条核心结论（20分钟），或看MIT Technology Review的图表解读版</li></ul><div class="sources">来源：<a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford HAI</a> | <a href="https://spectrum.ieee.org/state-of-ai-index-2026">IEEE Spectrum</a> | <a href="https://techcrunch.com/2026/04/13/stanford-report-highlights-growing-disconnect-between-ai-insiders-and-everyone-else/">TechCrunch</a> | <a href="https://siliconangle.com/2026/04/13/stanford-hais-2026-ai-index-reveals-china-u-s-now-neck-neck-race-global-dominance/">SiliconANGLE</a> | <a href="https://www.technologyreview.com/2026/04/13/1135675/want-to-understand-the-current-state-of-ai-check-out-these-charts/">MIT Technology Review</a></div><div class="sources">中文解读：<a href="https://www.digit.in/features/general/stanford-ai-index-2026-report-5-key-insights-on-ai-adoption-and-competency.html">Digit</a></div></div><div class="brief-item"><h4>OpenAI ChatGPT 5.5 + Super App桌面版正式上线——ChatGPT、Codex、Atlas三合一</h4><p>（4月6日，<a href="https://findskill.ai/blog/chatgpt-55-super-app-what-changed/">FindSkill</a> | <a href="https://www.macrumors.com/2026/03/20/openai-super-app-in-development-chatgpt/">MacRumors</a> | <a href="https://hypebeast.com/2026/3/openai-desktop-superapp-chatgpt-codex-atlas-browser-merge">Hypebeast</a>）：OpenAI于4月6日发布了<strong>ChatGPT 5.5</strong>（GPT-5.4与GPT-6之间的过渡模型）并推出统一桌面Super App，将三大产品合并为一个AI原生工作空间：①<strong>ChatGPT</strong>（对话推理）②<strong>Codex</strong>（自主编程Agent，已用Rust重写）③<strong>Atlas</strong>（AI浏览器）。三者可在单一工作流中协同——让Atlas搜索资料、ChatGPT分析、Codex写代码。目前Mac/Windows可用，Plus和Pro订阅者先行。
+- 📍 获取：OpenAI桌面应用更新
+- 💰 定价：Plus $20/月、Pro $200/月可用，免费版逐步开放
+- 💡 上手：开发者首选——在一个窗口完成"搜索→分析→编码"全流程</p></div><div class="brief-item"><h4>GPT-6/Spud：传闻的4月14日发布日已到——如期零动静</h4><p>（4月14日，<a href="https://findskill.ai/blog/gpt-6-release-date/">FindSkill</a>）：跟进——今天就是此前广泛传播的"GPT-6将于4月14日发布"的传闻日期。<strong>结果：毫无动静</strong>，正如本报连续三期预判。OpenAI官方仍未公布任何发布日期或活动预告。"Spud"模型仍在安全评估阶段。Polymarket最新概率：4月底前发布<strong>78%</strong>，6月底前<strong>95%+</strong>。考虑到至今零预热，4月下旬（4月21日之后）是更合理的窗口。
+- 💡 上手：继续等待——关注OpenAI官方推特/博客为唯一可靠信号</p></div><div class="brief-item"><h4>DeepSeek V4：创始人梁文锋确认"4月下半月"发布</h4><p>（4月10日，<a href="https://finance.biggo.com/news/202604102303_DeepSeek_V4_April_Launch_Details">BigGo Finance</a> | <a href="https://hongkongfp.com/2026/04/11/waiting-for-deepseek-new-model-to-test-chinas-ai-ambitions/">Hong Kong Free Press</a>）：跟进——DeepSeek创始人梁文锋内部确认V4将在<strong>4月下半月正式发布</strong>。模型规格：万亿参数级、百万Token上下文窗口、深度适配华为Ascend芯片（"去CUDA化"关键一步）。如果在OpenAI "Spud"之前发布，将抢占叙事先机。
+- 💡 上手：距发布窗口开启仅剩数天——可能是2026年开源AI最大事件</p></div><div class="brief-item"><h4>PwC研究：AI经济收益的3/4被仅20%的企业获取</h4><p>（4月13日，<a href="https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-performance-study.html">PwC</a>）：PwC 2026年AI绩效研究显示，AI带来的经济收益<strong>高度集中</strong>——领先企业聚焦"增长"而非仅仅"生产力提升"，拉开了与其他企业的巨大差距。这与Stanford AI Index的发现互相印证：AI红利正在加速分化。
+- 💡 上手：企业AI战略应从"降本"转向"增长"——这是赢家和跟随者的分水岭</p></div><div class="brief-item"><h4>智元机器人4月17日合作伙伴大会：4款机器人新品+4个AI大模型</h4><p>（4月13日，<a href="https://finance.sina.com.cn/tech/digi/2026-04-13/doc-inhufuxw6413787.shtml">新浪科技</a>）：智元机器人将在4月17日举办2026合作伙伴大会，发布<strong>4个本体新品、4个AI大模型及7个解决方案</strong>。国产具身智能赛道持续加速。
+- 💡 上手：关注4月17日发布会——具身智能是2026年中国AI重点赛道</p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、匈牙利变天：Orbán执政16年终结，Péter Magyar赢得历史性压倒胜利
+
+4月12日，匈牙利举行议会选举，结果震动欧洲：
+
+<strong>选举结果：</strong>
+- Péter Magyar领导的中右翼<strong>Tisza党</strong>以<strong>53.6%得票率获得138席</strong>（总199席），赢得宪法修正所需的<strong>超级多数</strong>（2/3以上）
+- Viktor Orbán的Fidesz党仅获<strong>37.8%和55席</strong>——从超级多数沦为少数派
+- <strong>投票率创纪录77%</strong>——匈牙利后共产主义时代最高
+
+<strong>Orbán承认"痛苦的"失败：</strong> 执政16年的Orbán在选举夜承认败选。他曾是Trump在欧洲最坚定的盟友，长期在EU内部扮演"搅局者"角色。
+
+<strong>Magyar的承诺：</strong> 这位前Orbán阵营成员（后因反腐倒戈）宣布："<strong>我们一起替换了Orbán体制，一起解放了匈牙利</strong>"。他承诺重建与EU和NATO的关系，优先解决医疗和公共交通等民生问题。
+
+<strong>地缘影响：</strong> Orbán此前一直阻止EU向乌克兰提供€900亿贷款——Magyar上台后这一障碍将大概率消除。匈牙利从"EU内部反对派"转向"建设性成员"，对欧洲政治版图意义重大。
+
+来源：<a href="https://www.cnn.com/2026/04/12/world/live-news/hungary-election-orban-magyar">CNN</a> | <a href="https://www.aljazeera.com/news/2026/4/12/hungary-election-early-results-show-magyars-tisza-ahead-of-orbans-fidesz">Al Jazeera</a> | <a href="https://www.npr.org/2026/04/12/nx-s1-5782671/hungary-viktor-orban-concedes-defeat">NPR</a> | <a href="https://www.cbc.ca/news/world/hungary-election-viktor-orban-9.7160781">CBC</a> | <a href="https://www.cnbc.com/2026/04/12/hungarians-vote-in-closely-watched-landmark-election-.html">CNBC</a> | <a href="https://www.pbs.org/newshour/world/hungarian-prime-minister-viktor-orban-ousted-after-painful-election-result-ending-16-years-in-power">PBS</a> | <a href="https://www.cbsnews.com/news/hungary-general-election-viktor-orban-peter-magyar-results/">CBS News</a>
+
+### 🌍 二、霍尔木兹封锁Day 1：油价跳涨后回落，美军无人机损失$7.2亿
+
+<strong>4月13-14日增量（接续4月13日封锁宣布报道）：</strong>
+
+<strong>封锁正式执行：</strong>
+- CENTCOM于4月13日上午10:00 AM ET开始实施封锁——<strong>所有进出伊朗港口的船舶被拦截</strong>
+- 明确"非伊朗港口间航行的船舶不受影响"——但市场恐慌推动油价跳涨
+- 超级油轮已开始绕行非洲好望角，<strong>增加10-14天航程</strong>，航运成本升至两年高点
+
+<strong>油价与市场：</strong>
+- 封锁宣布后Brent一度跳涨7%至$102，WTI涨7.8%至$104
+- 周一（4月14日）冷静后回落：WTI降至约<strong>$96</strong>，Brent约<strong>$99</strong>
+- 自战争以来<strong>美国汽油均价涨$1.20至$4.12/加仑</strong>（AAA数据）
+- S&P 500周一收涨1%，市场消化封锁影响后反弹
+
+<strong>MQ-9 Reaper无人机累计损失严峻：</strong>
+- 美军在伊朗行动中已累计损失<strong>24架MQ-9 Reaper无人机</strong>，总价值约<strong>$7.2亿</strong>
+- 仅4月就被击落<strong>8架</strong>——伊朗防空网络比预期更完整、更具适应性
+- 这是自大规模无人机战争出现以来<strong>最严重的美军无人机损耗事件</strong>
+- 两名美军官员承认，在伊朗高度争夺的空域中维持ISR行动"越来越困难"
+
+<strong>供应缺口隐患：</strong> 应急石油释放目前补偿了每日<strong>450-500万桶</strong>的供应缺口。但如果正常供应不能恢复，未来数周缺口可能扩大至每日<strong>1000-1100万桶</strong>。
+
+来源：<a href="https://www.cnn.com/2026/04/13/business/oil-prices-us-blockade-hormuz-intl">CNN Business</a> | <a href="https://www.nbcnews.com/business/markets/oil-prices-surge-trump-says-us-will-blockade-strait-hormuz-rcna330824">NBC News</a> | <a href="https://www.aljazeera.com/economy/2026/4/13/oil-prices-surge-past-103-a-barrel-after-us-announces-blockade-of-iran">Al Jazeera</a> | <a href="https://www.cnbc.com/2026/04/12/oil-prices-iran-war-strait-hormuz-blockade.html">CNBC</a> | <a href="https://defencesecurityasia.com/en/iran-shoots-down-24-us-mq9-reapers-720-million-loss-drone-dominance-collapse/">Defence Security Asia</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-13/latest-oil-market-news-and-analysis-for-april-14">Bloomberg</a>
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Stanford HAI</td><td>AI Index 2026</td><td>年度权威AI体检：中国追平美国，就业冲击显现</td><td>✅全量</td><td>hai.stanford.edu</td><td>4月13日</td></tr><tr><td>OpenAI</td><td>ChatGPT 5.5 + Super App</td><td>三合一桌面应用（ChatGPT+Codex+Atlas）</td><td>✅Plus/Pro</td><td>OpenAI桌面应用</td><td>4月6日</td></tr><tr><td>OpenAI</td><td>"Spud"/GPT-6</td><td>4月14日传闻日已到，零动静，仍在安全评估</td><td>⏳评估中</td><td>—</td><td>预计4月下旬-5月</td></tr><tr><td>DeepSeek</td><td>V4</td><td>创始人确认4月下半月发布，万亿参数</td><td>⏳即将发布</td><td>—</td><td>4月下半月</td></tr><tr><td>PwC</td><td>AI绩效研究2026</td><td>AI经济收益3/4被20%企业获取</td><td>✅全量</td><td>PwC官网</td><td>4月13日</td></tr><tr><td>智元机器人</td><td>2026合作伙伴大会</td><td>4款机器人+4个大模型+7个解决方案</td><td>⏳4月17日</td><td>—</td><td>4月17日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford AI Index</a> | <a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a> | <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Qwen3.6-Plus (阿里) | Muse Spark (Meta) |
+|------|--------------------------|------------------|---------------------------|----------------------|-------------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ BenchLM 87分 | ⭐⭐⭐⭐⭐ BenchLM 82分 | ⭐⭐⭐⭐⭐ BenchLM 85分 | ⭐⭐⭐⭐ (社区测试中) | ⭐⭐⭐⭐½ AA Index #4 |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐⭐ <strong>78.80%</strong> | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 匹配Opus 4.5 | ⭐⭐⭐⭐ (待独立测试) |
+| <strong>Agentic编程</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ ClawEval 66.3 | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ 多Agent并行 |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ <strong>94.3%</strong> | ⭐⭐⭐⭐½ ~89% | ⭐⭐⭐⭐½ ~87% | ⭐⭐⭐⭐ (待测) | ⭐⭐⭐⭐ |
+| <strong>办公文档集成</strong> | ⭐⭐⭐⭐ Workspace | ⭐⭐⭐⭐⭐ <strong>Super App三合一</strong> | ⭐⭐⭐⭐⭐ <strong>Word+Excel+PPT</strong> | ⭐⭐⭐ | ⭐⭐⭐ Meta生态 |
+| <strong>网络安全</strong> | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ <strong>Mythos级</strong> | ⭐⭐⭐ | ⭐⭐⭐½ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐½ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ (待测) |
+| <strong>最大输出</strong> | 高 | 高 | ⭐⭐⭐⭐⭐ 128K单次输出 | 高 | 中等 |
+| <strong>定价(input/output)</strong> | <strong>$2/$12</strong> | $2.50/$15 | $15/$75 | <strong>$0.29/$1.25</strong> | 消费者免费(闭源) |
+| <strong>最佳适用</strong> | 综合之王、科学推理 | <strong>一站式工作空间（Super App）</strong> | 深度分析、安全、<strong>法律文档</strong> | 企业Agent、中文场景 | Meta生态消费者场景 |
+| <strong>获取方式</strong> | Gemini / API | <strong>ChatGPT Super App</strong> / API | claude.ai / API / <strong>Word插件</strong> | 百炼 / OpenRouter | Meta AI App |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.4 mini (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3.1 Flash-Lite (Google) | Gemma 4 31B (Google) |
+|------|-------------------------|-------------------------------|----------------------------------|----------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐½ 逼近旗舰 | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ 匹配2.5 Flash | ⭐⭐⭐⭐½ Elo 1452 |
+| <strong>编程</strong> | ⭐⭐⭐⭐½ SWE-bench Pro接近旗舰 | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>多模态(音视频)</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 原生视觉+音频 |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>速度</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ TTFT 2.5x | ⭐⭐⭐⭐⭐ 本地零延迟 |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 140+语言 |
+| <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | <strong>$0.25/$1.50</strong> | <strong>免费开源</strong> |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | ✅ Apache 2.0 |</p><p><strong>📝 本周变化：</strong> ①<strong>OpenAI Super App上线——旗舰表"办公文档集成"维度更新</strong>。GPT-5.4通过Super App将ChatGPT+Codex+Atlas合并为一站式AI工作空间，在桌面端工作流整合度上与Anthropic的Word/Excel/PPT侧栏模式形成差异化竞争。②<strong>Stanford AI Index确认SWE-bench从60%→近100%</strong>——编程维度的"满分时代"即将到来，差异化将转向Agentic编程和真实世界任务。③<strong>"Spud"/GPT-6和DeepSeek V4均进入4月下半月发布窗口</strong>——未来两周旗舰格局可能迎来重大洗牌。④中端表无变动。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | Gemma 4 31B | Super App三合一编码体验 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Gemma 4 31B | 128K输出+自然散文质量 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | Claude Opus 4.6 | GLM-5 | GPQA 94.3%+SWE-bench双冠 |
+| 🎨 AI绘画 | Midjourney v6.1 | MAI-Image-2 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Runway Gen-4.5 | Kling | Sora下线后双雄格局 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude for Word | GPT-5.4 | Harvey | 跟踪修订+跨文档联动 |
+| 📊 数据分析 | GPT-5.4 | Gemini 3.1 Pro | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | ARR $4.5亿验证用户价值 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Qwen3.6-Plus | Gemma 4 26B MoE | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | MAI-Voice-1 | 豆包App | CarPlay集成扩展车载场景 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.4 mini) | Meta AI App | Muse Spark多模态消费场景 |
+| 💰 极致性价比 | Qwen3.6-Plus | Gemma 4 31B | GLM-5（MIT开源） | $0.29/M旗舰级编程碾压 |
+
+<strong>🔄 本周变化：</strong> ①<strong>编程场景一句话理由更新</strong>：OpenAI Super App（ChatGPT+Codex+Atlas三合一）使GPT-5.4在桌面端编码工作流中的整合优势更加突出。②其余场景推荐与上期一致。③<strong>前瞻</strong>：DeepSeek V4和OpenAI Spud/GPT-6若在未来两周发布，编程和Agent场景可能迎来大规模调整。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🧠 DeepSeek V4发布窗口开启（4月下半月）</strong>：创始人梁文锋已内部确认"4月下半月"发布时间。万亿参数+百万Token上下文+华为芯片适配——若成功，将成为2026年开源AI最大里程碑，并证明中国AI可绕开NVIDIA芯片限制。
+
+2. <strong>🔮 OpenAI "Spud"发布窗口（4月21日起更现实）</strong>：4月14日传闻已破产。考虑到零官方预热，4月21日后是更合理的发布窗口。命名GPT-5.5或GPT-6仍悬而未决。DeepSeek V4和Spud谁先发布，将决定2026年下半年的AI叙事基调。
+
+3. <strong>🤖 智元机器人合作伙伴大会（4月17日）</strong>：4款机器人本体+4个AI大模型——中国具身智能赛道的重要风向标。
+
+4. <strong>⚓ 霍尔木兹海峡封锁持续影响</strong>：石油应急释放缓冲正在消耗——若封锁持续，未来数周供应缺口可能从450万桶/天扩大至1000万桶/天。油价和通胀压力将持续影响全球市场。
+
+5. <strong>🇭🇺 匈牙利政权过渡与EU乌克兰贷款</strong>：Magyar就任后，此前被Orbán阻止的€900亿对乌贷款有望解冻——这将改变欧洲安全格局。
+
+---
+
+*数据来源：Stanford HAI、IEEE Spectrum、TechCrunch、SiliconANGLE、MIT Technology Review、OpenAI、FindSkill、MacRumors、Hypebeast、DeepSeek/BigGo Finance、PwC、CNN、Al Jazeera、NPR、CBC、CNBC、PBS、CBS News、NBC News、Bloomberg、Defence Security Asia、新浪科技等 | 所有数据基于2026年4月14日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer">。  来源：<a href="https://www.cnn.com/2026/04/13/business/oil-prices-us-blockade-hormuz-intl">CNN Business</a> <br> <a href="https://www.nbcnews.com/business/markets/oil-prices-surge-trump-says-us-will-blockade-strait-hormuz-rcna330824">NBC News</a> <br> <a href="https://www.aljazeera.com/economy/2026/4/13/oil-prices-surge-past-103-a-barrel-after-us-announces-blockade-of-iran">Al Jazeera</a> <br> <a href="https://www.cnbc.com/2026/04/12/oil-prices-iran-war-strait-hormuz-blockade.html">CNBC</a> <br> <a href="https://defencesecurityasia.com/en/iran-shoots-down-24-us-mq9-reapers-720-million-loss-drone-dominance-collapse/">Defence Security Asia</a> <br> <a href="https://www.bloomberg.com/news/articles/2026-04-13/latest-oil-market-news-and-analysis-for-april-14">Bloomberg</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Stanford HAI <br> AI Index 2026 <br> 年度权威AI体检：中国追平美国，就业冲击显现 <br> ✅全量 <br> hai.stanford.edu <br> 4月13日 <br> <br> OpenAI <br> ChatGPT 5.5 + Super App <br> 三合一桌面应用（ChatGPT+Codex+Atlas） <br> ✅Plus/Pro <br> OpenAI桌面应用 <br> 4月6日 <br> <br> OpenAI <br> "Spud"/GPT-6 <br> 4月14日传闻日已到，零动静，仍在安全评估 <br> ⏳评估中 <br> — <br> 预计4月下旬-5月 <br> <br> DeepSeek <br> V4 <br> 创始人确认4月下半月发布，万亿参数 <br> ⏳即将发布 <br> — <br> 4月下半月 <br> <br> PwC <br> AI绩效研究2026 <br> AI经济收益3/4被20%企业获取 <br> ✅全量 <br> PwC官网 <br> 4月13日 <br> <br> 智元机器人 <br> 2026合作伙伴大会 <br> 4款机器人+4个大模型+7个解决方案 <br> ⏳4月17日 <br> — <br> 4月17日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford AI Index</a> <br> <a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> <br> <a href="https://artificialanalysis.ai">Artificial Analysis</a> <br> <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）  <br> 维度 <br> Gemini 3.1 Pro (Google) <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Qwen3.6-Plus (阿里) <br> Muse Spark (Meta) <br> <br>------<br>--------------------------<br>------------------<br>---------------------------<br>----------------------<br>-------------------<br> <br> </div>
+</div>
+</body>
+</html>

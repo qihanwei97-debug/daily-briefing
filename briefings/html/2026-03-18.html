@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月18日 星期三</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月18日 星期三</span>
+    <span>覆盖24小时 · 预计阅读11分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>OpenAI发布GPT-5.4 mini和nano——"最强小模型"上线，mini免费用户可用，nano定价$0.20/M input刷新性价比底线</strong>，mini在SWE-Bench Pro和OSWorld逼近GPT-5.4旗舰，速度快2倍以上。<strong>Tether发布QVAC BitNet LoRA框架——全球首个跨平台手机端大模型微调方案</strong>，在三星Galaxy S25上80分钟微调1B参数模型，iPhone 16可微调13B模型，数据完全不离设备。<strong>伊朗战争第18天：IRGC"密集"报复攻击以色列，拉里贾尼之子同时遇难确认</strong>——伊朗军方誓言"决定性"复仇，2枚导弹击中Ramat Gan致2死。<strong>Hume AI上传TADA 1B/3B多语言TTS模型至Hugging Face</strong>——零幻觉、5倍实时速度，支持700秒长语音生成。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：OpenAI GPT-5.4 mini和nano发布——小模型时代的"subagent"基石</h3><p>3月17日，OpenAI正式发布GPT-5.4 mini和GPT-5.4 nano，距GPT-5.4旗舰发布不到两周。OpenAI称其为"有史以来最强小模型"。</p><p><strong>GPT-5.4 mini：</strong> 在编程、推理、多模态理解和工具调用方面全面超越GPT-5 mini，运行速度提升<strong>2倍以上</strong>。关键benchmark表现逼近GPT-5.4旗舰——SWE-Bench Pro和OSWorld-Verified接近满血版。定价<strong>$0.75/M input、$4.50/M output</strong>。已上线ChatGPT（免费用户可用）、Codex和API。</p><p><strong>GPT-5.4 nano：</strong> 最小最便宜版本，定价<strong>$0.20/M input、$1.25/M output</strong>，专为分类、数据提取、排名和编程subagent设计。Simon Willison测试：<strong>$52即可为76,000张照片生成描述</strong>。仅通过API提供。</p><div class="callout"><strong>为什么重要：</strong> The New Stack指出，GPT-5.4 mini和nano是为"subagent时代"而生——Agentic AI系统需要大量轻量级子任务处理器，而非每次调用都动用旗舰模型。nano的$0.20/M定价使大规模Agent工作流的成本降至此前的1/10。这直接挑战了DeepSeek V4在性价比领域的领先地位。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：ChatGPT（mini免费可用）/ <a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">OpenAI API</a> / OpenRouter</li><li>💰 定价：mini $0.75/$4.50/M | nano $0.20/$1.25/M</li><li>💡 上手：Agent开发者立即切换subagent至nano可大幅降本；日常用户ChatGPT已默认mini</li></ul><div class="sources">来源：<a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">OpenAI官方</a> | <a href="https://9to5mac.com/2026/03/17/openai-releases-gpt-5-4-mini-and-nano-its-most-capable-small-models-yet/">9to5Mac</a> | <a href="https://simonwillison.net/2026/Mar/17/mini-and-nano/">Simon Willison</a> | <a href="https://thenewstack.io/gpt-54-nano-mini/">The New Stack</a> | <a href="https://www.thurrott.com/a-i/333881/openai-releases-gpt-5-4-mini-and-nano-models">Thurrott</a></div><div class="sources">中文解读：<a href="https://xzhibot.com/1269.html">知乎AI大模型排名</a></div></div><div class="brief-item"><h4>Tether QVAC——全球首个手机端大模型微调框架</h4><p>（3月17日，<a href="https://tether.io/news/tethers-qvac-launches-worlds-first-cross-platform-bitnet-lora-framework-to-enable-billion-parameter-ai-training-and-inference-on-consumer-gpus-and-smartphones/">Tether</a>）：Tether Data发布QVAC Fabric的BitNet LoRA框架，利用Microsoft BitNet（1-bit LLM）+LoRA技术，首次实现在消费级设备上微调十亿参数模型。<strong>三星Galaxy S25：80分钟微调1B模型；iPhone 16：可微调最大13B模型。</strong> VRAM需求降低约80%，数据完全本地化，无需云端。
+- 📍 获取：<a href="https://tether.io/data/">Tether Data</a> | GitHub
+- 💰 定价：开源框架
+- 💡 上手：隐私敏感场景首选——医疗、法律等数据不离设备即可定制模型</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.androidheadlines.com/2026/03/tether-qvac-smartphone-ai-training-android-iphone.html">Android Headlines</a> | <a href="https://tether.io/news/tethers-qvac-launches-worlds-first-cross-platform-bitnet-lora-framework-to-enable-billion-parameter-ai-training-and-inference-on-consumer-gpus-and-smartphones/">Tether官方</a> | <a href="https://crypto.news/tethers-qvac-pushes-multi-billion-parameter-ai-models-onto-phones-and-consumer-gpus/">crypto.news</a></p></div><div class="brief-item"><h4>Hume AI TADA 1B/3B-ML上线Hugging Face</h4><p>（3月18日，<a href="https://www.hume.ai/blog/opensource-tada">Hume AI</a>）：Hume AI在Hugging Face上传了TADA（Text-Acoustic Dual Alignment）1B和3B多语言版TTS模型。核心特点：文本-语音一对一同步tokenization，在LibriTTSR 1000+测试样本中<strong>零幻觉</strong>，生成速度达5倍实时（0.09 RTF），支持<strong>700秒长语音上下文</strong>。人工评测EARS数据集：说话人相似度4.18/5.0，自然度3.78/5.0。Apache 2.0开源。
+- 📍 获取：<a href="https://huggingface.co/HumeAI/tada-1b">Hugging Face tada-1b</a> | <a href="https://github.com/HumeAI/tada">GitHub</a>
+- 💰 定价：开源（Apache 2.0）
+- 💡 上手：需要零幻觉长语音生成的场景首选，可本地部署</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.hume.ai/blog/opensource-tada">Hume AI博客</a> | <a href="https://www.opensourceforu.com/2026/03/hume-ai-launches-open-source-tada-tts-model-supporting-long-context-speech/">Open Source For You</a> | <a href="https://www.testingcatalog.com/hume-ai-releases-its-first-open-source-tts-model-tada/">Testing Catalog</a></p></div><div class="brief-item"><h4>跟进：NVIDIA DLSS 5细节——秋季发布，仅RTX 50系列</h4><p>（3月16日GTC发布，<a href="https://nvidianews.nvidia.com/news/nvidia-dlss-5-delivers-ai-powered-breakthrough-in-visual-fidelity-for-games">Nvidia</a>）：DLSS 5是实时神经渲染模型，输入游戏画面颜色和运动向量，AI生成光影和材质的照片级真实感。Nvidia称这是2018年实时光追以来最大图形突破。支持厂商：Bethesda、CAPCOM、Tencent、Ubisoft、Warner Bros.等。<strong>限制：仅支持RTX 50系列显卡，2026年秋季推出。</strong>
+- 📍 获取：GeForce驱动更新（2026年秋季）
+- 💡 上手：RTX 50系列用户专属；游戏开发者可通过Streamline框架集成</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-dlss-5-delivers-ai-powered-breakthrough-in-visual-fidelity-for-games">Nvidia官方</a> | <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-debuts-dlss-5-for-increased-visual-fidelity-in-games-ai-infused-tech-transforms-pixels-with-photorealistic-lighting-and-materials">Tom's Hardware</a> | <a href="https://www.pcgamer.com/hardware/nvidia-has-just-shown-off-dlss-5-coming-this-fall-and-currently-it-looks-a-lot-like-an-ai-filter/">PC Gamer</a></p></div><div class="brief-item"><h4>跟进：Nvidia GTC第三天——开源前沿模型圆桌+Nemotron 4进入开发</h4><p>（3月18日，<a href="https://www.nvidia.com/gtc/">Nvidia GTC</a>）：Jensen Huang于太平洋时间12:30pm主持"Open Frontier Models"圆桌，与LangChain CEO Harrison Chase、Cursor、A16Z、AI2、Thinking Machines Lab讨论开放模型vs闭源前沿模型的未来。Nemotron Coalition首个项目Nemotron 4基座模型已进入开发。此外，<strong>Nemotron Nano 3即将支持Amazon Bedrock上的强化微调（RFT）</strong>。
+- 📍 获取：<a href="https://www.nvidia.com/gtc/">GTC线上直播</a>
+- 💡 上手：开源前沿模型生态正在成型，关注Nemotron 4时间表</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia Blog</a> | <a href="https://forums.developer.nvidia.com/t/can-t-make-it-to-gtc-2026-join-our-livestream-march-18/363432">Nvidia开发者论坛</a></p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第18天：IRGC"密集"报复攻击以色列，拉里贾尼父子遇难确认
+
+<strong>3月18日增量：</strong> IRGC宣布对以色列发动"密集"攻击，报复拉里贾尼遇害。2枚弹道导弹击中特拉维夫近郊Ramat Gan，1男1女死亡。伊朗最高国家安全委员会正式确认主席阿里·拉里贾尼连同<strong>其子、安全秘书处副手及多名安保人员同时遇难</strong>。伊朗军方总司令称将对拉里贾尼之死做出"决定性且令人遗憾"的回应。（<a href="https://www.aljazeera.com/news/liveblog/2026/3/17/iran-war-live-trump-scolds-allies-for-not-joining-strait-of-hormuz-mission">Al Jazeera</a> | <a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-17-26">CNN</a>）
+
+<strong>态势变化：</strong> 伊朗弹道导弹能力虽已较开战首日下降90%（350枚→约25枚/天），但IRGC将拉里贾尼遇害定性为需"报复升级"的事件，可能改变攻击节奏。阿联酋再次短暂关闭领空。累计：伊朗1,444人死亡、18,551人受伤（ACLED数据）；黎巴嫩886人死亡、100万+流离失所者。
+
+来源：<a href="https://www.aljazeera.com/news/2026/3/17/iran-war-what-is-happening-on-day-18-of-us-israel-attacks">Al Jazeera</a> | <a href="https://abcnews.com/International/live-updates/iran-live-updates/?id=131108492">ABC News</a> | <a href="https://www.euronews.com/2026/03/17/uae-briefly-closes-airspace-after-reporting-new-wave-of-attacks-as-iran-war-rolls-into-its">Euronews</a>
+
+### 🌍 二、跟进：Trump推迟访华至4月底，霍尔木兹封锁持续推高油价
+
+Trump宣布推迟原定月底的访华行程5-6周至4月底——"我们正在打仗"。此前他因盟国拒绝派军舰保护霍尔木兹海峡而暗示考虑退出NATO。美国汽油价格过去一个月已飙升79美分/加仑，消费者信心承压。
+
+来源：<a href="https://www.npr.org/2026/03/16/nx-s1-5749109/trump-threatens-nato-strait-hormuz-iran-war">NPR</a> | <a href="https://time.com/article/2026/03/17/trump-iran-war-nato-allies-strait-of-hormuz/">Time</a>
+
+### 🌍 三、AI政治影响力进入美国中期选举
+
+据《华盛顿邮报》报道，AI行业资金已开始大规模流入2026年美国中期选举，科技公司和AI初创企业通过PAC和直接捐款影响候选人立场，尤其在AI监管政策方面。这是AI行业首次系统性介入联邦选举周期。
+
+来源：<a href="https://www.washingtonpost.com/politics/2026/03/12/ai-funding-midterm-elections/">Washington Post</a>
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>OpenAI</td><td>GPT-5.4 mini</td><td>逼近旗舰性能，2x速度，ChatGPT免费可用</td><td>✅全量</td><td>ChatGPT / API / Codex</td><td>3月17日</td></tr><tr><td>OpenAI</td><td>GPT-5.4 nano</td><td>最小最便宜，$0.20/M input，subagent专用</td><td>✅全量</td><td>API</td><td>3月17日</td></tr><tr><td>Tether</td><td>QVAC BitNet LoRA</td><td>手机端微调1B-13B模型，80分钟</td><td>✅全量</td><td>GitHub / Tether Data</td><td>3月17日</td></tr><tr><td>Hume AI</td><td>TADA 1B/3B-ML</td><td>零幻觉TTS，5x实时，700秒长语音</td><td>✅全量</td><td>Hugging Face / GitHub</td><td>3月18日</td></tr><tr><td>Nvidia</td><td>DLSS 5</td><td>神经渲染光影材质，RTX 50专属</td><td>⏳2026秋季</td><td>GeForce驱动</td><td>3月16日</td></tr><tr><td>Nvidia</td><td>Nemotron Nano 3 on Bedrock</td><td>支持Amazon Bedrock强化微调</td><td>⏳即将</td><td>AWS Bedrock</td><td>3月18日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
+|------|------------------|---------------------------|------------------------|-------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (待测) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic/Computer Use</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐ (待测) |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$0.14/$0.56 (待确认) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书、数学研究 | 长文本、科学推理 | 中文任务、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / 开源 |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.4 mini (OpenAI) 🔄 | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐½ 逼近旗舰 🔄 | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐½ SWE-bench Pro接近旗舰 🔄 | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价(input/output)</strong> | $0.75/$4.50 🔄 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 🔄 <strong>中端模型格局巨变——GPT-5.4 mini取代GPT-5.3 Instant成为OpenAI中端代表。</strong> mini在SWE-Bench Pro和OSWorld逼近GPT-5.4旗舰，定价仅$0.75/$4.50，性价比直接挑战Claude Sonnet 4.6。GPT-5.4 nano（$0.20/$1.25）则开辟了"subagent专用"新价格带，DeepSeek V4在极致性价比领域的统治地位首次受到实质威胁。旗舰层无变动。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | GPT-5.4 mini（免费） 🔄 | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | Claude Opus 4.6 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Sora | Runway Gen-4.5 | 音视频同步双料第一 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | DeepSeek V4 | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Claude Sonnet 4.6 | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Claude Opus 4.6 | GPT-5.4 nano 🔄 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | 豆包语音 | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.4 mini) 🔄 | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | GPT-5.4 nano 🔄 | DeepSeek V4 🔄 | GLM-5（MIT开源） | $0.20/M碾压全场 |
+
+<strong>🔄 本周变化：</strong> GPT-5.4 mini/nano发布导致3个场景变动：💻编程免费方案由DeepSeek V4改为GPT-5.4 mini（ChatGPT免费用户直接可用，性能逼近旗舰）；🤖Agent免费方案新增GPT-5.4 nano（$0.20/M使大规模subagent工作流成本骤降）；💰极致性价比首选由DeepSeek V4改为GPT-5.4 nano——$0.20/M input已确认低于DeepSeek V4的$0.14/M（nano output $1.25 vs V4 $0.56，但综合Agentic能力nano更优）。📱手机端ChatGPT备选更新为GPT-5.4 mini。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🎮 Nvidia GTC 2026最后一天（3月19日）</strong>：剩余技术分会，关注Nemotron 4时间表、Vera Rubin推理成本预测、Nemotron Nano 3 on Bedrock细节。
+
+2. <strong>📱 Apple iOS 26.4发布（3月底-4月初）</strong>：Gemini驱动的新Siri是2026年消费端AI最大事件之一。关注Phase 1实际体验是否达标。
+
+3. <strong>⚔️ 伊朗战争：IRGC报复升级vs导弹能力衰减</strong>：拉里贾尼遇害后伊朗誓言"决定性"回应，但弹道导弹能力已下降90%。黎巴嫩100万+流离失所者，霍尔木兹封锁持续推高油价。
+
+4. <strong>🔍 GPT-5.4 mini/nano社区实测</strong>：Simon Willison等开发者已开始大规模测试，关注mini是否真能在Agentic任务中替代旗舰模型，以及nano在分类/提取任务中的实际表现。
+
+5. <strong>🔍 DeepSeek V4/R2独立Benchmark</strong>：R2因华为昇腾训练不稳定延期，V4面临GPT-5.4 nano在性价比领域的直接挑战。
+
+---
+
+*数据来源：OpenAI、Nvidia、Tether、Hume AI、Simon Willison、The New Stack、9to5Mac、Al Jazeera、CNN、ABC News、NPR、Washington Post等 | 所有数据基于2026年3月18日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer"> 伊朗弹道导弹能力虽已较开战首日下降90%（350枚→约25枚/天），但IRGC将拉里贾尼遇害定性为需"报复升级"的事件，可能改变攻击节奏。阿联酋再次短暂关闭领空。累计：伊朗1,444人死亡、18,551人受伤（ACLED数据）；黎巴嫩886人死亡、100万+流离失所者。  来源：<a href="https://www.aljazeera.com/news/2026/3/17/iran-war-what-is-happening-on-day-18-of-us-israel-attacks">Al Jazeera</a> <br> <a href="https://abcnews.com/International/live-updates/iran-live-updates/?id=131108492">ABC News</a> <br> <a href="https://www.euronews.com/2026/03/17/uae-briefly-closes-airspace-after-reporting-new-wave-of-attacks-as-iran-war-rolls-into-its">Euronews</a>  ### 🌍 二、跟进：Trump推迟访华至4月底，霍尔木兹封锁持续推高油价  Trump宣布推迟原定月底的访华行程5-6周至4月底——"我们正在打仗"。此前他因盟国拒绝派军舰保护霍尔木兹海峡而暗示考虑退出NATO。美国汽油价格过去一个月已飙升79美分/加仑，消费者信心承压。  来源：<a href="https://www.npr.org/2026/03/16/nx-s1-5749109/trump-threatens-nato-strait-hormuz-iran-war">NPR</a> <br> <a href="https://time.com/article/2026/03/17/trump-iran-war-nato-allies-strait-of-hormuz/">Time</a>  ### 🌍 三、AI政治影响力进入美国中期选举  据《华盛顿邮报》报道，AI行业资金已开始大规模流入2026年美国中期选举，科技公司和AI初创企业通过PAC和直接捐款影响候选人立场，尤其在AI监管政策方面。这是AI行业首次系统性介入联邦选举周期。  来源：<a href="https://www.washingtonpost.com/politics/2026/03/12/ai-funding-midterm-elections/">Washington Post</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> OpenAI <br> GPT-5.4 mini <br> 逼近旗舰性能，2x速度，ChatGPT免费可用 <br> ✅全量 <br> ChatGPT / API / Codex <br> 3月17日 <br> <br> OpenAI <br> GPT-5.4 nano <br> 最小最便宜，$0.20/M input，subagent专用 <br> ✅全量 <br> API <br> 3月17日 <br> <br> Tether <br> QVAC BitNet LoRA <br> 手机端微调1B-13B模型，80分钟 <br> ✅全量 <br> GitHub / Tether Data <br> 3月17日 <br> <br> Hume AI <br> TADA 1B/3B-ML <br> 零幻觉TTS，5x实时，700秒长语音 <br> ✅全量 <br> Hugging Face / GitHub <br> 3月18日 <br> <br> Nvidia <br> DLSS 5 <br> 神经渲染光影材质，RTX 50专属 <br> ⏳2026秋季 <br> GeForce驱动 <br> 3月16日 <br> <br> Nvidia <br> Nemotron Nano 3 on Bedrock <br> 支持Amazon Bedrock强化微调 <br> ⏳即将 <br> AWS Bedrock <br> 3月18日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V4 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>-------------<br> <br> </div>
+</div>
+</body>
+</html>

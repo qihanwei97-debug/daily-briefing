@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月13日 星期五</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月13日 星期五</span>
+    <span>覆盖24小时 · 预计阅读11分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Nvidia豪掷$20亿入股荷兰AI云公司Nebius（8.3%股份），加速"新云"布局</strong>——Nebius股价暴涨16%，双方将合建5GW+ AI数据中心。<strong>Meta一口气发布四代MTIA自研芯片路线图（300/400/450/500），每6个月迭代一次</strong>，MTIA 300已投产，基于RISC-V架构，目标减少对Nvidia的依赖。<strong>美国AI立法潮：华盛顿州通过全美第二部AI聊天机器人安全法HB 2225</strong>，犹他州一口气通过9项AI法案，佛罗里达AI权利法案搁浅。<strong>伊朗战争第13天：新最高领袖穆杰塔巴·哈梅内伊发布首条声明，誓言继续封锁霍尔木兹海峡</strong>，伊朗攻击伊拉克水域油轮致伊拉克石油港口全面停运，油价重返$100/桶上方。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条一：Nvidia $20亿入股Nebius——"新云（Neocloud）"生态加速成型</h3><p>3月11日，Nvidia宣布向荷兰AI云公司Nebius Group投资$20亿，以$94.94/股获得约8.3%股份。双方将在AI基础设施部署、推理优化和AI工厂设计上深度合作，目标到2030年底部署超过5GW的Nvidia系统。</p><div class="callout"><strong>为什么重要：</strong> 这是Nvidia近3个月来的第四笔$20亿级战略投资（此前投了CoreWeave、Synopsys、Lumentum和Coherent），正在系统性地构建一个围绕自身GPU的"新云"生态——区别于AWS/Azure/GCP三大传统云，这批新玩家专注AI计算。Nebius将获得下一代Rubin架构GPU、Vera CPU和BlueField存储的早期接入权。消息公布后Nebius股价暴涨16%至$110.82，市值约$280亿。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：Nebius云平台（nebius.com）</li><li>💰 定价：企业级AI云服务</li><li>💡 上手：对开发者意味着GPU供给渠道多元化，关注Nebius 2027年Rubin集群上线</li></ul><div class="sources">来源：<a href="https://www.bloomberg.com/news/articles/2026-03-11/nvidia-to-invest-2-billion-in-ai-data-center-specialist-nebius">Bloomberg</a> | <a href="https://www.cnbc.com/2026/03/11/nebius-nvidia-ai-cloud.html">CNBC</a> | <a href="https://www.fool.com/investing/2026/03/12/nvidia-just-invested-2-billion-in-this-ai-cloud-st/">Motley Fool</a> | <a href="https://www.mercurynews.com/2026/03/11/nvidia-investment-nebius-data-center-deal/">Mercury News</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="feature"><h3>头条二：Meta发布四代MTIA自研芯片路线图，每6个月迭代一次</h3><p>3月11日，Meta公布了四款自研AI芯片的完整路线图：MTIA 300（已投产）、MTIA 400、MTIA 450和MTIA 500（将在2027年前陆续部署）。MTIA 300专为Facebook/Instagram的排名和推荐系统训练设计，采用RISC-V向量核心+HBM显存的chiplet架构，由台积电代工、Broadcom协助设计。</p><div class="callout"><strong>为什么重要：</strong> 传统AI芯片厂商（Nvidia、AMD）每1-2年迭代一次，Meta将这个周期压缩到6个月。MTIA 400/450/500将从推荐系统扩展到GenAI推理全场景。这意味着Meta正在认真减少对Nvidia的依赖——在刚刚签下巨额Nvidia订单的同时，自研芯片是它的Plan B。Meta称后续芯片将覆盖"所有AI工作负载"。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：Meta内部使用，不对外销售</li><li>💰 定价：不适用</li><li>💡 上手：对开发者无直接影响，但Meta平台AI功能的响应速度和成本将持续优化</li></ul><div class="sources">来源：<a href="https://about.fb.com/news/2026/03/expanding-metas-custom-silicon-to-power-our-ai-workloads/">Meta官方博客</a> | <a href="https://www.cnbc.com/2026/03/11/meta-ai-mtia-chip-data-center.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-03-11/meta-preparing-to-deploy-four-new-homegrown-chips-to-handle-ai">Bloomberg</a> | <a href="https://www.theregister.com/2026/03/12/meta_custom_chips/">The Register</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>美国AI立法潮——华盛顿州通过AI聊天机器人安全法</h4><p>华盛顿州议会在休会前夜通过三项重要AI法案：HB 1170（AI披露）、HB 2225（AI聊天机器人安全，全美第二部，此前只有俄勒冈通过了类似法案）和SB 5395（AI在健康保险中的使用）。HB 2225要求AI聊天机器人在对话开始和定期间隔告知用户"你在和AI对话"，对未成年人需更频繁披露，且必须检测自杀和自伤倾向并转介危机资源，禁止对未成年人进行性暗示或操纵性互动。犹他州本会期通过了9项AI法案。佛罗里达州的AI权利法案SB 482参议院35-2通过后在众议院搁浅，预计今日随会期结束而夭折。
+- 📍 获取：<a href="https://www.transparencycoalition.ai/news/ai-legislative-update-march13-2026">Transparency Coalition立法跟踪</a>
+- 💡 上手：AI产品面向美国市场的合规要求正在快速增加，尤其是对话类产品</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.transparencycoalition.ai/news/ai-legislative-update-march13-2026">Transparency Coalition</a> | <a href="https://www.transparencycoalition.ai/news/big-win-for-kids-and-digital-safety-washington-passes-major-ai-chatbot-safety-bill">Transparency Coalition（HB 2225专题）</a></p></div><div class="brief-item"><h4>MiniMax M2.5——中国AI黑马，性能逼近Claude Opus 4.6，价格仅1/20</h4><p>MiniMax M2.5在SWE-Bench Verified取得80.2%（接近Claude Opus 4.6水平），BrowseComp 76.3%（工具调用和搜索业界领先），Multi-SWE-Bench 51.3%（多语言编程SOTA）。定价$0.27/M input + $0.95/M output，约为Claude Opus 4.6的1/20。UBS分析师点名看好MiniMax，大量开发者从DeepSeek V3.2转向M2.5。模型已登陆Ollama可本地部署。1月港股上市后表现强劲。
+- 📍 获取：<a href="https://www.minimax.io/models/text">MiniMax官网</a> | Ollama（本地部署）
+- 💰 定价：$0.27/$0.95 per M tokens
+- 💡 上手：性价比极高的Opus级替代，编程和Agent场景值得一试</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://venturebeat.com/technology/minimaxs-new-open-m2-5-and-m2-5-lightning-near-state-of-the-art-while">VentureBeat</a> | <a href="https://www.minimax.io/news/minimax-m25">MiniMax官方</a> | <a href="https://news.ycombinator.com/item?id=46991154">Hacker News</a> | <a href="https://www.cnbc.com/2026/03/01/forget-deepseek-of-chinas-5-new-ai-models-ubs-prefers-this-one.html">CNBC</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：<a href="https://www.cnbc.com/2026/03/01/forget-deepseek-of-chinas-5-new-ai-models-ubs-prefers-this-one.html">CNBC专题</a></p></div><div class="brief-item"><h4>Pro-Human AI Declaration发布</h4><p>由MIT物理学家Max Tegmark牵头，一个跨党派智库联盟发布了《Pro-Human AI Declaration》，在美国政府迟迟未出台AI框架的背景下，试图为负责任AI发展提供一套原则性指南。声明在Anthropic与五角大楼对峙之前即已定稿。
+- 来源：<a href="https://techcrunch.com/2026/03/07/a-roadmap-for-ai-if-anyone-will-listen/">TechCrunch</a></p></div><div class="brief-item"><h4>伊朗战争第13天（跟进）：新最高领袖首发声明</h4><p>详见国际大事板块。</p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第13天：新最高领袖登场，伊拉克石油港口全面停运
+
+3月12日，伊朗官方媒体发布了新任最高领袖穆杰塔巴·哈梅内伊（Mojtaba Khamenei，前最高领袖之子）的首条声明，誓言继续封锁霍尔木兹海峡，并维持对美军基地的打击。伊朗在伊拉克南部水域攻击两艘外国油轮并使其起火，至少1人死亡、38人获救，导致伊拉克石油港口全面停运。一架伊朗无人机击中迪拜Creek Harbour附近建筑物。
+
+伊朗总统佩泽什基安提出停战三条件：承认伊朗合法权利、支付赔偿、国际社会做出不再侵略的坚定保证。联合国难民署称战争已造成伊朗境内320万人流离失所，伊朗报告1,348名平民死亡。油价重返$100/桶上方。
+
+来源：<a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-12-26">CNN</a> | <a href="https://www.npr.org/2026/03/12/nx-s1-5745689/iran-war-israel-us">NPR</a> | <a href="https://www.aljazeera.com/news/2026/3/12/iran-war-what-is-happening-on-day-13-of-us-israel-attacks">Al Jazeera</a> | <a href="https://www.aljazeera.com/news/2026/3/12/irans-president-sets-terms-to-end-the-war-is-an-off-ramp-in-sight">Al Jazeera（停战条件）</a>
+
+### 🌍 二、智利宣誓就职数十年来最右翼总统José Antonio Kast
+
+智利极右翼政治家José Antonio Kast正式就任总统，成为该国数十年来最保守的国家领导人。Kast曾公开赞赏皮诺切特时代的部分政策。在拉美右转浪潮中（阿根廷Milei、萨尔瓦多Bukele），Kast的上台进一步巩固了这一趋势。
+
+来源：<a href="https://www.npr.org/sections/world/">NPR</a>
+
+### 🌍 三、美国民调：多数美国人反对参与伊朗战争
+
+NPR/PBS News/Marist最新民调显示，多数美国人反对美国参与对伊朗的军事行动。与此同时，新罕布什尔州特别选举中民主党获胜，被视为2026中期选举前共和党的又一警告信号。
+
+来源：<a href="https://www.npr.org/sections/news/">NPR</a>
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Nvidia</td><td>$20亿投资Nebius</td><td>入股8.3%，合建5GW+ AI数据中心</td><td>✅已执行</td><td>nebius.com</td><td>3月11日</td></tr><tr><td>Meta</td><td>MTIA 300/400/450/500</td><td>四代自研AI芯片，6个月迭代一次</td><td>✅300已投产</td><td>Meta内部使用</td><td>3月11日</td></tr><tr><td>MiniMax</td><td>M2.5</td><td>SWE-bench 80.2%逼近Opus，$0.27/M</td><td>✅全量</td><td>minimax.io / Ollama</td><td>2月12日</td></tr><tr><td>华盛顿州</td><td>HB 2225 AI聊天机器人安全法</td><td>全美第二部，保护未成年人+自杀检测</td><td>⏳待州长签署</td><td>—</td><td>3月12日</td></tr><tr><td>犹他州</td><td>9项AI法案</td><td>本会期通过最多AI立法的州</td><td>⏳待签署</td><td>—</td><td>3月</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
+|------|------------------|---------------------------|------------------------|-------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (待测) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic/Computer Use</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐ (待测) |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$0.14/$0.56 (待确认) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书 | 长文本、科学推理 | 中文任务、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / 开源 |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.3 Instant (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ 幻觉率↓27% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价</strong> | 订阅制内 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大排名变动。值得关注的新变量：MiniMax M2.5（SWE-bench 80.2%，$0.27/M）正成为中端市场搅局者，但作为非旗舰定位暂未纳入上表。DeepSeek V4独立Benchmark仍未公布。下周Nvidia GTC可能带来硬件层面格局变动。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | DeepSeek V4 | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | GPT-5.4 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Sora | Runway Gen-4.5 | 音视频同步双料第一 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | DeepSeek V4 | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Claude Sonnet 4.6 | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Claude Opus 4.6 | n8n+开源模型 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | 豆包语音 | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.3) | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | DeepSeek V4 | MiniMax M2.5 🔄 | GLM-5（MIT开源） | V4若确认$0.14/M碾压全场 |
+
+<strong>🔄 本周变化：</strong> 极致性价比场景备选从Qwen 3.5调整为MiniMax M2.5——M2.5以$0.27/M的价格在SWE-bench达到80.2%，性价比超过Qwen 3.5，且已登陆Ollama可本地部署。其余场景排名不变。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🎮 Nvidia GTC 2026（3月16-19日）</strong>：Jensen Huang主题演讲，Vera Rubin和Feynman两代GPU架构正式发布，NemoClaw企业AI Agent平台亮相。配合本周Nebius $20亿投资，Nvidia的"新云"生态将在GTC上全面亮相。
+
+2. <strong>⚖️ 美国AI立法窗口</strong>：佛罗里达AI权利法案今日（3月13日）随会期结束而命运揭晓。华盛顿州HB 2225待州长签署。27个州共78项AI聊天机器人安全法案正在推进中——AI合规将成为2026下半年产品出海的核心议题。
+
+3. <strong>🔍 DeepSeek V4独立Benchmark</strong>：社区独立测试仍在进行中，编程、推理、多模态三个维度的实测数据将决定V4在对比表中的最终定位。
+
+4. <strong>⚔️ 伊朗战争关键转折点</strong>：新最高领袖首次发声+伊拉克石油港口停运+美国民意反对——战争进入"要么升级、要么寻找出口"的十字路口。关注伊朗总统提出的三条件是否获得国际回应。
+
+5. <strong>📱 Apple新Siri + iOS 26.4</strong>：Gemini驱动的新Siri将在3月内随iOS 26.4推送，"屏幕感知"功能仍在倒计时。
+
+---
+
+*数据来源：Bloomberg、CNBC、TechCrunch、Meta、Nvidia、CNN、NPR、Al Jazeera、Transparency Coalition、VentureBeat等 | 所有数据基于2026年3月13日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer">（3月12日）：详见国际大事板块。  ---  ## ③ 国际大事  ### 🌍 一、伊朗战争第13天：新最高领袖登场，伊拉克石油港口全面停运  3月12日，伊朗官方媒体发布了新任最高领袖穆杰塔巴·哈梅内伊（Mojtaba Khamenei，前最高领袖之子）的首条声明，誓言继续封锁霍尔木兹海峡，并维持对美军基地的打击。伊朗在伊拉克南部水域攻击两艘外国油轮并使其起火，至少1人死亡、38人获救，导致伊拉克石油港口全面停运。一架伊朗无人机击中迪拜Creek Harbour附近建筑物。  伊朗总统佩泽什基安提出停战三条件：承认伊朗合法权利、支付赔偿、国际社会做出不再侵略的坚定保证。联合国难民署称战争已造成伊朗境内320万人流离失所，伊朗报告1,348名平民死亡。油价重返$100/桶上方。  来源：<a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-12-26">CNN</a> <br> <a href="https://www.npr.org/2026/03/12/nx-s1-5745689/iran-war-israel-us">NPR</a> <br> <a href="https://www.aljazeera.com/news/2026/3/12/iran-war-what-is-happening-on-day-13-of-us-israel-attacks">Al Jazeera</a> <br> <a href="https://www.aljazeera.com/news/2026/3/12/irans-president-sets-terms-to-end-the-war-is-an-off-ramp-in-sight">Al Jazeera（停战条件）</a>  ### 🌍 二、智利宣誓就职数十年来最右翼总统José Antonio Kast  智利极右翼政治家José Antonio Kast正式就任总统，成为该国数十年来最保守的国家领导人。Kast曾公开赞赏皮诺切特时代的部分政策。在拉美右转浪潮中（阿根廷Milei、萨尔瓦多Bukele），Kast的上台进一步巩固了这一趋势。  来源：<a href="https://www.npr.org/sections/world/">NPR</a>  ### 🌍 三、美国民调：多数美国人反对参与伊朗战争  NPR/PBS News/Marist最新民调显示，多数美国人反对美国参与对伊朗的军事行动。与此同时，新罕布什尔州特别选举中民主党获胜，被视为2026中期选举前共和党的又一警告信号。  来源：<a href="https://www.npr.org/sections/news/">NPR</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Nvidia <br> $20亿投资Nebius <br> 入股8.3%，合建5GW+ AI数据中心 <br> ✅已执行 <br> nebius.com <br> 3月11日 <br> <br> Meta <br> MTIA 300/400/450/500 <br> 四代自研AI芯片，6个月迭代一次 <br> ✅300已投产 <br> Meta内部使用 <br> 3月11日 <br> <br> MiniMax <br> M2.5 <br> SWE-bench 80.2%逼近Opus，$0.27/M <br> ✅全量 <br> minimax.io / Ollama <br> 2月12日 <br> <br> 华盛顿州 <br> HB 2225 AI聊天机器人安全法 <br> 全美第二部，保护未成年人+自杀检测 <br> ⏳待州长签署 <br> — <br> 3月12日 <br> <br> 犹他州 <br> 9项AI法案 <br> 本会期通过最多AI立法的州 <br> ⏳待签署 <br> — <br> 3月 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V4 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>-------------<br> <br> </div>
+</div>
+</body>
+</html>

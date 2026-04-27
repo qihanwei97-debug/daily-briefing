@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月31日 星期二</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月31日 星期二</span>
+    <span>覆盖24小时 · 预计阅读10分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Trump突然软化立场：告诉幕僚愿意在霍尔木兹海峡未重开的情况下结束伊朗战争</strong>，白宫新闻秘书确认重开海峡"不是核心目标"，但Trump同日又威胁"彻底摧毁"伊朗能源设施，混合信号令市场剧烈波动。<strong>Mistral获$8.3亿债务融资购入13,800块NVIDIA GB300 GPU，在巴黎近郊建设44MW数据中心</strong>，欧洲AI算力军备竞赛提速。<strong>Trump盟友成立Innovation Council Action，计划在2026中期选举投入$1亿+支持AI去监管候选人</strong>，AI行业总选举支出已超$3亿。<strong>中国AI聊天机器人价格战白热化：春节期间头部App烧钱超$11亿抢用户</strong>，阿里独家补贴$4.3亿，免费奶茶培养用户AI消费习惯。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Mistral $8.3亿债务融资——欧洲AI独角兽首次大规模举债建算力</h3><p>法国AI公司Mistral于3月30日宣布获得<strong>$8.3亿（约€7.6亿）债务融资</strong>，由七家银行组成的银团提供，包括<strong>Bpifrance、BNP Paribas、Crédit Agricole CIB、HSBC、La Banque Postale、MUFG和Natixis CIB</strong>。这是Mistral首次大规模债务融资，也是欧洲AI公司迄今最大的单笔基础设施融资之一。</p><p><strong>用途：</strong> 资金将用于在巴黎南郊<strong>Bruyères-le-Châtel</strong>建设数据中心，配备<strong>13,800块NVIDIA GB300 GPU</strong>，总功率<strong>44MW</strong>，计划于<strong>2026年Q2投入运营</strong>。Mistral目标是到<strong>2027年底在欧洲拥有200MW算力容量</strong>——此前2月已宣布在瑞典投资€12亿建设数据中心。</p><p><strong>战略意义：</strong> Mistral正从"轻资产模型公司"向"算力自有型AI巨头"转型。债务融资（而非股权稀释）表明Mistral对未来收入流有足够信心。GB300是NVIDIA最新一代Blackwell Ultra芯片，性能较H100提升数倍——13,800块GB300的集群算力相当可观。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：Mistral API（le-chat.mistral.ai）</li><li>💰 定价：企业API定价不变</li><li>💡 上手：欧洲用户关注——本地化算力意味着更低延迟和数据主权合规</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/03/30/mistral-ai-paris-data-center-cluster-debt-financing.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-03-30/ai-startup-mistral-raises-830-million-in-data-center-debt-rush">Bloomberg</a> | <a href="https://techcrunch.com/2026/03/30/mistral-ai-raises-830m-in-debt-to-set-up-a-data-center-near-paris/">TechCrunch</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>Innovation Council Action成立：$1亿+AI去监管政治资金涌入2026中期选举</h4><p>（3月29日，<a href="https://www.axios.com/2026/03/29/ai-pac-midterms-trump">Axios</a>）：由前白宫副幕僚长<strong>Taylor Budowich</strong>领导、AI沙皇<strong>David Sacks</strong>背书的新政治组织<strong>Innovation Council Action</strong>宣布将在2026中期选举中投入<strong>超$1亿</strong>，支持AI去监管立场的候选人，反对推动严格AI监管的议员。该组织已开发一套"议员AI立场评分卡"指导资金投放。加上<strong>Leading the Future</strong>（$5,000万，Greg Brockman等支持）和<strong>Meta支持的州级Super PAC</strong>（$6,500万），AI行业总选举支出已<strong>超$3亿</strong>——AI政策正以前所未有的资金规模影响美国政治。
+- 💡 上手：AI监管方向将由2026中选结果决定——这是科技行业"用钱投票"的新高度</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.axios.com/2026/03/29/ai-pac-midterms-trump">Axios</a> | <a href="https://www.foxnews.com/politics/new-pro-ai-group-backed-trump-allies-plans-100m-midterm-spending-push">Fox News</a> | <a href="https://www.implicator.ai/trump-allies-launch-100m-ai-group-as-industry-midterm-spending-tops-300m/">Implicator AI</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>中国AI聊天机器人价格战：春节烧钱$11亿+，免费奶茶培养AI消费习惯</h4><p>（3月30日，<a href="https://www.npr.org/transcripts/nx-s1-5760939">NPR</a>）：NPR深度报道揭示中国AI聊天机器人行业的激烈竞争。<strong>ByteDance豆包</strong>仍是中国最受欢迎的AI聊天机器人，但<strong>阿里Qwen</strong>春节期间通过聊天机器人下单送免费奶茶成功抢夺大量用户。数据显示：<strong>阿里独家补贴超$4.3亿</strong>，腾讯和百度各发放数百万优惠券，头部App<strong>春节合计烧钱超$11亿</strong>。报道指出中国AI公司的竞争策略与美国截然不同——<strong>重点不在前沿性能，而在用户粘性和消费场景渗透</strong>。同期，<strong>ByteDance正与三星洽谈自研AI芯片</strong>以应对美国半导体出口管制。
+- 💡 上手：中国AI竞争已进入"补贴换场景"阶段——谁先让用户习惯用AI消费，谁就赢</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.npr.org/transcripts/nx-s1-5760939">NPR</a> | <a href="https://www.bloomberg.com/news/articles/2026-03-24/deepseek-s-latest-job-postings-highlight-pivot-to-agentic-ai">Bloomberg</a></p></div><div class="brief-item"><h4>欧盟委员会遭ShinyHunters黑客攻击，350GB数据被窃</h4><p>（3月30日，<a href="https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-breach-after-europaeu-hack/">BleepingComputer</a>）：欧盟委员会确认其Europa.eu平台于3月24日遭入侵，<strong>ShinyHunters</strong>勒索组织声称窃取了<strong>超350GB数据</strong>，包括数据库、邮件和内部文档，并在暗网泄露样本。攻击者利用<strong>AWS托管服务中的账户泄露或配置错误</strong>进入系统。欧盟委员会试图淡化影响，称"无证据显示内部系统被攻破"——但这已是继2月MDM平台被黑后的<strong>第二次数据泄露</strong>，安全管理令人担忧。
+- 💡 上手：Anthropic Mythos的CMS泄露+欧盟AWS泄露——云配置安全是2026年最被低估的风险</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-breach-after-europaeu-hack/">BleepingComputer</a> | <a href="https://therecord.media/european-commission-downplays-shinyhunters-cyber-claim">The Record</a> | <a href="https://cybernews.com/security/european-commission-data-breach-shinyhunters/">CyberNews</a></p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第31天：Trump软硬兼施，混合信号加剧不确定性
+
+<strong>3月30-31日增量（接续第30天报道）：</strong>
+
+<strong>Trump愿在海峡未开情况下停战（3月30日）：</strong> 据《华尔街日报》报道，Trump告诉幕僚他<strong>愿意在霍尔木兹海峡仍大部分关闭的情况下结束对伊军事行动</strong>，将重开海峡"留待日后"。白宫新闻秘书<strong>Karoline Leavitt</strong>随后确认：确保油轮安全通行霍尔木兹海峡<strong>"不是Trump设定的核心目标之一"</strong>。此消息令S&P 500期货从下跌转为上涨0.5%。(<a href="https://www.usnews.com/news/world/articles/2026-03-30/trump-tells-aides-he-is-willing-to-end-iran-war-without-reopening-hormuz-wsj-reports">US News</a> | <a href="https://time.com/article/2026/03/30/white-house-signals-trump-doesn-t-require-strait-of-hormuz-reopend-to-ready-to-end-iran-war/">Time</a>)
+
+<strong>但同日威胁升级（3月30日）：</strong> Trump在社交媒体上称取得"重大进展"，但警告若不达成包含海峡"立即开放营业"的协议，将<strong>"彻底摧毁伊朗的发电厂、油井、Kharg岛（可能还有所有海水淡化厂！）"</strong>——与前述"软化"信号直接矛盾。以色列军方宣布正在<strong>"攻击德黑兰全境的伊朗政府基础设施"</strong>。(<a href="https://www.cnn.com/2026/03/30/world/live-news/iran-war-us-israel-trump">CNN</a> | <a href="https://www.aljazeera.com/economy/2026/3/30/us-israel-war-on-iran-whats-happening-on-day-31-of-attacks">Al Jazeera</a>)
+
+<strong>沙特遭导弹攻击（3月30日）：</strong> 沙特国防部称<strong>拦截了5枚飞往东部省份的弹道导弹</strong>——冲突首次波及沙特领土。巴基斯坦正准备主办"有意义的谈判"。开战以来伊朗已有<strong>超2,000人遇难</strong>。(<a href="https://www.aljazeera.com/economy/2026/3/30/us-israel-war-on-iran-whats-happening-on-day-31-of-attacks">Al Jazeera</a>)
+
+### 🌍 二、全球油价连涨12周，菲律宾等国消费者承压
+
+中东冲突持续推高能源价格。菲律宾宣布<strong>汽油连续第12周涨价，柴油和煤油连续第14周上涨</strong>。全球航运成本攀升，食品和工业品价格传导效应正在显现。(<a href="https://www.gmanetwork.com/news/money/companies/981929/oil-price-hike-march-31-2026/story/">GMA News</a>)
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Mistral</td><td>$8.3亿债务融资</td><td>巴黎数据中心13,800块GB300 GPU，44MW</td><td>⏳Q2运营</td><td>—</td><td>3月30日</td></tr><tr><td>Innovation Council Action</td><td>$1亿+政治资金</td><td>AI去监管PAC，行业总选举支出超$3亿</td><td>—</td><td>—</td><td>3月29日</td></tr><tr><td>ByteDance</td><td>三星自研AI芯片洽谈</td><td>应对美国半导体出口管制</td><td>⏳洽谈中</td><td>—</td><td>3月30日</td></tr><tr><td>中国AI行业</td><td>春节补贴大战</td><td>头部App合计烧钱$11亿+抢用户</td><td>✅全量</td><td>各App</td><td>3月30日报道</td></tr><tr><td>欧盟委员会</td><td>ShinyHunters数据泄露</td><td>350GB数据被窃，含邮件和内部文档</td><td>—</td><td>—</td><td>3月24日事件/30日确认</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | MiMo-V2-Pro (小米) |
+|------|------------------|---------------------------|------------------------|----------------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (社区测试中) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic(ClawEval)</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ ClawEval 66.3 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ ClawEval 61.5 |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$2.50/$12 (估算) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书、数学研究 | 长文本、科学推理 | 中文Agent、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / OpenRouter |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.4 mini (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐½ 逼近旗舰 | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐½ SWE-bench Pro接近旗舰 | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大排名变动。Mistral $8.3亿算力投资虽不直接改变模型性能排名，但其Voxtral TTS上周盲测击败ElevenLabs已显示Mistral在语音领域的竞争力提升。继续关注：Anthropic Mythos正式发布和OpenAI Spud模型——两者均可能在数周内重塑旗舰排名。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | GPT-5.4 mini（免费） | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | Claude Opus 4.6 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Runway Gen-4.5 | Kling | Sora下线后双雄格局 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | Harvey | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Gemini 3.1 Pro | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | MiMo-V2-Pro | OpenClaw+本地模型 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | Voxtral TTS | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.4 mini) | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | GPT-5.4 nano | MiMo-V2-Pro | GLM-5（MIT开源） | $0.20/M碾压全场 |
+
+<strong>🔄 本周变化：</strong> 与上期一致，无场景调整。中国AI价格战（$11亿+补贴）目前主要影响中国本土用户，尚未改变全球工具推荐格局。关注：若ByteDance自研芯片成功，豆包App可能在成本端获得更大优势。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🕊️ 伊朗战争谈判关键窗口</strong>：Trump软化霍尔木兹立场+巴基斯坦准备主办"有意义的谈判"——本周可能出现停火框架。但Trump同日的威胁言论和以色列持续空袭德黑兰使结果高度不确定。4月6日伊朗电网打击暂停到期是下一个关键节点。
+
+2. <strong>🤖 OpenAI Spud模型发布倒计时</strong>：预训练已完成，Altman称"可以真正加速经济"。本周或下周可能有更多细节泄露。
+
+3. <strong>🧠 Anthropic Mythos正式发布时间线</strong>：市场高度期待。若性能如泄露文件所述，旗舰AI竞争格局将重大洗牌。
+
+4. <strong>🗳️ AI政治资金$3亿+涌入中期选举</strong>：Innovation Council Action的评分卡系统将开始影响初选候选人立场——AI监管方向成为2026年最大政治议题之一。
+
+5. <strong>🇪🇺 Mistral巴黎数据中心Q2投运</strong>：13,800块GB300 GPU的欧洲本土算力将改变API延迟和数据主权格局。
+
+---
+
+*数据来源：CNBC、Bloomberg、TechCrunch、Axios、Fox News、NPR、BleepingComputer、The Record、Wall Street Journal、CNN、Al Jazeera、Time、US News等 | 所有数据基于2026年3月31日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer">。全球航运成本攀升，食品和工业品价格传导效应正在显现。(<a href="https://www.gmanetwork.com/news/money/companies/981929/oil-price-hike-march-31-2026/story/">GMA News</a>)  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Mistral <br> $8.3亿债务融资 <br> 巴黎数据中心13,800块GB300 GPU，44MW <br> ⏳Q2运营 <br> — <br> 3月30日 <br> <br> Innovation Council Action <br> $1亿+政治资金 <br> AI去监管PAC，行业总选举支出超$3亿 <br> — <br> — <br> 3月29日 <br> <br> ByteDance <br> 三星自研AI芯片洽谈 <br> 应对美国半导体出口管制 <br> ⏳洽谈中 <br> — <br> 3月30日 <br> <br> 中国AI行业 <br> 春节补贴大战 <br> 头部App合计烧钱$11亿+抢用户 <br> ✅全量 <br> 各App <br> 3月30日报道 <br> <br> 欧盟委员会 <br> ShinyHunters数据泄露 <br> 350GB数据被窃，含邮件和内部文档 <br> — <br> — <br> 3月24日事件/30日确认 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> MiMo-V2-Pro (小米) <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>----------------------<br> <br> </div>
+</div>
+</body>
+</html>

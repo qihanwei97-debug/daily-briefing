@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月14日 星期六</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月14日 星期六</span>
+    <span>覆盖24小时 · 预计阅读11分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>美军轰炸伊朗哈尔克岛（Kharg Island）——伊朗90%石油出口枢纽遭打击</strong>，Trump称"摧毁所有军事目标"但"选择不摧毁石油设施"，威胁若伊朗继续封锁霍尔木兹海峡将攻击油田，Brent原油涨至$103.14/桶，开战以来累涨41.5%。<strong>Morgan Stanley重磅报告警告：2026上半年AI将出现"变革性突破"，全球多数人未做好准备</strong>——GPT-5.4 GDPVal达83%已达人类专家水平，1000名高管调查显示过去12个月AI直接导致净裁员4%。<strong>Nvidia GTC前夜：Nemotron 3 Super 120B开源模型发布</strong>——首个Mamba-Transformer混合MoE架构，12B活跃参数，1M上下文窗口，吞吐量是同级模型的2.2-7.5倍。<strong>a16z发布第6版Top 100 Gen AI消费应用报告</strong>，ChatGPT 9亿周活遥遥领先，Claude付费订阅增长200%+，水平Agent（Manus、OpenClaw）成为新类别。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条一：Nvidia Nemotron 3 Super——开源Agent推理模型的新标杆</h3><p>3月11日，Nvidia发布Nemotron 3 Super，一款120B参数（12B活跃）的开源混合Mamba-Transformer MoE模型，专为Agentic推理场景设计。这是业界首个将LatentMoE、MTP（Multi-Token Prediction）推测解码和NVFP4预训练三大技术融合的开放模型。</p><div class="callout"><strong>为什么重要：</strong> Nemotron 3 Super不是又一个大参数模型——它的核心创新在架构层。Mamba-Transformer混合架构让它在1M上下文窗口下保持高效推理；12B活跃参数意味着可在单卡部署，但总120B参数保证了知识容量。实测在8K输入/16K输出场景下，吞吐量是GPT-OSS-120B的2.2倍、Qwen3.5-122B的7.5倍。这对自部署Agent工作流是实质性飞跃——更快的推理意味着Agent可以在同样时间内完成更多步骤。Nvidia在GTC前3天放出这个模型，显然是为16日Jensen Huang主题演讲的Agent生态铺路。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8">Hugging Face</a> | <a href="https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard">build.nvidia.com</a> | OpenRouter | Perplexity</li><li>💰 定价：开源（NVIDIA开源许可），云端推理各平台定价不同</li><li>💡 上手：适合需要长上下文Agent推理的自部署场景，单H100即可运行FP8版本</li></ul><div class="sources">来源：<a href="https://developer.nvidia.com/blog/introducing-nemotron-3-super-an-open-hybrid-mamba-transformer-moe-for-agentic-reasoning/">Nvidia官方技术博客</a> | <a href="https://research.nvidia.com/labs/nemotron/Nemotron-3-Super/">Nvidia研究页</a> | <a href="https://dataconomy.com/2026/03/12/nvidia-launches-120b-parameter-nemotron-3-super-open-model/">Dataconomy</a> | <a href="https://www.marktechpost.com/2026/03/11/nvidia-releases-nemotron-3-super-a-120b-parameter-open-source-hybrid-mamba-attention-moe-model-delivering-5x-higher-throughput-for-agentic-ai/">MarkTechPost</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="feature"><h3>头条二：Morgan Stanley警告——2026上半年AI将出现"变革性突破"</h3><p>3月13日，Morgan Stanley发布重磅AI报告，核心论点：美国头部AI实验室正在积累前所未有的算力，2026上半年将产生质变。报告引用Elon Musk的观点——10倍算力训练可使模型"智力"翻倍，并指出这一scaling law仍然成立。OpenAI的GPT-5.4 Thinking在GDPVal上达到83%，已达到或超过人类专家在经济价值任务上的表现。</p><p><strong>经济冲击：</strong> 报告调查约1000名高管（跨5国），过去12个月AI直接导致净裁员4%。Morgan Stanley预测"变革性AI"将成为强力通缩力量。xAI联合创始人Jimmy Ba提出，AI自我递归改进循环可能在2027上半年出现。</p><p><strong>能源瓶颈：</strong> 模型预测美国到2028年将面临9-18GW的电力缺口（占需求的12%-25%），算力爆发与电力供给的矛盾将在2026下半年集中爆发。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：Morgan Stanley客户可访问完整报告</li><li>💡 上手：对普通用户——AI工具正在以比预期更快的速度替代白领工作，建议主动学习AI协作技能</li></ul><div class="sources">来源：<a href="https://fortune.com/2026/03/13/elon-musk-morgan-stanley-ai-leap-2026/">Fortune</a> | <a href="https://fortune.com/2026/03/12/ai-jobs-future-morgan-stanley-tmt-conference-ceos/">Fortune（TMT Conference）</a> | <a href="https://blockonomi.com/morgan-stanley-ai-revolution-set-to-disrupt-jobs-and-energy-infrastructure-by-2026/">Blockonomi</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>Google Gemini 3.1 Flash-Lite发布——最具性价比的Gemini模型</h4><p>（3月3日发布，<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/">Google官方博客</a>）：Gemini 3.1 Flash-Lite定位极致效率，质量匹配Gemini 2.5 Flash，但首token速度提升2.5倍，输出速度提升45%。支持可调推理深度（minimal/low/medium/high）。定价$0.25/M input + $1.50/M output，仅为Pro的1/8。
+- 📍 获取：<a href="https://ai.google.dev/">Google AI Studio</a> | Vertex AI（Preview）
+- 💰 定价：$0.25/$1.50 per M tokens
+- 💡 上手：适合高并发、低延迟的内容审核、翻译、UI生成等场景</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/">Google官方博客</a> | <a href="https://venturebeat.com/technology/google-releases-gemini-3-1-flash-lite-at-1-8th-the-cost-of-pro/">VentureBeat</a> | <a href="https://siliconangle.com/2026/03/03/google-launches-speedy-gemini-3-1-flash-lite-model-preview/">SiliconANGLE</a></p></div><div class="brief-item"><h4>a16z第6版Top 100 Gen AI消费应用报告发布</h4><p>（3月，<a href="https://a16z.com/100-gen-ai-apps-6/">a16z</a>）：ChatGPT网页流量是#2 Gemini的2.7倍，移动MAU是2.5倍。Claude付费订阅同比增长200%+，Gemini增长258%。本版新增"水平Agent"类别——OpenClaw（68K GitHub星，已被OpenAI收购）、Manus和Genspark代表了"交任务给AI全程处理"的新范式。报告首次纳入CapCut、Canva、Notion等"AI核心化"的传统产品。
+- 📍 获取：<a href="https://a16z.com/100-gen-ai-apps-6/">完整报告</a>
+- 💡 上手：Claude增速最快但基数仍小；关注水平Agent对工作流的替代</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://a16z.com/100-gen-ai-apps-6/">a16z</a> | <a href="https://www.a16z.news/p/top-100-gen-ai-consumer-apps-march">a16z Newsletter</a></p></div><div class="brief-item"><h4>OpenAI退役GPT-5.1及所有GPT-4系列模型</h4><p>ChatGPT中GPT-5.1 Instant、GPT-5.1 Thinking、GPT-5.1 Pro全部下线，对话自动迁移至GPT-5.3或GPT-5.4。同时GPT-4o、GPT-4.1、GPT-4.1 mini、o4-mini也正式退役。新增支持最多20个文件上传和更多文件格式。
+- 📍 获取：ChatGPT自动升级
+- 💡 上手：依赖旧模型API的开发者需尽快迁移</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://llm-stats.com/llm-updates">LLM Stats</a> | <a href="https://releasebot.io/updates/openai">Releasebot</a></p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第14天：美军轰炸哈尔克岛，战争进入石油博弈新阶段
+
+3月13日，Trump宣布美军中央司令部对伊朗"皇冠上的宝石"哈尔克岛（Kharg Island）执行了"中东历史上最强大的轰炸行动之一"，称"彻底摧毁了岛上所有军事目标"。哈尔克岛处理伊朗约90%的原油出口（日装载能力约700万桶），主要客户为中国和印度。
+
+<strong>关键转折：</strong> Trump明确表示"选择不摧毁石油设施"，但威胁若伊朗继续封锁霍尔木兹海峡将立即"重新考虑这一决定"。这等于把石油设施当成了谈判筹码——一种前所未有的军事-经济混合施压策略。
+
+<strong>经济冲击扩大：</strong> Brent原油收于$103.14/桶（2022年7月以来最高），开战以来累涨41.5%。Trump政府临时解除部分俄罗斯石油购买限制以缓解油价压力，但效果有限。俄罗斯成为战争最大赢家——此前被迫折价$10-13/桶出售的石油，现在溢价$4-5/桶，据报道日收入增加高达$1.5亿。超过250个团体呼吁国会拒绝$500亿伊朗战争拨款请求。
+
+来源：<a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-13-26">CNN</a> | <a href="https://www.cnbc.com/2026/03/13/trump-says-us-obliterated-military-targets-on-irans-kharg-island-but-didnt-wipe-out-oil-infrastructure.html">CNBC</a> | <a href="https://www.washingtonpost.com/politics/2026/03/13/trump-us-iran-war-kharg-island-oil/">Washington Post</a> | <a href="https://time.com/7383068/iran-war-russia-oil/">TIME</a> | <a href="https://www.bloomberg.com/news/articles/2026-03-13/us-intensifies-strikes-rhetoric-in-iran-war-as-oil-rises">Bloomberg</a>
+
+### 🌍 二、希腊数千人游行抗议伊朗战争，冰岛和荷兰加入ICJ以色列种族灭绝案
+
+希腊首都雅典爆发大规模反战游行，数千人向美国大使馆进发，要求关闭北约军事基地。冰岛和荷兰正式加入南非在国际法院（ICJ）提起的以色列种族灭绝案，该案最初于2023年12月提起。反战浪潮正在欧洲扩大。
+
+来源：<a href="https://www.aljazeera.com/news/2026/3/13/iran-war-what-is-happening-on-day-14-of-us-israel-attacks">Al Jazeera</a> | <a href="https://www.democracynow.org/2026/3/13/headlines">Democracy Now</a>
+
+### 🌍 三、Trump签署住房可负担性行政令，放弃美国国籍费用削减80%
+
+Trump在中期选举前签署住房可负担性行政令。同日，国务院将放弃美国国籍的费用从$2,350大幅削减80%至$450——在海外美国人社区引发热议。
+
+来源：<a href="https://www.mprnews.org/content/3-14-2026">MPR News</a>
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Nvidia</td><td>Nemotron 3 Super 120B</td><td>Mamba-Transformer MoE，12B活跃，1M上下文</td><td>✅全量 🔧自部署</td><td>HuggingFace / build.nvidia.com</td><td>3月11日</td></tr><tr><td>Google</td><td>Gemini 3.1 Flash-Lite</td><td>2.5x首token提速，$0.25/M input</td><td>⏳Preview</td><td>AI Studio / Vertex AI</td><td>3月3日</td></tr><tr><td>OpenAI</td><td>退役GPT-5.1及GPT-4系列</td><td>全部迁移至GPT-5.3/5.4</td><td>✅已执行</td><td>ChatGPT自动升级</td><td>3月11日</td></tr><tr><td>Morgan Stanley</td><td>AI突破报告</td><td>2026H1变革性AI突破，4%净裁员</td><td>✅已发布</td><td>客户报告</td><td>3月13日</td></tr><tr><td>a16z</td><td>Top 100 Gen AI Apps（第6版）</td><td>ChatGPT 9亿周活，Claude付费+200%</td><td>✅已发布</td><td>a16z.com</td><td>3月</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
+|------|------------------|---------------------------|------------------------|-------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (待测) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic/Computer Use</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐ (待测) |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$0.14/$0.56 (待确认) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书 | 长文本、科学推理 | 中文任务、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / 开源 |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.3 Instant (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ 幻觉率↓27% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价</strong> | 订阅制内 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大排名变动。新变量：Nvidia Nemotron 3 Super 120B（开源，12B活跃参数）进入自部署Agent推理赛道，但作为开源模型暂不纳入商业API对比表。Gemini 3.1 Flash-Lite以$0.25/M定价切入超低成本市场，对Qwen 3.5形成直接竞争。DeepSeek V4独立Benchmark仍未公布。明日GTC开幕可能带来格局变动。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | DeepSeek V4 | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | GPT-5.4 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Sora | Runway Gen-4.5 | 音视频同步双料第一 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | DeepSeek V4 | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Claude Sonnet 4.6 | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Claude Opus 4.6 | Nemotron 3 Super 🔄 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | 豆包语音 | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.3) | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | DeepSeek V4 | MiniMax M2.5 | GLM-5（MIT开源） | V4若确认$0.14/M碾压全场 |
+
+<strong>🔄 本周变化：</strong> AI Agent/自动化场景免费方案从"n8n+开源模型"调整为Nemotron 3 Super——1M上下文+2.2x吞吐量优势使其成为自部署Agent场景的最佳开源选择。其余场景排名不变。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🎮 Nvidia GTC 2026（明天开幕，3月16-19日）</strong>：Jensen Huang主题演讲，Vera Rubin和Feynman架构正式发布，NemoClaw企业AI Agent平台亮相。本周已释放Nemotron 3 Super开源模型和Nebius $20亿投资，GTC是Nvidia"新云+Agent"生态的总发布会。
+
+2. <strong>⚔️ 伊朗战争：哈尔克岛之后的关键48小时</strong>：Trump将石油设施作为谈判筹码，伊朗是否松动霍尔木兹封锁？俄罗斯坐收渔利（油价溢价+限制解除），250+团体反对$500亿战争拨款——国会下周投票。
+
+3. <strong>🔍 DeepSeek V4独立Benchmark</strong>：社区独立测试仍在进行，编程、推理、多模态三个维度的实测数据将决定V4在对比表中的最终定位。
+
+4. <strong>📱 Apple新Siri + iOS 26.4</strong>：Gemini驱动的新Siri将在3月内随iOS 26.4推送，"屏幕感知"功能是苹果AI助手的入场券。
+
+5. <strong>📊 Morgan Stanley报告后续影响</strong>：报告预测的"2026H1变革性突破"和4%净裁员数据将在未来一周被广泛讨论，可能影响科技股走势和AI政策辩论。
+
+---
+
+*数据来源：CNN、CNBC、Washington Post、Bloomberg、Fortune、TIME、Google、Nvidia、a16z、VentureBeat、Al Jazeera等 | 所有数据基于2026年3月14日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer"> Brent原油收于$103.14/桶（2022年7月以来最高），开战以来累涨41.5%。Trump政府临时解除部分俄罗斯石油购买限制以缓解油价压力，但效果有限。俄罗斯成为战争最大赢家——此前被迫折价$10-13/桶出售的石油，现在溢价$4-5/桶，据报道日收入增加高达$1.5亿。超过250个团体呼吁国会拒绝$500亿伊朗战争拨款请求。  来源：<a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-13-26">CNN</a> <br> <a href="https://www.cnbc.com/2026/03/13/trump-says-us-obliterated-military-targets-on-irans-kharg-island-but-didnt-wipe-out-oil-infrastructure.html">CNBC</a> <br> <a href="https://www.washingtonpost.com/politics/2026/03/13/trump-us-iran-war-kharg-island-oil/">Washington Post</a> <br> <a href="https://time.com/7383068/iran-war-russia-oil/">TIME</a> <br> <a href="https://www.bloomberg.com/news/articles/2026-03-13/us-intensifies-strikes-rhetoric-in-iran-war-as-oil-rises">Bloomberg</a>  ### 🌍 二、希腊数千人游行抗议伊朗战争，冰岛和荷兰加入ICJ以色列种族灭绝案  希腊首都雅典爆发大规模反战游行，数千人向美国大使馆进发，要求关闭北约军事基地。冰岛和荷兰正式加入南非在国际法院（ICJ）提起的以色列种族灭绝案，该案最初于2023年12月提起。反战浪潮正在欧洲扩大。  来源：<a href="https://www.aljazeera.com/news/2026/3/13/iran-war-what-is-happening-on-day-14-of-us-israel-attacks">Al Jazeera</a> <br> <a href="https://www.democracynow.org/2026/3/13/headlines">Democracy Now</a>  ### 🌍 三、Trump签署住房可负担性行政令，放弃美国国籍费用削减80%  Trump在中期选举前签署住房可负担性行政令。同日，国务院将放弃美国国籍的费用从$2,350大幅削减80%至$450——在海外美国人社区引发热议。  来源：<a href="https://www.mprnews.org/content/3-14-2026">MPR News</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Nvidia <br> Nemotron 3 Super 120B <br> Mamba-Transformer MoE，12B活跃，1M上下文 <br> ✅全量 🔧自部署 <br> HuggingFace / build.nvidia.com <br> 3月11日 <br> <br> Google <br> Gemini 3.1 Flash-Lite <br> 2.5x首token提速，$0.25/M input <br> ⏳Preview <br> AI Studio / Vertex AI <br> 3月3日 <br> <br> OpenAI <br> 退役GPT-5.1及GPT-4系列 <br> 全部迁移至GPT-5.3/5.4 <br> ✅已执行 <br> ChatGPT自动升级 <br> 3月11日 <br> <br> Morgan Stanley <br> AI突破报告 <br> 2026H1变革性AI突破，4%净裁员 <br> ✅已发布 <br> 客户报告 <br> 3月13日 <br> <br> a16z <br> Top 100 Gen AI Apps（第6版） <br> ChatGPT 9亿周活，Claude付费+200% <br> ✅已发布 <br> a16z.com <br> 3月 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V4 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>-------------<br> <br> </div>
+</div>
+</body>
+</html>

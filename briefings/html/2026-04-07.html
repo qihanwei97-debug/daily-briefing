@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年4月7日 星期二</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年4月7日 星期二</span>
+    <span>覆盖24小时 · 预计阅读10-12分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>中国AI大模型全球调用量连续5周碾压美国：OpenRouter最新周数据显示中国模型12.96万亿tokens vs 美国3.03万亿（4.3倍差距），全球Top 6均为中国模型；Qwen3.6-Plus发布仅1天即破单日1.4万亿tokens全球纪录</strong>。<strong>OpenAI将ChatGPT Voice带上Apple CarPlay，iOS 26.4+用户驾车时可语音对话AI，覆盖全球数亿车载场景</strong>。<strong>富士康Q1营收$666亿同比增29.7%创历史新高，作为NVIDIA Blackwell GB200唯一组装商，3月单月营收增45.6%创纪录</strong>。<strong>伊朗战争决定性时刻：Trump最后通牒今晚8pm ET到期，伊朗正式拒绝45天停火方案，Trump扬言"整个国家一个晚上就能被消灭"</strong>。<strong>Artemis II完成历史性绕月飞越，252,756英里刷新人类太空飞行最远距离纪录，超越阿波罗13号4,111英里</strong>。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：中国AI大模型全球调用量碾压美国——OpenRouter前6全是中国模型</h3><p>根据OpenRouter平台最新一周数据（3月30日-4月5日），中国AI大模型的全球调用量已<strong>连续5周超越美国</strong>，且差距仍在急剧扩大。</p><p><strong>关键数据：</strong>
+- <strong>中国模型周调用量：12.96万亿tokens</strong>（环比+31.5%）
+- <strong>美国模型周调用量：3.03万亿tokens</strong>（环比+0.76%）
+- <strong>差距：4.3倍</strong>，且持续拉大
+- <strong>全球调用量排名前6位全部为中国AI大模型</strong></p><p><strong>头部模型排名：</strong>
+1. <strong>MiniMax M2.5</strong>：~1.7万亿tokens/周（全球第一）
+2. Google Gemini 3 Flash Preview：~997B（唯一进入前排的非中国模型）
+3. <strong>DeepSeek V3.2</strong>：~798B
+4. <strong>Moonshot Kimi K2.5</strong>：~600B+
+5. <strong>智谱GLM-5</strong>：~600B+
+6. <strong>Qwen3.6-Plus</strong>：爆发式增长——发布仅1天即突破<strong>单日1.4万亿tokens</strong>，打破OpenRouter单日单模型调用量全球纪录</p><p><strong>核心驱动力：</strong>
+- <strong>价格碾压</strong>：中国模型平均定价比美国同级模型低<strong>10-20倍</strong>（如Qwen3.6-Plus $0.29/M vs Claude Opus 4.6 $15/M）
+- <strong>开源生态</strong>：DeepSeek V3.2、GLM-5（MIT）、Qwen系列均开放API或开源
+- <strong>技术追平</strong>：在编程、Agent、长上下文等关键维度，中国模型已达到或接近西方旗舰水平
+- <strong>免费策略</strong>：多款中国模型在OpenRouter提供免费预览版，极大降低开发者试用门槛</p><div class="callout"><strong>为什么重要：</strong> 这不再是"中国AI追赶"的叙事——以调用量衡量，中国已实质性取代美国成为全球AI模型的最大供给方。对于企业用户，中国模型在成本效率上的数量级优势正在重塑全球AI基础设施的采购逻辑。对于投资者，美国AI公司的高定价策略面临来自中国"性价比碾压"的结构性压力。中国模型占OpenRouter十大热门模型总调用量的约<strong>61%</strong>。</div><div class="sources">来源：<a href="https://openrouter.ai/state-of-ai">OpenRouter State of AI</a> | <a href="https://news.cgtn.com/news/2026-02-28/Chinese-AI-models-overtake-U-S-rivals-in-global-token-usage-1L8h5rMl26c/p.html">CGTN</a> | <a href="https://www.globaltimes.cn/page/202604/1358204.shtml">Global Times</a> | <a href="https://www.indexbox.io/blog/chinese-ai-models-dominate-global-usage-surpass-us-developers-in-token-ranking/">IndexBox</a></div><div class="sources">中文解读：<a href="https://news.qq.com/rain/a/20260406A02XEZ00">腾讯新闻 - 中国AI大模型调用量环比增逾31%，连续五周超越美国</a> | <a href="https://www.chinanews.com.cn/cj/2026/04-05/10599061.shtml">中新网 - 阿里千问3.6Plus登顶全球调用排行榜首</a></div></div><div class="brief-item"><h4>OpenAI ChatGPT Voice登陆Apple CarPlay——驾车AI语音助手新选择</h4><p>（4月2日，<a href="https://www.macrumors.com/2026/03/31/openai-chatgpt-carplay/">MacRumors</a> | <a href="https://www.engadget.com/ai/openai-brings-chatgpts-voice-mode-to-carplay-191422297.html">Engadget</a>）：OpenAI正式将ChatGPT Voice带入Apple CarPlay，iPhone用户升级至<strong>iOS 26.4+</strong>后即可在车载屏幕使用AI语音对话。体验为纯语音交互（无文字显示），需手动打开App启动（无唤醒词），<strong>不能</strong>控制车辆功能、导航或其他App——定位为驾驶陪伴/头脑风暴工具。全球陆续推送中。
+- 📍 获取：App Store更新ChatGPT + iOS 26.4+
+- 💰 定价：ChatGPT免费版可用，Plus用户享完整Voice体验
+- 💡 上手：长途驾驶时的AI陪聊/学习/待办整理——别期望替代Siri导航</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.tomsguide.com/phones/iphones/forget-siri-i-just-tried-the-new-carplay-with-ios-26-5-beta-and-now-i-can-talk-to-chatgpt-while-i-drive">Tom's Guide</a> | <a href="https://www.geeky-gadgets.com/chatgpt-on-apple-carplay/">Geeky Gadgets</a> | <a href="https://techpp.com/2026/04/04/chatgpt-on-apple-carplay/">TechPP</a></p></div><div class="brief-item"><h4>富士康Q1营收创历史新高：AI服务器需求驱动29.7%增长</h4><p>（4月5日，<a href="https://asia.nikkei.com/business/technology/foxconn-posts-29.7-q1-revenue-surge-on-strong-ai-demand">Nikkei Asia</a> | <a href="https://ca.finance.yahoo.com/news/foxconn-reports-record-first-quarter-145000498.html">Yahoo Finance</a>）：富士康2026年Q1营收达<strong>TWD 2.13万亿（约$666亿）</strong>，同比增29.7%。3月单月<strong>TWD 8,037亿</strong>创公司史上最高单月营收（+45.6%）。增长引擎：作为<strong>NVIDIA Blackwell GB200服务器唯一组装商</strong>，云计算和网络部门AI基础设施订单激增。富士康首次使用"<strong>强劲增长</strong>"最高内部评级定义2026全年——认为AI基建需求是"结构性而非周期性"。但公司同时提醒关注中东地缘政治风险。
+- 💡 上手：AI算力军备竞赛最直接受益者——NVIDIA供应链的晴雨表</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.indexbox.io/blog/foxconn-q1-2026-revenue-jumps-297-on-strong-ai-demand/">IndexBox</a> | <a href="https://www.prismnews.com/news/foxconn-q1-revenue-surges-297-on-record-ai-server-demand">Prism News</a></p></div><div class="brief-item"><h4>跟进：Qwen3.6-Plus发布1天破OpenRouter全球单日纪录1.4万亿tokens</h4><p>（4月4日，<a href="https://www.globaltimes.cn/page/202604/1358204.shtml">Global Times</a> | <a href="https://www.gate.com/news/detail/qianwen-36plus-model-tops-openrouters-daily-chart-with-daily-calls-20042917">Gate News</a>）：阿里4月2日发布的Qwen3.6-Plus在OpenRouter上线仅1天，日调用量即突破1.4万亿tokens，打破平台单日单模型调用量纪录。阿里成为全球编程能力排名第二的AI机构（仅次于OpenAI）。免费预览仍在进行中。
+- 📍 获取：<a href="https://openrouter.ai/qwen/qwen3.6-plus:free">OpenRouter免费预览</a> / <a href="https://bailian.console.aliyun.com">阿里云百炼</a>
+- 💡 上手：编程/Agent场景的高性价比选择——免费预览窗口期值得一试</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://news.sciencenet.cn/htmlnews/2026/4/562629.shtm">科学网</a> | <a href="https://www.chinanews.com.cn/cj/2026/04-05/10599061.shtml">中新网</a></p></div><div class="brief-item"><h4>Macy's AI购物助手悄然上线：用户消费额增长4.75倍</h4><p>（4月，<a href="https://www.cnbc.com/2026/04/05/ai-retail-start-ups-virtual-try-on-tech-margins.html">CNBC</a>）：美国百货巨头Macy's推出AI购物助手后，使用该功能的顾客<strong>单次访问消费额增长4.75倍</strong>。与此同时，Google虚拟试穿功能将于4月30日在搜索结果中直接展示。零售AI从概念验证走向收入增长的标志性案例。
+- 💡 上手：零售+AI的ROI终于有了硬数据——4.75倍消费增长是最有力的落地证明</p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第38天：最后通牒今晚8pm ET到期，伊朗拒绝停火
+
+<strong>4月6-7日增量（接续第37天报道）：</strong>
+
+<strong>Trump最后通牒倒计时——今晚8pm ET到期：</strong> Trump将此前的"周二"最后通牒精确到<strong>今晚8pm ET（北京时间4月8日8:00 AM）</strong>，并进一步升级威胁："<strong>整个国家可以在一个晚上被消灭，而那个晚上可能就是明天晚上。</strong>"他告诉记者这是一个"危急时期"（critical period）。（<a href="https://www.cbsnews.com/live-updates/iran-war-trump-deadline-power-plants-bridges-ceasefire-push-air-force-rescue/">CBS News</a> | <a href="https://edition.cnn.com/2026/04/06/world/live-news/iran-war-us-trump-oil">CNN</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-06/iran-rejects-ceasefire-before-trump-ultimatum-expires-on-hormuz">Bloomberg</a>）
+
+<strong>45天停火方案被拒：</strong> 巴基斯坦、埃及、土耳其三方调停，推动美伊进入<strong>45天临时停火+重开霍尔木兹海峡</strong>的谈判框架。但伊朗<strong>正式拒绝</strong>临时停火方案，要求的是<strong>完全停战+海峡安全通航保障协议</strong>——不接受"暂停"。消息人士称<strong>48小时内达成协议的可能性极低</strong>。（<a href="https://www.axios.com/2026/04/06/iran-war-us-tehran-ceasefire-talks">Axios</a> | <a href="https://www.npr.org/2026/04/06/nx-s1-5775383/iran-war-updates">NPR</a> | <a href="https://www.jpost.com/middle-east/iran-news/article-892183">Jerusalem Post</a> | <a href="https://gulfnews.com/world/mena/45-day-us-israel-iran-ceasefire-in-the-works-what-we-know-so-far-1.500497479">Gulf News</a>）
+
+<strong>关键判断：</strong> 今晚是开战以来最危险的升级节点。如果到期无协议，Trump面临"兑现威胁"（攻击电厂和桥梁）或"失信撤回"的两难选择——两种结果都将深刻影响战局走向。能源市场和全球股市将在未来12小时内剧烈波动。
+
+### 🌍 二、Artemis II完成绕月飞越——252,756英里刷新人类最远飞行纪录
+
+<strong>4月6日（任务第6天）增量：</strong>
+
+NASA Artemis II机组于4月6日完成历史性<strong>绕月飞越</strong>，创造多项里程碑：
+
+- <strong>最远距离纪录</strong>：<strong>252,756英里</strong>，比1970年阿波罗13号纪录<strong>多4,111英里</strong>——人类有史以来飞得最远
+- <strong>最近月面距离</strong>：约<strong>4,067英里</strong>，相对地球时速60,863英里
+- <strong>太阳日食</strong>：机组在月球背面经历约1小时的太阳日食——月球遮挡太阳时观察到<strong>太阳日冕</strong>，为科学研究提供独特视角
+- SLS火箭于4月1日18:35 EDT从肯尼迪航天中心39B发射台升空
+
+今日（4月7日），Orion飞船将在下午约1:25（距月球41,072英里处）<strong>离开月球引力影响范围</strong>，正式进入返程。预计<strong>约4月11日</strong>在圣迭戈附近海域溅落。这是1972年阿波罗17号以来<strong>人类首次绕月飞行</strong>，距上次已过去54年。（<a href="https://www.nasa.gov/blogs/missions/2026/04/06/artemis-ii-flight-day-6-lunar-flyby-updates/">NASA</a> | <a href="https://www.space.com/news/live/artemis-2-nasa-moon-mission-updates-april-6-2026">Space.com</a> | <a href="https://www.planetary.org/articles/artemis-ii-what-to-expect">Planetary Society</a>）
+
+### 🌍 三、韩国情报机构：金正恩13岁女儿"可被视为继承人"
+
+韩国国家情报院（NIS）4月6日向国会汇报时表示，金正恩13岁的女儿<strong>金主爱（Kim Ju Ae）</strong>"可以被视为继承人"——这是NIS迄今<strong>最强硬的继承判断</strong>。
+
+NIS称朝鲜当局安排金主爱进行驾驶坦克、射击手枪等军事训练，由金正恩亲自督导，旨在建立军事威望、"减少对女性继承人的质疑"。朝鲜官媒称其为金正恩"最受爱戴的"孩子，自2022年底起多次出席重大公开活动。
+
+不过部分外部观察人士持保留态度——认为朝鲜极端男权社会不太可能接受女性领导人，且42岁的金正恩指定继承人为时尚早。如获确认，金主爱将成为金氏家族<strong>第四代</strong>最高领导人。（<a href="https://www.nbcnews.com/world/north-korea/fair-view-kim-jong-uns-teen-daughter-heir-seoul-spy-agency-says-rcna266837">NBC News</a> | <a href="https://www.washingtonpost.com/world/2026/04/06/north-korea-kim-daughter-heir-south/9f361b32-3190-11f1-b85b-2cd751275c1d_story.html">Washington Post</a> | <a href="https://time.com/article/2026/04/06/kim-jong-un-daughter-kim-ju-ae-north-korea-heir/">Time</a>）
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>OpenAI</td><td>ChatGPT Voice for CarPlay</td><td>车载AI语音对话，纯语音交互，iOS 26.4+</td><td>✅全量</td><td>ChatGPT App更新</td><td>4月2日</td></tr><tr><td>阿里Qwen</td><td>Qwen3.6-Plus（跟进）</td><td>发布首日1.4T tokens破OpenRouter全球单日纪录</td><td>✅全量</td><td>百炼 / OpenRouter免费</td><td>4月2日</td></tr><tr><td>多家中国厂商</td><td>OpenRouter调用量（跟进）</td><td>中国模型连续5周超美国，Top 6全是中国模型</td><td>✅全量</td><td>OpenRouter</td><td>持续</td></tr><tr><td>Macy's</td><td>AI购物助手</td><td>用户消费额增长4.75倍</td><td>✅全量</td><td>Macy's App/网站</td><td>4月</td></tr><tr><td>Google</td><td>虚拟试穿搜索集成</td><td>产品搜索结果直接展示虚拟试穿</td><td>⏳4月30日</td><td>Google Search</td><td>4月30日</td></tr><tr><td>Foxconn/NVIDIA</td><td>AI服务器制造（数据）</td><td>Q1营收$666亿创纪录，GB200独家组装</td><td>—</td><td>NVIDIA供应链</td><td>4月5日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://www.buildfastwithai.com/blogs/best-ai-models-april-2026">Build Fast with AI</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a> | <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Qwen3.6-Plus (阿里) |
+|------|--------------------------|------------------|---------------------------|----------------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ BenchLM 87分 | ⭐⭐⭐⭐⭐ BenchLM 82分 | ⭐⭐⭐⭐⭐ BenchLM 85分 | ⭐⭐⭐⭐ (社区测试中) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐⭐ <strong>78.80%</strong> | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 匹配Opus 4.5 |
+| <strong>Agentic编程</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ ClawEval 66.3 | ⭐⭐⭐⭐½ |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ <strong>94.3%</strong> | ⭐⭐⭐⭐½ ~89% | ⭐⭐⭐⭐½ ~87% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐⭐ |
+| <strong>多模态(音视频)</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ 原生多模态 |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | ⭐⭐⭐⭐⭐ 128K单次输出 | 高 |
+| <strong>定价(input/output)</strong> | <strong>$2/$12</strong> | $2.50/$15 | $15/$75 | <strong>$0.29/$1.25</strong> |
+| <strong>最佳适用</strong> | 综合之王、科学推理、性价比 | Agent工作流、企业自动化 | 深度分析、法律文书、长文写作 | 企业Agent编程、中文场景 |
+| <strong>获取方式</strong> | Gemini / API | ChatGPT / API | claude.ai / API | 百炼 / OpenRouter |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.4 mini (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3.1 Flash-Lite (Google) | Gemma 4 31B (Google) |
+|------|-------------------------|-------------------------------|----------------------------------|----------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐½ 逼近旗舰 | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ 匹配2.5 Flash | ⭐⭐⭐⭐½ Elo 1452 |
+| <strong>编程</strong> | ⭐⭐⭐⭐½ SWE-bench Pro接近旗舰 | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>多模态(音视频)</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 原生视觉+音频 |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>速度</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ TTFT 2.5x | ⭐⭐⭐⭐⭐ 本地零延迟 |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 140+语言 |
+| <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | <strong>$0.25/$1.50</strong> | <strong>免费开源</strong> |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | ✅ Apache 2.0 |</p><p><strong>📝 本周变化：</strong> 本周无重大新模型发布，对比表数据与上期一致，无排名变动。本期关注焦点从模型能力转向<strong>使用量格局</strong>：中国AI模型在OpenRouter连续5周调用量超美国（差距扩大至4.3倍），Qwen3.6-Plus单日1.4T tokens破纪录。"低价+开源+技术追平"三重策略正在全球开发者市场产生碾压效果——美国模型厂商面临定价策略调整压力。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | Gemma 4 31B | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Gemma 4 31B | 128K输出+自然散文质量 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | Claude Opus 4.6 | GLM-5 | GPQA 94.3%+SWE-bench双冠 |
+| 🎨 AI绘画 | Midjourney v6.1 | MAI-Image-2 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Runway Gen-4.5 | Kling | Sora下线后双雄格局 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | Harvey | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Gemini 3.1 Pro | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索体验最佳 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Qwen3.6-Plus | Gemma 4 26B MoE | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | MAI-Voice-1 | 豆包App | CarPlay集成扩展车载场景 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.4 mini) | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | Qwen3.6-Plus | Gemma 4 31B | GLM-5（MIT开源） | $0.29/M旗舰级编程碾压 |
+
+<strong>🔄 本周变化：</strong> ①<strong>语音对话场景新增车载维度</strong>：ChatGPT Voice登陆CarPlay，首选地位进一步巩固——目前唯一可在CarPlay中使用的AI语音助手。②其余场景推荐与上期一致，无排名变动。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🔥 伊朗战争：今晚8pm ET最后通牒到期</strong>：Trump已明确威胁攻击所有电厂和桥梁。如果未达成协议，未来12-24小时可能出现开战以来最大规模基础设施打击——或者Trump选择延期/软化，两种结果都将深刻影响战局。能源市场和全球股市将剧烈波动。
+
+2. <strong>🚀 Artemis II返程溅落（约4月11日）</strong>：Orion飞船今日离开月球引力范围，进入返程。预计4月11日在圣迭戈附近海域溅落。返程中的<strong>热盾再入测试</strong>是整个任务最关键安全节点——Orion将以接近40,000 km/h的速度重返大气层。
+
+3. <strong>🕊️ 教皇Leo XIV和平守夜（4月11日）</strong>：与Artemis II溅落同日。若伊朗战事在本周升级，这场和平祈祷将获更多全球关注。
+
+4. <strong>🧠 DeepSeek R2发布窗口</strong>：R1的后续模型R2因Ascend硬件训练困难延迟，4月中下旬可能有新进展。如发布，旗舰对比表将迎来洗牌。
+
+5. <strong>📊 中国AI调用量趋势加速</strong>：连续5周超美国且差距拉大至4.3倍——关注OpenRouter下周数据是否继续攀升，以及美国模型厂商是否被迫降价应对。
+
+---
+
+*数据来源：OpenRouter、Global Times、CGTN、中新网、科学网、腾讯新闻、MacRumors、Engadget、Nikkei Asia、Yahoo Finance、CBS News、CNN、Bloomberg、Axios、NPR、NASA、Space.com、NBC News、Washington Post、Time、CNBC等 | 所有数据基于2026年4月7日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer">最高领导人。（<a href="https://www.nbcnews.com/world/north-korea/fair-view-kim-jong-uns-teen-daughter-heir-seoul-spy-agency-says-rcna266837">NBC News</a> <br> <a href="https://www.washingtonpost.com/world/2026/04/06/north-korea-kim-daughter-heir-south/9f361b32-3190-11f1-b85b-2cd751275c1d_story.html">Washington Post</a> <br> <a href="https://time.com/article/2026/04/06/kim-jong-un-daughter-kim-ju-ae-north-korea-heir/">Time</a>）  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> OpenAI <br> ChatGPT Voice for CarPlay <br> 车载AI语音对话，纯语音交互，iOS 26.4+ <br> ✅全量 <br> ChatGPT App更新 <br> 4月2日 <br> <br> 阿里Qwen <br> Qwen3.6-Plus（跟进） <br> 发布首日1.4T tokens破OpenRouter全球单日纪录 <br> ✅全量 <br> 百炼 / OpenRouter免费 <br> 4月2日 <br> <br> 多家中国厂商 <br> OpenRouter调用量（跟进） <br> 中国模型连续5周超美国，Top 6全是中国模型 <br> ✅全量 <br> OpenRouter <br> 持续 <br> <br> Macy's <br> AI购物助手 <br> 用户消费额增长4.75倍 <br> ✅全量 <br> Macy's App/网站 <br> 4月 <br> <br> Google <br> 虚拟试穿搜索集成 <br> 产品搜索结果直接展示虚拟试穿 <br> ⏳4月30日 <br> Google Search <br> 4月30日 <br> <br> Foxconn/NVIDIA <br> AI服务器制造（数据） <br> Q1营收$666亿创纪录，GB200独家组装 <br> — <br> NVIDIA供应链 <br> 4月5日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> <br> <a href="https://www.buildfastwithai.com/blogs/best-ai-models-april-2026">Build Fast with AI</a> <br> <a href="https://artificialanalysis.ai">Artificial Analysis</a> <br> <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）  <br> 维度 <br> Gemini 3.1 Pro (Google) <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Qwen3.6-Plus (阿里) <br> <br>------<br>--------------------------<br>------------------<br>---------------------------<br>----------------------<br> <br> </div>
+</div>
+</body>
+</html>

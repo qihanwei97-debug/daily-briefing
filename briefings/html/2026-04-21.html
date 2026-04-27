@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年4月21日 星期二</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年4月21日 星期二</span>
+    <span>覆盖24小时 · 预计阅读10-12分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Anthropic Opus 4.7 + Claude Design双发布（4月18日）——Claude Design登陆Labs，可视化设计/原型/PPT/单页一键生成，Pro/Max/Team/Enterprise全量；Haiku 3模型同步退役（4月19日）</strong>。<strong>Snap宣布裁员1000人（占全球员工16%）——CEO Evan Spiegel明确称"AI已生成公司65%新代码"，预计年化节省$5亿，股价盘前暴涨11%</strong>。<strong>Novo Nordisk与OpenAI战略合作——全链条AI部署从药物发现到生产供应链，加速肥胖+糖尿病新药管线，2026年底完成全集成</strong>。<strong>美军扣押一艘伊朗货轮（火炮命中发动机室），伊朗外长宣布"无计划"参加下一轮谈判——霍尔木兹停火将于明日（周三4/22）晚间到期，Trump明确"极不可能延期"</strong>。<strong>Honor "Lightning"仿人机器人在北京第二届机器人半马以50分26秒夺冠——首次击败人类世界纪录（Kiplimo 57:20），腿长95cm搭载手机散热技术</strong>。<strong>日本三陆近海发生7.7级地震（4月20日16:53）——82万人口疏散，最大海啸80cm，JMA罕见警告"未来一周8级以上大地震概率升至1%"</strong>。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Claude Opus 4.7 + Claude Design登陆——Anthropic把"会设计"加进旗舰能力</h3><p>Anthropic于4月18日同步发布两项重大更新：<strong>旗舰模型Claude Opus 4.7</strong>与全新可视化创作工具<strong>Claude Design</strong>——后者由Opus 4.7驱动，是Anthropic进入"AI原生生产力工具"的关键一步。</p><p><strong>Claude Opus 4.7（新旗舰）：</strong>
+- 从Opus 4.6升级，驱动Claude Design及所有Max/Enterprise用户的默认模型
+- 正式成为<strong>2026年Anthropic的旗舰</strong> ——此前Opus 4.6在BenchLM综合推理85分，Opus 4.7的独立基准仍在社区测试中
+- 与GPT-5.4、Gemini 3.1 Pro形成2026年Q2的三强格局（待DeepSeek V4和Spud/GPT-6加入）</p><p><strong>Claude Design（Anthropic Labs全新工具）：</strong>
+- <strong>四种输出形态</strong>：Design设计稿、Prototype可交互原型、Slides演示文稿、One-Pager单页
+- <strong>自然语言驱动</strong>：给出风格、受众、用途描述，Opus 4.7直接生成并支持迭代
+- <strong>在线Claude Labs</strong>：<a href="https://claude.com">claude.com/labs</a> 进入，需Pro/Max/Team/Enterprise订阅
+- <strong>Research Preview阶段</strong>：意味着功能仍在快速迭代，免费版用户暂不可用</p><p><strong>Claude Code重大更新（4月14-18日累计）：</strong>
+- <strong>Routines（日常任务）</strong>：可调度的重复任务——跑在Claude Code web基础设施上，<strong>Mac离线也能执行</strong>（类似服务端Cron但带完整AI能力）
+- <strong>多会话侧栏</strong>：一个窗口并排运行多个Claude Session，拖拽式布局
+- <strong>集成终端、文件编辑、HTML/PDF预览、更快diff viewer</strong> ——Claude Code从CLI向"AI-原生IDE"演进
+- <strong>Claude Haiku 3退役</strong>（4月19日）：Haiku用户需升级至Haiku 4.5</p><div class="callout"><strong>为什么重要：</strong> ①<strong>"设计能力"是最后一个AI未完全征服的工作领域</strong>——Adobe/Figma等工具仍需人类手动操作。Claude Design直接挑战这一堡垒，瞄准的是营销、产品、咨询三大高价值白领场景。②Opus 4.7 + Design的组合，对Claude for Word/Excel/PPT形成<strong>"Anthropic全栈办公AI"</strong>闭环——从文档到演示一气呵成。③Claude Code的"web routines"意味着<strong>本机无需常开</strong>，是"开发者/知识工作者随时随地代劳"工作流的关键拼图——直接竞争OpenAI Super App。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.anthropic.com/news">anthropic.com/news</a> | <a href="https://claude.com">claude.com</a></li><li>💰 定价：Claude Design需Pro（$20/月）及以上订阅；Opus 4.7按API $15/$75（与4.6一致，暂未调价）</li><li>💡 上手：<strong>营销/咨询人员首选Claude Design</strong>——让AI生成PPT草稿+单页合同摘要，再用Claude for Word精修</li></ul><div class="sources">来源：<a href="https://www.anthropic.com/news">Anthropic</a> | <a href="https://www.insidehook.com/internet/anthropic-claude-design-ai-released">InsideHook（Claude Design）</a> | <a href="https://releasebot.io/updates/anthropic">Releasebot</a> | <a href="https://9to5mac.com/2026/04/14/anthropic-adds-repeatable-routines-feature-to-claude-code-heres-how-it-works/">9to5Mac（Routines）</a> | <a href="https://releasebot.io/updates/anthropic/claude">Claude Release Notes</a> | <a href="https://platform.claude.com/docs/en/release-notes/overview">Claude Platform Docs</a></div><div class="sources">中文解读：<a href="https://tjrobertson.com/anthropic-2026-claude-updates/">TJ Robertson（Anthropic 2026更新汇总）</a></div></div><div class="brief-item"><h4>Snap裁员1000人（16%员工）——CEO明确"AI已写65%新代码"，股价盘前暴涨11%</h4><p>（4月15日，<a href="https://www.cnbc.com/2026/04/15/snap-stock-layoffs-16-percent-workforce.html">CNBC</a> | <a href="https://techcrunch.com/2026/04/15/snap-is-cutting-1000-jobs-16-of-its-workforce/">TechCrunch</a> | <a href="https://www.hollywoodreporter.com/business/business-news/snapchat-layoffs-100-jobs-ai-deployment-1236565059/">Hollywood Reporter</a>）：Snap CEO <strong>Evan Spiegel</strong> 4月15日内部信宣布：裁员约<strong>1000名全职员工</strong>（16%的全球员工总数），员工获4个月遣散费+医保+股权解锁。关键表态："<strong>65%的新代码已由AI生成</strong>"——小而精的AI赋能团队是社交媒体未来。公司预计年化降本超<strong>$5亿</strong>，进入"净利润清晰路径"。Wall Street反应：股价盘前暴涨<strong>11%</strong>。
+- 💡 上手：AI替代白领工作的"硬数据"拐点——Snap是第一家明说"65%代码来自AI"的美股上市公司。软件工程师就业冲击已从Stanford AI Index的"预测"变成Q2财报季的"现实"</p></div><div class="brief-item"><h4>Novo Nordisk + OpenAI战略合作——药物发现全链条AI部署，肥胖+糖尿病优先</h4><p>（4月14日，<a href="https://www.cnbc.com/2026/04/14/novo-nordisk-openai-ai-drug-discovery-healthcare-nvo.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-14/novo-taps-openai-to-speed-development-of-new-obesity-drugs">Bloomberg</a> | <a href="https://www.fiercepharma.com/pharma/novo-taps-openai-deploy-ai-across-rd-manufacturing-and-corporate-functions">FiercePharma</a>）：丹麦制药巨头Novo Nordisk（Wegovy/Ozempic制造商）与OpenAI宣布战略合作——用AI覆盖<strong>R&D、临床试验、生产、供应链、商业运营全链条</strong>。R&D重点：加速肥胖+糖尿病新药管线。OpenAI将同时<strong>提升全球员工AI素养</strong>。时间表：试点Q2启动、<strong>2026年底全整合</strong>。数据治理方面强调"严格数据保护+人类监督+伦理合规"。
+- 💡 上手：Novo Nordisk正与Eli Lilly争夺肥胖药市场霸主地位，失掉先发优势后押注AI反超——若成功，将为"AI加速药物研发"提供首个大制药公司标杆。Novo股价未被提及，但该合作对$NVO和$OPEN（潜在OpenAI上市代号）都是利好</p></div><div class="brief-item"><h4>DeepSeek V4-Lite已在API节点实测——30%速度提升、128K context召回率从45%→94%</h4><p>（4月中旬，<a href="https://ghost.codersera.com/blog/deepseek-v4-release-date-features-benchmarks/">Codersera</a> | <a href="https://www.nxcode.io/resources/news/deepseek-v4-release-specs-benchmarks-2026">NxCode</a>）：跟进——正式V4尚未发布，但<strong>V4-Lite轻量版已在API节点秘密测试</strong>，开发者社区反馈：①推理速度提升<strong>30%</strong>；②<strong>128K Token上下文召回率从45%飙升至94%</strong>——这是V4的关键技术突破（长上下文"名义支持1M"但"实际可用"一直是痛点）。MoE架构：1T总参数，推理仅激活<strong>37B</strong>——速度+35倍、能耗-40%。基于华为Ascend 950PR训练。
+- 💡 上手：等正式V4——性价比"$0.30/M Token"承诺若兑现，直接摧毁中端API市场</p></div><div class="brief-item"><h4>OpenAI "Spud"/GPT-6：Polymarket概率从78%降至72%——窗口收窄至4月21日-5月25日</h4><p>（4月20日，<a href="https://findskill.ai/blog/gpt-6-release-date/">FindSkill</a> | <a href="https://lumichats.com/blog/gpt-5-5-spud-openai-release-date-features-april-2026-complete-guide">LumiChats</a>）：跟进——3月24日预训练完成至今<strong>28天</strong>。4月14日传闻发布日破产后，Polymarket"4月30日前发布"概率从78%<strong>降至72%</strong>。最新分析师共识：<strong>Q2（5月或6月）最可能</strong>，精确窗口为<strong>4月21日-5月25日</strong>。OpenAI继续零预热——无博客、无Model Card、无API公告、无定价泄露。
+- 💡 上手：继续等——本周若仍无动作，6月发布概率将超过5月</p></div><div class="brief-item"><h4>MIT Tech Review今日揭晓"10 Things That Matter in AI Right Now"</h4><p>（4月21日，<a href="https://www.technologyreview.com/2026/04/14/1135298/coming-soon-10-things-that-matter-in-ai-right-now/">MIT Technology Review</a>）：今日在MIT校园的EmTech AI大会现场发布"<strong>当下最重要的10件AI事</strong>"清单。MIT Tech Review是AI领域的风向标，值得关注今年入选议题（预计覆盖：Agent、安全/对齐、芯片地缘、能耗、就业冲击等）。
+- 📍 获取：<a href="https://www.technologyreview.com">technologyreview.com</a> 今日更新</p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、霍尔木兹停火24小时倒计时——美军扣押伊朗货轮，Iran FM拒谈判
+
+<strong>4月19-21日增量（接续4月17日Day 4报道）：</strong>
+
+<strong>关键时刻：4月22日（周三）晚间停火到期</strong>
+- Trump对记者明确表态：延期"<strong>highly unlikely</strong>（极不可能）"——意味着24小时内战事可能重启
+- Iran外长Araghchi："<strong>目前没有计划（no plans）</strong>参加下一轮谈判"——归因于美方"违反停火"扣押伊朗货轮
+
+<strong>美军扣押伊朗货轮（4月18-19日）：</strong>
+- 美军向一艘试图突破封锁的<strong>伊朗悬挂国旗货轮发动机室开火</strong>——迫使其停航并扣押
+- Trump亲自宣布此事，称伊朗"total violation（彻底违反）"停火
+- Iran军方回应：霍尔木兹海峡"<strong>恢复至此前状态</strong>"——暗示Iran方已重启封锁
+
+<strong>封锁战果（CENTCOM累计数据）：</strong>
+- 自4月13日封锁生效以来，已有<strong>27艘商船被驱离或返回伊朗港</strong>
+- Iran威胁扩大到波斯湾、阿曼湾、红海三大水道
+
+<strong>伦敦犹太场所纵火案调查指向伊朗代理人（4月20日）：</strong>
+- 英国警方正在调查伦敦多起针对犹太场所的<strong>纵火袭击是否由伊朗代理人实施</strong>
+- 若确认，将开辟美伊冲突在欧洲的代理战场——伊朗代理人战略已扩展至欧洲本土
+
+<strong>谈判死结（不变）：</strong>
+- 美方：<strong>20年铀浓缩暂停</strong>
+- Iran：<strong>5年最多</strong>
+- 巴基斯坦原定促成第二轮谈判——因货轮事件暂停
+
+<strong>关键判断：</strong> <strong>未来48小时是关键窗口</strong>。若停火如期到期且无新谈判启动，战事将进入"封锁+代理袭击+可能空袭"的升级循环。油价反应将是最早信号（4月20日Brent约$94，若到期未谈成预计重返$100+）。
+
+来源：<a href="https://edition.cnn.com/2026/04/20/world/live-news/iran-war-us-trump-israel">CNN（停火到期）</a> | <a href="https://www.aljazeera.com/news/liveblog/2026/4/19/iran-war-live-tehran-says-no-date-set-for-us-talks-hormuz-strait-closed">Al Jazeera（Iran立场）</a> | <a href="https://time.com/article/2026/04/20/iran-us-peace-talks-stalemate-strait-of-hormuz-trump-threats/">Time（Iran谈判犹豫）</a> | <a href="https://www.npr.org/2026/04/18/nx-s1-5789780/iran-middle-east-updates">NPR（4/18霍尔木兹重封）</a> | <a href="https://www.npr.org/2026/04/20/nx-s1-5791256/iran-middle-east-updates">NPR（4/20扣船）</a> | <a href="https://www.cnbc.com/2026/04/20/us-iran-war-middle-east-conflict-peace-deal-strait-hormuz-shipping-ceasefire-tensions.html">CNBC（Resumption of hostilities）</a> | <a href="https://time.com/article/2026/04/19/trump-accuses-iran-of-total-violation-as-strait-of-hormuz-remains-shut/">Time（扣船详情）</a> | <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-us-blockade-iran-hormuz-trump-peace-talks-rcna331890">NBC（Iran威胁扩大封锁）</a>
+
+### 🌍 二、日本三陆7.7级地震——82万人疏散，JMA罕见警告"大地震概率升10倍"
+
+<strong>4月20日16:53（JST）：</strong>
+
+<strong>地震参数：</strong>
+- <strong>JMA测定7.7级（USGS 7.4）</strong> ——震中在岩手县太平洋海域三陆近海
+- 海啸警报发布：最高预警高度<strong>3米</strong>
+- 实际观测最大海啸：岩手县久慈<strong>80cm</strong>；宫古+北海道浦河<strong>40cm</strong>；北海道广尾+襟裳+宫城仙台<strong>30cm</strong>
+- 2小时后警报降级为"海啸注意"
+
+<strong>疏散规模：</strong>
+- <strong>82,811户、175,957人</strong>从北海道、青森、岩手、宫城、福岛5县13市21町6村被紧急疏散
+- 仅<strong>4人受伤</strong>（均为疏散过程中），<strong>青森县至少26栋建筑受损</strong>
+- 截至4月21日无重大伤亡——1小时内有序疏散是关键
+
+<strong>罕见"大地震特别警报"：</strong>
+- JMA警告：未来1周内<strong>8级以上大地震概率从常态0.1%升至约1%（10倍）</strong>
+- 涉及日本海沟+千岛海沟——这是自2011年3.11地震后JMA首次发布类似的提前警告
+- 日本旅游安全建议已更新，东北地区旅客被建议评估行程
+
+<strong>背景：</strong> 2026三陆地震已进入维基百科独立词条。日本政府正评估是否激活更高级别的"南海海槽大地震对应机制"——若激活，将影响西日本经济活动。
+
+来源：<a href="https://www.aljazeera.com/news/2026/4/20/powerful-7-4-earthquake-strikes-northern-japan-tsunami-warning-issued">Al Jazeera</a> | <a href="https://www.cnn.com/2026/04/20/world/earthquake-tsunami-warning-japan-intl">CNN</a> | <a href="https://www.japantimes.co.jp/news/2026/04/20/japan/earthquake-tsunami-warning/">Japan Times</a> | <a href="https://www.nbcnews.com/world/japan/live-blog/live-updates-japan-earthquake-tsunami-rcna340940">NBC News</a> | <a href="https://www.cnbc.com/2026/04/20/japan-earthquake-tsunami-warning.html">CNBC</a> | <a href="https://en.wikipedia.org/wiki/2026_Sanriku_earthquake">Wikipedia 2026 Sanriku earthquake</a> | <a href="https://jp.usembassy.gov/tsunami-alert-april-20-2026/">US Embassy Japan</a>
+
+### 🌍 三、Honor "Lightning"机器人首破人类半马世界纪录——50:26秒完成21.0975公里
+
+4月19日，北京第二届机器人半马在街头开赛——<strong>手机厂商荣耀（Honor）的"Lightning"（闪电）仿人机器人</strong>以<strong>50分26秒</strong>夺冠，<strong>击败人类男子半马世界纪录57:20</strong>（乌干达选手Kiplimo，2026年3月）。
+
+<strong>Lightning关键参数：</strong>
+- <strong>身高169cm，腿长95cm</strong>——专门模拟专业长跑运动员步幅
+- <strong>手机散热技术</strong>：荣耀Test Development Engineer Du Xiaodi确认使用Honor手机同款散热系统防过热
+- 去年首届比赛：冠军3:40——今年提升近3倍速度
+
+<strong>行业意义：</strong>
+- 这是<strong>机器人首次在标准比赛距离（21.0975km）超越人类世界纪录</strong>
+- 同一赛道也出现大量"栽进灌木丛、撞上路障"的机器人——行业分层明显
+- 意味着<strong>仿人机器人的"运动能力"已接近甚至超越人类运动员极限</strong>——但"通用智能+通用任务"仍远未达到人类水平
+
+<strong>为什么重要：</strong> Honor是以手机业务为主的厂商，跨界机器人赛道一战成名——这<strong>印证了中国智能硬件产业链（手机→电池→散热→电机）对仿人机器人的直接赋能</strong>。与4月17日智元机器人大会信号互相呼应：中国具身智能正从"展示demo"进入"细分场景破纪录"的实战阶段。
+
+来源：<a href="https://www.cnn.com/2026/04/19/china/china-robot-half-marathon-intl-hnk">CNN</a> | <a href="https://www.npr.org/2026/04/20/g-s1-118086/humanoid-robot-half-marathon">NPR</a> | <a href="https://www.aljazeera.com/sports/2026/4/19/humanoid-robot-breaks-half-marathon-world-record-in-beijing">Al Jazeera</a> | <a href="https://www.nbcnews.com/world/china/humanoid-robots-race-humans-beijing-half-marathon-showing-rapid-advanc-rcna340842">NBC News</a> | <a href="https://www.cbsnews.com/news/humanoid-robot-half-marathon-beijing-human-world-record/">CBS News</a> | <a href="https://www.foxnews.com/tech/chinese-robot-breaks-human-world-record-beijing-half-marathon">Fox News</a>
+
+中文解读：<a href="https://www.sixthtone.com/news/1018442/chinese-robot-runner-beats-men%E2%80%99s-half-marathon-world-record">Sixth Tone</a>
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Anthropic</td><td>Claude Opus 4.7</td><td>新旗舰，驱动Claude Design，$15/$75</td><td>✅Max/Enterprise</td><td>claude.ai</td><td>4月18日</td></tr><tr><td>Anthropic</td><td>Claude Design</td><td>设计/原型/PPT/单页一键生成</td><td>✅Pro+订阅</td><td>claude.com/labs</td><td>4月18日</td></tr><tr><td>Anthropic</td><td>Claude Code重大重构</td><td>多会话侧栏+集成终端+web Routines</td><td>✅全量</td><td>claude --update</td><td>4月14-18日</td></tr><tr><td>Anthropic</td><td>Claude Haiku 3退役</td><td>请升级至Haiku 4.5</td><td>🔴已停</td><td>—</td><td>4月19日</td></tr><tr><td>Novo Nordisk × OpenAI</td><td>药物发现战略合作</td><td>肥胖+糖尿病新药+R&D全链条AI</td><td>⏳试点中</td><td>企业合作</td><td>4月14日</td></tr><tr><td>Snap</td><td>裁员1000人（16%）</td><td>AI已写65%新代码，年省$5亿</td><td>—</td><td>—</td><td>4月15日</td></tr><tr><td>Honor</td><td>"Lightning"仿人机器人</td><td>北京半马50:26破人类世界纪录</td><td>—</td><td>—</td><td>4月19日</td></tr><tr><td>DeepSeek</td><td>V4-Lite秘密实测</td><td>128K召回94%+30%速度提升</td><td>⏳API节点</td><td>官方发布前</td><td>4月中旬</td></tr><tr><td>OpenAI</td><td>Spud/GPT-6</td><td>Polymarket概率降至72%，窗口5/25前</td><td>⏳评估中</td><td>—</td><td>持续等待</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://www.anthropic.com/news">Anthropic</a> | <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford AI Index</a> | <a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | <strong>Claude Opus 4.7 (Anthropic)</strong> 🆕 | Qwen3.6-Plus (阿里) | Muse Spark (Meta) |
+|------|--------------------------|------------------|---------------------------|----------------------|-------------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ BenchLM 87分 | ⭐⭐⭐⭐⭐ BenchLM 82分 | ⭐⭐⭐⭐⭐ <strong>4.7社区测试中</strong> | ⭐⭐⭐⭐ (社区测试中) | ⭐⭐⭐⭐½ AA Index #4 |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐⭐ <strong>78.80%</strong> | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 78.20%+（4.7待测） | ⭐⭐⭐⭐½ 匹配Opus 4.5 | ⭐⭐⭐⭐ (待独立测试) |
+| <strong>Agentic编程</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ ClawEval 66.3 | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ 多Agent并行 |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ <strong>94.3%</strong> | ⭐⭐⭐⭐½ ~89% | ⭐⭐⭐⭐½ ~87%（4.7待测） | ⭐⭐⭐⭐ (待测) | ⭐⭐⭐⭐ |
+| <strong>办公文档集成</strong> | ⭐⭐⭐⭐ Workspace | ⭐⭐⭐⭐⭐ Super App三合一 | ⭐⭐⭐⭐⭐ <strong>Design+Word+Excel+PPT</strong> 🆕 | ⭐⭐⭐ | ⭐⭐⭐ Meta生态 |
+| <strong>设计/可视化</strong> 🆕 | ⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐⭐ <strong>Claude Design首发</strong> | ⭐⭐⭐ | ⭐⭐⭐ |
+| <strong>网络安全</strong> | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ Mythos级 | ⭐⭐⭐ | ⭐⭐⭐½ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐½ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ (待测) |
+| <strong>最大输出</strong> | 高 | 高 | ⭐⭐⭐⭐⭐ 128K单次输出 | 高 | 中等 |
+| <strong>定价(input/output)</strong> | <strong>$2/$12</strong> | $2.50/$15 | $15/$75（4.7暂未调价） | <strong>$0.29/$1.25</strong> | 消费者免费(闭源) |
+| <strong>最佳适用</strong> | 综合之王、科学推理 | 一站式工作空间（Super App） | <strong>设计+文档+安全三位一体</strong> 🆕 | 企业Agent、中文场景 | Meta生态消费者场景 |
+| <strong>获取方式</strong> | Gemini / API | ChatGPT Super App / API | <strong>claude.ai / Labs / API / Word插件</strong> | 百炼 / OpenRouter | Meta AI App |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.4 mini (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3.1 Flash-Lite (Google) | Gemma 4 31B (Google) |
+|------|-------------------------|-------------------------------|----------------------------------|----------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐½ 逼近旗舰 | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ 匹配2.5 Flash | ⭐⭐⭐⭐½ Elo 1452 |
+| <strong>编程</strong> | ⭐⭐⭐⭐½ SWE-bench Pro接近旗舰 | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>多模态(音视频)</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 原生视觉+音频 |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>速度</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ TTFT 2.5x | ⭐⭐⭐⭐⭐ 本地零延迟 |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 140+语言 |
+| <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | <strong>$0.25/$1.50</strong> | <strong>免费开源</strong> |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | ✅ Apache 2.0 |</p><p><strong>📝 本周变化：</strong> ①<strong>Claude Opus 4.7登场——Anthropic旗舰代际更迭，新增"设计/可视化"独立维度</strong>。Claude Design借助Opus 4.7在PPT/原型/单页生成上领先同类，这是AI办公文档工具的一次关键升维。②<strong>获取方式新增Claude Labs</strong> ——`claude.com/labs`成为Anthropic新工具首发阵地。③<strong>Claude Haiku 3退役</strong>（4月19日），Haiku用户需迁移至4.5。④GPT-5.4/Gemini 3.1 Pro短期无新动作——等待"Spud"/GPT-6（窗口5月25日前）+ DeepSeek V4（4月下旬）双重洗牌。⑤中端表无变动。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | 🔄 Claude Opus 4.7 | Gemma 4 31B | Claude Code多会话+Routines增强 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Gemma 4 31B | 128K输出+自然散文质量 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | 🔄 Claude Opus 4.7 | GLM-5 | GPQA 94.3%+SWE-bench双冠 |
+| 🎨 AI绘画 | Midjourney v6.1 | MAI-Image-2 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Runway Gen-4.5 | Kling | Sora下线后双雄格局 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | 🔄 Claude for Word（Opus 4.7驱动） | GPT-5.4 | Harvey | 跟踪修订+跨文档联动+Opus 4.7 |
+| 📊 数据分析 | GPT-5.4 | Gemini 3.1 Pro | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | ARR $4.5亿验证用户价值 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Qwen3.6-Plus | Gemma 4 26B MoE | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | MAI-Voice-1 | 豆包App | CarPlay集成扩展车载场景 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.4 mini) | Meta AI App | Muse Spark多模态消费场景 |
+| 💰 极致性价比 | Qwen3.6-Plus | Gemma 4 31B | GLM-5（MIT开源） | $0.29/M旗舰级编程碾压 |
+| 🎨 <strong>PPT/设计/原型</strong> 🆕候选 | <strong>Claude Design</strong>（Opus 4.7） | Gamma / Canva AI | Canva免费版 | 自然语言→设计成稿的新工具 |
+
+<strong>🔄 本周变化：</strong> ①<strong>Opus 4.7统一替换了Opus 4.6</strong>——所有"Claude Opus"备选全部升级至新旗舰，但排名不变（因Opus定价$15/$75无变化）。②<strong>法律文书场景</strong>：Claude for Word升级至Opus 4.7驱动，跟踪修订+跨文档联动的能力通过新模型进一步增强。③<strong>新兴场景"PPT/设计/原型"</strong>：Claude Design首发后，这是2026年AI工具的最大空白——未来两期将评估是否纳入13个固定场景或单独增设。④DeepSeek V4+Spud/GPT-6发布将引发编程/Agent/性价比三场景同步调整。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>⚠️ 霍尔木兹停火4月22日晚到期——48小时关键窗口</strong>：Trump称延期"极不可能"+伊朗拒谈判+美扣船。若如期到期且无协议，Brent重回$100+概率极高，全球通胀+股市压力将再次加剧。
+
+2. <strong>🧠 DeepSeek V4正式发布（4月下旬最后窗口）</strong>：V4-Lite已实测验证128K召回率94%突破——正式版若在本周发布，将同步回应OpenAI IPO叙事+Anthropic Opus 4.7竞争，是"中国AI绕过NVIDIA"的最大验证。
+
+3. <strong>🔮 OpenAI Spud/GPT-6（窗口5月25日前）</strong>：Polymarket降至72%，4月底前可能性下降——但5月初仍是合理窗口。若本周末仍无动作，市场焦点将暂时移至其他竞争者。
+
+4. <strong>🇯🇵 日本三陆地震余震期（未来1周）</strong>：JMA警告8级以上概率升至1%（10倍常态）。东北地区企业（汽车、钢铁、半导体）的供应链风险需关注。
+
+5. <strong>🤖 Anthropic Claude Design扩张路线</strong>：4月18日Research Preview发布后，下一步可能是①向免费版开放；②推出专业版订阅（高于Max $200/月）；③与Office 365深度集成。关注下周动态。
+
+6. <strong>📊 Q2财报季即将开始</strong>：Snap率先用AI+裁员换取毛利——Meta、Google、Microsoft、Amazon等大厂的AI资本支出 + 员工数变化 将是下周财报的核心议题。
+
+---
+
+*数据来源：Anthropic、InsideHook、Releasebot、9to5Mac、Claude Platform Docs、CNBC、Bloomberg、FiercePharma、TechCrunch、Hollywood Reporter、FindSkill、LumiChats、Codersera、NxCode、MIT Technology Review、CNN、Al Jazeera、Time、NPR、NBC News、CBS News、Fox News、Sixth Tone、Japan Times、Wikipedia、US Embassy Japan等 | 所有数据基于2026年4月21日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer">。与4月17日智元机器人大会信号互相呼应：中国具身智能正从"展示demo"进入"细分场景破纪录"的实战阶段。  来源：<a href="https://www.cnn.com/2026/04/19/china/china-robot-half-marathon-intl-hnk">CNN</a> <br> <a href="https://www.npr.org/2026/04/20/g-s1-118086/humanoid-robot-half-marathon">NPR</a> <br> <a href="https://www.aljazeera.com/sports/2026/4/19/humanoid-robot-breaks-half-marathon-world-record-in-beijing">Al Jazeera</a> <br> <a href="https://www.nbcnews.com/world/china/humanoid-robots-race-humans-beijing-half-marathon-showing-rapid-advanc-rcna340842">NBC News</a> <br> <a href="https://www.cbsnews.com/news/humanoid-robot-half-marathon-beijing-human-world-record/">CBS News</a> <br> <a href="https://www.foxnews.com/tech/chinese-robot-breaks-human-world-record-beijing-half-marathon">Fox News</a>  中文解读：<a href="https://www.sixthtone.com/news/1018442/chinese-robot-runner-beats-men%E2%80%99s-half-marathon-world-record">Sixth Tone</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Anthropic <br> Claude Opus 4.7 <br> 新旗舰，驱动Claude Design，$15/$75 <br> ✅Max/Enterprise <br> claude.ai <br> 4月18日 <br> <br> Anthropic <br> Claude Design <br> 设计/原型/PPT/单页一键生成 <br> ✅Pro+订阅 <br> claude.com/labs <br> 4月18日 <br> <br> Anthropic <br> Claude Code重大重构 <br> 多会话侧栏+集成终端+web Routines <br> ✅全量 <br> claude --update <br> 4月14-18日 <br> <br> Anthropic <br> Claude Haiku 3退役 <br> 请升级至Haiku 4.5 <br> 🔴已停 <br> — <br> 4月19日 <br> <br> Novo Nordisk × OpenAI <br> 药物发现战略合作 <br> 肥胖+糖尿病新药+R&D全链条AI <br> ⏳试点中 <br> 企业合作 <br> 4月14日 <br> <br> Snap <br> 裁员1000人（16%） <br> AI已写65%新代码，年省$5亿 <br> — <br> — <br> 4月15日 <br> <br> Honor <br> "Lightning"仿人机器人 <br> 北京半马50:26破人类世界纪录 <br> — <br> — <br> 4月19日 <br> <br> DeepSeek <br> V4-Lite秘密实测 <br> 128K召回94%+30%速度提升 <br> ⏳API节点 <br> 官方发布前 <br> 4月中旬 <br> <br> OpenAI <br> Spud/GPT-6 <br> Polymarket概率降至72%，窗口5/25前 <br> ⏳评估中 <br> — <br> 持续等待 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://www.anthropic.com/news">Anthropic</a> <br> <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford AI Index</a> <br> <a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> <br> <a href="https://artificialanalysis.ai">Artificial Analysis</a>（2026年4月）  <br> 维度 <br> Gemini 3.1 Pro (Google) <br> GPT-5.4 (OpenAI) <br> </div>
+</div>
+</body>
+</html>

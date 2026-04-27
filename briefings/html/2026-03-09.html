@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月9日 星期一</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月9日 星期一</span>
+    <span>覆盖72小时（周末版） · 预计阅读11分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>五角大楼正式将Anthropic列为"供应链风险"，同时Claude仍在伊朗战场执行目标识别——开战首日即生成超1,000个打击目标</strong>，AI军事化争议达到新高点。<strong>Claude反超ChatGPT登顶美国App Store和Google Play</strong>，日活用户飙至1130万，用户抗议OpenAI与五角大楼$2亿合同引发"Cancel ChatGPT"运动。<strong>伊朗任命Mojtaba Khamenei为新最高领袖，以色列首次打击伊朗石油设施</strong>，战争进入第九天，伊朗死亡人数超1,300人，第7名美军阵亡，Brent原油一周飙涨27%。<strong>xAI发布Grok 4.20 Beta 2</strong>，4个专业Agent并行推理，指令遵循和幻觉率显著改善。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：AI军事化风暴——Anthropic被列"供应链风险"，Claude却仍在伊朗战场运行</h3><p>过去72小时，AI军事化议题在技术界和地缘政治层面同时爆发。</p><p><strong>核心事件链：</strong></p><p>3月4日，Washington Post率先报道Claude在伊朗战场的角色：通过Palantir集成，Claude综合卫星图像、信号情报和监控数据，<strong>开战首日即生成超过1,000个优先打击目标</strong>，附带GPS坐标、武器推荐和自动化法律论证。Anthropic此前要求五角大楼签署附加条款，明确禁止将Claude用于"大规模监控美国公民"和"完全自主武器"，但五角大楼拒绝，坚持"所有合法用途"均应允许。谈判破裂后，Trump于3月初下令联邦政府停用Anthropic产品，给予五角大楼6个月过渡期。3月6日，五角大楼正式发表声明，将Anthropic及其产品列为"供应链风险（supply chain risk），立即生效"。</p><p><strong>但关键矛盾在于：</strong> 尽管被列为供应链风险，五角大楼在伊朗战事期间仍继续使用Claude——Fortune 3月7日报道引述国防部副部长Emil Michael的说法，称高层在意识到Anthropic对作战不可或缺时经历了"whoa moment"。OpenAI随后达成类似协议替代Anthropic，xAI也被引入机密环境，五角大楼同时在推动Google AI获得机密级别许可。</p><p><strong>技术界反弹：</strong> Google和OpenAI内部近900名员工联名签署公开信"We Will Not Be Divided"，呼吁对军事AI使用设立明确限制。OpenAI一名高级机器人工程师周六宣布辞职，理由是对"无司法监督的美国公民监控和无人类授权的致命自主"的担忧。</p><div class="sources">来源：<a href="https://www.washingtonpost.com/technology/2026/03/04/anthropic-ai-iran-campaign/">Washington Post</a> | <a href="https://www.cbsnews.com/news/anthropic-claude-ai-iran-war-u-s/">CBS News</a> | <a href="https://fortune.com/2026/03/07/pentagon-emil-michael-anthropic-claude-defense-ai-openai-iran-war-palantir/">Fortune</a> | <a href="https://www.npr.org/2026/03/06/g-s1-112713/pentagon-labels-ai-company-anthropic-a-supply-chain-risk">NPR</a> | <a href="https://www.cnbc.com/2026/03/05/anthropic-pentagon-ai-claude-iran.html">CNBC</a></div><div class="sources">中文解读：[CNBC中文综合报道]</div></div><div class="feature"><h3>头条二：Claude登顶App Store——"Cancel ChatGPT"运动推动Anthropic日活破1130万</h3><p>Claude在3月初超越ChatGPT，首次登顶美国Apple App Store和Google Play免费应用排行榜。这一逆转的直接导火索是OpenAI与五角大楼签署$2亿合同——用户在Reddit和X上发起"Cancel ChatGPT"运动，传播删除ChatGPT账户和迁移至Claude的教程。</p><p><strong>数据表现（截至3月初）：</strong>
+- 美国日均下载量：149,000次（超越ChatGPT）
+- 日活用户：1130万（iOS+Android），较此前增长183%
+- 年初至今免费活跃用户增长60%，日注册量翻4倍
+- Anthropic此前排名第42位，超级碗广告（讽刺OpenAI在ChatGPT中加入广告）+ 五角大楼事件双重催化</p><p><strong>背景：</strong> Anthropic在超级碗期间投放的广告直指OpenAI将广告引入ChatGPT的决定，叠加Anthropic拒绝五角大楼"无限制军事使用"的立场，在用户群体中形成了强烈的品牌认同。</p><div class="sources">来源：<a href="https://fortune.com/2026/03/02/anthropic-claude-dario-amodei-number-one-app-store-openai-chatgpt-sam-altman-department-war/">Fortune</a> | <a href="https://thehill.com/policy/technology/5763238-anthropics-claude-hits-no-1-in-the-app-store-as-users-drop-chat-gpt-over-recent-news/">The Hill</a> | <a href="https://www.axios.com/2026/03/01/anthropic-claude-chatgpt-app-downloads-pentagon">Axios</a> | <a href="https://www.newsbytesapp.com/news/science/claude-overtakes-chatgpt-as-it-hits-11-million-daily-users/tldr">NewsBytesApp</a></div></div><div class="brief-item"><h4>Grok 4.20 Beta 2发布</h4><p>xAI发布Grok 4.20的第二个Beta版本，核心架构为4个专业Agent并行推理——每个Agent独立思考后由Grok综合为最终回答。Beta 2改进了指令遵循、减少幻觉、增强LaTeX科学文本支持、优化图片搜索和多图渲染。公开版预计3月中下旬Beta结束后发布，届时将公布正式Benchmark数据。
+- 📍 获取：X Premium（$22/月）/ API（Beta访问）
+- 💰 定价：X Premium订阅内免费
+- 💡 上手：多Agent并行架构适合需要多角度思考的复杂问题
+- 来源：<a href="https://www.eonmsk.com/2026/03/03/xai-released-grok-4-20-beta-2/">EONMSK News</a> | <a href="https://docs.x.ai/developers/release-notes">xAI Release Notes</a></p></div><div class="brief-item"><h4>DeepSeek V4仍未发布</h4><p>截至3月9日，V4仍无官方公告。两会将于3月14日闭幕，留给"两会窗口期"发布的时间已不多。多个来源此前预测"3月第一周发布"未兑现。GPT-5.4已率先抢占市场，V4每延迟一天，先发优势窗口持续压缩。DeepSeek官方曾于2月11日静默升级至1M上下文窗口并更新知识截止日期，社区将此解读为V4预览或分阶段发布。
+- 来源：<a href="https://evolink.ai/blog/deepseek-v4-release-window-prep">evolink.ai</a> | <a href="https://leaveit2ai.com/ai-tools/language-model/deepseek-v4">leaveit2ai</a></p></div><div class="brief-item"><h4>CoreWeave与Perplexity签署多年协议</h4><p>Perplexity将在CoreWeave Cloud上运行下一代推理工作负载，使用NVIDIA GB200 NVL72集群。CoreWeave股价盘前上涨5.7%。CoreWeave同时在内部部署Perplexity Enterprise Max。协议凸显Perplexity的多云策略和CoreWeave作为AI专用基础设施提供商的定位。
+- 来源：<a href="https://www.coreweave.com/news/coreweave-announces-agreement-to-power-perplexitys-ai-inference-workloads">CoreWeave官方</a> | <a href="https://www.axios.com/2026/03/04/perplexity-coreweave-data-center-nvidia">Axios</a></p></div><div class="brief-item"><h4>AI立法动态</h4><p>Oregon最终通过聊天机器人安全法案；纽约《AI训练数据透明法案》（S 6955）在参议院进入三读，要求生成式AI开发者公开训练数据信息；Missouri推出CHAT法案（HB 2031），要求AI聊天机器人对未成年人实施年龄验证和家长同意机制。
+- 来源：<a href="https://www.transparencycoalition.ai/news/ai-legislative-update-march6-2026">Transparency Coalition</a></p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第九天：石油设施首遭打击，新最高领袖上任
+
+以色列于3月8日首次对伊朗石油设施发动空袭，目标包括德黑兰的Shahr Rey大型油库、Shahran油库、Nobonyad油库以及军用炼油厂，火焰照亮德黑兰夜空。同日，伊朗Assembly of Experts任命56岁的Mojtaba Khamenei（已故最高领袖之子）为新最高领袖，其与伊斯兰革命卫队关系密切，预示强硬路线延续。
+
+<strong>最新战况（截至3月8日）：</strong>
+- 伊朗死亡：超1,300人（另黎巴嫩约300人）
+- 美军阵亡：7人
+- 以色列打击贝鲁特市中心一酒店（首次打击黎巴嫩首都核心区），至少4人死亡
+- 沙特利雅得省一居民区遭弹道弹袭击，2死12伤
+- Brent原油一周飙涨27%（2020年疫情以来最大周涨幅），霍尔木兹海峡实际关闭
+- 美国加油站汽油价格持续攀升，航空燃油成本飙涨超50%
+
+<strong>外交动态：</strong> 中国提出调停，但因与伊朗关系更近，美以方面对其中立性存疑；Trump与习近平数周后的会晤前景增添变数。
+
+来源：<a href="https://www.aljazeera.com/news/2026/3/8/iran-war-what-is-happening-on-day-nine-of-us-israel-attacks">Al Jazeera</a> | <a href="https://www.npr.org/2026/03/08/nx-s1-5741654/israel-iran-oil-ayatollah-successor">NPR</a> | <a href="https://www.cbsnews.com/live-updates/us-iran-war-israel-strikes-regime-targets/">CBS News</a>
+
+### 🌍 二、法国宣布增加核弹头数量，挪威美国大使馆遭爆炸袭击
+
+Macron宣布法国将数十年来首次增加核弹头数量——在伊朗战争和全球安全格局不确定性背景下的重大信号。同日，挪威奥斯陆美国大使馆外发生爆炸，警方已展开调查，暂未确认动机。
+
+来源：<a href="https://www.npr.org/sections/world/">NPR</a> | <a href="https://www.cbsnews.com/">CBS News</a>
+
+### 🌍 三、尼泊尔"说唱歌手政党"议会选举压倒性胜利
+
+由前说唱歌手领导的尼泊尔政党在首次议会选举中取得压倒性胜利，此前Z世代抗议运动推翻了数十年的旧政治精英统治。这是全球范围内年轻一代通过选举实现政治更替的又一案例。
+
+来源：<a href="https://www.npr.org/sections/world/">NPR</a>
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Anthropic</td><td>Claude登顶App Store</td><td>日活1130万超越ChatGPT，下载量149K/天</td><td>✅全量</td><td>App Store / Google Play</td><td>3月初</td></tr><tr><td>xAI</td><td>Grok 4.20 Beta 2</td><td>4-Agent并行推理，幻觉率降低</td><td>⏳Beta</td><td>X Premium / API</td><td>3月3日</td></tr><tr><td>CoreWeave × Perplexity</td><td>多年推理合作</td><td>GB200 NVL72集群驱动Perplexity推理</td><td>✅已签</td><td>—</td><td>3月4日</td></tr><tr><td>OpenAI</td><td>GPT-5.4 / Thinking / Pro</td><td>首个内置Computer Use的主力模型，1M上下文</td><td>✅全量</td><td>ChatGPT / API</td><td>3月5日</td></tr><tr><td>DeepSeek</td><td>V4（仍未发布）</td><td>万亿参数多模态，两会窗口期收窄</td><td>⏳等待</td><td>待定</td><td>预计3月中旬前</td></tr><tr><td>Anthropic</td><td>被列"供应链风险"</td><td>五角大楼正式标记，6个月过渡期</td><td>—</td><td>—</td><td>3月6日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V3.2 |
+|------|------------------|---------------------------|------------------------|---------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ ~77% |
+| <strong>Agentic/Computer Use</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ ~88% |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐½ 128K |
+| <strong>最大输出</strong> | 高（具体待测） | 高 | 高 | 中 |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$0.27/$1.10 |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书 | 长文本、科学推理 | 中文任务、性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / 开源 |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.3 Instant (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ 幻觉率↓27% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价</strong> | 订阅制内 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大模型发布或排名变动。Grok 4.20 Beta 2尚未公布正式Benchmark，暂不纳入对比表。DeepSeek V4若在本周发布，下期将进行全面更新。值得注意的是，Claude Sonnet 4.6的SWE-bench Verified 80.8%在中端模型中仍居首位。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | DeepSeek V3.2 | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | GPT-5.4 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Sora | Runway Gen-4.5 | 音视频同步，排名双料第一 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | DeepSeek V3.2 | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Claude Sonnet 4.6 | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Claude Opus 4.6 | n8n+开源模型 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | 豆包语音 | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App 🔄 | ChatGPT (GPT-5.3) | 豆包App | 日活1130万，用户口碑逆转 |
+| 💰 极致性价比 | DeepSeek V3.2 | Qwen 3.5 | GLM-5（MIT开源） | $0.27/M性能仍在线 |
+
+<strong>🔄 本周变化：</strong> 手机端日常场景Claude升至首选——App Store登顶、日活1130万、用户满意度飙升，叠加Anthropic品牌好感度因军事AI立场而大幅提升。其余场景排名与上期一致。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🚀 DeepSeek V4最后窗口期</strong>：两会3月14日闭幕，若V4未在本周发布，将错过最佳政治和市场窗口。GPT-5.4的先发优势已持续一周。
+
+2. <strong>⚔️ 伊朗战争关键节点</strong>：石油设施被打击 + 新最高领袖上任，局势可能走向两个方向——升级（伊朗报复性封锁霍尔木兹海峡）或转向（新领导层寻求停火）。油价和全球供应链压力持续。
+
+3. <strong>🍎 Apple MacBook Air M5开售（3月11日）</strong>：搭载M5芯片，Apple Intelligence本地推理实测将揭示苹果AI真实实力。
+
+4. <strong>🏛️ Anthropic"供应链风险"后续</strong>：6个月过渡期内，五角大楼将全面转向OpenAI/xAI/Google。关注Anthropic是否获得国会层面的支持或新的商业合作对冲。
+
+5. <strong>🤖 Grok 4.20正式版预期</strong>：Beta预计3月中下旬结束，届时公布正式Benchmark数据，若表现强劲将搅动旗舰模型格局。
+
+---
+
+*数据来源：Fortune、Washington Post、CBS News、NPR、Al Jazeera、CNBC、Axios、The Hill、OpenAI、xAI、CoreWeave、LLM Stats等 | 所有数据基于2026年3月9日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer"> 中国提出调停，但因与伊朗关系更近，美以方面对其中立性存疑；Trump与习近平数周后的会晤前景增添变数。  来源：<a href="https://www.aljazeera.com/news/2026/3/8/iran-war-what-is-happening-on-day-nine-of-us-israel-attacks">Al Jazeera</a> <br> <a href="https://www.npr.org/2026/03/08/nx-s1-5741654/israel-iran-oil-ayatollah-successor">NPR</a> <br> <a href="https://www.cbsnews.com/live-updates/us-iran-war-israel-strikes-regime-targets/">CBS News</a>  ### 🌍 二、法国宣布增加核弹头数量，挪威美国大使馆遭爆炸袭击  Macron宣布法国将数十年来首次增加核弹头数量——在伊朗战争和全球安全格局不确定性背景下的重大信号。同日，挪威奥斯陆美国大使馆外发生爆炸，警方已展开调查，暂未确认动机。  来源：<a href="https://www.npr.org/sections/world/">NPR</a> <br> <a href="https://www.cbsnews.com/">CBS News</a>  ### 🌍 三、尼泊尔"说唱歌手政党"议会选举压倒性胜利  由前说唱歌手领导的尼泊尔政党在首次议会选举中取得压倒性胜利，此前Z世代抗议运动推翻了数十年的旧政治精英统治。这是全球范围内年轻一代通过选举实现政治更替的又一案例。  来源：<a href="https://www.npr.org/sections/world/">NPR</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Anthropic <br> Claude登顶App Store <br> 日活1130万超越ChatGPT，下载量149K/天 <br> ✅全量 <br> App Store / Google Play <br> 3月初 <br> <br> xAI <br> Grok 4.20 Beta 2 <br> 4-Agent并行推理，幻觉率降低 <br> ⏳Beta <br> X Premium / API <br> 3月3日 <br> <br> CoreWeave × Perplexity <br> 多年推理合作 <br> GB200 NVL72集群驱动Perplexity推理 <br> ✅已签 <br> — <br> 3月4日 <br> <br> OpenAI <br> GPT-5.4 / Thinking / Pro <br> 首个内置Computer Use的主力模型，1M上下文 <br> ✅全量 <br> ChatGPT / API <br> 3月5日 <br> <br> DeepSeek <br> V4（仍未发布） <br> 万亿参数多模态，两会窗口期收窄 <br> ⏳等待 <br> 待定 <br> 预计3月中旬前 <br> <br> Anthropic <br> 被列"供应链风险" <br> 五角大楼正式标记，6个月过渡期 <br> — <br> — <br> 3月6日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V3.2 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>---------------<br> <br> </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年4月2日 星期四</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年4月2日 星期四</span>
+    <span>覆盖24小时 · 预计阅读10-12分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>OpenAI完成史上最大私募融资：$1,220亿融资、$8,520亿估值，Amazon出资$500亿领投</strong>，月收入突破$20亿，周活跃用户逼近10亿。<strong>NVIDIA斥资$20亿入股Marvell，联手打造NVLink Fusion平台</strong>，将Marvell定制AI芯片接入NVIDIA高速互联架构，Marvell股价当日飙涨13%。<strong>Oracle启动史上最大规模裁员：最高30,000人（约18%员工），6点邮件通知</strong>，腾出$80-100亿现金流用于AI数据中心建设。<strong>伊朗战争第34天：Trump声称Pezeshkian"请求停火"，伊朗外长否认称"目前没有谈判"</strong>，美国坚持霍尔木兹海峡开放为停火前提条件。<strong>Artemis II成功发射：人类53年来首次载人绕月飞行正式启程。</strong>
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条一：OpenAI $1,220亿融资——史上最大私募融资，估值逼近万亿美元</h3><p>OpenAI于3月31日完成<strong>$1,220亿</strong>融资，投后估值达<strong>$8,520亿</strong>，成为科技史上最大单笔私募融资。这一估值已超过Berkshire Hathaway，仅次于Apple、Microsoft、NVIDIA等少数上市公司。</p><p><strong>投资方阵容：</strong>
+- <strong>Amazon</strong>：$500亿（其中$350亿以IPO或实现AGI为条件）
+- <strong>NVIDIA</strong>：$300亿
+- <strong>SoftBank</strong>：$300亿
+- 其他：Andreessen Horowitz、阿布扎比MGX、D.E. Shaw Ventures、TPG、T. Rowe Price等</p><p><strong>关键业务数据：</strong>
+- <strong>月收入</strong>：$20亿（年化$240亿）
+- <strong>周活跃用户</strong>：9亿（ChatGPT）
+- <strong>资金用途</strong>：算力基础设施+统一AI"超级App"打造</p><div class="callout"><strong>为什么重要：</strong> $8,520亿估值意味着OpenAI距离万亿美元俱乐部仅一步之遥。Amazon的$500亿投资附带AGI对赌条款，表明大资本已将AGI实现视为可投资的具体里程碑。融资规模也反映出AI行业的资本密集度已远超移动互联网时代——$1,220亿相当于整个欧洲VC行业2024年全年融资总额。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://chat.openai.com">ChatGPT</a> / OpenAI API</li><li>💰 定价：消费端产品不变，企业端可能扩展</li><li>💡 上手：关注OpenAI"超级App"战略——整合搜索、Agent、语音的一站式入口</li></ul><div class="sources">来源：<a href="https://www.bloomberg.com/news/articles/2026-03-31/openai-valued-at-852-billion-after-completing-122-billion-round">Bloomberg</a> | <a href="https://www.cnbc.com/2026/03/31/openai-funding-round-ipo.html">CNBC</a> | <a href="https://www.coindesk.com/tech/2026/04/01/openai-raises-a-record-usd122-billion-at-as-revenue-crosses-usd2-billion-per-month">CoinDesk</a> | <a href="https://dataconomy.com/2026/04/01/openai-lands-122-billion-funding-round-ahead-of-expected-ipo/">Dataconomy</a></div><div class="sources">中文解读：<a href="https://zhuanlan.zhihu.com/p/670574382">知乎专栏 - 国内外知名大模型</a></div></div><div class="feature"><h3>头条二：NVIDIA $20亿入股Marvell——NVLink Fusion重新定义AI芯片互联</h3><p>NVIDIA于4月1日宣布对Marvell Technology进行<strong>$20亿战略股权投资</strong>，核心目标是联合开发<strong>NVLink Fusion</strong>平台——一个将Marvell的定制AI加速器直接接入NVIDIA专有高速互联架构的突破性方案。</p><p><strong>技术要点：</strong>
+- <strong>NVLink Fusion</strong>：允许第三方定制ASIC芯片通过NVIDIA互联网络无缝协作，打破"全NVIDIA或全定制"的二选一困境
+- Marvell在定制ASIC和光互联（silicon photonics）领域领先——正是NVIDIA自身薄弱环节
+- 此举强化了美国本土半导体供应链，符合2026年西方政府的芯片安全优先级</p><p><strong>市场反应：</strong> Marvell股价盘中飙涨<strong>13%</strong>，NVIDIA上涨<strong>5.6%</strong>。这是NVIDIA继CoreWeave、Nebius、Coherent后的第四笔$20亿级投资。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：面向AI基础设施客户（非消费者产品）</li><li>💡 上手：NVLink Fusion将降低企业混合芯片部署门槛——不再被锁定在单一供应商</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/03/31/marvell-nvidia-stock-stake.html">CNBC</a> | <a href="https://www.nextplatform.com/connect/2026/03/31/the-2-billion-nvidia-deal-with-marvell-is-about-a-lot-more-than-nvlink-fusion/5213790">The Next Platform</a> | <a href="https://www.fool.com/investing/2026/04/01/nvidia-invests-in-marvell-technology-stock-should/">Motley Fool</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>Oracle史上最大裁员：最高30,000人，6点邮件通知引公愤</h4><p>（3月31日，<a href="https://www.cnbc.com/2026/03/31/oracle-layoffs-ai-spending.html">CNBC</a>）：Oracle启动公司史上最大规模裁员，估计影响<strong>20,000-30,000人</strong>（约18%全球员工），涉及美国、印度、加拿大、墨西哥等多国。员工于当地时间早6点收到"Oracle Leadership"署名的统一解雇邮件，4月3日为正式最后工作日。裁员目的：腾出<strong>$80-100亿</strong>现金流用于AI数据中心扩建。预计重组成本达<strong>$21亿</strong>。
+- 📍 获取：—
+- 💰 定价：—
+- 💡 上手：AI转型裁员潮加速——继Atlassian（1,600人）后又一科技巨头大规模"AI换人"</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/31/oracle-layoffs-ai-spending.html">CNBC</a> | <a href="https://rollingout.com/2026/03/31/oracle-slashes-30000-jobs-with-a-cold-6/">Rolling Out</a> | <a href="https://ca.finance.yahoo.com/news/today-last-working-day-oracle-053049334.html">Yahoo Finance</a></p></div><div class="brief-item"><h4>Perplexity AI遭集体诉讼：被指秘密向Meta和Google共享用户数据</h4><p>（4月1日，<a href="https://www.bloomberg.com/news/articles/2026-04/01/perplexity-ai-machine-accused-of-sharing-data-with-meta-google">Bloomberg</a>）：一名犹他州用户在旧金山联邦法院提起集体诉讼，指控Perplexity在用户登录首页时即下载追踪器，将<strong>用户与AI的完整对话内容</strong>共享给Meta和Google用于广告投放。即使开启"隐身模式"（Incognito）仍在共享数据。Perplexity回应称"未收到此类诉讼"。案号：Doe v. Perplexity AI Inc., 3:26-cv-02803。
+- 📍 获取：—
+- 💡 上手：AI搜索的隐私风险浮出水面——"隐身模式"不等于真正隐私</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.bloomberg.com/news/articles/2026-04-01/perplexity-ai-machine-accused-of-sharing-data-with-meta-google">Bloomberg</a> | <a href="https://the-decoder.com/perplexity-ai-sued-over-alleged-data-sharing-with-meta-and-google/">The Decoder</a> | <a href="https://seekingalpha.com/news/4571476-utah-man-files-class-action-lawsuit-against-perplexity-for-sharing-search-data-with-google">Seeking Alpha</a></p></div><div class="brief-item"><h4>跟进：Artemis II成功发射，人类53年来首次载人绕月正式启程</h4><p>（4月1日，<a href="https://www.nasa.gov/blogs/missions/2026/04/01/live-artemis-ii-launch-day-updates/">NASA</a>）：SLS火箭于美东时间<strong>18:35</strong>从肯尼迪航天中心升空（比预定推迟11分钟），发射过程仅出现轻微电池和靶场问题。Orion飞船<strong>四组太阳能翼已全部展开并锁定</strong>，机组正在地球轨道进行跨月飞行前的弹弓加速。<strong>Victor Glover</strong>成为首位飞越低地球轨道的有色人种，<strong>Christina Koch</strong>成为首位飞越LEO的女性，<strong>Jeremy Hansen</strong>成为首位非美国公民。10天任务预计于4月11日前后返回地球。
+- 📍 获取：NASA+ 直播持续覆盖
+- 💡 上手：Artemis III载人登月（预计2028年）的关键验证步骤</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnn.com/2026/04/01/science/live-news/artemis-2-nasa-launch">CNN</a> | <a href="https://www.npr.org/2026/04/01/nx-s1-5768254/nasa-astronauts-about-to-launch-moon-artemis-ii">NPR</a> | <a href="https://spaceflightnow.com/2026/04/01/live-coverage-nasa-to-launch-artemis-2-its-first-moon-bound-mission-with-astronauts-since-1972/">Spaceflight Now</a></p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第34天：停火争议升温，双方说法截然对立
+
+<strong>4月1-2日增量（接续第33天报道）：</strong>
+
+<strong>Trump声称"伊朗请求停火"（4月1日）：</strong> Trump在对全国讲话前声称伊朗总统Pezeshkian已"请求停火"。但<strong>伊朗高级官员立即否认</strong>，外长Abbas Araghchi告诉半岛电视台："目前没有谈判。我们不是在寻求停火，而是在寻求<strong>结束战争</strong>。"Trump随后改口称美国将在霍尔木兹海峡重新开放后才考虑停火——<strong>与前一天"海峡不是核心目标"的表态再次矛盾</strong>。(<a href="https://www.washingtonpost.com/national/2026/04/01/iran-israel-us-lebanon-latest-april-1-2026/e5de1fa4-2d7f-11f1-aac2-f56b5ccad184_story.html">Washington Post</a> | <a href="https://www.aljazeera.com/news/2026/4/1/iran-denies-trumps-claim-iranian-president-requested-ceasefire">Al Jazeera</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-01/trump-says-us-will-consider-iran-ceasefire-when-hormuz-is-open">Bloomberg</a>)
+
+<strong>关键判断：</strong> "停火"vs"结束战争"的措辞差异至关重要——伊朗要求的是包含安全保障和赔偿的全面和平协议，而非单纯军事暂停。双方公开叙事的巨大差距意味着短期内达成框架协议的可能性较低。
+
+### 🌍 二、美最高法院审理出生公民权：多数大法官对Trump行政令持怀疑态度
+
+4月1日，美国最高法院就Trump限制出生公民权的行政令举行口头辩论。Trump成为<strong>首位出席最高法院口头辩论的在任总统</strong>。该行政令于其第二任期首日签署，拟将出生公民权限定为至少一方父母为美国公民或永久居民的婴儿。
+
+<strong>庭审信号：</strong> 多数大法官——<strong>包括Trump提名的大法官</strong>——对政府论点表现出明显怀疑，积极质疑总统重新解释第14修正案的权力边界。ACLU等机构认为法院<strong>很可能裁定行政令违宪</strong>。判决预计6月底前作出，将影响数百万人。(<a href="https://www.npr.org/2026/04/01/nx-s1-5754762/trump-supreme-court-birthright-citizenship">NPR</a> | <a href="https://www.scotusblog.com/2026/04/supreme-court-appears-likely-to-side-against-trump-on-birthright-citizenship/">SCOTUSblog</a> | <a href="https://www.washingtonpost.com/politics/2026/04/01/supreme-court-birthright-citizenship-trump-live-updates/">Washington Post</a>)
+
+### 🌍 三、AI驱动的科技裁员潮：Oracle 30,000 + Atlassian 1,600
+
+Oracle和Atlassian在两周内合计裁员超31,600人，均以"AI转型"为由。Oracle裁员规模可能达全球员工的18%，释放$80-100亿现金流投入AI数据中心；Atlassian则将$2.25-2.36亿重组成本投向AI研发和企业销售。这一趋势标志着AI不仅在创造新岗位，更在以前所未有的速度淘汰传统IT职位。(<a href="https://www.cnbc.com/2026/03/31/oracle-layoffs-ai-spending.html">CNBC</a> | <a href="https://techcrunch.com/2026/03/12/atlassian-follows-blocks-footsteps-and-cuts-staff-in-the-name-of-ai/">TechCrunch</a>)
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>OpenAI</td><td>$1,220亿融资</td><td>$8,520亿估值，Amazon $500亿领投，月收入$20亿</td><td>✅全量</td><td>ChatGPT / API</td><td>3月31日</td></tr><tr><td>NVIDIA+Marvell</td><td>NVLink Fusion</td><td>$20亿入股，定制ASIC接入NVIDIA互联架构</td><td>⏳开发中</td><td>—</td><td>4月1日</td></tr><tr><td>Oracle</td><td>裁员30,000人</td><td>释放$80-100亿现金流建AI数据中心</td><td>—</td><td>—</td><td>3月31日</td></tr><tr><td>Perplexity AI</td><td>集体诉讼</td><td>被指向Meta/Google共享用户AI对话数据</td><td>✅全量（诉讼中）</td><td>perplexity.ai</td><td>4月1日</td></tr><tr><td>NASA</td><td>Artemis II发射成功</td><td>SLS+Orion升空，10天绕月任务进行中</td><td>—</td><td>NASA+ 直播</td><td>4月1日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月-4月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | MiMo-V2-Pro (小米) |
+|------|------------------|---------------------------|------------------------|----------------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (社区测试中) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic(ClawEval)</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ ClawEval 66.3 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ ClawEval 61.5 |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>多模态(音视频)</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐½ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$2.50/$12 (估算) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书、数学研究 | 长文本、科学推理、多模态 | 中文Agent、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / OpenRouter |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.4 mini (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐½ 逼近旗舰 | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐½ SWE-bench Pro接近旗舰 | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>多模态(音视频)</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ Omni |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | ✅ Omni开源 |</p><p><strong>📝 本周变化：</strong> OpenAI $1,220亿融资确认其在资本层面的绝对领先地位——$8,520亿估值意味着即使模型性能暂被追赶，资源壁垒依然难以逾越。NVIDIA对Marvell的NVLink Fusion投资可能长期改变AI芯片供应格局，但短期不影响模型对比。本周无新模型发布，旗舰排名与上期一致。继续等待DeepSeek V4、Anthropic Mythos和OpenAI Spud。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | GPT-5.4 mini（免费） | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | Claude Opus 4.6 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Runway Gen-4.5 | Kling | Sora下线后双雄格局 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | Harvey | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Gemini 3.1 Pro | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI ⚠️ | ChatGPT Search | Perplexity免费版 | 搜索体验最佳但隐私存疑🔄 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | MiMo-V2-Pro | OpenClaw+本地模型 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | Qwen3.5-Omni | 豆包App | 113语言语音+克隆能力 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.4 mini) | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | GPT-5.4 nano | MiMo-V2-Pro | GLM-5（MIT开源） | $0.20/M碾压全场 |
+
+<strong>🔄 本周变化：</strong> ①<strong>实时搜索场景新增⚠️标注</strong>：Perplexity AI遭集体诉讼，被指将用户AI对话数据共享给Meta和Google——即使隐身模式也不例外。Perplexity仍是搜索体验最佳选择，但隐私敏感用户应考虑ChatGPT Search作为替代。②其余场景与上期一致。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>💰 OpenAI IPO预期升温</strong>：$1,220亿融资中Amazon的$350亿以IPO为条件——OpenAI上市时间表可能加速。IPO估值若达万亿美元将是科技史新里程碑。
+
+2. <strong>🧠 DeepSeek V4四月发布窗口</strong>：LTM长期记忆技术+多模态原生支持，4月中下旬可能亮相。腾讯混元新模型同期发布。
+
+3. <strong>🚀 Artemis II绕月任务进行中</strong>：机组正在地球轨道弹弓加速，预计4月11日前后返回地球。10天任务期间持续关注飞船系统状态。
+
+4. <strong>🕊️ 伊朗战争：4月6日电网打击暂停到期</strong>：双方公开叙事差距巨大（"停火"vs"结束战争"），短期框架协议可能性低。4月6日节点是下一个升级/缓和分水岭。
+
+5. <strong>⚖️ Perplexity隐私诉讼进展</strong>：若法院支持原告发现请求，可能揭示AI搜索行业的数据共享全貌——这不仅影响Perplexity，也可能波及所有嵌入第三方追踪器的AI产品。
+
+---
+
+*数据来源：Bloomberg、CNBC、CoinDesk、Washington Post、Al Jazeera、NPR、SCOTUSblog、The Decoder、NASA、Motley Fool、TechCrunch等 | 所有数据基于2026年4月2日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer">。判决预计6月底前作出，将影响数百万人。(<a href="https://www.npr.org/2026/04/01/nx-s1-5754762/trump-supreme-court-birthright-citizenship">NPR</a> <br> <a href="https://www.scotusblog.com/2026/04/supreme-court-appears-likely-to-side-against-trump-on-birthright-citizenship/">SCOTUSblog</a> <br> <a href="https://www.washingtonpost.com/politics/2026/04/01/supreme-court-birthright-citizenship-trump-live-updates/">Washington Post</a>)  ### 🌍 三、AI驱动的科技裁员潮：Oracle 30,000 + Atlassian 1,600  Oracle和Atlassian在两周内合计裁员超31,600人，均以"AI转型"为由。Oracle裁员规模可能达全球员工的18%，释放$80-100亿现金流投入AI数据中心；Atlassian则将$2.25-2.36亿重组成本投向AI研发和企业销售。这一趋势标志着AI不仅在创造新岗位，更在以前所未有的速度淘汰传统IT职位。(<a href="https://www.cnbc.com/2026/03/31/oracle-layoffs-ai-spending.html">CNBC</a> <br> <a href="https://techcrunch.com/2026/03/12/atlassian-follows-blocks-footsteps-and-cuts-staff-in-the-name-of-ai/">TechCrunch</a>)  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> OpenAI <br> $1,220亿融资 <br> $8,520亿估值，Amazon $500亿领投，月收入$20亿 <br> ✅全量 <br> ChatGPT / API <br> 3月31日 <br> <br> NVIDIA+Marvell <br> NVLink Fusion <br> $20亿入股，定制ASIC接入NVIDIA互联架构 <br> ⏳开发中 <br> — <br> 4月1日 <br> <br> Oracle <br> 裁员30,000人 <br> 释放$80-100亿现金流建AI数据中心 <br> — <br> — <br> 3月31日 <br> <br> Perplexity AI <br> 集体诉讼 <br> 被指向Meta/Google共享用户AI对话数据 <br> ✅全量（诉讼中） <br> perplexity.ai <br> 4月1日 <br> <br> NASA <br> Artemis II发射成功 <br> SLS+Orion升空，10天绕月任务进行中 <br> — <br> NASA+ 直播 <br> 4月1日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月-4月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> MiMo-V2-Pro (小米) <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>----------------------<br> <br> </div>
+</div>
+</body>
+</html>

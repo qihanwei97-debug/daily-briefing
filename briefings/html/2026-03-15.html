@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月15日 星期日</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月15日 星期日</span>
+    <span>覆盖24小时 · 预计阅读11分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>伊朗战争第16天：伊朗无人机和导弹大规模攻击沙特、卡塔尔、阿联酋</strong>，沙特拦截6架无人机，约旦两周内拦截79/85枚导弹和无人机，黎巴嫩死亡人数升至773人，IEA史上最大规模释放4亿桶战略石油储备但远不足以填补缺口。<strong>明天重磅：Nvidia GTC 2026开幕，Jensen Huang主题演讲（北京时间3月17日凌晨3点）</strong>，预计发布Vera Rubin和Feynman架构、NemoClaw Agent平台，来自190个国家3万+参会者齐聚圣何塞。<strong>Apple新Siri部分功能延期</strong>——原定随iOS 26.4（3月）发布的Gemini驱动Siri，因可靠性问题将部分功能推迟至iOS 26.5（5月）甚至iOS 27（9月）。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Nvidia GTC 2026明日开幕——年度最重要AI基础设施大会</h3><p>3月16-19日，Nvidia GTC 2026在圣何塞SAP Center举行。Jensen Huang将于3月16日上午11点（太平洋时间）/北京时间3月17日凌晨3点发表长达2小时的主题演讲，涵盖加速计算、AI工厂、开放模型、Agentic系统和物理AI的最新进展。</p><div class="callout"><strong>为什么重要：</strong> GTC是Nvidia每年定义AI硬件和生态方向的旗舰活动。本周Nvidia已提前释放两颗重磅炸弹——Nemotron 3 Super 120B开源模型（3月11日）和$20亿入股Nebius（3月11日），明天的主题演讲预计将正式发布：(1) Vera Rubin GPU架构——下一代数据中心GPU；(2) Feynman架构——更远期路线图；(3) NemoClaw企业AI Agent平台——Nvidia的Agent生态总入口。Huang还将与a16z、AI2、Black Forest Labs、Cursor、Reflection AI等领军人物对谈开放前沿模型的未来。来自190个国家的3万+参会者（含开发者、研究人员和企业领袖）将全程参与。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.nvidia.com/gtc/keynote/">主题演讲直播</a>，无需注册，也可在<a href="https://www.nvidia.com/gtc/">nvidia.com</a>回看</li><li>💰 定价：线上观看免费</li><li>💡 上手：关注Vera Rubin架构性能数据和NemoClaw对Agent开发工作流的影响</li></ul><div class="sources">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-ceo-jensen-huang-and-global-technology-leaders-to-showcase-age-of-ai-at-gtc-2026">Nvidia官方</a> | <a href="https://techcrunch.com/2026/03/12/how-to-watch-jensen-huangs-nvidia-gtc-2026-keynote/">TechCrunch</a> | <a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia GTC博客</a></div><div class="sources">中文解读：暂无中国媒体深度报道（预计明天主题演讲后会有大量报道）</div></div><div class="brief-item"><h4>Apple新Siri延期——Gemini驱动的核心功能推迟至iOS 26.5/27</h4><p>（3月，<a href="https://9to5mac.com/2026/02/11/apple-reportedly-pushing-back-gemini-powered-siri-features-beyond-ios-26-4/">9to5Mac</a>）：Apple原计划在iOS 26.4（3月发布）中推出全面升级的Gemini驱动Siri，包括个人上下文理解、屏幕感知和深度App控制。但据报道，新Siri存在查询处理失败和响应延迟等可靠性问题。iOS 26.4仍将包含"部分组件"，但完整功能可能推迟至iOS 26.5（5月）甚至iOS 27（9月）。
+- 📍 获取：iOS 26.4预计3月底至4月初推送
+- 💰 定价：免费系统更新
+- 💡 上手：期望值下调——3月版本只是"半成品"</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://9to5mac.com/2026/02/11/apple-reportedly-pushing-back-gemini-powered-siri-features-beyond-ios-26-4/">9to5Mac</a> | <a href="https://www.macrumors.com/2026/01/25/siri-google-gemini-release-date/">MacRumors</a> | <a href="https://www.techradar.com/phones/ios/siris-new-gemini-powered-brain-is-almost-here-find-out-how-to-try-it-in-ios-26-4-this-month">TechRadar</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>IEA史上最大规模战略石油储备释放——4亿桶，美国承担43%</h4><p>（3月11日公告，<a href="https://www.cnbc.com/2026/03/14/iran-war-iea-oil-stockpile-spr-strait-hormuz.html">CNBC</a>）：32个IEA成员国一致同意释放4亿桶石油（约全球4天消费量），其中美国从战略石油储备中释放1.72亿桶。这是IEA 50年历史上最大规模的紧急储备释放，但分析师警告释放量远不足以填补霍尔木兹海峡封锁造成的供给缺口——全球约27%的海运原油贸易经过该海峡。
+- 📍 获取：影响全球油价和能源市场
+- 💡 上手：短期油价可能小幅回落，但结构性缺口仍在</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/14/iran-war-iea-oil-stockpile-spr-strait-hormuz.html">CNBC</a> | <a href="https://thehill.com/policy/energy-environment/5778639-iea-oil-strategic-reserves-iran-war-strait-of-hormuz/">The Hill</a> | <a href="https://foreignpolicy.com/2026/03/11/iran-war-iea-oil-reserves-release-crude-strait-hormuz/">Foreign Policy</a></p></div><div class="brief-item"><h4>OpenAI年化收入突破$250亿，Anthropic逼近$190亿</h4><p>OpenAI年化收入已超$250亿，ChatGPT周活用户达9亿（占全球人口10%+）。Anthropic年化收入逼近$190亿。AI行业的商业化速度远超预期。
+- 📍 获取：ChatGPT / claude.ai
+- 💡 上手：AI不再是"烧钱赛道"——头部玩家已进入大规模盈利轨道</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a></p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第16天：伊朗全面反击，战场扩至整个波斯湾
+
+3月14-15日，伊朗对沙特、卡塔尔、阿联酋发动大规模无人机和导弹攻击，标志着战争从美伊对峙扩展为整个波斯湾区域冲突。沙特国防部称拦截并摧毁6架无人机（东部5架、"空旷区"1架）。约旦武装部队宣布在战争第二周共拦截79/85枚来自伊朗的导弹和无人机，5架无人机和1枚导弹落入境内。伊拉克美国大使馆直升机停机坪遭导弹击中。
+
+<strong>伤亡持续攀升：</strong> 开战以来，美以对伊朗打击已造成至少1,444人死亡、18,551人受伤。以色列对黎巴嫩的攻击（3月2日起）已造成至少773人死亡。美国国务院悬赏$1,000万征集哈梅内伊等伊朗高级官员情报。更多海军陆战队正前往中东。地区高级官员预计战争至少还将持续一周，以色列领导层越来越倾向于单方面结束战争而非通过谈判。
+
+来源：<a href="https://www.aljazeera.com/news/2026/3/14/iran-war-what-is-happening-on-day-15-of-us-israel-attacks">Al Jazeera</a> | <a href="https://www.aljazeera.com/news/2026/3/14/iran-continues-intensified-attacks-across-gulf-in-us-israel-war-fallout">Al Jazeera（伊朗反击）</a> | <a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-13-26">CNN</a>
+
+### 🌍 二、全球经济承压：油价逼近$100，IEA史上最大储备释放杯水车薪
+
+Brent原油在$100-103区间震荡，开战以来累涨超40%。IEA释放4亿桶战略储备（详见AI速报板块），但全球约20%石油消费途经霍尔木兹海峡，释放量仅够全球4天消费。印度海军已开始为LPG油轮护航通过海峡。全球市场因油价承压而下跌。
+
+来源：<a href="https://www.cnbc.com/2026/03/14/iran-war-iea-oil-stockpile-spr-strait-hormuz.html">CNBC</a> | <a href="https://www.aljazeera.com/news/liveblog/2026/3/11/iran-war-live-tehran-says-us-israel-hit-nearly-10000-civilian-sites">Al Jazeera</a>
+
+### 🌍 三、美国国内：ACIP讨论COVID疫苗损伤，马萨诸塞州退出
+
+联邦免疫实践咨询委员会（ACIP）将召开会议讨论COVID-19疫苗损伤和长新冠问题，马萨诸塞州已与该委员会保持距离。这是美国公共卫生政策分裂的最新信号。
+
+来源：<a href="https://www.mprnews.org/content/3-15-2026">MPR News</a>
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Nvidia</td><td>GTC 2026</td><td>明日开幕，Vera Rubin/Feynman/NemoClaw</td><td>⏳明天11am PT</td><td>nvidia.com/gtc</td><td>3月16日</td></tr><tr><td>Apple</td><td>新Siri（iOS 26.4）</td><td>Gemini驱动，核心功能延期至26.5/27</td><td>⏳部分3月底</td><td>iOS系统更新</td><td>3月</td></tr><tr><td>IEA</td><td>4亿桶石油储备释放</td><td>50年最大规模，美国承担43%</td><td>✅已执行</td><td>影响全球油价</td><td>3月11日</td></tr><tr><td>OpenAI</td><td>年化收入$250亿+</td><td>ChatGPT周活9亿，超全球10%人口</td><td>✅已达成</td><td>chatgpt.com</td><td>3月</td></tr><tr><td>Anthropic</td><td>年化收入逼近$190亿</td><td>Claude付费订阅同比+200%</td><td>✅运营中</td><td>claude.ai</td><td>3月</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
+|------|------------------|---------------------------|------------------------|-------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (待测) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic/Computer Use</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐ (待测) |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$0.14/$0.56 (待确认) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书 | 长文本、科学推理 | 中文任务、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / 开源 |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.3 Instant (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ 幻觉率↓27% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价</strong> | 订阅制内 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大排名变动。DeepSeek V4独立Benchmark仍未公布。明天GTC开幕后关注Nvidia是否发布影响推理成本格局的新硬件/软件。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | DeepSeek V4 | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | GPT-5.4 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Sora | Runway Gen-4.5 | 音视频同步双料第一 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | DeepSeek V4 | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Claude Sonnet 4.6 | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Claude Opus 4.6 | Nemotron 3 Super | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | 豆包语音 | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.3) | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | DeepSeek V4 | MiniMax M2.5 | GLM-5（MIT开源） | V4若确认$0.14/M碾压全场 |
+
+<strong>🔄 本周变化：</strong> 本周场景排名与上期一致，无变动。关注明天GTC后Nvidia是否推出影响Agent/自动化场景的新工具。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🎮 Nvidia GTC 2026（明天开幕，3月16-19日）</strong>：Jensen Huang主题演讲（3月16日11am PT / 北京时间3月17日3am），Vera Rubin架构、Feynman路线图、NemoClaw Agent平台。这是AI基础设施领域本年度最重要的发布会。
+
+2. <strong>⚔️ 伊朗战争：区域化冲突进入关键周</strong>：伊朗全面反击波及沙特、卡塔尔、阿联酋、约旦，战场已从美伊对峙扩展为波斯湾全面冲突。以色列倾向单方面结束战争。$500亿战争拨款国会投票临近。
+
+3. <strong>🔍 DeepSeek V4独立Benchmark</strong>：社区独立测试持续进行中，编程、推理、多模态实测数据将决定V4最终定位。
+
+4. <strong>📱 Apple iOS 26.4</strong>：虽然Siri核心功能延期，iOS 26.4仍将包含部分Gemini组件，预计3月底至4月初推送。
+
+5. <strong>💰 AI商业化里程碑</strong>：OpenAI $250亿+、Anthropic $190亿年化收入。关注是否有IPO进展消息——OpenAI据报可能最早2026年底上市。
+
+---
+
+*数据来源：Nvidia、Al Jazeera、CNN、CNBC、9to5Mac、MacRumors、TechCrunch、The Hill、Foreign Policy等 | 所有数据基于2026年3月15日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer"> 开战以来，美以对伊朗打击已造成至少1,444人死亡、18,551人受伤。以色列对黎巴嫩的攻击（3月2日起）已造成至少773人死亡。美国国务院悬赏$1,000万征集哈梅内伊等伊朗高级官员情报。更多海军陆战队正前往中东。地区高级官员预计战争至少还将持续一周，以色列领导层越来越倾向于单方面结束战争而非通过谈判。  来源：<a href="https://www.aljazeera.com/news/2026/3/14/iran-war-what-is-happening-on-day-15-of-us-israel-attacks">Al Jazeera</a> <br> <a href="https://www.aljazeera.com/news/2026/3/14/iran-continues-intensified-attacks-across-gulf-in-us-israel-war-fallout">Al Jazeera（伊朗反击）</a> <br> <a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-13-26">CNN</a>  ### 🌍 二、全球经济承压：油价逼近$100，IEA史上最大储备释放杯水车薪  Brent原油在$100-103区间震荡，开战以来累涨超40%。IEA释放4亿桶战略储备（详见AI速报板块），但全球约20%石油消费途经霍尔木兹海峡，释放量仅够全球4天消费。印度海军已开始为LPG油轮护航通过海峡。全球市场因油价承压而下跌。  来源：<a href="https://www.cnbc.com/2026/03/14/iran-war-iea-oil-stockpile-spr-strait-hormuz.html">CNBC</a> <br> <a href="https://www.aljazeera.com/news/liveblog/2026/3/11/iran-war-live-tehran-says-us-israel-hit-nearly-10000-civilian-sites">Al Jazeera</a>  ### 🌍 三、美国国内：ACIP讨论COVID疫苗损伤，马萨诸塞州退出  联邦免疫实践咨询委员会（ACIP）将召开会议讨论COVID-19疫苗损伤和长新冠问题，马萨诸塞州已与该委员会保持距离。这是美国公共卫生政策分裂的最新信号。  来源：<a href="https://www.mprnews.org/content/3-15-2026">MPR News</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Nvidia <br> GTC 2026 <br> 明日开幕，Vera Rubin/Feynman/NemoClaw <br> ⏳明天11am PT <br> nvidia.com/gtc <br> 3月16日 <br> <br> Apple <br> 新Siri（iOS 26.4） <br> Gemini驱动，核心功能延期至26.5/27 <br> ⏳部分3月底 <br> iOS系统更新 <br> 3月 <br> <br> IEA <br> 4亿桶石油储备释放 <br> 50年最大规模，美国承担43% <br> ✅已执行 <br> 影响全球油价 <br> 3月11日 <br> <br> OpenAI <br> 年化收入$250亿+ <br> ChatGPT周活9亿，超全球10%人口 <br> ✅已达成 <br> chatgpt.com <br> 3月 <br> <br> Anthropic <br> 年化收入逼近$190亿 <br> Claude付费订阅同比+200% <br> ✅运营中 <br> claude.ai <br> 3月 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V4 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>-------------<br> <br> </div>
+</div>
+</body>
+</html>

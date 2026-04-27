@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月11日 星期三</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月11日 星期三</span>
+    <span>覆盖24小时 · 预计阅读11分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Yann LeCun的AMI Labs完成$10.3亿种子轮融资，估值$35亿，押注"世界模型"挑战LLM主流范式</strong>——Nvidia、Bezos Expeditions、Eric Schmidt等参投，这是欧洲史上最大种子轮。<strong>美以对伊战争第11天迎来"最猛烈一天"，霍尔木兹海峡航运骤降90%</strong>，IEA拟释放史上最大规模战略石油储备（3-4亿桶），油价剧烈波动。<strong>Apple MacBook Air M5今日正式开售</strong>，搭载M5芯片，起步存储翻倍至512GB，$1,099起。<strong>DeepSeek V4疑似静默上线</strong>，多个第三方来源称模型已于3月初发布，但官方缺乏高调公告，独立Benchmark数据仍在收集中。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Yann LeCun离开Meta创办AMI Labs，$10.3亿种子轮押注"世界模型"</h3><p>3月10日，由图灵奖得主、前Meta首席AI科学家Yann LeCun创办的Advanced Machine Intelligence（AMI Labs）宣布完成$10.3亿种子轮融资，pre-money估值$35亿，成为欧洲史上最大种子轮。</p><p><strong>核心理念：</strong> LeCun长期公开批评LLM是"死胡同"，认为纯语言模型无法实现真正的智能。AMI Labs转而研究"世界模型（World Models）"——AI从物理现实中学习，而非仅从文本数据中学习。目标是构建能推理、规划、理解真实环境的AI系统。</p><p><strong>投资阵容：</strong> 由Cathay Innovation、Greycroft、Hiro Capital、HV Capital和Bezos Expeditions联合领投。参投方包括Nvidia、Tim Berners-Lee夫妇、Jim Breyer、Mark Cuban、Xavier Niel、Eric Schmidt等。</p><p><strong>团队：</strong> LeCun担任首席科学家，日常运营由CEO Alexandre LeBrun负责——LeBrun此前创办并运营医疗AI公司Nabla。LeCun于2025年底离开Meta，结束了十余年的AI研究领导生涯。</p><div class="callout"><strong>为什么重要：</strong> 这是对当前LLM主导范式的最大规模资本挑战。如果世界模型路线成功，将从根本上改变AI的发展方向。短期内不会产生产品，但$10.3亿的融资规模表明顶级资本对"后LLM时代"的押注已经开始。</div><div class="sources">来源：<a href="https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/">TechCrunch</a> | <a href="https://www.bloomberg.com/news/articles/2026-03-10/yann-lecun-s-new-ai-startup-raises-1-billion-in-seed-funding">Bloomberg</a> | <a href="https://siliconangle.com/2026/03/10/yann-lecuns-new-startup-ami-labs-raises-1-03b-train-world-models/">SiliconANGLE</a> | <a href="https://thenextweb.com/news/yann-lecun-ami-labs-world-models-billion">The Next Web</a></div></div><div class="brief-item"><h4>DeepSeek V4疑似静默上线</h4><p>多个第三方来源（The Creators AI、Apiyi等）称DeepSeek V4已于3月初上线，约1万亿参数（~32B活跃），支持文本/图像/视频多模态，1M上下文窗口，Apache 2.0开源。API定价约$0.14/M input tokens——仅为GPT-5.4的1/20。但截至3月11日，DeepSeek官方未发布正式公告，独立Benchmark测试仍在进行中。此前3月9日晨报曾跟踪此事件为"仍未发布"，目前状态更新为"疑似已上线但缺乏官方确认"。
+- 📍 获取：chat.deepseek.com / API（待确认）
+- 💰 定价：~$0.14/M input tokens（如属实，性价比极高）
+- 💡 上手：关注独立Benchmark结果，确认后再大规模迁移工作流
+- 来源：<a href="https://thecreatorsai.com/p/claude-1-on-app-store-gpt-54-lands">The Creators AI</a> | <a href="https://help.apiyi.com/en/deepseek-v4-multimodal-trillion-parameter-model-guide-en.html">Apiyi</a> | <a href="https://awesomeagents.ai/models/deepseek-v4/">Awesome Agents</a></p></div><div class="brief-item"><h4>Oracle Q3财报超预期，AI基础设施收入暴增243%</h4><p>Q3 FY2026营收$171.9亿（同比+22%），EPS $1.79超预期$1.70。云基础设施收入$49亿（+84%），其中AI基础设施收入同比增长243%。RPO（剩余履约义务）同比翻4倍至$5,530亿，反映大规模AI合同积压。管理层将FY2027营收预期上调$10亿至$900亿。盘后股价大涨。
+- 📍 获取：ORCL（NYSE）
+- 💰 定价：股价$190+区间
+- 💡 上手：Oracle的AI云增长数据是企业AI支出的风向标
+- 来源：<a href="https://www.cnbc.com/2026/03/10/oracle-orcl-q3-earnings-report-2026.html">CNBC</a> | <a href="https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Fiscal-Year-2026-Third-Quarter-Financial-Results/default.aspx">Oracle官方</a> | <a href="https://www.benzinga.com/markets/earnings/26/03/51174192/oracle-stock-jumps-as-q3-earnings-top-estimates-ai-demand-expected-to-be-multiyear-tailwind">Benzinga</a></p></div><div class="brief-item"><h4>Nvidia GTC 2026下周开幕（3月16-19日）</h4><p>Jensen Huang将在SAP Center发表主题演讲，预计发布Vera Rubin和Feynman两代GPU架构。Vera Rubin将采用Nvidia自研Vera CPU（替代Grace CPU）并搭配第六代HBM4显存。同时将发布NemoClaw——面向企业的开源AI Agent平台。量子加速超算（NVQLink）也将亮相。
+- 📍 获取：<a href="https://www.nvidia.com/gtc/">nvidia.com/gtc</a>（线上+线下）
+- 💰 定价：线上免费 / 线下$399+
+- 💡 上手：关注Vera Rubin性能数据和NemoClaw对企业Agent工作流的影响
+- 来源：<a href="https://www.nvidia.com/gtc/">Nvidia GTC官网</a> | <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261657446-nvidia-gtc-2026-preview-vera-rubin-feynman-tradingkey">TradingKey</a> | <a href="https://www.tipranks.com/news/ahead-of-gtc-2026-nvidia-launches-open-source-ai-platform-nemoclaw">TipRanks</a></p></div><div class="brief-item"><h4>Apple新Siri确认3月随iOS 26.4发布，由Google Gemini驱动</h4><p>Apple与Google达成多年合作，新Siri由1.2万亿参数Gemini模型驱动，运行在Apple Private Cloud Compute上。核心新功能包括"屏幕感知（on-screen awareness）"——Siri能看到并理解屏幕内容，以及跨应用深度集成。Apple每年向Google支付约$10亿。MacBook Air M5今日开售，是首批搭载完整Apple Intelligence本地推理的消费设备。
+- 📍 获取：iOS 26.4更新（3月内） / MacBook Air M5（今日开售，$1,099起）
+- 💰 定价：系统更新免费 / MacBook Air M5 $1,099起
+- 💡 上手：M5的Neural Accelerator + Gemini后端是苹果AI体验的真正起点
+- 来源：<a href="https://www.apple.com/newsroom/2026/03/apple-introduces-the-new-macbook-air-with-m5/">Apple官方</a> | <a href="https://www.cnbc.com/2026/01/12/apple-google-ai-siri-gemini.html">CNBC</a> | <a href="https://techcrunch.com/2026/03/03/apple-unveils-new-macbook-air-and-macbook-pro-with-m5/">TechCrunch</a></p></div><div class="brief-item"><h4>OpenAI退役GPT-4o等旧模型</h4><p>OpenAI从ChatGPT中移除GPT-4o、GPT-4.1、GPT-4.1 mini和o4-mini，同时GPT-5 Instant和GPT-5 Thinking也进入退役流程。GPT-5.2 Thinking将保留至6月5日后退役。这标志着OpenAI全面切换至GPT-5.3/5.4世代。
+- 来源：<a href="https://releasebot.io/updates/openai">Releasebot</a> | <a href="https://llm-stats.com/llm-updates">LLM Stats</a></p></div><div class="brief-item"><h4>Anthropic发布Claude Code Review</h4><p>Claude Code新增Code Review功能，专门审查AI生成的代码，在生产部署前捕获Bug。随着"Vibe Coding"和Agent辅助开发加速普及，代码质量控制工具成为刚需。
+- 📍 获取：Claude Code CLI
+- 💰 定价：Claude Code订阅内
+- 💡 上手：适合在Agent自动编码后添加一道人工审查+AI审查的双重保障
+- 来源：<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a></p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第11天：美军发动"最猛烈一天"打击，霍尔木兹海峡航运骤降90%
+
+3月10日，美国防长Hegseth宣布当天为对伊打击"最猛烈的一天"。美国中央司令部称美军"消灭"了16艘布雷舰及多艘军舰。伊朗宣布在美以停火前"一升石油都不会流出中东"，霍尔木兹海峡航运量骤降90%（Kpler数据）。中东石油产出被削减约6%。
+
+Trump警告伊朗，若在海峡布雷将面临"前所未见的军事后果"。巴林首都麦纳麦一栋居民楼被击中，1人死亡、8人受伤。沙特、科威特等海湾国家持续拦截伊朗导弹和无人机。德黑兰居民报告空气有毒，以色列打击油库后街道和阳台覆满黑色粉尘。
+
+<strong>油价剧烈波动：</strong> Brent一度逼近$120/桶（历史高位附近），IEA提议释放史上最大规模战略石油储备（3-4亿桶，约占IEA系统公共储备的25-33%），远超2022年俄乌冲突时的1.82亿桶。消息传出后油价大幅回落，Brent收于$87.80（-11.28%），WTI收于$83.45（-11.94%）。IEA成员国将于明日（3月12日）投票决定是否批准释放。
+
+来源：<a href="https://www.aljazeera.com/news/2026/3/10/iran-war-what-is-happening-on-day-11-of-us-israel-attacks">Al Jazeera</a> | <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-prices-trump-hormuz-israel-rcna262670">NBC News</a> | <a href="https://www.cnbc.com/2026/03/10/crude-oil-prices-today-iran-war.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-03-10/iran-war-oil-and-gas-supply-squeeze-and-strait-of-hormuz-disruption-explained">Bloomberg</a>
+
+中文解读：<a href="https://www.pbs.org/newshour/world/war-with-iran-delivers-high-oil-prices-and-another-shock-to-the-global-economy">PBS深度分析</a>
+
+### 🌍 二、IEA拟释放史上最大规模战略石油储备
+
+IEA正考虑释放3-4亿桶石油储备以稳定市场，远超2022年俄乌冲突时的1.82亿桶。G7财长已讨论紧急储备释放方案。美国认为释放SPR储备的25-33%是"适当的"。成员国将于3月12日（周四）投票。消息提振市场情绪，油价单日跌幅超11%。
+
+来源：<a href="https://www.business-standard.com/economy/news/oil-prices-fall-after-iea-proposes-largest-oil-stock-release-ever-126031100077_1.html">Business Standard</a> | <a href="https://www.cnbc.com/2026/03/10/iea-g7-oil-iran-war-strait-hormuz.html">CNBC</a> | <a href="https://www.foxbusiness.com/politics/g7-finance-ministers-discuss-emergency-oil-reserve-release-amid-price-surge-report">Fox Business</a>
+
+### 🌍 三、多伦多美国领事馆外发生枪击事件
+
+多伦多警方正在调查美国领事馆外的枪击事件，暂未确认动机。此前挪威奥斯陆美国大使馆也曾遭遇爆炸，全球多地美国外交设施安全警戒升级。
+
+来源：<a href="https://www.democracynow.org/2026/3/10/headlines">Democracy Now</a>
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>AMI Labs</td><td>$10.3亿种子轮</td><td>LeCun创办，押注世界模型挑战LLM</td><td>⏳研发中</td><td>—</td><td>3月10日</td></tr><tr><td>DeepSeek</td><td>V4（疑似上线）</td><td>万亿参数多模态，$0.14/M，待确认</td><td>⏳待确认</td><td>chat.deepseek.com / API</td><td>3月初</td></tr><tr><td>Oracle</td><td>Q3财报</td><td>AI基础设施收入+243%，RPO翻4倍</td><td>✅全量</td><td>ORCL（NYSE）</td><td>3月10日</td></tr><tr><td>Nvidia</td><td>GTC 2026预告</td><td>Vera Rubin/Feynman GPU + NemoClaw</td><td>⏳3月16日</td><td>nvidia.com/gtc</td><td>3月16-19日</td></tr><tr><td>Apple</td><td>MacBook Air M5</td><td>M5芯片，512GB起步，$1,099</td><td>✅今日开售</td><td>Apple Store</td><td>3月11日</td></tr><tr><td>Apple</td><td>新Siri + Gemini</td><td>屏幕感知，Gemini 1.2T参数驱动</td><td>⏳iOS 26.4</td><td>系统更新</td><td>3月内</td></tr><tr><td>OpenAI</td><td>旧模型退役</td><td>GPT-4o/4.1/o4-mini从ChatGPT移除</td><td>✅已执行</td><td>—</td><td>3月</td></tr><tr><td>Anthropic</td><td>Claude Code Review</td><td>AI代码审查，捕获Agent生成代码Bug</td><td>✅全量</td><td>Claude Code CLI</td><td>近日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
+|------|------------------|---------------------------|------------------------|-------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (待测) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic/Computer Use</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐ (待测) |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$0.14/$0.56 (待确认) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书 | 长文本、科学推理 | 中文任务、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / 开源 |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.3 Instant (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ 幻觉率↓27% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价</strong> | 订阅制内 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 旗舰表DeepSeek V4替换V3.2入列——若V4确认上线，其$0.14/M的定价将使性价比优势进一步扩大（GPT-5.4的1/20）。但由于V4独立Benchmark尚未公布，所有性能评分标注"待测"。中端表无变化。Nvidia GTC下周可能带来硬件层面的格局变动。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | DeepSeek V4 | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | GPT-5.4 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Sora | Runway Gen-4.5 | 音视频同步，排名双料第一 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | DeepSeek V4 | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Claude Sonnet 4.6 | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Claude Opus 4.6 | n8n+开源模型 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | 豆包语音 | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.3) | 豆包App | 日活1130万，用户口碑逆转 |
+| 💰 极致性价比 | DeepSeek V4 🔄 | Qwen 3.5 | GLM-5（MIT开源） | $0.14/M若确认则碾压全场 |
+
+<strong>🔄 本周变化：</strong> 极致性价比场景DeepSeek V4替换V3.2——若定价$0.14/M属实，将是目前市场上性价比最高的旗舰级模型。其余场景排名与上期一致，待GTC后和V4 Benchmark发布后可能有进一步调整。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🛢️ IEA战略石油储备投票（3月12日）</strong>：成员国将决定是否释放3-4亿桶储备，这将是IEA历史上最大规模的紧急释放，直接影响全球油价走势。
+
+2. <strong>🎮 Nvidia GTC 2026（3月16-19日）</strong>：Jensen Huang主题演讲，Vera Rubin和Feynman架构发布，NemoClaw企业AI Agent平台亮相。GPU硬件代际更替的关键时刻。
+
+3. <strong>🔍 DeepSeek V4独立Benchmark待发布</strong>：V4若确认上线，社区独立测试将陆续出炉。编程、推理、多模态三个维度的实测数据将决定其在对比表中的最终定位。
+
+4. <strong>📱 Apple新Siri + iOS 26.4发布</strong>：Gemini驱动的新Siri将在3月内随iOS 26.4推送，"屏幕感知"功能是苹果进入AI助手竞争的真正入场券。
+
+5. <strong>⚔️ 伊朗战争走向</strong>：霍尔木兹海峡几乎关闭+IEA储备释放+Trump"最强硬警告"，本周是战争升级或转向的关键窗口。
+
+---
+
+*数据来源：TechCrunch、Bloomberg、CNBC、Al Jazeera、NBC News、Apple、Oracle、Nvidia、LLM Stats等 | 所有数据基于2026年3月11日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer"> Brent一度逼近$120/桶（历史高位附近），IEA提议释放史上最大规模战略石油储备（3-4亿桶，约占IEA系统公共储备的25-33%），远超2022年俄乌冲突时的1.82亿桶。消息传出后油价大幅回落，Brent收于$87.80（-11.28%），WTI收于$83.45（-11.94%）。IEA成员国将于明日（3月12日）投票决定是否批准释放。  来源：<a href="https://www.aljazeera.com/news/2026/3/10/iran-war-what-is-happening-on-day-11-of-us-israel-attacks">Al Jazeera</a> <br> <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-oil-prices-trump-hormuz-israel-rcna262670">NBC News</a> <br> <a href="https://www.cnbc.com/2026/03/10/crude-oil-prices-today-iran-war.html">CNBC</a> <br> <a href="https://www.bloomberg.com/news/articles/2026-03-10/iran-war-oil-and-gas-supply-squeeze-and-strait-of-hormuz-disruption-explained">Bloomberg</a>  中文解读：<a href="https://www.pbs.org/newshour/world/war-with-iran-delivers-high-oil-prices-and-another-shock-to-the-global-economy">PBS深度分析</a>  ### 🌍 二、IEA拟释放史上最大规模战略石油储备  IEA正考虑释放3-4亿桶石油储备以稳定市场，远超2022年俄乌冲突时的1.82亿桶。G7财长已讨论紧急储备释放方案。美国认为释放SPR储备的25-33%是"适当的"。成员国将于3月12日（周四）投票。消息提振市场情绪，油价单日跌幅超11%。  来源：<a href="https://www.business-standard.com/economy/news/oil-prices-fall-after-iea-proposes-largest-oil-stock-release-ever-126031100077_1.html">Business Standard</a> <br> <a href="https://www.cnbc.com/2026/03/10/iea-g7-oil-iran-war-strait-hormuz.html">CNBC</a> <br> <a href="https://www.foxbusiness.com/politics/g7-finance-ministers-discuss-emergency-oil-reserve-release-amid-price-surge-report">Fox Business</a>  ### 🌍 三、多伦多美国领事馆外发生枪击事件  多伦多警方正在调查美国领事馆外的枪击事件，暂未确认动机。此前挪威奥斯陆美国大使馆也曾遭遇爆炸，全球多地美国外交设施安全警戒升级。  来源：<a href="https://www.democracynow.org/2026/3/10/headlines">Democracy Now</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> AMI Labs <br> $10.3亿种子轮 <br> LeCun创办，押注世界模型挑战LLM <br> ⏳研发中 <br> — <br> 3月10日 <br> <br> DeepSeek <br> V4（疑似上线） <br> 万亿参数多模态，$0.14/M，待确认 <br> ⏳待确认 <br> chat.deepseek.com / API <br> 3月初 <br> <br> Oracle <br> Q3财报 <br> AI基础设施收入+243%，RPO翻4倍 <br> ✅全量 <br> ORCL（NYSE） <br> 3月10日 <br> <br> Nvidia <br> GTC 2026预告 <br> Vera Rubin/Feynman GPU + NemoClaw <br> ⏳3月16日 <br> nvidia.com/gtc <br> 3月16-19日 <br> <br> Apple <br> MacBook Air M5 <br> M5芯片，512GB起步，$1,099 <br> ✅今日开售 <br> Apple Store <br> 3月11日 <br> <br> Apple <br> 新Siri + Gemini <br> 屏幕感知，Gemini 1.2T参数驱动 <br> ⏳iOS 26.4 <br> 系统更新 <br> 3月内 <br> <br> OpenAI <br> 旧模型退役 <br> GPT-4o/4.1/o4-mini从ChatGPT移除 <br> ✅已执行 <br> — <br> 3月 <br> <br> Anthropic <br> Claude Code Review <br> AI代码审查，捕获Agent生成代码Bug <br> ✅全量 <br> Claude Code CLI <br> 近日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V4 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>-------------<br> <br> </div>
+</div>
+</body>
+</html>

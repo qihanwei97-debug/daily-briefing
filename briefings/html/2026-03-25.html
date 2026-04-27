@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月25日 星期三</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月25日 星期三</span>
+    <span>覆盖24小时 · 预计阅读11分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Anthropic诉五角大楼案迎来关键转折：联邦法官Rita Lin称五角大楼行为"令人不安"，直言供应链风险标签"看起来像是要搞垮Anthropic"</strong>，预计数日内裁决，若获临时禁令Anthropic可恢复政府业务。<strong>DeepSeek大举招聘Agentic AI专家——17个新岗位涵盖Agent研究、数据评估和基础设施</strong>，明确以Claude Code和Cursor为超越目标，标志着中国AI从基础模型竞争全面转向Agent赛道。<strong>伊朗战争第25天：Trump称Vance和Rubio正主导谈判且"协议在望"，伊朗首次松口——CNN援引伊方消息源称愿"倾听可持续方案"</strong>；布伦特原油跌破$100/桶，亚太股市全线上涨。<strong>NVIDIA联合Emerald AI及六大能源巨头打造"柔性AI工厂"</strong>，可根据电网需求动态调整功耗，有望释放美国100GW电力容量。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：法官痛批五角大楼——Anthropic案临时禁令"数日内"裁决</h3><p>3月24日庭审结束，旧金山联邦地区法官<strong>Rita Lin</strong>对五角大楼的立场提出严厉质疑，多次使用"troubling"一词。她在庭上直言：<strong>"我不确定这是否构成谋杀，但这看起来像是要搞垮Anthropic。"</strong></p><p><strong>庭审核心交锋：</strong> 五角大楼（已更名为"战争部"DOW）律师辩称供应链风险标签是基于合理的国家安全考量。但法官追问：Anthropic拒绝两项条款（大规模监控美国公民+自主武器）就被列为供应链风险——<strong>"这个门槛似乎太低了"</strong>。Anthropic方面称这是"attempted corporate murder"（企图性的企业谋杀），旨在惩罚其公开与五角大楼的分歧。</p><p><strong>关键时间线：</strong> Lin法官表示将在<strong>未来数天内</strong>就临时禁令申请作出裁决。若获批，Anthropic可在诉讼期间继续与政府承包商和联邦机构开展业务，供应链风险标签将被冻结。</p><p><strong>行业影响：</strong> Fortune将此案称为AI伦理的"Marbury v. Madison时刻"——判决将确立AI公司能否以安全红线为由拒绝政府特定用途而免受政治报复的先例。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 关注：旧金山联邦法院，预计数日内出裁决</li><li>💡 上手：AI行业、国防承包商和投资者的标志性案例——结果将重塑AI公司与政府的合作模式</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/03/24/anthropic-lawsuit-pentagon-supply-chain-risk-claude.html">CNBC</a> | <a href="https://www.axios.com/2026/03/24/judge-pentagon-anthropic-troubling">Axios</a> | <a href="https://fortune.com/2026/03/24/anthropic-hegseth-trump-risk-ai-court-ruling/">Fortune</a> | <a href="https://www.npr.org/2026/03/24/nx-s1-5759276/anthropic-pentagon-claude-preliminary-injunction-hearing">NPR</a> | <a href="https://www.cbsnews.com/news/pentagon-anthropic-hearing-judge-troubling/">CBS News</a> | <a href="https://thehill.com/policy/technology/5799357-anthropic-challenges-pentagon-designation/">The Hill</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>DeepSeek大举招聘Agentic AI专家，剑指Claude Code和Cursor</h4><p>（3月24日，<a href="https://www.bloomberg.com/news/articles/2026-03-24/deepseek-s-latest-job-postings-highlight-pivot-to-agentic-ai">Bloomberg</a>）：DeepSeek发布<strong>17个Agentic AI相关岗位</strong>，包括Agent深度学习算法研究员、Agent数据评估专家和Agent基础设施工程师。招聘信息强调强化学习（RL）能力，并明确将<strong>Anthropic的Claude Code和Cursor作为超越基准</strong>。此举标志着DeepSeek从大语言模型竞争正式转向自主Agent赛道。结合此前R2延期（Ascend芯片训练不稳定+梁文锋对性能不满意），DeepSeek的战略重心正在发生明显转移。
+- 📍 获取：DeepSeek官网招聘页面
+- 💰 定价：——
+- 💡 上手：Agent赛道将成中美AI竞争的下一个主战场</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.bloomberg.com/news/articles/2026-03-24/deepseek-s-latest-job-postings-highlight-pivot-to-agentic-ai">Bloomberg</a> | <a href="https://www.mercurynews.com/2026/03/24/deepseeks-latest-job-postings-highlight-pivot-to-agentic-ai/">Mercury News</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：<a href="https://www.globaltimes.cn/page/202507/1337558.shtml">环球时报</a></p></div><div class="brief-item"><h4>NVIDIA联合Emerald AI打造"柔性AI工厂"，六大能源巨头加入</h4><p>（3月23日，<a href="https://nvidianews.nvidia.com/news/nvidia-and-emerald-ai-join-leading-energy-companies-to-pioneer-flexible-ai-factories-as-grid-assets">NVIDIA官方</a>）：在CERAWeek 2026大会上，NVIDIA和Emerald AI宣布与<strong>AES、Constellation、Invenergy、NextEra Energy、Nscale和Vistra</strong>六家能源巨头合作，基于NVIDIA <strong>Vera Rubin DSX</strong>参考设计打造新一代AI数据中心。核心技术是<strong>DSX Flex软件库</strong>——让AI工厂可根据电网负荷动态调整功耗（类似需求响应机制）。Emerald AI的Conductor平台协调计算弹性与现场发电/储能。Emerald称此方案可<strong>释放美国电力系统高达100GW的容量</strong>。DSX Flex预计2026年晚些时候在NVIDIA弗吉尼亚AI工厂研究中心商业化部署。
+- 📍 获取：DSX Flex 2026年晚些时候商业化
+- 💰 定价：企业级解决方案
+- 💡 上手：解决AI算力电力瓶颈的关键方案——能源公司+AI公司的新合作范式</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-and-emerald-ai-join-leading-energy-companies-to-pioneer-flexible-ai-factories-as-grid-assets">NVIDIA官方</a> | <a href="https://www.axios.com/2026/03/23/utilities-nvidia-emerald-ai-data-centers">Axios</a> | <a href="https://seekingalpha.com/news/4567269-nvidia-emerald-team-up-with-power-firms-over-ai-factories-and-grid">Seeking Alpha</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>白宫发布国家AI政策框架，力推联邦统一监管</h4><p>（3月20日，<a href="https://www.whitehouse.gov/articles/2026/03/president-donald-j-trump-unveils-national-ai-legislative-framework/">白宫官方</a>）：白宫发布AI立法蓝图，七大支柱涵盖儿童保护、知识产权、反审查、创新优先、教育培训和<strong>联邦统一立法取代各州AI法规</strong>。核心主张是"轻触式监管"（light-touch）——依赖现有行业监管机构和行业标准，不设新的联邦AI监管机构。版权训练数据问题交由法院裁决。该框架为建议性文件，不具法律约束力，旨在为国会立法提供方向。
+- 📍 获取：<a href="https://www.whitehouse.gov/wp-content/uploads/2026/03/03.20.26-National-Policy-Framework-for-Artificial-Intelligence-Legislative-Recommendations.pdf">白宫PDF全文</a>
+- 💡 上手：AI从业者关注——联邦预empt州法规可能影响Colorado AI Act等已通过的州级立法</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.whitehouse.gov/articles/2026/03/president-donald-j-trump-unveils-national-ai-legislative-framework/">白宫</a> | <a href="https://www.cnn.com/2026/03/20/tech/white-house-ai-framework">CNN</a> | <a href="https://natlawreview.com/article/trump-administration-unveils-new-ai-policy-framework-calling-congress-act">National Law Review</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>跟进：Google Gemini 3.1 Flash-Lite已上线预览</h4><p>（3月3日发布，<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/">Google官方</a>）：Google最具性价比模型Gemini 3.1 Flash-Lite已在Google AI Studio和Vertex AI公开预览。性能匹配Gemini 2.5 Flash，但首token响应速度提升<strong>2.5倍</strong>，输出速度提升<strong>45%</strong>。定价极低：$0.25/百万输入token + $1.50/百万输出token（仅为Pro的1/8）。支持可调推理深度（minimal/low/medium/high四档），灵活平衡质量与速度。
+- 📍 获取：Google AI Studio / Vertex AI（Preview）
+- 💰 定价：$0.25/$1.50 per M tokens
+- 💡 上手：高频低成本场景首选——API批量调用成本大幅下降</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://venturebeat.com/technology/google-releases-gemini-3-1-flash-lite-at-1-8th-the-cost-of-pro/">VentureBeat</a> | <a href="https://siliconangle.com/2026/03/03/google-launches-speedy-gemini-3-1-flash-lite-model-preview/">SiliconANGLE</a> | <a href="https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview">Artificial Analysis</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第25天：谈判出现微妙转机，油价跌破$100
+
+<strong>3月24-25日增量（接续第24天报道）：</strong>
+
+<strong>Trump升级谈判声明（3月24日）：</strong> Trump称副总统<strong>JD Vance</strong>和国务卿<strong>Marco Rubio</strong>正亲自主导与伊朗的谈判，并表示"协议在望"。这是首次透露具体谈判负责人。(<a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-24-26">CNN</a> | <a href="https://www.npr.org/2026/03/24/nx-s1-5759000/iran-war-talks">NPR</a>)
+
+<strong>伊朗首次松口：</strong> 与此前断然否认任何对话不同，CNN援引<strong>伊方消息源</strong>称德黑兰<strong>"愿意倾听可持续方案"</strong>以结束战争。这是开战以来伊朗官方或半官方渠道首次表达谈判意愿——尽管伊朗国家媒体仍公开否认直接对话。(<a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-24-26">CNN</a>)
+
+<strong>人道主义代价：</strong> 伊朗红新月会公布数据：美以联合打击已造成<strong>82,000+民用建筑受损或摧毁</strong>。伊朗新任最高国家安全委员会秘书<strong>Mohammad Bagher Zolghadr</strong>接替3月17日遇袭身亡的Ali Larijani。(<a href="https://www.aljazeera.com/news/2026/3/24/us-israel-war-on-iran-whats-happening-on-day-25-of-attacks">Al Jazeera</a>)
+
+<strong>市场反应：</strong> 布伦特原油跌破<strong>$100/桶</strong>至约$99（此前接近$120），跌幅约11%。亚太股市全线上涨——日本、韩国、澳大利亚市场受到降级预期提振。(<a href="https://www.bloomberg.com/news/articles/2026-03-24/stock-market-today-dow-s-p-live-updates">Bloomberg</a> | <a href="https://www.cnbc.com/2026/03/24/oil-prices-today-wti-brent-middle-east-iran-war.html">CNBC</a>)
+
+<strong>EU呼吁谈判：</strong> 欧盟高级官员公开呼吁各方立即进行谈判并结束战争。(<a href="https://www.aljazeera.com/video/newsfeed/2026/3/24/top-eu-official-calls-for-negotiations-with-iran-and-an-end-to-war">Al Jazeera</a>)
+
+### 🌍 二、白宫AI政策框架：联邦预empt州法，"轻触式"监管路线确立
+
+白宫3月20日发布的<strong>国家AI政策框架</strong>继续发酵。该框架七大支柱中最具争议的是第七条——<strong>联邦统一立法取代各州"繁琐"的AI法规</strong>。这意味着已通过的Colorado AI Act（6月30日生效）、NYC Local Law 144等州/地方AI法规可能被联邦法律覆盖。框架明确反对设立新的AI监管机构，主张"创新优先"和依赖行业自律。批评者称这实质上是为AI大公司"清障"。
+
+### 🌍 三、伊拉克亲伊朗武装遭致命空袭
+
+美以联军对伊拉克境内<strong>人民动员力量（PMF）</strong>发动空袭，造成重大伤亡。这标志着战争外溢范围进一步扩大——从伊朗本土、以色列、黎巴嫩延伸至伊拉克。(<a href="https://www.aljazeera.com/video/newsfeed/2026/3/24/deadly-air-attack-hits-pro-iran-popular-mobilisation-forces-in-iraq">Al Jazeera</a>)
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Anthropic</td><td>诉五角大楼庭审结果</td><td>法官称标签"令人不安"，数日内裁决</td><td>⏳等待裁决</td><td>旧金山联邦法院</td><td>3月24日</td></tr><tr><td>DeepSeek</td><td>Agentic AI招聘潮</td><td>17个Agent岗位，剑指Claude Code/Cursor</td><td>⏳招聘中</td><td>DeepSeek官网</td><td>3月24日</td></tr><tr><td>NVIDIA</td><td>Vera Rubin DSX + DSX Flex</td><td>柔性AI工厂，联合六大能源巨头</td><td>⏳2026年晚些时候</td><td>企业合作</td><td>3月23日</td></tr><tr><td>Google</td><td>Gemini 3.1 Flash-Lite</td><td>2.5倍首token速度，$0.25/M输入</td><td>⏳Preview</td><td>AI Studio / Vertex AI</td><td>3月3日</td></tr><tr><td>白宫</td><td>国家AI政策框架</td><td>联邦统一监管，预empt州AI法</td><td>⏳建议性文件</td><td>白宫官网PDF</td><td>3月20日</td></tr><tr><td>OpenAI</td><td>旧版Deep Research下线</td><td>明日（3月26日）移除legacy模式</td><td>⏳明日下线</td><td>ChatGPT</td><td>3月26日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | MiMo-V2-Pro (小米) |
+|------|------------------|---------------------------|------------------------|----------------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (社区测试中) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic(ClawEval)</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ ClawEval 66.3 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ ClawEval 61.5 |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$2.50/$12 (估算) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书、数学研究 | 长文本、科学推理 | 中文Agent、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / OpenRouter |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.4 mini (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐½ 逼近旗舰 | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐½ SWE-bench Pro接近旗舰 | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大模型发布或排名变动。关注点：①Anthropic庭审结果积极——若获临时禁令，Claude的政府渠道将得以保全；②DeepSeek的Agent招聘潮暗示其下一代产品可能直接挑战Claude Code和GPT在Agent编程领域的地位；③Google Gemini 3.1 Flash-Lite Preview上线，中端性价比层竞争将进一步加剧。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | GPT-5.4 mini（免费） | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | Claude Opus 4.6 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Sora | Runway Gen-4.5 | 音视频同步双料第一 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | DeepSeek V4 | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Gemini 3.1 Pro | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | MiMo-V2-Pro | OpenClaw+本地模型 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | 豆包语音 | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.4 mini) | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | GPT-5.4 nano | MiMo-V2-Pro | GLM-5（MIT开源） | $0.20/M碾压全场 |
+
+<strong>🔄 本周变化：</strong> 本周无场景调整，与上期一致。关注Anthropic庭审裁决——若获临时禁令，Claude在法律文书等政府合规场景的推荐地位将得到巩固。DeepSeek Agent招聘潮可能在未来数月改变Agent/编程场景格局。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>⚖️ Anthropic临时禁令裁决（数日内）</strong>：法官Lin的倾向性言论对Anthropic有利，但裁决结果仍存不确定性。若获批，五角大楼供应链风险标签冻结；若败诉，AI安全红线先例将被严重削弱。
+
+2. <strong>⏰ Trump暂停伊朗打击倒计时（3月28日到期）</strong>：伊方"愿意倾听"的微妙表态为谈判打开一扇窄门，但5天窗口极短。油价在$95-$105区间震荡，全球市场高度敏感。
+
+3. <strong>🗑️ OpenAI旧版Deep Research下线（明天3月26日）</strong>：使用legacy模式的用户今日最后迁移机会。
+
+4. <strong>📱 Apple iOS 26.4 + 新Siri（3月底-4月初）</strong>：Gemini驱动的新Siri仍锁定本周至下周窗口，消费端AI年度最大事件。
+
+5. <strong>🔍 DeepSeek Agent产品线</strong>：17个Agentic AI岗位大规模招聘后，关注DeepSeek是否在近期发布Agent产品或编程工具——R2延期的背景下，Agent赛道可能成为DeepSeek的新增长引擎。
+
+---
+
+*数据来源：CNBC、Axios、Fortune、NPR、CBS News、Bloomberg、CNN、Al Jazeera、NVIDIA、Google、VentureBeat、白宫等 | 所有数据基于2026年3月25日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer">发动空袭，造成重大伤亡。这标志着战争外溢范围进一步扩大——从伊朗本土、以色列、黎巴嫩延伸至伊拉克。(<a href="https://www.aljazeera.com/video/newsfeed/2026/3/24/deadly-air-attack-hits-pro-iran-popular-mobilisation-forces-in-iraq">Al Jazeera</a>)  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Anthropic <br> 诉五角大楼庭审结果 <br> 法官称标签"令人不安"，数日内裁决 <br> ⏳等待裁决 <br> 旧金山联邦法院 <br> 3月24日 <br> <br> DeepSeek <br> Agentic AI招聘潮 <br> 17个Agent岗位，剑指Claude Code/Cursor <br> ⏳招聘中 <br> DeepSeek官网 <br> 3月24日 <br> <br> NVIDIA <br> Vera Rubin DSX + DSX Flex <br> 柔性AI工厂，联合六大能源巨头 <br> ⏳2026年晚些时候 <br> 企业合作 <br> 3月23日 <br> <br> Google <br> Gemini 3.1 Flash-Lite <br> 2.5倍首token速度，$0.25/M输入 <br> ⏳Preview <br> AI Studio / Vertex AI <br> 3月3日 <br> <br> 白宫 <br> 国家AI政策框架 <br> 联邦统一监管，预empt州AI法 <br> ⏳建议性文件 <br> 白宫官网PDF <br> 3月20日 <br> <br> OpenAI <br> 旧版Deep Research下线 <br> 明日（3月26日）移除legacy模式 <br> ⏳明日下线 <br> ChatGPT <br> 3月26日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> MiMo-V2-Pro (小米) <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>----------------------<br> <br> </div>
+</div>
+</body>
+</html>

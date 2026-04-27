@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月26日 星期四</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月26日 星期四</span>
+    <span>覆盖24小时 · 预计阅读11分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Google发布TurboQuant算法：3-bit KV缓存压缩零精度损失，NVIDIA H100上注意力计算加速8倍</strong>，内存需求降低6倍，被TechCrunch称为"现实版Pied Piper"，AI推理成本格局或将改写。<strong>Apple-Google Gemini交易细节曝光：Apple获得Gemini模型完整访问权，可蒸馏为端侧小模型驱动下一代Siri</strong>，iOS 27将搭载Gemini驱动的全新Siri。<strong>伊朗战争第26天急剧升级：德黑兰正式拒绝美国15点和平方案称其"极端主义、不合理"，提出5项反条件</strong>，五角大楼准备"最终一击"方案含地面部队选项，油价重新上涨，全球股市承压。<strong>Meta/YouTube在社交媒体成瘾案中被判有罪——陪审团裁定两家公司疏忽设计成瘾性平台伤害儿童</strong>，赔偿$600万+，2,000余起类似诉讼等待审理。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Google TurboQuant——AI推理内存压缩的"Pied Piper时刻"</h3><p>Google Research于3月25日发布<strong>TurboQuant</strong>，一种全新的在线向量量化算法，将在<strong>ICLR 2026</strong>大会上正式发表。核心突破：将LLM的KV缓存压缩至<strong>3-bit精度</strong>，且<strong>零精度损失</strong>——在问答、代码生成和摘要任务上均无可测量的性能下降。</p><p><strong>技术细节：</strong> TurboQuant由两项互补技术组成：①<strong>QJL（Quantized Johnson-Lindenstrauss）</strong>——量化版JL投影；②<strong>PolarQuant</strong>——将数据向量从笛卡尔坐标转换为极坐标，分离半径和角度分量。由于角度分布可预测且集中，PolarQuant跳过了传统量化器需要的昂贵逐块归一化步骤。在NVIDIA H100 GPU上，4-bit TurboQuant实现了注意力logit计算的<strong>8倍加速</strong>（对比32-bit未量化键值）。</p><p><strong>实际影响：</strong> 内存需求降低<strong>至少6倍</strong>，推理成本可削减<strong>50%以上</strong>。TechCrunch将其比作《硅谷》中的Pied Piper压缩算法。VentureBeat指出，这将使更大的模型能在更小的GPU上运行，直接降低AI部署门槛。消息发布后，Micron、Seagate等内存供应商股价下跌。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/">Google Research博客</a> | ICLR 2026论文</li><li>💰 定价：开源算法</li><li>💡 上手：部署LLM推理服务的团队应立即关注——KV缓存瓶颈是长上下文推理的核心成本驱动因素</li></ul><div class="sources">来源：<a href="https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/">Google Research</a> | <a href="https://techcrunch.com/2026/03/25/google-turboquant-ai-memory-compression-silicon-valley-pied-piper/">TechCrunch</a> | <a href="https://venturebeat.com/infrastructure/googles-new-turboquant-algorithm-speeds-up-ai-memory-8x-cutting-costs-by-50/">VentureBeat</a> | <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/googles-turboquant-compresses-llm-kv-caches-to-3-bits-with-no-accuracy-loss">Tom's Hardware</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>Apple获得Google Gemini完整访问权，可蒸馏为端侧AI模型</h4><p>（3月25日，<a href="https://www.macrumors.com/2026/03/25/apple-google-gemini-distill-models/">MacRumors</a>）：据多家媒体报道，Apple-Google AI交易的关键细节浮出水面：Google向Apple提供了Gemini模型的<strong>"完整访问权"</strong>（complete access），Apple可在自有数据中心内运行Gemini，并通过<strong>模型蒸馏</strong>（distillation）技术将Gemini的推理能力压缩为可在iPhone端侧运行的小模型。蒸馏后的模型无需联网即可执行特定任务，兼具Gemini级性能和低功耗。新版Siri计划在<strong>WWDC 2026（6月）</strong>发布，随iOS 27上线，支持对话记忆和主动建议功能。
+- 📍 获取：iOS 27 / WWDC 2026（6月预览）
+- 💰 定价：消费者免费（内置于iOS）
+- 💡 上手：Siri的AI能力将从"玩具级"跃升至"Gemini级"——对话记忆是杀手功能</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.macrumors.com/2026/03/25/apple-google-gemini-distill-models/">MacRumors</a> | <a href="https://9to5mac.com/2026/03/25/new-details-on-apple-google-ai-deal-revealed-including-gemini-changes-report/">9to5Mac</a> | <a href="https://appleinsider.com/articles/26/03/25/apple-is-distilling-google-gemini-into-smaller-chunks-for-on-iphone-ai-processing">Apple Insider</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>Melania Trump携Figure 03人形机器人亮相白宫教育峰会</h4><p>（3月25日，<a href="https://www.cnn.com/2026/03/25/politics/melania-trump-ai-robot">CNN</a>）：在白宫东厅举办的"Fostering the Future Together全球联盟峰会"上，第一夫人Melania Trump与法国第一夫人Brigitte Macron共同出席。<strong>Figure 03</strong>——Figure AI公司的最新人形机器人——以双足行走进入会场，用11种语言发表欢迎辞，发音流畅。Melania称其为"我在白宫的第一位美国制造的人形客人"，并展望"名为柏拉图的人形教育者"未来。TechCrunch评论指出Melania将AI机器人与家庭教育联系起来引发争议。
+- 📍 获取：Figure AI目前面向企业客户
+- 💡 上手：人形机器人从实验室走向政治舞台——Figure AI估值和关注度将进一步飙升</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnn.com/2026/03/25/politics/melania-trump-ai-robot">CNN</a> | <a href="https://www.cnbc.com/2026/03/26/figure-ai-the-robotics-company-hosted-by-melania-trump.html">CNBC</a> | <a href="https://techcrunch.com/2026/03/25/melania-trump-wants-a-robot-to-homeschool-your-child/">TechCrunch</a> | <a href="https://fortune.com/2026/03/25/melania-trump-humanoid-robot/">Fortune</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>Meta裁员约700人，涉及Reality Labs等五大部门</h4><p>（3月25日，<a href="https://www.cnbc.com/2026/03/25/meta-layoffs-reality-labs-facebook.html">CNBC</a>）：Meta启动2026年第二轮裁员，约<strong>700名员工</strong>被裁，涉及<strong>Reality Labs、Facebook、全球运营、招聘和销售</strong>五个部门。部分员工获提供新岗位或调岗选项。此轮裁员发生在Meta AI支出创纪录（2026年预算$1,690亿）的背景下——Zuckerberg1月表示AI将在2026年"对业务产生重大影响"。这是继1月Reality Labs裁员~1,000人后的第二轮。
+- 💡 上手：Meta"裁人+招人"并行——AI相关岗位扩张，非AI部门持续收缩</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/25/meta-layoffs-reality-labs-facebook.html">CNBC</a> | <a href="https://techcrunch.com/2026/03/25/meta-is-cutting-several-hundred-jobs/">TechCrunch</a> | <a href="https://www.bloomberg.com/news/articles/2026-03-25/meta-is-cutting-several-hundred-jobs-amid-record-ai-spending">Bloomberg</a> | <a href="https://www.nbcnews.com/tech/social-media/meta-layoffs-hundreds-employees-five-divisions-vr-ai-who-rcna265127">NBC News</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>Meta/YouTube被判社交媒体成瘾案有罪，赔偿$600万+</h4><p>（3月25日，<a href="https://www.npr.org/2026/03/25/nx-s1-5746125/meta-youtube-social-media-trial-verdict">NPR</a>）：洛杉矶联邦陪审团裁定Meta（Instagram）和YouTube<strong>疏忽设计成瘾性平台</strong>，未充分警告用户危险。原告现年20岁，6岁起使用YouTube、11岁起使用Instagram。赔偿金额：Meta承担<strong>70%责任</strong>（$210万惩罚性赔偿），YouTube承担<strong>30%</strong>（$90万）。这是<strong>首次有陪审团认定科技公司需为社交媒体成瘾承担部分责任</strong>，将影响约<strong>2,000起待审类似诉讼</strong>。两公司均表示将上诉。
+- 💡 上手：里程碑判决——科技公司产品设计责任的法律边界正在重塑</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.npr.org/2026/03/25/nx-s1-5746125/meta-youtube-social-media-trial-verdict">NPR</a> | <a href="https://www.cnn.com/2026/03/25/tech/social-media-addiction-trial-jury-decision">CNN</a> | <a href="https://www.washingtonpost.com/technology/2026/03/25/meta-youtube-verdict-social-media-addiction/">Washington Post</a> | <a href="https://variety.com/2026/digital/news/social-media-trial-verdict-1236692761/">Variety</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>跟进：Anthropic诉五角大楼案——裁决仍未出炉</h4><p>Anthropic曾请求法官在3月26日（今天）前作出裁决，但法院不受此约束。Al Jazeera 3月25日分析称此案可能"为AI监管开辟新空间"——若Anthropic胜诉，将确立AI公司可基于伦理红线拒绝政府特定用途的先例。目前仍在等待Lin法官的临时禁令裁决。
+- 📍 关注：裁决可能今天或数日内出炉</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.aljazeera.com/economy/2026/3/25/anthropics-case-against-the-pentagon-could-open-space-for-ai-regulation">Al Jazeera</a> | <a href="https://www.axios.com/2026/03/24/judge-pentagon-anthropic-troubling">Axios</a></p></div><div class="brief-item"><h4>跟进：OpenAI旧版Deep Research今日正式下线</h4><p>Legacy deep research模式今天移除，历史对话和结果仍可访问。当前版本deep research功能不受影响。
+- 📍 获取：ChatGPT（当前版本deep research继续可用）</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://help.openai.com/en/articles/9624314-model-release-notes">OpenAI Release Notes</a></p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第26天：德黑兰拒绝15点方案，五角大楼酝酿"最终一击"
+
+<strong>3月25-26日增量（接续第25天报道）：</strong>
+
+<strong>伊朗正式拒绝美国方案（3月25日）：</strong> 德黑兰通过国家媒体称美国15点和平方案<strong>"极端主义、不合理"</strong>（maximalist, unreasonable），伊方官员表示"战争何时结束由伊朗决定，而非Trump的设想"。15点方案涉及制裁解除、核计划回滚、导弹限制、重新开放霍尔木兹海峡及限制对武装组织的支持。伊朗同时提出<strong>5项反条件</strong>。(<a href="https://www.aljazeera.com/news/2026/3/25/iran-calls-us-proposal-to-end-war-maximalist-unreasonable">Al Jazeera</a> | <a href="https://time.com/article/2026/03/25/trump-peace-proposal-us-iran-war-israel-pakistan/">Time</a> | <a href="https://www.cnn.com/2026/03/25/world/live-news/iran-war-us-israel-trump-03-25-26">CNN</a>)
+
+<strong>五角大楼准备升级（3月25-26日）：</strong> 随着伊朗拒绝谈判，五角大楼正准备<strong>"最终一击"方案</strong>（final blow），选项包括<strong>地面部队</strong>和大规模轰炸行动。美军向中东增派伞兵和海军陆战队。以色列同步空袭德黑兰。(<a href="https://www.euronews.com/2026/03/25/iran-rejects-washingtons-15-point-plan-and-escalates-attacks-on-israel-and-gulf">Euronews</a> | <a href="https://www.nbcnews.com/world/middle-east/live-blog/live-updates-iran-war-talks-trump-peace-plan-troops-hormuz-rcna265051">NBC News</a>)
+
+<strong>人道代价持续攀升：</strong> 开战以来伊朗已有<strong>1,750+人遇难</strong>，黎巴嫩卫生部称3月2日以来以色列空袭造成<strong>1,094人死亡</strong>（含至少121名儿童）。
+
+<strong>市场反应逆转：</strong> 此前因"谈判在望"预期跌破$100的油价重新上涨，S&P 500期货下跌0.7%，全球股债双杀。(<a href="https://www.bloomberg.com/news/articles/2026-03-25/stock-market-today-dow-s-p-live-updates">Bloomberg</a>)
+
+### 🌍 二、Meta/YouTube社交媒体成瘾案里程碑判决
+
+详见② AI深度报道速报。这是美国司法史上<strong>首次由陪审团认定科技公司需为产品成瘾性设计承担法律责任</strong>。《华盛顿邮报》称此判决可能引发"科技行业的烟草时刻"——正如1990年代烟草诉讼重塑了烟草业，社交媒体成瘾诉讼可能从根本上改变平台的产品设计激励。约2,000起待审案件将参考此判决。(<a href="https://www.washingtonpost.com/technology/2026/03/25/meta-youtube-verdict-social-media-addiction/">Washington Post</a>)
+
+### 🌍 三、Trump-习近平会面推迟至5月中旬
+
+原定的Trump访华会面已重新安排至<strong>5月中旬</strong>，具体日期待定。此前因伊朗战事和贸易谈判进展缓慢而推迟。这将是两国领导人在持续升级的科技/贸易紧张局势下的关键会面。
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Google Research</td><td>TurboQuant</td><td>3-bit KV缓存压缩，8x加速，零精度损失</td><td>✅全量（开源）</td><td><a href="https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/">Research博客</a></td><td>3月25日</td></tr><tr><td>Apple/Google</td><td>Gemini蒸馏协议</td><td>Apple可将Gemini蒸馏为端侧模型驱动Siri</td><td>⏳iOS 27（WWDC 6月）</td><td>—</td><td>3月25日</td></tr><tr><td>Figure AI</td><td>Figure 03</td><td>人形机器人亮相白宫，11语种演讲</td><td>🔧企业客户</td><td>Figure AI官网</td><td>3月25日</td></tr><tr><td>Meta</td><td>裁员~700人</td><td>Reality Labs等五部门，2026年第二轮</td><td>—</td><td>—</td><td>3月25日</td></tr><tr><td>OpenAI</td><td>Legacy Deep Research下线</td><td>旧版今日移除，当前版本不受影响</td><td>✅全量</td><td>ChatGPT</td><td>3月26日</td></tr><tr><td>Anthropic</td><td>诉五角大楼裁决</td><td>仍在等待Lin法官临时禁令裁决</td><td>⏳等待</td><td>—</td><td>持续</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | MiMo-V2-Pro (小米) |
+|------|------------------|---------------------------|------------------------|----------------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (社区测试中) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic(ClawEval)</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ ClawEval 66.3 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ ClawEval 61.5 |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$2.50/$12 (估算) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书、数学研究 | 长文本、科学推理 | 中文Agent、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / OpenRouter |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.4 mini (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐½ 逼近旗舰 | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐½ SWE-bench Pro接近旗舰 | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> Google TurboQuant虽然不是新模型，但其3-bit压缩技术将直接降低所有模型的推理部署成本——尤其利好长上下文场景（Gemini 1M、GPT-5.4 1M）。Apple获得Gemini完整蒸馏权意味着端侧AI的性能天花板将大幅提升，WWDC 2026值得重点关注。本周无旗舰模型排名变动。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | GPT-5.4 mini（免费） | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | Claude Opus 4.6 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Sora | Runway Gen-4.5 | 音视频同步双料第一 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | DeepSeek V4 | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Gemini 3.1 Pro | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | MiMo-V2-Pro | OpenClaw+本地模型 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | 豆包语音 | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.4 mini) | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | GPT-5.4 nano | MiMo-V2-Pro | GLM-5（MIT开源） | $0.20/M碾压全场 |
+
+<strong>🔄 本周变化：</strong> 本周无场景调整，与上期一致。关注：①TurboQuant若被广泛采用，所有场景的推理成本均将下降；②Apple Gemini蒸馏协议意味着"📱手机端日常"场景可能在iOS 27发布后发生重大洗牌——Siri有望从"弱推荐"跃升为主力选项。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>⚖️ Anthropic临时禁令裁决（随时可能出炉）</strong>：Anthropic曾请求3月26日前裁决，法官不受约束但倾向性言论对Anthropic有利。结果将决定AI公司能否以伦理红线拒绝政府特定用途。
+
+2. <strong>💣 伊朗战争"最终一击"倒计时（3月28日暂停到期）</strong>：伊朗拒绝15点方案后，Trump的5天暂停窗口仅剩2天。五角大楼已在准备地面部队方案——若谈判彻底破裂，冲突将急剧升级。油价高度敏感。
+
+3. <strong>🍎 WWDC 2026（6月）——Gemini驱动的新Siri</strong>：Apple-Google蒸馏协议细节曝光后，新Siri的预期大幅提升。对话记忆、主动建议、端侧AI处理将是核心卖点。
+
+4. <strong>⚖️ 社交媒体成瘾诉讼连锁反应</strong>：Meta/YouTube判决后，约2,000起待审案件将参考此先例。两公司上诉结果可能在数月内影响整个科技行业的产品设计方向。
+
+5. <strong>🇨🇳 Trump-习近平会面（5月中旬）</strong>：推迟至5月的中美领导人会面，将涉及AI芯片出口管制、贸易关税等核心议题。
+
+---
+
+*数据来源：Google Research、TechCrunch、VentureBeat、MacRumors、9to5Mac、CNN、CNBC、NPR、Bloomberg、Al Jazeera、Washington Post、Time、Variety等 | 所有数据基于2026年3月26日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer">，具体日期待定。此前因伊朗战事和贸易谈判进展缓慢而推迟。这将是两国领导人在持续升级的科技/贸易紧张局势下的关键会面。  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Google Research <br> TurboQuant <br> 3-bit KV缓存压缩，8x加速，零精度损失 <br> ✅全量（开源） <br> <a href="https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/">Research博客</a> <br> 3月25日 <br> <br> Apple/Google <br> Gemini蒸馏协议 <br> Apple可将Gemini蒸馏为端侧模型驱动Siri <br> ⏳iOS 27（WWDC 6月） <br> — <br> 3月25日 <br> <br> Figure AI <br> Figure 03 <br> 人形机器人亮相白宫，11语种演讲 <br> 🔧企业客户 <br> Figure AI官网 <br> 3月25日 <br> <br> Meta <br> 裁员~700人 <br> Reality Labs等五部门，2026年第二轮 <br> — <br> — <br> 3月25日 <br> <br> OpenAI <br> Legacy Deep Research下线 <br> 旧版今日移除，当前版本不受影响 <br> ✅全量 <br> ChatGPT <br> 3月26日 <br> <br> Anthropic <br> 诉五角大楼裁决 <br> 仍在等待Lin法官临时禁令裁决 <br> ⏳等待 <br> — <br> 持续 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> MiMo-V2-Pro (小米) <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>----------------------<br> <br> </div>
+</div>
+</body>
+</html>

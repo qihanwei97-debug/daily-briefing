@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年4月9日 星期三</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年4月9日 星期三</span>
+    <span>覆盖24小时 · 预计阅读10-12分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Anthropic发布Claude Mythos Preview——史上最强AI安全模型，已发现数千个零日漏洞：联合Microsoft、Apple、Google、NVIDIA等40+企业启动"Project Glasswing"计划，$1亿算力信用额度投入关键基础设施安全审计；Mythos自主发现并利用一个FreeBSD 17年远程代码执行漏洞（CVE-2026-4747）</strong>。<strong>Meta发布Muse Spark——Alexandr Wang加入后首款AI模型，闭源战略转向：多模态统一框架+多Agent并行推理，将部署至Facebook/Instagram/WhatsApp及Ray-Ban眼镜，Artificial Analysis排名第4</strong>。<strong>伊朗停火第1天即陷危机：伊朗指控美以违反停火（以色列袭击黎巴嫩），霍尔木兹海峡仍未开放；Vance将率代表团周六赴伊斯兰堡与伊朗外长直接谈判</strong>。<strong>Artemis II第9天：明晚溅落（4月10日8:07 PM EDT），NASA正监控太平洋风暴对回收影响</strong>。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条一：Anthropic Claude Mythos Preview——AI安全"核武器"级模型，发现数千零日漏洞</h3><p>Anthropic于4月7日发布了<strong>Claude Mythos Preview</strong>——一个通用前沿模型，同时也是迄今最强大的AI网络安全工具。该模型不对公众开放，通过<strong>Project Glasswing</strong>计划定向提供给安全研究人员和企业。</p><p><strong>核心能力：</strong>
+- <strong>零日漏洞发现</strong>：在过去数周测试中，Mythos Preview在<strong>每个主流操作系统和每个主流浏览器</strong>中发现了<strong>数千个此前未知的零日漏洞</strong>，其中许多为关键级别
+- <strong>自主漏洞利用</strong>：完全自主地识别并利用了FreeBSD中一个<strong>17年历史的远程代码执行漏洞</strong>（CVE-2026-4747），可让攻击者完全控制服务器
+- <strong>通用能力</strong>：作为Anthropic"迄今最强大的编码和Agent任务模型"，Mythos在安全之外的通用能力同样是旗舰级</p><p><strong>Project Glasswing合作方（40+企业）：</strong>
+Amazon Web Services、Apple、Broadcom、Cisco、CrowdStrike、Google、JPMorganChase、Linux Foundation、Microsoft、NVIDIA、Palo Alto Networks等。Anthropic承诺投入<strong>$1亿模型使用信用额度</strong>。</p><div class="callout"><strong>为什么重要：</strong> 这是AI能力首次在网络安全领域展现"质变"——不是辅助人类分析师，而是<strong>独立发现并验证</strong>人类数十年未发现的漏洞。Glasswing的"定向释放"策略也开创了AI安全治理的新范式：先让防御者获得能力，而非公开发布。对于企业安全团队，这意味着AI攻防的天平正在快速倾斜——如果你的对手也有类似能力，未修补的零日漏洞将无处可藏。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：不对公众开放——通过<a href="https://www.anthropic.com/glasswing">Project Glasswing</a>申请参与</li><li>💰 定价：合作伙伴免费（$1亿信用额度池）</li><li>💡 上手：企业安全负责人应立即评估是否申请Glasswing合作</li></ul><div class="sources">来源：<a href="https://www.anthropic.com/glasswing">Anthropic官方</a> | <a href="https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/">TechCrunch</a> | <a href="https://fortune.com/2026/04/07/anthropic-claude-mythos-model-project-glasswing-cybersecurity/">Fortune</a> | <a href="https://thehackernews.com/2026/04/anthropics-claude-mythos-finds.html">The Hacker News</a> | <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-founding-member-anthropic-mythos-frontier-model-to-secure-ai/">CrowdStrike</a> | <a href="https://www.fool.com/investing/2026/04/08/anthropics-claude-mythos-preview-just-sent-shockwa/">Motley Fool</a></div><div class="sources">中文解读：<a href="https://simonwillison.net/2026/Apr/7/project-glasswing/">Simon Willison分析</a></div></div><div class="feature"><h3>头条二：Meta Muse Spark——Alexandr Wang操刀的第一款模型，Meta闭源转向</h3><p>Meta于4月8日正式发布<strong>Muse Spark</strong>——这是Alexandr Wang（前Scale AI创始人）加入Meta后，Meta Superintelligence Labs推出的<strong>首款AI模型</strong>。代号"Avocado"，这也标志着Meta从开源战略的重大转向。</p><p><strong>核心特点：</strong>
+- <strong>多模态统一框架</strong>：在单一架构内处理文本、图像和工具调用，计算效率比前代提升<strong>10倍</strong>
+- <strong>多Agent并行推理</strong>：支持多个推理Agent同时运行，根据任务复杂度自动切换"快速回答"和"深度分析"模式
+- <strong>部署范围</strong>：未来数周内部署至Facebook、Instagram、WhatsApp、Messenger以及<strong>Ray-Ban Meta AI眼镜</strong>
+- <strong>Benchmark表现</strong>：Artificial Analysis Intelligence Index v4.0排名<strong>第4</strong>（落后于Gemini 3.1 Pro Preview、GPT-5.4、Claude Opus 4.6）</p><p><strong>闭源争议：</strong> 与Meta此前Llama系列的开放权重策略不同，Muse Spark<strong>目前为闭源</strong>，仅通过Meta AI App和Meta产品生态提供。这引发了开源社区的广泛讨论——Mark Zuckerberg此前多次将开源作为Meta AI战略的核心，此次转向可能预示着Meta在AI竞争中优先追求产品差异化。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.meta.ai">Meta AI App</a> / Facebook/Instagram/WhatsApp内置（未来数周陆续上线）</li><li>💰 定价：消费者免费（通过Meta产品使用）</li><li>💡 上手：目前Meta AI App可用——法律文档分析和营养信息识别是官方突出的场景</li></ul><div class="sources">来源：<a href="https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/">Meta官方博客</a> | <a href="https://ai.meta.com/blog/introducing-muse-spark-msl/">Meta AI博客</a> | <a href="https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai/">TechCrunch</a> | <a href="https://www.axios.com/2026/04/08/meta-muse-alexandr-wang">Axios</a> | <a href="https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-08/meta-debuts-first-ai-model-from-prized-superintelligence-group">Bloomberg</a></div><div class="sources">中文解读：<a href="https://simonwillison.net/2026/Apr/8/muse-spark/">Simon Willison分析</a></div></div><div class="brief-item"><h4>Anthropic年化收入飙升至$300亿，Claude Code贡献$25亿</h4><p>（4月，<a href="https://sacra.com/c/anthropic/">Sacra</a> | <a href="https://news.crunchbase.com/ai/anthropic-raises-30b-second-largest-deal-all-time/">Crunchbase</a>）：跟进——Anthropic在2月完成$300亿Series G融资（估值$3800亿）后，3月年化收入据Sacra估算已突破<strong>$300亿</strong>，同比增长约1400%。关键增长引擎：①年消费$100K+的客户数量同比增长<strong>7倍</strong>；②年消费$100万+的客户超500家；③<strong>Claude Code年化收入突破$25亿</strong>，2026年初以来翻了一番以上。Anthropic的收入增速已超越OpenAI同期水平。
+- 💡 上手：Claude Code是Anthropic增长最快的产品线——开发者工具正成为AI公司的核心收入引擎</p></div><div class="brief-item"><h4>AI能耗突破：新方法可降低100倍能耗同时提升准确率</h4><p>（4月5日，<a href="https://www.sciencedaily.com/releases/2026/04/260405003952.htm">ScienceDaily</a>）：研究人员发布了一种将神经网络与类人符号推理相结合的新方法，可将AI能耗降低<strong>最高100倍</strong>，同时提升准确率。该方法帮助机器人更逻辑地思考，是解决AI算力需求爆炸性增长的潜在关键技术路径。
+- 💡 上手：长期影响——如果产业化成功，将根本性改变AI训练和推理的经济模型</p></div><div class="brief-item"><h4>跟进：GPT-6传闻4月14日发布——距传言日期仅剩5天，仍无官方确认</h4><p>（<a href="https://vgtimes.com/tech-and-hardware/152833-40-more-power-and-a-super-app-insider-reveals-gpt-6-release-date-but-few-believe-them.html">VGTimes</a>）：此前报道的GPT-6"4月14日发布"传闻距今仅剩5天。OpenAI官方<strong>仍未确认</strong>任何发布日期。Manifold预测市场概率持续走低。考虑到OpenAI通常会提前1-2周预热重大发布，在距传言日期仅5天且零官方信息的情况下，4月14日发布的可能性<strong>极低</strong>。
+- 💡 上手：基本可以排除4月14日发布——但GPT-6本身确实在开发中</p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗停火第1天即陷危机：以色列袭击黎巴嫩引爆违约指控，霍尔木兹海峡仍封锁
+
+<strong>4月8日增量（接续4月7日停火达成报道）：</strong>
+
+停火墨迹未干，双方已陷入严重分歧：
+
+<strong>以色列袭击黎巴嫩——伊朗称停火被违反：</strong>
+- 以色列在停火生效后<strong>继续对黎巴嫩真主党目标发动袭击</strong>
+- 伊朗议长Ghalibaf称以色列袭击黎巴嫩+无人机入侵+美国限制铀浓缩要求=<strong>"停火已被违反"</strong>
+- <strong>关键争议</strong>：Trump政府坚称"黎巴嫩不在停火协议范围内"；但斡旋方巴基斯坦表示<strong>黎巴嫩包含在协议中</strong>——对停火范围的根本性理解分歧
+
+<strong>霍尔木兹海峡仍未开放：</strong>
+- 伊朗IRGC声称因以色列违约，海峡船舶通行已停止
+- 白宫发言人Leavitt反驳称海峡"是开放的"，指伊朗国家媒体说法"虚假"
+- <strong>实际状态存疑</strong>——双方各执一词，航运数据尚不明确
+
+<strong>Vance率团赴伊斯兰堡谈判（周六）：</strong>
+- 副总统JD Vance将率领美方代表团（含特使Witkoff和Kushner）赴伊斯兰堡
+- 伊朗派出外长Araghchi和议长Ghalibaf
+- 巴基斯坦总理邀请双方<strong>4月10日</strong>在伊斯兰堡进一步谈判
+- 伊朗此前提交的10点方案包括：解决所有地区冲突、解除制裁、战后重建、海峡安全通航协议等
+
+<strong>关键判断：</strong> 停火不到24小时即面临崩盘风险。核心矛盾是停火范围——如果以色列袭击黎巴嫩/真主党不受停火约束，伊朗几乎必然以此为由拒绝开放海峡。Vance伊斯兰堡谈判是挽救停火的关键窗口。市场目前仍在消化停火利好，但如果谈判破裂，4月7日的油价反弹将全部回吐。
+
+来源：<a href="https://www.bloomberg.com/news/articles/2026-04-08/us-iran-ceasefire-claims-diverge-as-hormuz-stays-blocked">Bloomberg</a> | <a href="https://edition.cnn.com/2026/04/08/world/live-news/iran-war-trump-us-ceasefire">CNN</a> | <a href="https://www.washingtonpost.com/world/2026/04/08/trump-iran-war-ceasefire-israel/">Washington Post</a> | <a href="https://www.cbsnews.com/live-updates/iran-trump-ceasefire-strait-hormuz-israel-war-hezbollah-continues/">CBS News</a> | <a href="https://www.foxnews.com/live-news/trump-us-iran-war-ceasefire-strait-hormuz-israel-live-updates-04-08-2026">Fox News</a> | <a href="https://www.military.com/daily-news/2026/04/08/us-and-iran-agree-hold-talks-even-hormuz-stays-blocked.html">Military.com</a> | <a href="https://www.aljazeera.com/news/2026/4/8/us-iran-ceasefire-deal-what-are-the-terms-and-whats-next">Al Jazeera</a>
+
+中文解读：<a href="https://tribune.com.pk/story/2601638/global-leaders-praise-pakistan-after-usiran-ceasefire">Express Tribune</a>
+
+### 🌍 二、Artemis II第9天：明晚溅落，NASA监控太平洋风暴
+
+<strong>4月8-9日增量（接续第7天返航报道）：</strong>
+
+Artemis II进入最后返程阶段，机组已开始整理物品准备溅落：
+- <strong>溅落时间</strong>：<strong>4月10日（周五）晚8:07 PM EDT</strong>（北京时间4月11日上午8:07），圣迭戈外海50-80英里
+- <strong>天气监控</strong>：NASA正密切关注一个太平洋风暴系统，评估其对溅落和回收作业的影响——目前预报显示条件"看起来不错"，但仍在持续监控
+- <strong>热盾再入</strong>：Orion将以接近<strong>40,000 km/h</strong>重返大气层——自阿波罗时代以来首次深空返回热防护实战测试
+- <strong>回收计划</strong>：USS John P. Murtha号待命，直升机转运机组至舰上进行医学评估
+- <strong>直播</strong>：NASA+、NASA App和YouTube频道将全程直播
+
+<strong>NASA已发布机组绕月期间拍摄的1万+张照片</strong>，公众可在NASA官网浏览。
+
+来源：<a href="https://www.space.com/news/live/artemis-2-nasa-moon-mission-updates-april-8-2026">Space.com直播</a> | <a href="https://abc7.com/post/artemis-ii-splashdown-forecast-orions-return-earth-looking-good-nasa-monitors-pacific-storm-could-impact-landing/18857745/">ABC7天气预报</a> | <a href="https://fox5sandiego.com/news/local-news/san-diego/what-to-know-about-artemis-ii-crews-return-to-earth-splashdown-off-san-diego/">Fox5 San Diego</a> | <a href="https://www.nasa.gov/news-release/nasas-artemis-ii-crew-eclipses-record-for-farthest-human-spaceflight/">NASA</a>
+
+### 🌍 三、夏威夷全岛洪水警报：两天内可能降下一个月雨量
+
+美国国家气象局对夏威夷<strong>全岛链</strong>发布洪水警报（4月9日至11日），一场强风暴可能在两天内降下<strong>相当于一个月的降水量</strong>。最强降雨预计在周四夜间至周末。居民被要求做好疏散准备。
+
+来源：<a href="https://edition.cnn.com/2026/04/08/us/5-things-to-know-for-april-8-us-iran-ceasefire-iran-linked-hackers-ice-shooting-hawaii-flood-threat-missing-american-woman">CNN</a>
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Anthropic</td><td>Claude Mythos Preview</td><td>最强AI安全模型，发现数千零日漏洞</td><td>🔧定向合作</td><td>Project Glasswing申请</td><td>4月7日</td></tr><tr><td>Meta</td><td>Muse Spark</td><td>首款闭源模型，多模态统一+多Agent并行</td><td>⏳数周内</td><td>Meta AI App / 社交产品</td><td>4月8日</td></tr><tr><td>Anthropic</td><td>收入里程碑</td><td>年化$300亿，Claude Code贡献$25亿</td><td>—</td><td>—</td><td>3月数据</td></tr><tr><td>OpenAI</td><td>GPT-6（传闻跟进）</td><td>距传言4月14日仅5天，零官方信息</td><td>⏳极低概率</td><td>—</td><td>传闻4月14日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a> | <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Qwen3.6-Plus (阿里) | Muse Spark (Meta) |
+|------|--------------------------|------------------|---------------------------|----------------------|-------------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ BenchLM 87分 | ⭐⭐⭐⭐⭐ BenchLM 82分 | ⭐⭐⭐⭐⭐ BenchLM 85分 | ⭐⭐⭐⭐ (社区测试中) | ⭐⭐⭐⭐½ AA Index #4 |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐⭐ <strong>78.80%</strong> | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 匹配Opus 4.5 | ⭐⭐⭐⭐ (待独立测试) |
+| <strong>Agentic编程</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ ClawEval 66.3 | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ 多Agent并行 |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ <strong>94.3%</strong> | ⭐⭐⭐⭐½ ~89% | ⭐⭐⭐⭐½ ~87% | ⭐⭐⭐⭐ (待测) | ⭐⭐⭐⭐ 科学/数学突出 |
+| <strong>网络安全</strong> | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ <strong>Mythos级</strong> | ⭐⭐⭐ | ⭐⭐⭐½ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐½ |
+| <strong>多模态(音视频)</strong> | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ 原生多模态 | ⭐⭐⭐⭐½ 统一框架 |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ (待测) |
+| <strong>最大输出</strong> | 高 | 高 | ⭐⭐⭐⭐⭐ 128K单次输出 | 高 | 中等 |
+| <strong>定价(input/output)</strong> | <strong>$2/$12</strong> | $2.50/$15 | $15/$75 | <strong>$0.29/$1.25</strong> | 消费者免费(闭源) |
+| <strong>最佳适用</strong> | 综合之王、科学推理 | Agent工作流、企业自动化 | 深度分析、安全、法律 | 企业Agent、中文场景 | Meta生态消费者场景 |
+| <strong>获取方式</strong> | Gemini / API | ChatGPT / API | claude.ai / API | 百炼 / OpenRouter | Meta AI App |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.4 mini (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3.1 Flash-Lite (Google) | Gemma 4 31B (Google) |
+|------|-------------------------|-------------------------------|----------------------------------|----------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐½ 逼近旗舰 | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ 匹配2.5 Flash | ⭐⭐⭐⭐½ Elo 1452 |
+| <strong>编程</strong> | ⭐⭐⭐⭐½ SWE-bench Pro接近旗舰 | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>多模态(音视频)</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 原生视觉+音频 |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>速度</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ TTFT 2.5x | ⭐⭐⭐⭐⭐ 本地零延迟 |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 140+语言 |
+| <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | <strong>$0.25/$1.50</strong> | <strong>免费开源</strong> |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | ✅ Apache 2.0 |</p><p><strong>📝 本周变化：</strong> ①<strong>Anthropic Claude Mythos Preview亮相</strong>——虽然不对公众开放，但展示了Anthropic在安全领域的绝对领先地位。旗舰表新增"网络安全"维度，Anthropic以Mythos碾压。②<strong>Meta Muse Spark加入旗舰对比</strong>——AA Index排名第4，综合能力竞争力不俗但未超越三巨头。闭源策略意味着开发者暂无API可用。③中端表无变动。④GPT-6传闻4月14日发布概率极低——如果下周无动静，可从前瞻中移除。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | Gemma 4 31B | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Gemma 4 31B | 128K输出+自然散文质量 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | Claude Opus 4.6 | GLM-5 | GPQA 94.3%+SWE-bench双冠 |
+| 🎨 AI绘画 | Midjourney v6.1 | MAI-Image-2 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Runway Gen-4.5 | Kling | Sora下线后双雄格局 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | Harvey | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Gemini 3.1 Pro | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索体验最佳 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Qwen3.6-Plus | Gemma 4 26B MoE | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | MAI-Voice-1 | 豆包App | CarPlay集成扩展车载场景 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.4 mini) | 🔄 Meta AI App | Muse Spark新增多模态消费场景 |
+| 💰 极致性价比 | Qwen3.6-Plus | Gemma 4 31B | GLM-5（MIT开源） | $0.29/M旗舰级编程碾压 |
+
+<strong>🔄 本周变化：</strong> ①<strong>手机端日常免费方案更新</strong>：Meta Muse Spark通过Meta AI App提供免费多模态体验（文本+图像+工具），在消费者场景中新增一个强力免费选项，替换豆包App进入免费方案。②其余场景推荐与上期一致。③值得关注：如果Muse Spark在独立评测中表现超预期，Agent/编程场景可能在未来数周迎来调整。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🚀 Artemis II溅落（明天！4月10日 8:07 PM EDT）</strong>：返程中的<strong>热盾再入测试</strong>是任务最关键安全节点。NASA正监控太平洋风暴但目前预报良好。NASA+/YouTube全程直播——54年来人类首次深空返回。
+
+2. <strong>🕊️ 伊朗伊斯兰堡谈判（4月10日/周六）</strong>：Vance率团与伊朗外长Araghchi直接谈判。这是两周停火能否存活的关键节点——以色列对黎巴嫩袭击的争议和霍尔木兹海峡封锁状态必须在此轮谈判中解决，否则停火将名存实亡。
+
+3. <strong>🧠 GPT-6传闻日（4月14日）</strong>：距传言发布日仅5天，零官方预热。4月14日发布概率极低，但保持关注。
+
+4. <strong>🛡️ Project Glasswing后续</strong>：Anthropic $1亿安全审计计划启动后，预计未来1-2周将有首批合作伙伴公布Mythos发现的重大漏洞披露（CVE）。对企业安全团队而言，关注这些CVE并及时修补。
+
+5. <strong>📊 Meta Muse Spark独立评测</strong>：社区和第三方benchmark对Muse Spark的独立测试结果预计本周陆续出炉——将决定Meta新模型在旗舰格局中的真实位置。
+
+---
+
+*数据来源：Anthropic、TechCrunch、Fortune、The Hacker News、CrowdStrike、Motley Fool、Meta、Axios、CNBC、Bloomberg、CNN、Washington Post、CBS News、Fox News、Al Jazeera、Military.com、NASA、Space.com、ABC7、Sacra、ScienceDaily、Simon Willison等 | 所有数据基于2026年4月9日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer">。最强降雨预计在周四夜间至周末。居民被要求做好疏散准备。  来源：<a href="https://edition.cnn.com/2026/04/08/us/5-things-to-know-for-april-8-us-iran-ceasefire-iran-linked-hackers-ice-shooting-hawaii-flood-threat-missing-american-woman">CNN</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Anthropic <br> Claude Mythos Preview <br> 最强AI安全模型，发现数千零日漏洞 <br> 🔧定向合作 <br> Project Glasswing申请 <br> 4月7日 <br> <br> Meta <br> Muse Spark <br> 首款闭源模型，多模态统一+多Agent并行 <br> ⏳数周内 <br> Meta AI App / 社交产品 <br> 4月8日 <br> <br> Anthropic <br> 收入里程碑 <br> 年化$300亿，Claude Code贡献$25亿 <br> — <br> — <br> 3月数据 <br> <br> OpenAI <br> GPT-6（传闻跟进） <br> 距传言4月14日仅5天，零官方信息 <br> ⏳极低概率 <br> — <br> 传闻4月14日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> <br> <a href="https://artificialanalysis.ai">Artificial Analysis</a> <br> <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）  <br> 维度 <br> Gemini 3.1 Pro (Google) <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Qwen3.6-Plus (阿里) <br> Muse Spark (Meta) <br> <br>------<br>--------------------------<br>------------------<br>---------------------------<br>----------------------<br>-------------------<br> <br> </div>
+</div>
+</body>
+</html>

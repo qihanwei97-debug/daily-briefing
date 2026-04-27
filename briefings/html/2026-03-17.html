@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年3月17日 星期二</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年3月17日 星期二</span>
+    <span>覆盖24小时 · 预计阅读12分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Nvidia GTC 2026主题演讲重磅落地：Vera Rubin平台发布（10倍性能/瓦），Jensen Huang预测Blackwell+Vera Rubin订单将达$1万亿（至2027年）</strong>，下一代Feynman架构和Rosa CPU同步亮相，OpenClaw开源Agent项目成为重点推介。<strong>伊朗战争第17天：伊朗无人机击中迪拜国际机场燃油罐</strong>，全球最繁忙机场一度停飞，Emirates恢复有限航班；战争已扩展至伊朗29/31个省份，累计死亡超2,300人。<strong>Microsoft发布GigaTIME癌症AI模型</strong>——将普通病理切片转化为21通道蛋白质组学地图，已分析14,256名癌症患者、发现1,234个新蛋白-生存关联。<strong>亚洲股市受Nvidia AI前景提振集体上涨</strong>，MSCI亚太指数涨1.4%。
+
+---</p>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Nvidia GTC 2026主题演讲——Vera Rubin平台、$1万亿订单预期、Feynman架构全线亮相</h3><p>3月16日（太平洋时间11am），Jensen Huang在圣何塞SAP Center发表长达2小时主题演讲，正式揭晓了AI基础设施领域年度最大发布。</p><p><strong>Vera Rubin平台</strong>——由7颗芯片、5套机架级系统和1台超级计算机组成，共130万个组件，性能功耗比（perf/watt）是前代Grace Blackwell的<strong>10倍</strong>。这是Nvidia面向Agentic AI时代的核心基础设施平台，计划2026年下半年出货。</p><p><strong>$1万亿订单预期</strong>——Huang宣布预计Blackwell和Vera Rubin系统截至2027年底的订单总额将达到至少$1万亿，此前预测为$5000亿。增长驱动力来自Agentic AI应用爆发——AI Agent自主生成和协调任务导致token生成量急剧增长，推理算力需求远超预期。</p><p><strong>Feynman架构+Rosa CPU</strong>——下一代架构Feynman配套全新CPU"Rosa"（以Rosalind Franklin命名），专为Agentic AI全栈数据流优化设计。</p><p><strong>其他亮点：</strong> (1) OpenClaw——Huang称之为"人类历史上最受欢迎的开源项目"，Nvidia宣布全平台支持OpenClaw，加速AI Agent安全构建和部署；(2) DLSS 5——新一代图形技术；(3) 自动驾驶合作扩展——Nissan、BYD、吉利、五十铃、现代加入Drive Hyperion L4自动驾驶平台；(4) Space-1——Nvidia计划将AI数据中心送入太空。</p><div class="callout"><strong>为什么重要：</strong> 10倍性能功耗比意味着推理成本将大幅下降，$1万亿订单预期直接反映了全球企业AI部署的井喷速度。Agentic AI从概念进入基础设施规划阶段。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.nvidia.com/gtc/keynote/">主题演讲回放</a></li><li>💰 定价：观看免费；Vera Rubin系统定价待公布</li><li>💡 上手：关注Vera Rubin出货时间和推理成本降幅对API定价的传导</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/03/16/nvidia-gtc-2026-ceo-jensen-huang-keynote-blackwell-vera-rubin.html">CNBC</a> | <a href="https://techcrunch.com/2026/03/16/jensen-just-put-nvidias-blackwell-and-vera-rubin-sales-projections-into-the-1-trillion-stratosphere/">TechCrunch</a> | <a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia官方博客</a> | <a href="https://www.tomshardware.com/news/live/nvidia-gtc-2026-keynote-live-blog-jensen-huang">Tom's Hardware</a></div><div class="sources">中文解读：[36氪等中文媒体预计今日将有大量GTC详细报道]</div></div><div class="brief-item"><h4>Microsoft GigaTIME——AI将$1病理切片变为蛋白质组学地图</h4><p>（3月15日Nadella公布，<a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">Microsoft Research</a>）：GigaTIME是Microsoft Research与Providence、华盛顿大学合作开发的多模态AI模型，输入普通H&E病理切片，输出21通道多重免疫荧光（mIF）蛋白质图谱。训练数据：4000万细胞的配对H&E/mIF图像。已应用于51家医院14,256名患者、覆盖24种癌症类型306个亚型，生成约30万张虚拟mIF图像，发现1,234个蛋白激活与患者生存的统计显著关联。
+- 📍 获取：<a href="https://labs.ai.azure.com/projects/gigatime/">Azure AI Foundry Labs</a> + <a href="https://huggingface.co/">Hugging Face</a>
+- 💰 定价：模型公开可用
+- 💡 上手：肿瘤研究者可直接用于免疫微环境分析</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">Microsoft Research博客</a> | <a href="https://news.microsoft.com/signal/articles/gigatime-ai-tool-advances-cancer-research/">Microsoft Signal Blog</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>Donald Knuth发表论文"Claude's Cycles"——计算机科学教父承认Claude解决了他数周未解的图论问题</h4><p>（2月28日发表/3月6日修订，<a href="https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf">Stanford</a>）：85岁的Knuth教授原本在为《计算机程序设计艺术》准备一个有向图Hamilton分解猜想。其友人Filip Stappers将问题输入Claude Opus 4.6，约1小时、31次系统探索后，Claude发明了"蛇形模式"（serpentine patterns）并找到了对所有奇数m>2有效的构造方法。Knuth亲自撰写了严格数学证明，并表示"我得修正对生成式AI的看法了"。论文已在学术界和Hacker News引发广泛讨论。
+- 📍 获取：<a href="https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf">论文PDF</a>
+- 💡 上手：AI辅助数学研究的标志性案例——需要人机协作，非纯自主</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf">Stanford/Knuth</a> | <a href="https://boingboing.net/2026/03/03/donald-knuth-the-godfather-of-computer-science-says-an-ai-solved-a-math-problem-he-was-stuck-on-for-weeks.html">Boing Boing</a> | <a href="https://news.ycombinator.com/item?id=47230710">Hacker News讨论</a></p></div><div class="brief-item"><h4>跟进：Meta考虑临时授权Google Gemini模型以弥补"Avocado"延期缺口</h4><p>此前已报道Meta旗舰模型Avocado延期至5月。新进展：据报Meta正在考虑临时授权使用Google Gemini模型来填补能力差距，因内部测试显示Avocado在推理、编程和写作任务上落后于Google、OpenAI和Anthropic的竞品。
+- 💡 上手：若属实，这将是AI大厂间首次大规模交叉授权事件</p></div><div class="brief-item"><h4>Nvidia股票短暂跳涨后回落</h4><p>（3月16日，<a href="https://www.bloomberg.com/news/articles/2026-03-16/nvidia-expects-to-make-1-trillion-from-ai-chips-through-2027">Bloomberg</a>）：$1万亿订单预期公布后NVDA盘后一度上涨，但随后回吐涨幅——市场或已部分消化预期。亚洲科技股普遍受益，三星、台积电领涨。</p></div>
+<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第17天：迪拜机场遇袭，战火蔓延至29省
+
+3月16日，伊朗无人机击中迪拜国际机场（DXB）附近燃油罐并引发火灾，这座全球最繁忙的国际机场一度全面停飞。Emirates随后恢复有限航班，多班次取消。据DroneXL报道，一架成本约$3万的无人机就瘫痪了这座年客运量近1亿人次的枢纽。
+
+<strong>战局全景：</strong> ACLED数据显示，自2月28日开战以来，美以在伊朗29/31个省份实施了近2,000次打击事件，累计造成超2,300人死亡。德黑兰遭受最重轰炸。以色列扩大黎巴嫩地面行动，伊朗已向阿联酋发射超1,800枚导弹和无人机（阿联酋战争开始以来已有6人死亡）。霍尔木兹海峡仍处于封锁状态。Trump威胁"记住"不帮忙的盟友。
+
+来源：<a href="https://www.washingtonpost.com/world/2026/03/16/dubai-airport-drone-strike-iran/">Washington Post</a> | <a href="https://www.aljazeera.com/news/2026/3/16/drone-strike-disrupts-dubai-flights-as-iran-continues-gulf-attacks">Al Jazeera</a> | <a href="https://www.cnbc.com/2026/03/16/dubai-airport-suspends-flights-drone-attack.html">CNBC</a>
+
+### 🌍 二、美国汽油价格一个月飙升79美分/加仑，通胀压力加剧
+
+伊朗战争推动全球油价持续攀升，美国汽油价格在过去一个月跳涨近79美分/加仑。IEA此前释放4亿桶战略储备仍远不足以填补霍尔木兹海峡封锁缺口。消费者信心承压，市场担忧通胀卷土重来。
+
+### 🌍 三、2026奥斯卡颁奖典礼在洛杉矶举行
+
+3月16日（周日），第98届奥斯卡颁奖典礼在洛杉矶举行。具体获奖名单详见各娱乐媒体报道。
+
+---</p>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Nvidia</td><td>Vera Rubin平台</td><td>7芯片+5机架系统，10x perf/watt</td><td>⏳2026 H2出货</td><td>nvidia.com/gtc</td><td>3月16日</td></tr><tr><td>Nvidia</td><td>Feynman架构+Rosa CPU</td><td>下一代Agentic AI全栈架构</td><td>⏳路线图</td><td>—</td><td>3月16日</td></tr><tr><td>Nvidia</td><td>OpenClaw全平台支持</td><td>开源Agent构建加速</td><td>✅已宣布</td><td>github.com</td><td>3月16日</td></tr><tr><td>Microsoft</td><td>GigaTIME</td><td>病理切片→21通道蛋白质图谱</td><td>✅公开可用</td><td>Azure AI Foundry + HF</td><td>3月15日</td></tr><tr><td>Nvidia</td><td>DLSS 5</td><td>新一代图形超分辨率</td><td>⏳待推送</td><td>GeForce驱动</td><td>3月16日</td></tr><tr><td>Nvidia</td><td>Drive Hyperion L4扩展</td><td>Nissan/BYD/吉利/五十铃/现代加入</td><td>🔧车企集成</td><td>—</td><td>3月16日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
+|------|------------------|---------------------------|------------------------|-------------|
+| <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (待测) |
+| <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
+| <strong>Agentic/Computer Use</strong> | ⭐⭐⭐⭐⭐ OSWorld 75% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐ (待测) |
+| <strong>算法/科学推理(GPQA)</strong> | ⭐⭐⭐⭐⭐ ~93% | ⭐⭐⭐⭐½ ~93% | ⭐⭐⭐⭐⭐ 94.3% | ⭐⭐⭐⭐ (待测) |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>长上下文(实际可用)</strong> | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐ 200K | ⭐⭐⭐⭐⭐ 1M | ⭐⭐⭐⭐⭐ 1M |
+| <strong>最大输出</strong> | 高 | 高 | 高 | 中-高 (待测) |
+| <strong>定价(input/output)</strong> | $2.50/$15 | $15/$75 | $2/$12 | ~$0.14/$0.56 (待确认) |
+| <strong>最佳适用</strong> | Agent工作流、企业自动化 | 深度分析、法律文书、数学研究 | 长文本、科学推理 | 中文任务、极致性价比 |
+| <strong>获取方式</strong> | ChatGPT / API | claude.ai / API | Gemini / API | API / 开源 |</p><p>### 中端性价比模型对比表</p><p>| 维度 | GPT-5.3 Instant (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Gemini 3 Flash (Google) | Qwen 3.5 (Alibaba) |
+|------|-------------------------|-------------------------------|------------------------|-------------------|
+| <strong>综合能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ Elo 1633 | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>编程</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐⭐½ SWE-bench 80.8% | ⭐⭐⭐½ | ⭐⭐⭐⭐ |
+| <strong>日常对话质量</strong> | ⭐⭐⭐⭐½ 幻觉率↓27% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| <strong>定价</strong> | 订阅制内 | $3/$15 | 低价 | 低价（降60%） |
+| <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大排名变动。Nvidia GTC宣布的Vera Rubin 10x perf/watt和$1T订单预期意味着2026 H2推理成本将显著下降，可能改变API定价格局。Knuth论文为Claude Opus 4.6在数学推理领域加冕——"最佳适用"新增"数学研究"标签。DeepSeek V4独立Benchmark仍待公布。</p></div>
+<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+|------|------|------|----------|-----------|
+| 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | DeepSeek V4 | Computer Use闭环验证代码 |
+| ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
+| 🔬 学术/科学推理 | Gemini 3.1 Pro | Claude Opus 4.6 🔄 | GLM-5 | GPQA 94.3%理科之王 |
+| 🎨 AI绘画 | Midjourney v6.1 | DALL-E 3 | Stable Diffusion | 艺术风格一致性最强 |
+| 🎬 AI视频 | Seedance 2.0 | Sora | Runway Gen-4.5 | 音视频同步双料第一 |
+| 🎵 AI音乐 | Suno v4 | Udio | Suno免费版 | 全风格覆盖最完整 |
+| ⚖️ 法律文书 | Claude Opus 4.6 | GPT-5.4 | DeepSeek V4 | 深度分析和严谨性最优 |
+| 📊 数据分析 | GPT-5.4 | Claude Sonnet 4.6 | Qwen 3.5 | 电子表格建模87.3%碾压 |
+| 🌐 实时搜索 | Perplexity AI | ChatGPT Search | Perplexity免费版 | 搜索整合体验最流畅 |
+| 🤖 AI Agent/自动化 | GPT-5.4 | Claude Opus 4.6 | OpenClaw+Nemotron 🔄 | OSWorld 75%超越人类 |
+| 🗣️ 语音对话 | ChatGPT Advanced Voice | 豆包语音 | 豆包App | 多语言实时语音最自然 |
+| 📱 手机端日常 | Claude App | ChatGPT (GPT-5.3) | 豆包App | 日活1130万用户口碑逆转 |
+| 💰 极致性价比 | DeepSeek V4 | MiniMax M2.5 | GLM-5（MIT开源） | V4若确认$0.14/M碾压全场 |
+
+<strong>🔄 本周变化：</strong> 🔬学术/科学推理备选由GPT-5.4改为Claude Opus 4.6——Knuth论文实证Claude在高难度数学/图论问题上的创造性解题能力，与Gemini的GPQA高分形成互补。🤖AI Agent/自动化免费方案新增OpenClaw——Nvidia GTC全平台支持使其成为开源Agent构建的重要选项。
+
+---</p>
+<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🎮 Nvidia GTC 2026持续至3月19日</strong>：主题演讲已结束，本周还有大量技术分会、合作伙伴发布和深度演示。关注Vera Rubin详细规格、OpenClaw技术文档和推理成本预测。
+
+2. <strong>⚔️ 伊朗战争：迪拜机场遇袭后的连锁反应</strong>：DXB是全球航空枢纽，停飞影响远超中东。Trump威胁"记住不帮忙的盟友"，关注是否升级对伊朗石油设施打击。油价和航空股本周承压。
+
+3. <strong>🔍 DeepSeek V4独立Benchmark</strong>：社区独立测试持续进行中，V4是否真能在长上下文编程上超越Claude和ChatGPT将很快见分晓。
+
+4. <strong>📱 Alibaba Agentic AI企业方案</strong>：据报Alibaba正准备基于Qwen的企业级Agent AI产品，与Nvidia的OpenClaw和Anthropic的Claude形成三足鼎立之势。
+
+5. <strong>🏀 NCAA March Madness正式开赛</strong>：68强对阵表已揭晓，Duke获男篮头号种子，第一轮比赛本周进行。
+
+---
+
+*数据来源：Nvidia、CNBC、TechCrunch、Bloomberg、Washington Post、Al Jazeera、Microsoft Research、Stanford/Knuth等 | 所有数据基于2026年3月17日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
+<div class="footer"> ACLED数据显示，自2月28日开战以来，美以在伊朗29/31个省份实施了近2,000次打击事件，累计造成超2,300人死亡。德黑兰遭受最重轰炸。以色列扩大黎巴嫩地面行动，伊朗已向阿联酋发射超1,800枚导弹和无人机（阿联酋战争开始以来已有6人死亡）。霍尔木兹海峡仍处于封锁状态。Trump威胁"记住"不帮忙的盟友。  来源：<a href="https://www.washingtonpost.com/world/2026/03/16/dubai-airport-drone-strike-iran/">Washington Post</a> <br> <a href="https://www.aljazeera.com/news/2026/3/16/drone-strike-disrupts-dubai-flights-as-iran-continues-gulf-attacks">Al Jazeera</a> <br> <a href="https://www.cnbc.com/2026/03/16/dubai-airport-suspends-flights-drone-attack.html">CNBC</a>  ### 🌍 二、美国汽油价格一个月飙升79美分/加仑，通胀压力加剧  伊朗战争推动全球油价持续攀升，美国汽油价格在过去一个月跳涨近79美分/加仑。IEA此前释放4亿桶战略储备仍远不足以填补霍尔木兹海峡封锁缺口。消费者信心承压，市场担忧通胀卷土重来。  ### 🌍 三、2026奥斯卡颁奖典礼在洛杉矶举行  3月16日（周日），第98届奥斯卡颁奖典礼在洛杉矶举行。具体获奖名单详见各娱乐媒体报道。  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Nvidia <br> Vera Rubin平台 <br> 7芯片+5机架系统，10x perf/watt <br> ⏳2026 H2出货 <br> nvidia.com/gtc <br> 3月16日 <br> <br> Nvidia <br> Feynman架构+Rosa CPU <br> 下一代Agentic AI全栈架构 <br> ⏳路线图 <br> — <br> 3月16日 <br> <br> Nvidia <br> OpenClaw全平台支持 <br> 开源Agent构建加速 <br> ✅已宣布 <br> github.com <br> 3月16日 <br> <br> Microsoft <br> GigaTIME <br> 病理切片→21通道蛋白质图谱 <br> ✅公开可用 <br> Azure AI Foundry + HF <br> 3月15日 <br> <br> Nvidia <br> DLSS 5 <br> 新一代图形超分辨率 <br> ⏳待推送 <br> GeForce驱动 <br> 3月16日 <br> <br> Nvidia <br> Drive Hyperion L4扩展 <br> Nissan/BYD/吉利/五十铃/现代加入 <br> 🔧车企集成 <br> — <br> 3月16日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V4 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>-------------<br> <br> </div>
+</div>
+</body>
+</html>
