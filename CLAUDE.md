@@ -83,10 +83,25 @@
 - Product Hunt AI：https://www.producthunt.com/topics/artificial-intelligence
 - There's An AI For That：https://theresanaiforthat.com
 
-**E 类｜中文社区**
-- 少数派 AI 栏目：https://sspai.com/matrix?category=ai
-- 知乎 AI 话题：https://www.zhihu.com/topic/ai
-- 公众号：机器之心、AI 前哨
+**E 类｜中文媒体（按内容类型对应找信源，不要一股脑全用）**
+
+| 内容类型 | 首选信源 | URL |
+|---------|---------|-----|
+| **AI 模型发布、技术解读、学术前沿** | 机器之心 | https://www.jiqizhixin.com |
+| **AI 行业新闻、创业公司、产品评测** | 量子位 | https://www.qbitai.com |
+| **科技创业、投融资、初创公司动态** | 36氪 | https://36kr.com |
+| **商业评论、产业深度分析** | 虎嗅 | https://www.huxiu.com |
+| **上市公司、商业科技、产业政策** | 钛媒体 | https://www.tmtpost.com |
+| **AI 工具实战、上手教程** | 少数派 AI 栏目 | https://sspai.com/matrix?category=ai |
+| **AI 综合讨论** | 知乎 AI 话题 | https://www.zhihu.com/topic/ai |
+
+**信源选择规则：**
+- 头条新闻 → 优先 fetch 机器之心或量子位（看主题）
+- 投融资/创业新闻 → 优先 36氪
+- 产业评论/深度文 → 虎嗅或钛媒体
+- 不要每条都同时引用 5 家中文媒体，**针对内容选 1-2 家最对口的**
+
+**公众号信源**（机器之心、新智元、AI 前哨、36氪 AI 等公众号）目前不直接 fetch——其内容大部分与上述网站同步，使用网站版即可。若未来部署 RSS 中转服务（如 wewe-rss）再单独配置。
 
 **F 类｜法律+AI 专项（用户为律师，机会主义加权）**
 - Harvey AI Blog：https://www.harvey.ai/blog
