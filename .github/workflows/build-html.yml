@@ -1,14 +1,13 @@
 name: Build Briefing HTML
 
 on:
-  # 推送 .md 晨报时触发（只监听 briefings/ 直接子目录的 .md，不监听 html/ 子目录）
   push:
     branches: [main]
     paths:
-      - 'briefings/晨报_*.md'
+      - 'briefings/**.md'
       - 'tools/md_to_html.py'
+      - '.github/workflows/build-html.yml'
 
-  # 支持手动触发
   workflow_dispatch:
 
 jobs:
@@ -21,49 +20,47 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          # 需要完整历史以便 diff
-          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Find latest .md file
-        id: find_md
+      - name: List briefing markdown files (debug)
         run: |
-          # 取最近 commit 修改的 briefings/晨报_*.md（不含 html/ 子目录）
-          changed=$(git diff --name-only HEAD~1 HEAD -- 'briefings/晨报_*.md' | grep -v '/html/' || true)
-          if [ -z "$changed" ]; then
-            # 兜底：取整个 briefings/ 目录最新的 .md
-            changed=$(ls -t briefings/晨报_*.md 2>/dev/null | head -1)
-          fi
-          echo "Changed files: $changed"
-          # 输出每个待转换的 md 路径
-          echo "files<<EOF" >> $GITHUB_OUTPUT
-          echo "$changed" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "=== briefings/ directory ==="
+          ls -la briefings/ || echo "no briefings dir"
+          echo ""
+          echo "=== existing html ==="
+          ls -la briefings/html/ 2>/dev/null || echo "no html dir yet"
 
-      - name: Convert .md to .html
-        if: steps.find_md.outputs.files != ''
+      - name: Convert all briefing .md to .html
         run: |
-          while IFS= read -r f; do
-            if [ -f "$f" ]; then
-              echo "Converting: $f"
-              python tools/md_to_html.py "$f"
-            fi
-          done <<< "${{ steps.find_md.outputs.files }}"
+          set -e
+          shopt -s nullglob
+          count=0
+          for f in briefings/*.md; do
+            # Skip files that already have HTML up to date (always reconvert is OK, git diff filters)
+            echo "Converting: $f"
+            python tools/md_to_html.py "$f"
+            count=$((count + 1))
+          done
+          echo "Total converted: $count"
+          echo ""
+          echo "=== output html ==="
+          ls -la briefings/html/
 
-      - name: Commit and push HTML
+      - name: Commit and push HTML changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if [ -n "$(git status --porcelain briefings/html/)" ]; then
-            git add briefings/html/
-            git commit -m "auto: build HTML for briefings"
-            git push
-          else
+          git add briefings/html/
+
+          if git diff --staged --quiet; then
             echo "No HTML changes to commit."
+          else
+            git commit -m "auto: rebuild HTML for briefings"
+            git push
+            echo "Pushed HTML updates."
           fi
