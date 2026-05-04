@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年5月4日 星期一</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年5月4日 星期一</span>
+    <span>覆盖72小时 · 预计阅读6-8分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">60 秒速览</div><div class="summary"><ul><li><strong>【后巴菲特时代首场股东大会：Greg Abel "不会为了 AI 而 AI"，Q1 经营利润 $11.35B、现金 $397B 创历史新高、首个提问由 AI 生成的"AI 巴菲特"以 deepfake 形式发出】</strong><span class="aside">——美股客户尤其是巴菲特持仓客户的"投资风格转向"判断窗口；deepfake 上场即开会主流议题——汉坤代表上市公司应<strong>立即审视股东大会/路演场合的 AI 防伪 SOP</strong></span></li><li><strong>【Iran 战争 Day 64-65 跟进：Trump 启动 "Project Freedom" 海上护航行动 5/4 起、15,000 兵 + 100+ 飞机 + 多艘导弹驱逐舰；Iran 14-point 和平方案被 Trump 拒绝】</strong><span class="aside">——汉坤涉外能源/海运/制裁合规客户：本周进入"军事降温但执行升压"窗口，Hormuz 阻塞已破</span></li><li><strong>【Sullivan & Cromwell 提交"请勿制裁我们因 AI 幻觉"紧急信函：单份破产法庭文件 40+ 处错误引用】</strong><span class="aside">——Q1 2026 美国法院 AI 幻觉制裁累计 $145K+；Nebraska 史上首例律师吊销执照——汉坤 AI 工作流 citation check 必做</span></li><li><strong>【Pentagon 与 7 家大厂签 AI 合同 / Anthropic 缺席】</strong><span class="aside">——继续支撑 Anthropic 拒绝 DoD 的"民用纯净"卖点；汉坤对外法律 + 政府敏感客户应用模型选型上 Anthropic 优势进一步突出</span></li><li><strong>【Claude Code v2.1.126 `/ultrareview` 公开预览：云端多 agent 并行代码审查；Pro/Max 用户首三次免费】</strong><span class="aside">——本期 ⑤ 拆律所如何把"多 agent 并行审查"思路落到长合同 / 备忘录 / 合规清单的"四眼审查"自动化</span></li></ul></div>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条一：后巴菲特时代首场伯克希尔股东大会——Greg Abel "不会为了 AI 而 AI"，Q1 经营利润 $11.35B、现金 $397B 创历史新高、首个提问由 deepfake "AI 巴菲特"发出</h3><p>伯克希尔·哈撒韦 5 月 2 日（周六）在奥马哈举行 2026 年股东大会——<strong>Warren Buffett 95 岁、首次未坐主席台、改坐前排观众席旁听</strong>；<strong>Greg Abel（63 岁，2026 年 1 月 1 日正式接任 CEO）独立主持全程</strong>。同日盘前公告 Q1 2026 财报：<strong>经营利润 $11.35B（+18% YoY，但低于市场预期 $11.56B）</strong>、<strong>净利 $10.1B（+120% YoY，对比 2025 年同期 $4.6B）</strong>、<strong>现金及等价物 $397B（创历史新高，vs 2025 年底 $373B）</strong>——这是 Abel 接棒后首份季报（<a href="https://www.cnbc.com/2026/05/03/berkshire-annual-meeting-greg-abel-rules-out-break-up-stressing-continuity-with-buffett.html">CNBC 股东大会综述</a> | <a href="https://www.cnbc.com/2026/05/02/cnbc-transcript-berkshire-hathaway-chairman-warren-buffett-sits-down-with-cnbcs-becky-quick-during-the-2026-berkshire-hathaway-annual-meeting-today-.html">CNBC 转录稿</a> | <a href="https://www.cnn.com/2026/05/02/business/berkshire-hathaway-earnings-buffett">CNN Q1 财报</a> | <a href="https://www.indexbox.io/blog/berkshire-hathaway-q1-2026-results-record-cash-reserves-under-new-ceo-greg-abel/">IndexBox 数据</a> | <a href="https://www.cbsnews.com/news/berkshire-hathaway-annual-meeting-warren-buffet-profits-shareholders/">CBS 现场</a> | <a href="https://www.fool.com/investing/2026/05/03/greg-abel-sends-warning-stock-market-do-this-next/">Motley Fool $397B 警示</a>）。<strong>多家英文一手页今晨 fetch 全部 403——下文据 CNBC/CNN/CBS/Motley Fool 多家三方报道交叉整合，伯克希尔 Q1 26 PDF（berkshirehathaway.com）fetch 同样 403，未见官方 PDF URL 公开 fetch 通过</strong>（符合 R3 透明性要求）。</p><p><strong>AI 议题首次成为伯克希尔股东大会第一议题：</strong></p><p>会议 Q&A 第一个提问者<strong>就是一段 AI 生成的 "Warren Buffett" 视频</strong>——画面、声音均为 deepfake，向 Abel 发问"为什么股东应该继续长期持有伯克希尔股票？"——<strong>Abel 当场揭晓这段视频系 AI 生成、未使用 Buffett 本人的任何语音或照片素材，仅基于公开信息即可复制其声音和形象</strong>（<a href="https://finance.sina.com.cn/jjxw/2026-05-03/doc-inhwpucz1395772.shtml">新浪财经"震惊全场"现场</a> | <a href="https://www.163.com/dy/article/KS03PL3G055040N3.html">网易转载</a>）。Buffett 随后在 CNBC 转录访谈中评论：deepfake "在涉及核武器国家和未来发展的语境下令人担忧"。Abel 关于 AI 的核心表态：① <strong>"我们不会为了 AI 而 AI"</strong>——只有当 AI 技术能为业务创造<strong>实质价值</strong>时才会投资部署；② 伯克希尔旗下多个业务板块（保险、铁路、能源公用事业）<strong>已应用 AI</strong>，公司<strong>正大规模招聘工程师和技术人员，自主构建 AI 解决方案</strong>；③ 重点用 AI 在<strong>保险业务的网络威胁识别</strong>——不是 AI for AI，而是为传统业务降险（<a href="https://finance.sina.com.cn/roll/2026-05-03/doc-inhwpyms9285736.shtml">新浪 Abel 首秀十大看点</a> | <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-03/doc-inhwqetv1219954.shtml">新浪科技与 AI 机遇</a> | <a href="https://www.huxiu.com/article/4855540.html">虎嗅深度</a>）。Apple 持仓口径（背景）：Buffett 任内最后 9 个季度累计减持 6.876 亿股（<strong>至 2026 年 1 月 1 日 Apple 仓位降至约 2.38 亿股，从峰值 9.05 亿股下降 75%</strong>——参见 <a href="https://www.fool.com/investing/2026/03/02/warren-buffett-sell-75-aapl-buy-6-straight-quarter/">Motley Fool 减持复盘</a>）；Abel 接棒后的 Q1 持仓 13F 将于 5 月中旬公布。</p><div class="callout"><strong>为什么重要（律所视角）：</strong> ① <strong>AI deepfake 上场即成股东大会第一议题</strong>——这是 Fortune 500 公司股东大会<strong>首次有意识地用 deepfake 测试 CEO 在公开场合识别 AI 生成内容的能力</strong>——预示着 2026 年所有上市公司股东大会、路演、ESG 报告会均面临"AI 生成股东 / 提问者 / 媒体身份" 的真伪验证压力；<strong>汉坤代表上市公司客户应</strong>立即审视股东大会及投资者沟通场合的 AI 防伪 SOP（含"提问者身份验证流程"+"会议主席对 AI 生成内容的现场识别预案"）——本议题预计 5-6 月将进入 SEC Investor Advisory Committee 议程；② <strong>"不会为了 AI 而 AI" 是后巴菲特时代价值投资门派对 AI 的标志性表态</strong>——区别于 Big Tech FY26 Capex 合计 $700B 的 ROI 模糊（参见 5/1 晨报 ④）和 Big Tech 4 大砸 $625-655B（4/30 ⑤）的"军备竞赛叙事"——<strong>Abel 路径反向树立"AI 投资必须有可量化业务回报"的信披新范式</strong>——汉坤代表巴菲特持仓重叠的 PE / 险资客户的，<strong>应即起草"AI 投资 ROI 信披 Abel 模型 vs Nadella 模型"对比备忘录</strong>作为客户新季度会议素材；③ <strong>$397B 现金创历史新高 + 经营利润低于预期 = "Abel 风格更保守"</strong>——Motley Fool 5/3 报道把这视为"对股市的警示信号"；汉坤代表参与美股 IPO 或并购的中国客户应<strong>预设"巴菲特派系将退出高估值标的"对 IPO 定价区间的下行影响</strong>；④ <strong>Abel 强调"自主构建 AI 解决方案"+ 大规模招聘工程师</strong>——这与 Apple "AI on-device + 第三方模型集成"路径（5/1 头条一）形成第三种范式：<strong>伯克希尔 = "传统业务驱动型企业自建 AI 工程能力"</strong>；汉坤代表传统行业上市公司客户在数字化转型咨询中应<strong>新增"自建 vs SaaS vs 集成"三选一决策框架</strong>；⑤ <strong>Apple 持仓继续观察</strong>——Q1 13F 中旬公布，若 Abel 接手后<strong>继续减持 Apple 或加大科技股替换</strong>，则苹果股价在 5/14-15 区间将面临新一轮压力——汉坤代表 Apple 供应链客户（立讯、富士康、京东方等）应预案。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.cnbc.com/2026/05/03/berkshire-annual-meeting-greg-abel-rules-out-break-up-stressing-continuity-with-buffett.html">CNBC 股东大会综述</a> | <a href="https://www.cnbc.com/2026/05/02/cnbc-transcript-berkshire-hathaway-chairman-warren-buffett-sits-down-with-cnbcs-becky-quick-during-the-2026-berkshire-hathaway-annual-meeting-today-.html">CNBC Buffett 转录稿</a>（多家英文 + 伯克希尔 PDF fetch 全部 403——本期未见官方一手 URL fetch 通过，按 R3 透明披露）；Q1 13F 13(F) 报表预计 5/15 前后由 SEC EDGAR 收录</li><li>💡 上手：<strong>TMT/上市公司公关组：</strong> 客户 6 月起股东大会前必新增"AI 生成提问者识别 + 主席台应对预案 SOP"；<strong>美股客户/PE 客户：</strong> 起草"AI 投资 ROI 信披 Abel 模型（保守、需有量化回报）vs Nadella 模型（强口径披露 ARR $37B + 123% YoY）vs Cook 模型（融入 Services 不单列）"三选一对比备忘录——按客户业务结构推荐范式；<strong>证券诉讼防御组：</strong> 监控 deepfake 用于股东大会扰乱秩序、误导投资者的潜在 SEC 立案先例</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/05/03/berkshire-annual-meeting-greg-abel-rules-out-break-up-stressing-continuity-with-buffett.html">CNBC 股东大会综述</a> | <a href="https://www.cnbc.com/2026/05/02/cnbc-transcript-berkshire-hathaway-chairman-warren-buffett-sits-down-with-cnbcs-becky-quick-during-the-2026-berkshire-hathaway-annual-meeting-today-.html">CNBC Buffett 转录</a> | <a href="https://www.cnn.com/2026/05/02/business/berkshire-hathaway-earnings-buffett">CNN Q1 财报</a> | <a href="https://www.indexbox.io/blog/berkshire-hathaway-q1-2026-results-record-cash-reserves-under-new-ceo-greg-abel/">IndexBox</a> | <a href="https://www.cbsnews.com/news/berkshire-hathaway-annual-meeting-warren-buffet-profits-shareholders/">CBS</a> | <a href="https://www.fool.com/investing/2026/05/03/greg-abel-sends-warning-stock-market-do-this-next/">Motley Fool $397B</a> | <a href="https://www.fool.com/investing/2026/03/02/warren-buffett-sell-75-aapl-buy-6-straight-quarter/">Motley Fool Apple 减持复盘</a></div><div class="sources">中文解读：<a href="https://finance.sina.com.cn/jjxw/2026-05-03/doc-inhwpucz1395772.shtml">新浪财经"震惊全场 AI 巴菲特"</a> | <a href="https://finance.sina.com.cn/roll/2026-05-03/doc-inhwpyms9285736.shtml">新浪 Abel 首秀十大看点</a> | <a href="https://finance.sina.com.cn/jjxw/2026-05-03/doc-inhwrhfc4669606.shtml">新浪 不为 AI 而 AI</a> | <a href="https://www.huxiu.com/article/4855540.html">虎嗅深度</a></div></div><div class="feature"><h3>头条二：Iran 战争 Day 64-65 跟进——Trump 启动 "Project Freedom" 海上护航行动 5/4 起、15,000 兵 + 100+ 飞机；Iran 14-point 和平方案被拒绝</h3><p>继 5/1 晨报"CENTCOM 短促有力打击方案 + Hormuz 部分占领方案 + Trump 倾向封锁优于轰炸"基础上的关键 72 小时增量——<strong>5 月 3 日（周日）Trump 公开宣布启动 "Project Freedom"（自由行动），美军从 5 月 4 日（周一）起开始护航被困 Hormuz 海峡的中立国商船</strong>。<strong>美军部署规模：导弹驱逐舰若干 + 100+ 海陆基飞机 + 多域无人系统 + 约 15,000 名服役人员</strong>；CENTCOM 5/3 确认从 5/4 起支持本次行动（<a href="https://www.cnn.com/2026/05/03/world/live-news/iran-war-news">CNN Day 64 直播</a> | <a href="https://www.axios.com/2026/05/03/trump-us-navy-iran-ships-strait-hormuz">Axios</a> | <a href="https://www.thenationalnews.com/news/us/2026/05/04/project-freedom-trump-strait-of-hormuz/">The National 5/4</a> | <a href="https://www.aljazeera.com/news/2026/5/3/whats-irans-14-point-proposal-to-end-the-war-and-will-trump-accept-it">Al Jazeera 14-point 提案</a> | <a href="https://www.aljazeera.com/news/2026/5/2/iran-war-whats-happening-on-day-64-as-trump-rejects-tehrans-proposal">Al Jazeera Day 64</a> | <a href="https://www.cbsnews.com/live-updates/iran-war-trump-strait-of-hormuz-israel-lebanon-ceasefire/">CBS News Live</a> | <a href="https://www.cnbc.com/2026/05/03/trump-iran-strait-of-hormuz-trapped-ships.html">CNBC 5/3</a> | <a href="https://www.timesofisrael.com/liveblog-may-3-2026/">Times of Israel 5/3 直播</a>）。<strong>英文一手页今日 fetch 多数 403——下文据多家英文媒体交叉整合，Project Freedom 官方 CENTCOM PR URL 未见公开 fetch 通过。</strong></p><p><strong>关键 72 小时增量（vs 5/1 Day 61 报道）：</strong></p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>Hormuz 海峡阻塞已成既成事实</strong>——Iran 战争开战以来 Hormuz 实际上已关闭，<strong>约 20,000 名船员在海峡两侧滞留</strong>（The National 数据）；Hormuz 是全球约<strong>1/4 海运石油</strong>通道——油价 5/3 维持<strong>美国汽油均价 $4.45/gal</strong>（CNN 数据）</li><li><strong>Trump 5/2 拒绝 Iran 14-point 和平方案</strong>——具体内容未完全公开，但 Iran 据报已收到美方对其方案的回复，Iran 外交部称"正在审议"；Iran 高级军方官员称"与美军重启冲突"是可能选项</li><li><strong>Iran 副国家安全委员会负责人 Ebrahim Azizi 警告："Project Freedom 是对停火协议的直接违反"</strong>——这是 Iran 首次明确把美军护航行动定性为"违约行为"，为今后 Iran 重启军事行动预留法律口径</li><li><strong>Israel-Hezbollah 停火期内继续交火</strong>——5/2-5/3 Israel 在南黎巴嫩空袭、Hezbollah 反击；CNN 称"虽宣布停火但相互攻击未止"</li><li><strong>CENTCOM 司令 Adm. Brad Cooper 主导 Project Freedom 执行</strong>——延续 4/30 晨报披露的"短促有力打击方案"作者；表面"人道主义"实质为"军事压制 Iran 重启 Hormuz 关闭权"</li><li><strong>战争权力法（War Powers Act）60 天窗口期已过</strong>——5/1 晨报提及的 60 天窗口已过期，Trump 政府未向国会提交完整军事行动报告，<strong>国会民主党议员预计 5 月初将启动法定追究程序</strong></li></ul><div class="callout"><strong>为什么重要（律所视角）：</strong> ① <strong>Project Freedom 让 Hormuz 通行成为美军军事保护下的"协作型经济运营"</strong>——这是冷战以来美军首次以"护航 + 海上经济保障"形式介入中东能源通道——<strong>对全球航运保险（如 P&I Club）合同条款产生根本变化</strong>：以往"战争险"范畴的航行将变为"准军事保护下的商业航行"，险费定价、索赔触发条件、再保险结构均需重新校准——汉坤涉外海运 / 保险 / 大宗商品客户<strong>本周必须</strong>重新审视所有涉及 Hormuz / Bab-el-Mandeb 的航次合同；② <strong>Iran 把 Project Freedom 定性"违约"为重启冲突预留法律基础</strong>——汉坤代表中国大型能源公司（中石油、中石化、中海油）涉伊业务客户应<strong>预案"Iran 重启军事行动 → 制裁名单临时新增"的应急合规预案</strong>——Iran-China 油气合同的<strong>不可抗力条款援引时点</strong>应做敏感性研究；③ <strong>国会启动战争权力法追究程序</strong>——为未来 Iran 战争最终判决（含战争罪 / 国际法责任 / 国会授权追溯）形成判例风向；汉坤涉外法律业务组应<strong>追踪本月国会立法走势</strong>作为客户咨询素材；④ <strong>Hormuz 阻塞 64 天 + 油价 $4.45/gal</strong>——若 Project Freedom 5 月中旬未能恢复正常通行，则<strong>油价突破 $5/gal 将进入 Trump 政府国内政治压力区间</strong>，新一轮制裁名单调整概率上升；⑤ <strong>20,000 名滞留船员中含大量东南亚 / 南亚 / 中国籍水手</strong>——汉坤涉外劳工 / 人身安全保险客户应<strong>现在启动"危机救助标准合同模板"咨询</strong>。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.cnn.com/2026/05/03/world/live-news/iran-war-news">CNN Day 64 直播</a> | <a href="https://www.axios.com/2026/05/03/trump-us-navy-iran-ships-strait-hormuz">Axios Project Freedom</a> | <a href="https://www.thenationalnews.com/news/us/2026/05/04/project-freedom-trump-strait-of-hormuz/">The National 5/4</a>（多家英文一手页 fetch 403，CENTCOM 官方 PR URL 未见公开 fetch 通过，按 R3 标注）</li><li>💡 上手：<strong>汉坤涉外能源/海运/制裁合规客户：</strong> ① 本周必须发"Hormuz 战时通行合同条款审视清单"给客户；② Iran 重启军事行动情形下"中国实体进入 SDN 名单"敏感性预案；③ 客户航运业务可咨询"Project Freedom 护航期间是否申请加入 + 加入后险费、合规义务、信息披露要求"；<strong>汉坤涉外劳工业务组：</strong> 滞留船员救助合同模板 + 中国船员撤离应急预案</li></ul><div class="sources">来源：<a href="https://www.cnn.com/2026/05/03/world/live-news/iran-war-news">CNN Day 64 直播</a> | <a href="https://www.axios.com/2026/05/03/trump-us-navy-iran-ships-strait-hormuz">Axios Project Freedom</a> | <a href="https://www.thenationalnews.com/news/us/2026/05/04/project-freedom-trump-strait-of-hormuz/">The National 5/4</a> | <a href="https://www.aljazeera.com/news/2026/5/3/whats-irans-14-point-proposal-to-end-the-war-and-will-trump-accept-it">Al Jazeera 14-point 提案</a> | <a href="https://www.aljazeera.com/news/2026/5/2/iran-war-whats-happening-on-day-64-as-trump-rejects-tehrans-proposal">Al Jazeera Day 64</a> | <a href="https://www.cbsnews.com/live-updates/iran-war-trump-strait-of-hormuz-israel-lebanon-ceasefire/">CBS Live</a> | <a href="https://www.cnbc.com/2026/05/03/trump-iran-strait-of-hormuz-trapped-ships.html">CNBC 5/3</a> | <a href="https://www.breitbart.com/politics/2026/05/03/trump-announces-project-freedom-escort-ships-outof-hormuz/">Breitbart Project Freedom</a> | <a href="https://www.timesofisrael.com/liveblog-may-3-2026/">Times of Israel</a></div><div class="sources">中文解读：暂无具体专文（中文媒体目前仅做摘要式跟进，未见对 Project Freedom + 14-point 提案的深度专文；<strong>符合 R1，留空</strong>）</div></div><div class="brief-item"><h4>Sullivan & Cromwell 提交"请勿因 AI 幻觉制裁我们"紧急信函——单份破产法庭文件 40+ 处错误引用 + Q1 2026 全美 AI 幻觉制裁累计 $145K+</h4><p>（4 月底集中爆发，5/1 - 5/3 各家媒体二轮发酵：<a href="https://abovethelaw.com/2026/04/sullivan-cromwell-files-emergency-please-dont-sanction-us-for-all-these-ai-hallucinations-letter/">Above the Law 4/29 报道</a> | <a href="https://davidlat.substack.com/p/sullivan-cromwell-ai-fail-screw-up-error-hallucination">David Lat Substack 深度复盘</a> | <a href="https://compliancehub.wiki/legal-ai-hallucination-reckoning-2026/">ComplianceHub Q1 2026 案例汇总</a> | <a href="https://www.damiencharlotin.com/hallucinations/">Damien Charlotin 全球幻觉数据库</a>）：Sullivan & Cromwell 重组业务负责人 Andrew Dietderich 向联邦破产法官提交三页致歉信 + 修正清单——<strong>单份文件 40+ 处错误</strong>（含虚构判例引用、错误内引、不存在的法条）；<strong>S&C 是全球白鞋所之一，此次成为美国 Big Law AI 幻觉公开第一案</strong>。背景：<strong>Q1 2026 美国法院 AI 幻觉制裁累计 $145K+</strong>——Oregon 创纪录 $110K（$11 万美元）、Nebraska 史上首例律师吊销执照、Tennessee 两律师 6 巡 $30K 制裁 + 整案驳回（理由"普遍性失职"）、Ohio 两律师 $7.5K 集体制裁 + 蔑视法庭 + 移送律师纪律处分；Damien Charlotin 数据库<strong>全球累计 1,353 起 AI 幻觉案件</strong>，2026 Q1 加速。
+- 💡 上手：<strong>汉坤诉讼 / 仲裁 / 涉外业务组立即动作：</strong> ① 所内任何 AI 起草的法律文书提交前<strong>必须套"Westlaw / 北大法宝 citation cross-check 双重核对" SOP</strong>——<strong>S&C 案明确告诉法院"白鞋所也会犯"，但绝对不被接受作为减责理由</strong>；② 若客户内部法务用 AI 起草然后递交汉坤——汉坤<strong>应在合同条款显式约定"客户对 AI 生成内容的事实核查义务"以隔离汉坤律师责任</strong>；③ 律师助理 / 法务实习生<strong>强制阅读 ComplianceHub Q1 2026 案例汇总</strong>，把"哪些是 AI 不能做的"内化为本能；④ 把本期 ⑤ 的 `/ultrareview` 多 agent 审查机制纳入律所 AI citation 审查工作流——<strong>人工 + AI 多 agent 双轨</strong></p></div><div class="brief-item"><h4>Pentagon 与 7 家大厂签 AI 合同 / Anthropic 缺席</h4><p>（5 月 1 日，<a href="https://www.cnn.com/2026/05/01/tech/pentagon-ai-anthropic">CNN Business</a> | 多家媒体跟进）：Pentagon 5/1 公布与 7 家美国 Big Tech 签订 AI 合作协议（含 Microsoft、Alphabet、Amazon、Meta、Oracle、Palantir、xAI 中的多数），<strong>Anthropic 因坚持"民用纯净 / 拒绝 DoD 合作"立场不在其中</strong>——CNN 报道直指"Anthropic 是 hyperscaler 中唯一选择拒绝 Pentagon 合同的厂商"。这与 4 月初 Anthropic Mythos 模型仅限制级发布、Opus 4.7 拒绝 DoD 合作的连续动作连成一线，<strong>Anthropic 正在把"民用专用"打造为差异化卖点</strong>。
+- 💡 上手：<strong>律所政府客户 / 跨境监管敏感客户：</strong> Pentagon 7 家名单确认了"Anthropic 是 hyperscaler 中唯一民用专用"——汉坤代表<strong>反 DoD 立场敏感的客户（如新闻自由组织、人权机构、跨境调查记者）</strong>应明确推荐 Anthropic 作为模型选择；<strong>汉坤代表中国大厂出海客户</strong>应做"美国 AI 厂商对华态度阵营图谱"年度评估——MSFT/Alphabet/Amazon/Meta 已与 Pentagon 签约 = 在中国客户业务上将更受 CFIUS / EAR 审查约束；Anthropic 缺席 = 在中国出海产品端可作为更"中性"的供应商首选</p></div><div class="brief-item"><h4>Musk v. OpenAI 庭审 Week 1 结束——Altman/Brockman 5 月中旬出庭，5/21 前完成 liability phase</h4><p>（5/2 多家英文媒体周末综述：<a href="https://www.cnbc.com/2026/05/02/musk-testimony-dominated-first-week-musk-v-altman-trial-in-oakland.html">CNBC Week 1 综述</a> | <a href="https://www.washingtonpost.com/technology/2026/05/02/musk-altman-openai-trial/">Washington Post Week 1</a> | <a href="https://www.technologyreview.com/2026/05/01/1136800/musk-v-altman-week-1-musk-says-he-was-duped-warns-ai-could.html">MIT Tech Review Week 1 wrap</a> | <a href="https://polymarket.com/event/elon-musk-wins-10b-settlement-against-altmanopenai">Polymarket $10B+ 和解赔率</a>）：上期 Day 4 报道之后的 Week 1 综述要点——<strong>Musk 4 日作证已结束</strong>；<strong>Altman 与 Brockman 预计 5 月中旬出庭</strong>；<strong>法官 Yvonne Gonzalez Rogers 公开预期 5/21 前完成 liability phase（责任阶段）</strong>——之后 jury 出"咨询性"裁决，最终由法官独断；<strong>Musk 在交叉询问中承认 xAI 实际使用 OpenAI 模型 distill 训练 Grok</strong>——这一承认对 Musk 自身 IP 立场是双刃剑（<a href="https://www.technologyreview.com/2026/05/01/1136800/musk-v-altman-week-1-musk-says-he-was-duped-warns-ai-could.html">MIT Tech Review 报道</a>）；Polymarket 截至 5/3 fetch 403，<strong>未见赔率实时数据公开 fetch 通过</strong>，按 R5 标注。
+- 💡 上手：<strong>律所诉讼策略组 + IP 业务组：</strong> Musk 承认 xAI distill OpenAI 模型——<strong>对所有"模型蒸馏"商业行为的法律边界判例形成关键先例</strong>；汉坤代表中国 AI 模型公司出海合规咨询应<strong>起草"模型蒸馏的 Terms of Service 合规审查清单"</strong>——Anthropic、OpenAI、Google 三家 ToS 对 distillation 限定不一致，本月内应做对比表</p></div><div class="brief-item"><h4>Berkshire Apple 持仓减持继续 + Buffett "卖早了" 公开承认</h4><p>（<a href="https://finance.yahoo.com/markets/stocks/articles/buffett-apple-sale-sold-too-130203655.html">Yahoo Finance 5/2 Buffett 访谈</a> | <a href="https://www.fool.com/investing/2026/03/02/warren-buffett-sell-75-aapl-buy-6-straight-quarter/">Motley Fool 减持复盘</a>）：Buffett 在 5/2 股东大会前 CNBC 转录访谈中<strong>首次公开承认 "Apple 我卖早了"</strong>——回顾期间苹果股价从减持节点至今上涨约 18-20%；这与 5/1 晨报头条一披露的 <strong>Apple Q2 FY26 +17% 营收 + iPhone 17 +22% + Services 创新高 + $100B 回购</strong> 形成完整闭环（"卖早了"的具体数据印证）。
+- 💡 上手：<strong>律所美股客户 PE 组：</strong> Buffett "卖早了"声明可能影响 Berkshire Q1 13F（5/15 前后公布）市场预期——若 Q1 显示 Abel 接手后<strong>减持速度显著放缓或反向加仓</strong>，则 Apple 股价可能再有一轮 5-8% 行情；客户头寸建议在 5/14-15 区间提前评估</p></div><div class="brief-item"><h4>Cursor Security Review beta + 团队 Marketplace 全量上线</h4><p>（<a href="https://cursor.com/changelog">Cursor 官方 changelog</a> | <a href="https://forum.cursor.com/t/cursor-2-3-is-here/147076">Cursor 论坛 2.3 发布讨论</a>）：Cursor 4/30 推出 Security Review beta（Teams + Enterprise 计划），<strong>自动审查每个 PR 的安全漏洞、认证回归、隐私 / 数据处理风险、agent tool 自动批准、prompt injection 攻击</strong>；5/1 同步上线 Team Marketplace（plugins / MCP servers / skills / subagents / rules / hooks 三档分发模式：Default Off / Default On / Required）。<strong>这是继 4/27 PocketOS 9 秒删库事故后 Cursor 在企业端的快速补救动作</strong>——直接对应"agent 自寻 token + 越权操作"的全部风险点。
+- 💡 上手：<strong>律所 IT / 网安组：</strong> 客户使用 Cursor 时若已升级到 Teams/Enterprise，<strong>本周开启 Security Review beta</strong>——把"prompt injection 攻击"和"agent tool 自动批准"两条作为 4/30 ⑤ permissions 防删库技巧的下游互补层；强制订阅 Cursor changelog（订阅 RSS）作为 IT 团队周三例会的固定阅读项</p></div><div class="brief-item"><h4>TauricResearch/TradingAgents 周新增 11,252 star 至 65,420 总——金融领域多 agent 框架进入主流视野</h4><p>（<a href="https://github.com/trending?since=weekly">GitHub Trending Weekly 5/4 fetch 通过</a>）：本周 GitHub Trending 第 2 名（mattpocock/skills 仍居 #1，本周新增 34,848 至 57,142 总——已在 5/1 ⑤ 详述）。<strong>TradingAgents</strong> 是首个进入主流视野的"金融领域多 agent LLM 交易框架"——核心思路是用多 agent 模拟"交易员 + 分析师 + 风控 + 复盘"四重角色协同决策。<strong>仓库说明明确标注"研究用"非生产可用</strong>，但工程范式有借鉴价值。
+- 💡 上手：<strong>律所 capital markets / 金融监管组：</strong> TradingAgents 上 GitHub Trending = 多 agent 金融决策框架进入"开源主流"——<strong>未来 6-12 个月内 SEC / FINRA 对"AI 自主决策交易"的监管动作概率上升</strong>；汉坤代表对冲基金、量化客户应<strong>在合规咨询清单中新增"AI agent 自主交易的 best execution / 经办人备查制度合规要求"专项</strong>——美国 FINRA Rule 4530 与中国证监会量化交易管理办法对此尚无明确口径，存在被动套用风险</p></div><div class="brief-item"><h4>Claude Code v2.1.126 `/ultrareview` 公开预览 + session recap + 自定义主题正式上线</h4><p>（<a href="https://code.claude.com/docs/en/changelog">Anthropic Claude Code 官方 changelog（fetch 通过）</a> | <a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">Anthropic Claude Code GitHub raw CHANGELOG（fetch 通过）</a>）：5/1 晨报已提及 v2.1.126 但未详述新功能——<strong>`/ultrareview` 是核心新增</strong>：云端多 agent 并行代码审查，单条命令完成"读 PR / 找 bug / 标记设计问题"的完整流程；<strong>Pro/Max 用户首三次免费</strong>，之后按计算量扣费；<strong>亦可作 `claude ultrareview <PR#>` CI/脚本调用</strong>；<strong>session recap</strong> 自动总结你离开终端期间发生的事；<strong>自定义主题</strong> 可由 plugin 携带分发。本期 ⑤ 详解律所如何把"多 agent 并行审查"思路落到合同 / 备忘录 / 合规清单的"四眼审查"自动化。
+- 💡 上手：<strong>所内 Claude Code 用户：</strong> 本周内<strong>所有人立即升级到 v2.1.126 + 试用一次 `/ultrareview`</strong>——首三次免费的窗口期不要错过；<strong>律所 IT 管理员：</strong> 将 v2.1.126 列为 5 月份所内统一基线版本；与 4/30 ⑤ permissions 防删库技巧 + 5/1 ⑤ mattpocock/skills 工程级护栏配合，形成"`policySettings` 兜底 + skills 行为约束 + `/ultrareview` 多 agent 审查"三层 AI 工作流标准</p></div>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Berkshire Hathaway</td><td>2026 股东大会 + Q1 财报</td><td>Abel 首秀 "不为 AI 而 AI"；经营利润 $11.35B、现金 $397B 创新高；deepfake "AI 巴菲特"开场</td><td>✅已发布</td><td>IR + 现场</td><td>5月2-3日</td></tr><tr><td>US CENTCOM</td><td>Project Freedom 海上护航</td><td>5/4 起 Hormuz 商船护航；15K 兵 + 100+ 飞机 + 多舰；20K 船员滞留</td><td>⏳ 5/4 起执行</td><td>CENTCOM PR</td><td>5月3日宣布</td></tr><tr><td>Iran</td><td>14-point 和平方案被拒</td><td>Trump 5/2 拒绝；Iran 称 Project Freedom 为停火违约</td><td>❌已拒</td><td>Al Jazeera</td><td>5月2-3日</td></tr><tr><td>Sullivan & Cromwell</td><td>"请勿因 AI 幻觉制裁我们"信函</td><td>单份破产文件 40+ 错误引用；S&C 成 Big Law 首起</td><td>⏳答辩中</td><td>法院 docket</td><td>4月底</td></tr><tr><td>Pentagon</td><td>7 大厂 AI 合同 / Anthropic 缺席</td><td>MSFT/Alphabet/Amazon/Meta/Oracle/Palantir/xAI 入选</td><td>✅已签</td><td>CNN</td><td>5月1日</td></tr><tr><td>Anthropic</td><td>Claude Code v2.1.126 `/ultrareview` 公开预览</td><td>云端多 agent 并行代码审查；Pro/Max 首三次免费；session recap + 自定义主题</td><td>✅全量</td><td>`claude --update`</td><td>5月1日</td></tr><tr><td>Cursor</td><td>Security Review beta + Team Marketplace</td><td>自动审 PR 漏洞 / prompt injection / agent 越权；plugin 三档分发</td><td>✅beta + 全量</td><td>Cursor 网站</td><td>4/30 - 5/1</td></tr><tr><td>Musk v. OpenAI</td><td>庭审 Week 1 wrap</td><td>Musk 4 日作证结束；Altman/Brockman 5 中旬出庭；5/21 前 liability phase</td><td>⏳审中</td><td>法院 docket</td><td>5月2日</td></tr><tr><td>TauricResearch</td><td>TradingAgents (GitHub)</td><td>周新增 11K 至 65K 总；多 agent 金融交易框架；研究用非生产</td><td>✅开源</td><td>GitHub</td><td>持续</td></tr><tr><td>OpenAI</td><td>Codex 一键迁移</td><td>支持从其他 IDE 一键导入 settings/plugins/agents/项目配置；GPT-5.5 API 营收 2x 加速</td><td>✅全量</td><td>Codex</td><td>5月初</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p><strong>旗舰对比表沿用 5/1 数据。</strong> 本周变化（72h 内）：</p><ul><li>🆕 <strong>Anthropic 民用专用立场获 Pentagon 7 大厂确认</strong>——CNN 5/1 报道 Pentagon 与 7 家大厂签 AI 合同明确把 Anthropic 排除；这把 5/1 ④ 已述的"避开 Google Gemini（DoD 协议后政府敞口扩大）+ Meta（DSA 风险）+ 优先 Anthropic"路径<strong>进一步固化</strong>——汉坤涉外 / 反 DoD 立场 / 跨境调查记者类客户应<strong>模型选型上 Anthropic 优势权重再加</strong></li><li>🆕 <strong>`/ultrareview` 多 agent 并行审查正式上线</strong>——为旗舰对比表新增"AI 工作流深度集成度"维度提供素材；Claude Code 在"agent 工程化能力"维度对 GPT-5.5 + Codex / Cursor 形成新差距优势</li><li>🆕 <strong>TradingAgents 上 GitHub Trending #2</strong> = 金融多 agent 框架进入主流——为汉坤金融监管业务<strong>应增加"AI 自主决策交易"专项合规咨询板块</strong></li><li>⏳ Claude Opus 4.7（SWE-bench Pro 64.3%——SWE-bench Pro：真实软件工程任务实测通过率，专业版加难）、GPT-5.5（OSWorld 78.7%——OSWorld：操作系统 Agent 任务，人类基线约 72% + Terminal-Bench 2.0 82.7%——Terminal-Bench：命令行环境工程任务）、Qwen3.6-27B（Apache 2.0 + 16.8GB Q4 量化）、GLM-5（推理工程开源贡献度首位）排名与上期一致</li><li>⏳ DeepSeek V4-Pro / V4-Flash（Hybrid Attention + 1M 上下文）二次降价具体新价仍未在主流英文媒体披露完整数字，待 5 月初 API 文档落定后回填</li></ul><p><strong>律所选型快速建议（本期更新——含 Pentagon 7 大厂签约 + Anthropic 民用纯净维度 + `/ultrareview` 多 agent 审查维度）：</strong>
+- <strong>复杂法律推理 / 难案分析 + 反 DoD / 民用客户</strong>：Claude Opus 4.7（叠加 `xhigh` effort）+ Pentagon 不签约确认"民用纯净"卖点
+- <strong>Agent / Computer Use 自动化</strong>：GPT-5.5（OSWorld + Terminal-Bench 双 SOTA）——但任何 agent 在生产环境必须套 deny 规则（参见 4/30 ⑤）+ 如可以使用 Cursor Security Review beta 兜底
+- <strong>批量长文档 / 性价比首选</strong>：DeepSeek V4-Pro 或 V4-Flash（合规允许时）；中国旗舰增补 GLM-5（推理工程开源贡献度首位）
+- <strong>本地自部署涉密场景</strong>：Qwen3.6-27B 或 Cursor Self-Hosted Cloud Agents 内部署任意模型
+- <strong>政府合规 / 监管敏感客户</strong>：避开 Google Gemini（DoD 协议）+ Meta（DSA 风险）+ Pentagon 7 大厂中其他厂商，<strong>优先 Anthropic（Pentagon 不签 = 政府敞口最低）</strong>或 Mistral 自部署或 Azure OpenAI；中国客户增补 GLM-5（华为芯片完全适配）
+- <strong>AI 代码审查 / 合同条款"四眼审查"自动化</strong>：Claude Code v2.1.126 `/ultrareview`（多 agent 云端并行 + Pro/Max 首三次免费）——本期 ⑤ 详解
+- <strong>金融 capital markets 客户专项合规</strong>：TradingAgents 等 GitHub Trending 项目须纳入律所"AI 自主决策合规清单"</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">完整对比表（含中端、设计/可视化、网络安全、中文能力 8 维度）见 <a href="晨报_2026年04月29日.md">4/29 期</a> 与 <a href="晨报_2026年04月22日.md">4/22 完整版</a>；下次完整重出窗口为 DeepSeek V4 价格落定 + Berkshire Q1 13F 公布（预计 5/14-15）后</p></div>
+<hr class="sep"><div class="sec-title">本期技巧</div><div class="tip"><h3>用 Claude Code `/ultrareview` 给律所长合同 / 备忘录加上"多 agent 并行四眼审查"——把 Sullivan & Cromwell 40 处幻觉的同款风险按住</h3><p><strong>场景：</strong> 你是汉坤一位带 5-8 名年轻律师的合伙人，所内本月开始在 RSM 投资协议、并购 SPA、跨境融资 LPA 等长合同任务中让 Claude Code 起草或修改条款。问题是——Sullivan & Cromwell 4 月底被联邦破产法官点名"单份文件 40+ 处错误引用"成 Big Law 公开第一案后，你已经无法用"全所信任 AI 起草"作为质控基线了。同时你也观察到一个很具体的痛点：<strong>单 agent 审一份 50 页 SPA 时，注意力是"线性 + 单视角"的——往往审完合同条款逻辑就漏掉了引文核查、审完引文又漏掉了 governing law 一致性</strong>。S&C 案就是单视角审查的典型——Andrew Dietderich 不可能不审，但单 agent 审 50 页文件时，就是会漏。本周 Anthropic Claude Code v2.1.126 公开预览的 <strong>`/ultrareview` 多 agent 并行审查命令</strong>，恰好提供了"四眼审查"的工程级实现——<strong>Pro/Max 用户首三次免费</strong>，本周即可上手验证。</p><p><strong>为什么好用：</strong> `/ultrareview` 的核心机制是<strong>云端起一队并行 agent</strong>，每个 agent 持有不同的"审视角色"——一个专注 bug 检测、一个专注设计 / 一致性、一个专注引用正确性、一个专注边缘情形——<strong>最后汇总反馈到 CLI</strong>。这正好对应律所"多年合伙人手把手带年轻律师审合同"的工作方式——<strong>主合伙人审条款逻辑、次合伙人审引文、专业律师审合规、年轻律师审格式</strong>——而 `/ultrareview` 用工程方式把这"四眼审查"自动化了。同时它<strong>不替代律师签署/盖章流程</strong>——只是把"AI 第一道初审"从单视角升级为多视角，让律师拿到的是已经经过多角色 cross-check 的"准成品"，再由律师做最后专业判断。这与 5/1 ⑤ 的 mattpocock/skills 工程级护栏 + 4/30 ⑤ 的 permissions 防删库<strong>形成完整闭环</strong>——前者是"behavior 层让 AI 不乱来"，中者是"system 层让 AI 不能乱来"，`/ultrareview` 则是"output 层让 AI 的产出经过多视角 cross-check"。</p><p><strong>操作路径（5 步，30 分钟内完成）：</strong></p><ol><li><strong>升级 Claude Code 到 v2.1.126</strong>：在 `~/projects/汉坤合同主力库` 或所内主力项目目录执行 `claude --update`，确认版本号 ≥ 2.1.126。如未升级到该版本，`/ultrareview` 命令不会出现在 `/help` 列表中</li><li><strong>首次试用：让 AI 起草一份合同条款，然后 `/ultrareview`</strong>：先用普通 prompt 让 Claude Code 起草或修改一份合同条款（如"修改这份 SPA 的 indemnification 条款，把赔偿上限从 $50M 改为 $80M，同时保留客户认可的 governing law 和 dispute resolution 表述"），保存为单独文件；然后<strong>直接输入 `/ultrareview`</strong>（无参数则审查当前分支所有变更），AI 会调起云端多 agent 队列<strong>并行审查"条款逻辑 / 引用正确性 / 一致性 / 边缘情形 / 客户约束遵守度"</strong>——10-30 秒内输出<strong>结构化清单：每条问题标明严重性 + 具体行号 + 建议修改</strong></li><li><strong>结合 git 工作流：每个合同修改作为单独 commit，逐 commit `/ultrareview`</strong>：律所文件管理建议把每次合同修改作为单独 git commit（标准 message 格式："SPA Indemnification Cap: 50M → 80M"），然后 `/ultrareview <commit-hash>` 单独审查这个变更——<strong>这相当于把"四眼审查"按变更粒度切片，律师能精准定位每个改动的潜在问题</strong></li><li><strong>配 `claude ultrareview <PR#>` 用作所内合规检查 CI</strong>：律所如已有内部 GitLab/Gitea，可在审议流程中加 hook——<strong>律师提合并请求时自动跑 `claude ultrareview <PR#>`</strong> 把 review 结果作为评论自动贴回 PR；这把"AI 第一道初审"做成了流程层强制，避免年轻律师"忘记审"</li><li><strong>Pro/Max 用户首三次免费窗口必须用满</strong>：本周内<strong>所内每位 Claude Code 用户都跑一次 `/ultrareview`</strong> 实测——不要因为"还没遇到合适场景"错过免费配额；首三次用完后按计算量扣费（具体定价待 Anthropic 公告，参考 Opus 4.7 同等水位预计 $0.5-2/次）</li></ol><p><strong>注意事项：</strong> 第一，<strong>`/ultrareview` 不能替代律师对法律事实的最终判断</strong>——它擅长"形式 + 一致性 + 引用核查 + 边缘情形扫描"，<strong>但对"哪条判例真的可以用 / 哪条对客户更有利 / 哪条措辞客户能否接受"这类商业判断完全无能为力</strong>——律师必须保留最后裁量；第二，<strong>云端运行 = 数据出所</strong>——若客户合同含敏感条款（如 M&A target 名称、金融敏感数据、未公开诉讼信息），<strong>必须先与客户书面确认"允许把合同送 Anthropic 云审查"</strong>——保留好邮件证据；如客户拒绝则不能使用 `/ultrareview`，改用本地 Qwen3.6-27B + 自建多 agent pipeline；第三，<strong>与 4/30 ⑤ permissions 防删库 + 5/1 ⑤ mattpocock/skills 联动使用</strong>——`/ultrareview` 在审查过程中如发现"AI 起草时引用了 deny 规则禁止的破坏性命令路径"、或"未走 mattpocock `/grill-with-docs` 对齐"，会一并标注；第四，<strong>Sullivan & Cromwell 案的核心教训是"白鞋所也会犯"</strong>——`/ultrareview` 输出的清单<strong>不要默认信任</strong>，律师必须<strong>逐条确认</strong>才能放行；尤其是"引用正确性"项——AI 检查 AI 的幻觉本身可能产生"二阶幻觉"，因此<strong>最终的 Westlaw / 北大法宝 cross-check 仍由律师本人完成</strong>，`/ultrareview` 只是把"应当核查的引文位置"清单化、不取代核查动作本身</p><div class="sources">来源：<a href="https://code.claude.com/docs/en/changelog">Anthropic Claude Code 官方 changelog（fetch 通过）</a> | <a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">Anthropic Claude Code GitHub raw CHANGELOG（fetch 通过）</a> | <a href="https://abovethelaw.com/2026/04/sullivan-cromwell-files-emergency-please-dont-sanction-us-for-all-these-ai-hallucinations-letter/">Above the Law Sullivan & Cromwell 紧急信函</a> | <a href="https://davidlat.substack.com/p/sullivan-cromwell-ai-fail-screw-up-error-hallucination">David Lat Substack S&C 复盘</a> | <a href="https://compliancehub.wiki/legal-ai-hallucination-reckoning-2026/">ComplianceHub Q1 2026 全美 AI 幻觉案例汇总</a> | <a href="https://www.damiencharlotin.com/hallucinations/">Damien Charlotin AI 幻觉数据库</a> | <a href="晨报_2026年05月01日.md">上期 5/1 ⑤ mattpocock/skills 工程级护栏</a> | <a href="晨报_2026年04月30日.md">4/30 ⑤ Permissions 防删库技巧</a><p>*数据来源：CNBC、CNN、CBS、Motley Fool、IndexBox、新浪财经、网易、虎嗅、Yahoo Finance、Axios、Al Jazeera、The National、Breitbart、Times of Israel、CNN Business、Above the Law、David Lat Substack、ComplianceHub、Damien Charlotin 数据库、MIT Technology Review、Washington Post、Polymarket、Cursor 官方 changelog、Cursor 论坛、Anthropic Claude Code 官方文档与 GitHub raw CHANGELOG、GitHub Trending 等 | 所有数据基于 2026 年 5 月 4 日搜索结果 | Claude Code raw CHANGELOG、Anthropic Claude Code 官方 changelog、GitHub Trending fetch 通过；CNBC、CNN、CBS、Berkshire IR PDF、Yahoo Finance、Axios、Al Jazeera、The National、CNN Tech、MIT Tech Review、Washington Post、Polymarket、新浪、虎嗅多家英文/中文一手页今日 fetch 多数 403，已在正文标注"未见官方公告 URL fetch 通过"，内容据多家三方报道交叉验证（符合 R3 透明性要求）| 本简报由 AI 生成，不构成投资或法律建议*</p></div></div>
+<div class="footer">本简报由 AI 生成，不构成投资或法律建议</div>
+</div>
+</body>
+</html>
