@@ -125,6 +125,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -255,6 +301,29 @@ def render_inline(text: str) -> str:
     return text
 
 
+def fold_link_clusters(html: str) -> str:
+    """折叠段内密集链接：（[A](u1) | [B](u2) | [C](u3) ...）≥3 个时压缩成视觉淡化的 📚 来源块。
+
+    输入是已 render_inline 后的 HTML 片段；只对 <a> 链接族操作，不破坏其他内容。
+    """
+    pattern = r'（\s*((?:<a[^>]*>[^<]+</a>\s*\|\s*){2,}<a[^>]*>[^<]+</a>)\s*）'
+    return re.sub(pattern, r'<span class="link-cluster">\1</span>', html)
+
+
+def split_callout_circled(content: str) -> tuple:
+    """如果 callout 内含 ①②③④⑤⑥⑦⑧⑨⑩ 子点，拆出 (intro, [items])。
+    若无环形数字标记，返回 (None, None) 表示按整段渲染。
+    """
+    if not re.search(r'[①②③④⑤⑥⑦⑧⑨⑩]', content):
+        return None, None
+    first = re.search(r'[①②③④⑤⑥⑦⑧⑨⑩]', content)
+    intro = content[:first.start()].strip()
+    list_text = content[first.start():]
+    items = re.split(r'(?=[①②③④⑤⑥⑦⑧⑨⑩])', list_text)
+    items = [re.sub(r'^[①②③④⑤⑥⑦⑧⑨⑩]\s*', '', x).strip().rstrip('；;。') for x in items if x.strip()]
+    return intro, items
+
+
 def parse_metadata(md: str) -> dict:
     """提取标题、日期、覆盖时间、阅读时间。"""
     m = re.search(r'^\*\*(.+?)\*\*\s*\|\s*(.+?)\s*\|\s*(.+?)$', md, re.M)
@@ -333,7 +402,17 @@ def render_headline(title: str, body: str) -> str:
             continue
         # callout：以 **对律所的影响** 或 **为什么重要** 开头
         if re.match(r'^\*\*(对律所|为什么重要|律师视角)', p):
-            html += '<div class="callout">' + render_inline(p) + '</div>'
+            intro, items = split_callout_circled(p)
+            if items:
+                html += '<div class="callout">'
+                if intro:
+                    html += f'<div class="callout-intro">{render_inline(intro)}</div>'
+                html += '<ul class="callout-list">'
+                for it in items:
+                    html += f'<li>{fold_link_clusters(render_inline(it))}</li>'
+                html += '</ul></div>'
+            else:
+                html += '<div class="callout">' + fold_link_clusters(render_inline(p)) + '</div>'
         # 来源行：以 来源： 开头
         elif p.startswith('来源') or p.startswith('中文解读') or p.startswith('⚠️ 一手信源'):
             html += f'<div class="sources">{render_inline(p)}</div>'
@@ -342,13 +421,13 @@ def render_headline(title: str, body: str) -> str:
             items = re.findall(r'^- (.+?)$', p, re.M)
             html += '<ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;">'
             for it in items:
-                html += f'<li>{render_inline(it)}</li>'
+                html += f'<li>{fold_link_clusters(render_inline(it))}</li>'
             html += '</ul>'
         # 表格
         elif p.startswith('|'):
             html += render_table(p)
         else:
-            html += f'<p>{render_inline(p)}</p>'
+            html += f'<p>{fold_link_clusters(render_inline(p))}</p>'
 
     html += '</div>'
     return html
@@ -379,11 +458,11 @@ def render_briefs(body: str) -> str:
             description = parts[0].strip()
             insights = [x.strip() for x in parts[1:]]
 
-            current_item = f'<div class="brief-item"><h4>{render_inline(title)}</h4><p>{render_inline(description)}</p>'
+            current_item = f'<div class="brief-item"><h4>{render_inline(title)}</h4><p>{fold_link_clusters(render_inline(description))}</p>'
             for ins in insights:
                 # 去掉前缀如 "上手："、"关联："
                 ins_clean = re.sub(r'^[^：:]{1,8}[：:]\s*', '', ins, count=1)
-                current_item += f'<div class="insight">{render_inline(ins_clean)}</div>'
+                current_item += f'<div class="insight">{fold_link_clusters(render_inline(ins_clean))}</div>'
         elif p.startswith('- 💡') or p.startswith('💡'):
             insight = re.sub(r'^- 💡\s*\S*\s*[:：]?\s*', '', p)
             insight = re.sub(r'^💡\s*\S*\s*[:：]?\s*', '', insight)
