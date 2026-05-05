@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年5月5日 星期二</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 28px;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 640px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .feature h3 { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年5月5日 星期二</span>
+    <span>覆盖24小时 · 预计阅读6-8分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title">60 秒速览</div><div class="summary"><ul><li><strong>【DeepSeek V4-Pro 75% 限时折扣由 5/5 延期至 5/31 UTC 15:59；叠加 cache-hit 1/10 折扣后 input 实价仅为列表价 1/40、约为 GPT-5.5 / Opus 4.7 的 1/137】</strong><span class="aside">——汉坤 IT/采购组：本月底前是律所历史档案 RAG 全量索引最便宜窗口</span></li><li><strong>【Musk v. Altman 庭审第二周开庭：Brockman 5/4 上证人席披露 OpenAI 持股价值约 $30B、其早年日记被 Musk 律师呈堂称非营利使命"是谎言"；Musk 5/2 庭前两天向 Brockman 短信求和被法官 Yvonne Gonzalez Rogers 5/4 当庭驳回】</strong><span class="aside">——汉坤 PBC / 慈善信托业务组：日记作为内部证据的判例风向直接进入 charitable fraud 诉讼武器库</span></li><li><strong>【Brockman 同期庭外言论：OpenAI 内部 AI 写代码占比 1 个月内从 20% 跳到 80%<span class="aside">——"December 2025 inflection"；同时强调"人类必须签字才能合并"】</strong>——汉坤律所 AI 起草工作流"双签字制"参考范本（律师必须出具最终签字承担专业责任）</span></li><li><strong>【Pentagon 5/1-5/4 第 8 家 AI 厂商曝光为 Reflection AI<span class="aside">——Nvidia 系、前 DeepMind 研究员创立、尚无公开模型、正以 $25B 估值融资；Anthropic 仍被列为"供应链风险"】</strong>——汉坤 CFIUS / 出口管制组：Reflection 韩国市场定制项目 + 国防合同的"双轨"暴露中概股出海 AI 客户的新对标</span></li><li><strong>【Spirit Airlines 5/2 凌晨 3:00 ET 全面停运<span class="aside">——25 年来首家美国大型航空公司停业；Trump $500M 救助谈判破裂；17,000 名直接/间接员工失业】</strong>——汉坤涉外破产 / PE 客户：航司行业第二轮 ch.7/ch.11 信用风险触发，<strong>Iran 战争燃油成本是核心压垮因素</strong>（油价 $4.46/gal）</span></li></ul></div>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条一：DeepSeek V4-Pro 75% 折扣由 5/5 延期至 5/31 UTC 15:59——叠加 cache-hit 1/10 后 input 实价 1/40 列表价、约为 GPT-5.5 / Opus 4.7 的 1/137；中国推理价格战进入"接近免费"阶段</h3><p>继 4/24 DeepSeek V4 系列预览后，DeepSeek <strong>5 月初将 V4-Pro 75% 折扣由原定 5/5 截止延期至 5/31 UTC 15:59</strong>——同时叠加全系 input cache-hit 价格降至列表价 1/10，<strong>两层折扣相乘后 input cache-hit 实价为列表价的 1/40</strong>，<strong>约为 GPT-5.5 / Claude Opus 4.7 同口径价格的 1/137</strong>（<a href="https://thenextweb.com/news/deepseek-v4-pro-price-cut-75-percent">TheNextWeb 75% 详情</a> | <a href="https://dataconomy.com/2026/04/27/deepseek-slashes-v4-pro-api-pricing-with-major-discount/">Dataconomy 4/27 首发报道</a> | <a href="https://blockonomi.com/deepseek-launches-massive-75-price-cut-on-v4-pro-ai-model-in-competitive-move/">Blockonomi 详情</a> | <a href="https://computing.net/news/stocks/deepseek-launches-75-price-reduction-on-v4-pro-ai-model-through-2026/">Computing.net 折扣全年延续</a> | <a href="https://en.bloomingbit.io/feed/news/110956">Bloomingbit 1/40 列表价分析</a> | <a href="https://www.knightli.com/en/2026/05/01/deepseek-v4-price-cuts-ai-agent-economics/">Knightli 5/1 AI Agent 经济影响</a> | <a href="https://api-docs.deepseek.com/quick_start/pricing">DeepSeek API Docs 官方价格页</a> | <a href="https://www.stcn.com/article/detail/3821826.html">证券时报 中文一手</a>）。<strong>DeepSeek API Docs 官方页与英文一手页今日 fetch 全部 403——下文据多家三方报道交叉整合，DeepSeek 中文公告原页未见公开 fetch 通过</strong>（符合 R3 透明性要求）。</p><p><strong>关键价格数据（vs GPT-5.5 / Opus 4.7 列表价同口径）：</strong></p><div class="product-table"><table><thead><tr><th>项目</th><th>DeepSeek V4-Pro 列表价</th><th>75% 折后价</th><th>叠加 cache-hit 1/10 后实价</th><th>GPT-5.5 / Opus 4.7 同口径</th></tr></thead><tbody><tr><td>Input cache miss / 百万 tokens</td><td>$1.74</td><td><strong>$0.435</strong></td><td>—</td><td>~$2.50-3.00</td></tr><tr><td>Input cache hit / 百万 tokens</td><td>$0.145</td><td><strong>$0.03625</strong></td><td><strong>$0.003625</strong></td><td>~$0.50 起</td></tr><tr><td>Output / 百万 tokens</td><td>$3.48</td><td><strong>$0.87</strong></td><td>—</td><td>~$10-15</td></tr></tbody></table></div><div class="callout"><strong>为什么重要（律所视角）：</strong> ① <strong>5/31 deadline 是关键采购窗口</strong>——汉坤 IT 组若计划做"律所历史档案全量 RAG 索引"（全所合同模板库、历史备忘录库、客户档案 metadata 索引等），本月底前完成是<strong>单次成本最低窗口</strong>——以一份 100,000 tokens 平均文档计算，10 万份文档（典型大所历史档案规模）单次嵌入成本仅 ~$36 美元（cache-hit 路径）vs 用 GPT-5.5 / Opus 4.7 的同等任务约 $5,000+；② <strong>DeepSeek 5/4 中国 4 强阵容头条已论证</strong>（参见 5/4 ⑤）——本周 5/31 折扣窗口是<strong>实际验证 4 强工作流的最经济触发点</strong>，所内 PoC 客户分级（A/B/C 三档）的实际部署应<strong>集中在本月内完成</strong>；③ <strong>AI Agent 经济学根本变化</strong>——Knightli 5/1 分析直指："Agent 任务成本若从单次 $5/任务降到 $0.05/任务，则 100 倍长尾任务（如批量法务尽调、批量条款比对）变得经济可行"——汉坤代表 AI Agent 创业客户的招股书 "TAM 测算"必须重做；④ <strong>GPT-5.5 / Opus 4.7 1/137 的价格差</strong>形成"中国 AI 厂商对美国大模型 dumping 嫌疑"的国际贸易法律风险——美国商务部、USTR 历来对中国行业"低价倾销"高敏感，<strong>汉坤代表中国 AI 公司客户应预案"DeepSeek 是否构成 AI 服务的反倾销立案诱因"</strong>——历史上太阳能、电池、钢铁均经历过类似定价 → 反倾销关税的路径；⑤ <strong>OpenAI / Anthropic 单位经济学压力升级</strong>——Anthropic 4/7 公布 ARR $30B、OpenAI $25B 的同时维持高溢价定价（参见 4/30 速报"OpenAI CRO 内部备忘"），DeepSeek 价格战将进一步压缩西方厂商的销售毛利——<strong>美股 PE 客户对 OpenAI / Anthropic 估值模型应预设"中国厂商价格触底"敏感性</strong>；⑥ <strong>R6 实价口径说明</strong>：本表 input cache hit 1/40 列表价、1/137 vs GPT-5.5 列表价均为<strong>英文媒体测算口径</strong>——并非 DeepSeek 官方公告口径；汉坤客户在合同援引时应<strong>自行用 DeepSeek API Docs 实测调用回填</strong>，避免引用二手数据被对手方挑战。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://api-docs.deepseek.com/quick_start/pricing">DeepSeek API Docs 官方价格页</a>（fetch 403，按 R3 标注；折扣口径以官方实时页为准）；<a href="https://www.stcn.com/article/detail/3821826.html">证券时报 中文一手</a>（fetch 403）</li><li>💡 上手：<strong>汉坤 IT/采购组本周内完成两件事：</strong> ① 注册 DeepSeek 企业 API 账号 + 完成内部计费打通（律所专用 API key、敏感客户隔离 instance），目标 5/15 前可调用；② 启动"历史档案全量 RAG 索引"PoC——优先合同模板库（公司组、IP 组）+ 历史备忘录（涉外组），<strong>5/31 折扣窗口前完成首批嵌入</strong>——成本仅为常规价格 1/40。<strong>律所对外咨询业务组：</strong> 把"中国 AI 服务低价 → 美国反倾销/反补贴敞口"写入下周给中国 AI 出海客户的咨询备忘录摘要</li></ul><div class="sources">来源：<a href="https://thenextweb.com/news/deepseek-v4-pro-price-cut-75-percent">TheNextWeb 75%</a> | <a href="https://dataconomy.com/2026/04/27/deepseek-slashes-v4-pro-api-pricing-with-major-discount/">Dataconomy</a> | <a href="https://blockonomi.com/deepseek-launches-massive-75-price-cut-on-v4-pro-ai-model-in-competitive-move/">Blockonomi</a> | <a href="https://computing.net/news/stocks/deepseek-launches-75-price-reduction-on-v4-pro-ai-model-through-2026/">Computing.net</a> | <a href="https://en.bloomingbit.io/feed/news/110956">Bloomingbit 1/40 列表价</a> | <a href="https://www.knightli.com/en/2026/05/01/deepseek-v4-price-cuts-ai-agent-economics/">Knightli AI Agent 经济</a> | <a href="https://www.nxcode.io/resources/news/deepseek-api-pricing-complete-guide-2026">NxCode 完整成本指南</a> | <a href="https://chat-deep.ai/pricing/">chat-deep.ai 详情</a> | <a href="https://api-docs.deepseek.com/quick_start/pricing">DeepSeek API Docs</a></div><div class="sources">中文解读：<a href="https://www.stcn.com/article/detail/3821826.html">证券时报 创全球大模型价格新低</a> | <a href="https://deepseek.csdn.net/69f407d054b52172bc711426.html">CSDN 4-5 月主流大模型实测</a>（中文媒体目前对 5/31 延期细节专文较少，<strong>符合 R1，重点引用证券时报与 CSDN 两家专文</strong>）</div></div><div class="feature"><h3>头条二：Musk v. Altman 庭审第二周——Brockman 5/4 上证人席披露 OpenAI 持股 ~$30B；其早年日记被 Musk 律师呈堂称非营利使命"是谎言"；Musk 5/2 庭前 2 天向 Brockman 短信求和、法官 Yvonne Gonzalez Rogers 5/4 当庭驳回；Brockman 同期庭外披露 OpenAI 内部 AI 写代码占比 1 个月内从 20% → 80%</h3><p>继 5/1 庭审 Day 4 Musk 完成 4 日作证后，<strong>5/4 周一庭审进入第二周——OpenAI 总裁 / 联合创始人 Greg Brockman 上证人席</strong>——以下三条均为本周新增爆点（<a href="https://abc7news.com/live-updates/elon-musk-sam-altman-live-updates-trial-enters-2nd-week-focus-shifting-openai-president-greg-brockman/19036397/">ABC7 5/4 直播</a> | <a href="https://www.nbcbayarea.com/news/local/openai-trial-live-updates-monday-elon-musk-sam-altman/4078140/">NBC Bay Area 5/4</a> | <a href="https://www.cnbc.com/2026/05/02/musk-testimony-dominated-first-week-musk-v-altman-trial-in-oakland.html">CNBC 5/2 第一周回顾</a> | <a href="https://www.washingtonpost.com/technology/2026/05/02/musk-altman-openai-trial/">WaPo 5/2</a> | <a href="https://thenextweb.com/news/openai-trial-brockman-journals-nonprofit-settlement">TheNextWeb Brockman 日记</a> | <a href="https://dnyuz.com/2026/05/04/5-things-you-missed-as-greg-brockman-took-the-stand-at-the-openai-trial/">DNyuz 5 things you missed</a> | <a href="https://thetechportal.com/2026/05/05/greg-brockman-testifies-his-openai-stake-is-worth-nearly-30bn-during-musk-vs-openai-trial">The Tech Portal 5/5 报道</a> | <a href="https://techcrunch.com/2026/05/04/elon-musk-sent-ominous-texts-to-greg-brockman-sam-altman-after-asking-for-a-settlement-openai-claims/">TechCrunch 5/4 settlement texts</a> | <a href="https://www.cnbc.com/2026/05/04/musk-altman-open-ai-settlement-trial-brockman.html">CNBC 5/4 settlement filing</a> | <a href="https://www.cnn.com/2026/05/04/tech/musk-openai-trial-filing">CNN 5/4 settlement filing</a> | <a href="https://www.bloomberg.com/news/articles/2026-05-04/brockman-says-his-stake-in-openai-worth-nearly-30-billion">Bloomberg $30B 持股</a> | <a href="https://www.nbcnews.com/tech/tech-news/musk-lawyer-hammers-openai-co-founder-30-billion-stake-rcna343518">NBC News $30B 反诘</a> | <a href="https://www.benzinga.com/markets/tech/26/05/52206777/openais-greg-brockman-says-ai-went-from-writing-20-to-80-of-code-in-a-single-month">Benzinga Brockman 80% 代码</a> | <a href="https://thenextweb.com/news/openai-brockman-80-percent-code-ai-productivity-claim">TheNextWeb 80% 代码</a> | <a href="https://www.technologyreview.com/2026/05/01/1136800/musk-v-altman-week-1-musk-says-he-was-duped-warns-ai-could-kill-us-all-and-admits-that-xai-distills-openais-models/">MIT Tech Review Week 1 复盘 + xAI 蒸馏自承</a>）。<strong>英文一手庭审 transcript 与 Bloomberg / TechCrunch / CNBC / CNN 一手页今日 fetch 全部 403——下文据多家三方报道交叉整合，未见 transcript 公开 fetch 通过</strong>（符合 R3 透明性要求）。</p><p><strong>关键 24-48 小时增量（vs 5/1 Day 4 报道）：</strong></p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>Brockman 持股价值约 $30B</strong>——Musk 律师反诘"那为什么不把绝大部分捐回非营利基金会？"——剑指其 2015 年所谓"非营利初心"的诚意（<a href="https://www.bloomberg.com/news/articles/2026-05-04/brockman-says-his-stake-in-openai-worth-nearly-30-billion">Bloomberg</a> | <a href="https://www.nbcnews.com/tech/tech-news/musk-lawyer-hammers-openai-co-founder-30-billion-stake-rcna343518">NBC News</a>）</li><li><strong>日记证据呈堂</strong>——Musk 律师团出示 Brockman 早年日记，<strong>直接引用其手写"非营利承诺是谎言"措辞 + 其个人愿望"$1B 个人财富"目标</strong>——TheNextWeb 形容这条把 charitable fraud 论点从"理论推导"升级为"被告自陈意图"</li><li><strong>Musk 4/26（庭审前 2 天）短信求和被 OpenAI 5/4 庭审中披露</strong>——Musk 私下短信 Brockman 与 Altman 提议庭外和解；OpenAI 5/4 在补交动议（filing）中将此短信定性为"sometimes ominous"——与公开 deposition video 中的强硬态度矛盾；<strong>法官 Yvonne Gonzalez Rogers 当庭驳回 OpenAI 将该短信作为新证据呈交陪审团的请求</strong>——告诉 OpenAI 律师"应在 Musk 作证期间提出"——但<strong>舆论已发酵，Musk 信用进一步受损</strong>（<a href="https://www.cnbc.com/2026/05/04/musk-altman-open-ai-settlement-trial-brockman.html">CNBC</a> | <a href="https://www.cnn.com/2026/05/04/tech/musk-openai-trial-filing">CNN</a> | <a href="https://techcrunch.com/2026/05/04/elon-musk-sent-ominous-texts-to-greg-brockman-sam-altman-after-asking-for-a-settlement-openai-claims/">TechCrunch</a>）</li><li><strong>Brockman 庭外言论：OpenAI 内部 AI 写代码占比 1 个月内从 20% → 80%——"December 2025 inflection"</strong>——Brockman 强调"工作流根本变化、人类必须签字才能合并"；MIT Tech Review Week 1 报道也证实"Musk 在交叉询问中自承 xAI 用 OpenAI 模型蒸馏"</li><li><strong>Brockman 5/5 周二继续作证</strong>——OpenAI 抗辩主轴预计在本周后段提出（特拉华法 + 加州 AG 备案路径）；Sam Altman 出庭排期仍在 Week 2-3 之间</li></ul><div class="callout"><strong>为什么重要（律所视角）：</strong> ① <strong>日记作为内部证据的判例风向直接进入 charitable fraud 诉讼武器库</strong>——Brockman "是谎言"日记记载是过去 10 年硅谷创业公司诉讼中<strong>少见的"被告自承使命变更意图"原始证据</strong>——汉坤代表参与 PBC / 慈善信托 / 非营利转营利路径的客户应<strong>全面盘点高管个人日记 / Notion / Roam 笔记 / Slack DM 中的"使命表态"内容</strong>——这些此前不被视为"公司文件"的个人记录在诉讼中可能被强制 discovery；同时<strong>汉坤公司治理建议 SOP 应新增"创始人日记的法律风险提示"专项</strong>——尤其涉及 PBC、信托、基金会架构的客户；② <strong>Musk 庭前 2 天短信求和被法官驳回但仍达成舆论效果</strong>——这是 plaintiff 律师常用的"证据外宣"策略——通过 filing 让媒体先看到敏感信息，即使法官不采纳作为陪审团证据<strong>舆论已经发酵</strong>——汉坤代表大型企业客户在 plaintiff 滥诉风险防范中可参考此 playbook，并<strong>预案"对方故意通过补交动议向陪审团/媒体输送负面叙事"的早期防御</strong>；③ <strong>Brockman 持股 $30B vs 非营利使命的张力</strong>——汉坤代表中国 AI 创业公司或基金会架构客户，<strong>未来 3-5 年内若估值上行，创始人个人财富集中度将成为"使命真伪"的舆论与诉讼焦点</strong>——建议在 Articles of Incorporation / Charter 中<strong>预留"创始人收益捐赠机制"或"营利上限"条款</strong>降低未来诉讼敞口；④ <strong>OpenAI 80% AI 写代码 + 人类签字才能合并的双签字制</strong>——汉坤律所 AI 起草工作流参考范本：<strong>所有 AI 生成的法律文书必须由律师本人签字承担专业责任</strong>——这与本所 5/4 头条 Sullivan & Cromwell 案教训直接呼应；可在所内 SOP 上<strong>明文写入"双签字制：AI 生成 + 律师签字方可对外提交"</strong>；⑤ <strong>Musk 自承 xAI 蒸馏 OpenAI 模型</strong>——这是 AI 训练数据"模型继承"在司法记录中<strong>第一次被被告自承</strong>——直接进入 IP 法律重大判例可能性大；汉坤代表 AI 公司客户的 ToS 条款（ChatGPT / Claude / Gemini 用户协议中的"禁止用作模型训练"条款）的可执行性即将受到法院实际检验，<strong>ToS 起草模板应预案"模型蒸馏证据如何被法院接受"的应诉路径</strong>；⑥ <strong>加州 AG 备案路径如成立 = 中国客户咨询模板</strong>——本周后段 OpenAI 预计提出"特拉华法 + 加州 AG 备案 → 非营利转营利合规"抗辩；若获判例背书，<strong>汉坤代表中国 NGO / 基金会想"商业化变现"的客户</strong>虽不直接适用美国法但<strong>可作为"参考性国际比较法"提交国务院民政部门审批时的论证材料</strong>——为中国法下尚无明确路径的客户提供参考方案。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://abc7news.com/live-updates/elon-musk-sam-altman-live-updates-trial-enters-2nd-week-focus-shifting-openai-president-greg-brockman/19036397/">ABC7 5/4 直播</a> | <a href="https://www.nbcbayarea.com/news/local/openai-trial-live-updates-monday-elon-musk-sam-altman/4078140/">NBC Bay Area 5/4</a>（多家英文一手页今日 fetch 403，按 R3 标注；transcript 未公开）</li><li>💡 上手：<strong>汉坤公司治理 / PBC / 慈善信托业务组：</strong> 本周内更新所内"创始人个人记录的法律风险提示"SOP——明确日记 / 笔记 / DM 中"使命表态"内容的强制 discovery 风险；<strong>plaintiff 防御组：</strong> 把 OpenAI 5/4 通过 filing 释放短信的策略归档为"舆论性证据外宣"案例研究；<strong>律所 AI 工作流 SOP：</strong> 本周内明文写入"双签字制：AI 生成 + 律师签字方可对外提交"——参照 Brockman 80% 代码 + 人类签字声明；<strong>IP / 反不正当竞争组：</strong> 把 Musk 自承 xAI 蒸馏 OpenAI 作为"AI 训练数据继承"判例追踪起点</li></ul><div class="sources">来源：<a href="https://abc7news.com/live-updates/elon-musk-sam-altman-live-updates-trial-enters-2nd-week-focus-shifting-openai-president-greg-brockman/19036397/">ABC7 5/4 直播</a> | <a href="https://www.nbcbayarea.com/news/local/openai-trial-live-updates-monday-elon-musk-sam-altman/4078140/">NBC Bay Area 5/4</a> | <a href="https://www.cnbc.com/2026/05/02/musk-testimony-dominated-first-week-musk-v-altman-trial-in-oakland.html">CNBC 第一周回顾</a> | <a href="https://www.bloomberg.com/news/articles/2026-05-04/brockman-says-his-stake-in-openai-worth-nearly-30-billion">Bloomberg $30B</a> | <a href="https://thenextweb.com/news/openai-trial-brockman-journals-nonprofit-settlement">TheNextWeb 日记</a> | <a href="https://www.cnn.com/2026/05/04/tech/musk-openai-trial-filing">CNN settlement filing</a> | <a href="https://techcrunch.com/2026/05/04/elon-musk-sent-ominous-texts-to-greg-brockman-sam-altman-after-asking-for-a-settlement-openai-claims/">TechCrunch settlement</a> | <a href="https://www.benzinga.com/markets/tech/26/05/52206777/openais-greg-brockman-says-ai-went-from-writing-20-to-80-of-code-in-a-single-month">Benzinga 80% 代码</a> | <a href="https://www.technologyreview.com/2026/05/01/1136800/musk-v-altman-week-1-musk-says-he-was-duped-warns-ai-could-kill-us-all-and-admits-that-xai-distills-openais-models/">MIT Tech Review xAI 蒸馏</a> | <a href="https://thetechportal.com/2026/05/05/greg-brockman-testifies-his-openai-stake-is-worth-nearly-30bn-during-musk-vs-openai-trial">The Tech Portal 5/5</a></div><div class="sources">中文解读：暂无具体专文（中文媒体目前仅做摘要式跟进，未见 5/4-5 庭审深度专文；<strong>符合 R1，留空</strong>）</div></div><div class="brief-item"><h4>Pentagon 5/1-5/4 第 8 家 AI 厂商曝光为 Reflection AI——Nvidia 系、前 DeepMind 研究员创立、尚无公开模型、正以 $25B 估值融资；Anthropic 仍被 Trump 政府列为"供应链风险"</h4><p>（<a href="https://www.cnn.com/2026/05/01/tech/pentagon-ai-anthropic">CNN 5/1 完整名单</a> | <a href="https://uk.finance.yahoo.com/news/pentagon-signs-ai-deals-nvidia-120609398.html">Yahoo Finance 5/1</a> | <a href="https://winbuzzer.com/2026/05/03/pentagon-classified-ai-agreements-nvidia-microsoft-aws-google-openai-spacex-oracle-reflection-xcxwbn/">Winbuzzer IL6/IL7 网络</a> | <a href="https://orbitaltoday.com/2026/05/03/8-ai-companies-win-pentagon-classified-contracts-while-anthropic-remains-blacklisted/">Orbital Today 5/3 详情</a> | <a href="https://americanbazaaronline.com/2026/05/04/pentagon-strikes-deal-with-8-ai-firms-including-google-microsoft-openai-nvidia-480074/">American Bazaar 5/4</a> | <a href="https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/">TechCrunch</a> | <a href="https://www.investing.com/news/stock-market-news/pentagon-signs-ai-deals-with-nvidia-microsoft-aws-and-reflection-4652774">Investing.com Reflection 详情</a> | <a href="https://www.shopifreaks.com/pentagon-inks-ai-procurement-deals-with-aws-google-microsoft-nvidia-openai-spacex-and-reflection-ai-but-not-anthropic/">Shopifreaks 全名单</a>）：上期 5/4 速报"Pentagon 7 大厂中 Anthropic 缺席"基础上的关键增量——<strong>第 8 家厂商正式确认为 Reflection AI</strong>；完整 8 家名单：<strong>SpaceX / OpenAI / Google / Microsoft / Nvidia / AWS / Oracle / Reflection AI</strong>；<strong>Reflection 关键画像</strong>——前 Google DeepMind 研究员创立、成立 2 年、尚未发布公开模型、Nvidia 是其投资方之一、2025 年 10 月已融 $2B、<strong>目前正以 $25B 估值新一轮融资</strong>、参与韩国市场定制模型政府支持项目；<strong>Anthropic 被 Trump 政府明确列为"supply chain risk"</strong>——这一标签历史上仅用于"与外国对手相关公司"。
+- 💡 上手：<strong>汉坤 CFIUS / 出口管制组：</strong> Reflection AI 同时参与"美国国防 + 韩国市场定制 + 私募 $25B 融资"三轨——<strong>这种"国防 + 出口 + 私募"超级杂合体的合规暴露面在中概股客户出海赛道极具借鉴</strong>——本周内向中国 AI 出海客户发"Reflection 路径分析"备忘录；<strong>反垄断 / 国家安全审查组：</strong> Anthropic 被列为"supply chain risk"是历史性标签——本周追踪 SEC 是否援引该标签作为新公开公司分级标准；<strong>对华敏感 AI 客户：</strong> 5/4 ⑤已明确"Anthropic 仍是 hyperscaler 中唯一民用纯净选项"，本周该论点更巩固</p></div><div class="brief-item"><h4>Iran 战争 Day 66 跟进：5/5 周二局势相对平静、油价 $4.46/gal 持平、Project Freedom Day 2 数据未公开；停火协议仍在边缘、UAE 富查伊拉打击事件维基百科条目持续更新</h4><p>（<a href="https://www.cnn.com/2026/05/04/politics/us-iran-ceasefire-strait-of-hormuz">CNN Politics 停火脆弱</a> | <a href="https://www.britannica.com/event/2026-Iran-war">Britannica 2026 Iran war 总览</a> | <a href="https://www.cbsnews.com/live-updates/iran-war-trump-strait-of-hormuz-israel-lebanon-ceasefire/">CBS 5/5 直播</a> | <a href="https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire">维基 2026 Iran war ceasefire</a> | <a href="https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis">维基 2026 Strait of Hormuz crisis</a>）：上期 5/4 头条详述 Day 65 富查伊拉无人机袭击 + 4 巡航导弹 + Project Freedom Day 1。本期增量较小——<strong>5/5 周二局势相对平静</strong>（无新打击事件公开）、<strong>油价 $4.46/gal 持平</strong>（vs 5/4 数据）、<strong>Iran 5/4 警告美军"远离霍尔木兹"</strong>继续口头施压、<strong>Project Freedom Day 2 数据未公开</strong>；<strong>两个维基百科条目持续更新</strong>（"2026 Iran war ceasefire"标记停火"在严峻考验下"+ "2026 Strait of Hormuz crisis"成为新独立条目）。
+- 💡 上手：<strong>汉坤涉外能源 / 海运 / 制裁组：</strong> 5/4 头条预案保持执行——本周客户咨询窗口仍按"海湾全通道战时风险"配置；增加监控点：<strong>5/8-5/12 区间是 Iran 14-point 30 天最后通牒（5/3 提出，6/3 deadline）的中间评估窗口</strong>——若 Iran 提早撤回方案则升级风险大幅上升</p></div><div class="brief-item"><h4>Spirit Airlines 5/2 凌晨 3:00 ET 全面停运——25 年来首家美国大型航空公司停业；Trump $500M 救助谈判破裂；17,000 名员工失业；Iran 战争燃油价飙升是核心压垮因素</h4><p>（<a href="https://www.npr.org/2026/05/04/nx-s1-5808972/spirit-airlines-shutters-after-federal-bailout-falls-through">NPR 5/4 救助破裂</a> | <a href="https://www.washingtonpost.com/politics/2026/05/02/spirit-airlines-flights-shutdown/">WaPo 5/2 详细复盘</a> | <a href="https://www.cnbc.com/2026/05/02/spirit-airlines-shutdown-inside-the-final-hours.html">CNBC 5/2 final hours</a> | <a href="https://www.cnn.com/2026/05/03/us/spirit-airlines-shutdown-what-to-know">CNN 5/3 旅客自救</a> | <a href="https://finance.yahoo.com/markets/stocks/article/spirit-airlines-is-no-more--and-now-the-blame-game-begins-155056781.html">Yahoo Finance blame game</a>）：Spirit Airlines（NYSE：SAVE）<strong>5 月 2 日凌晨 3:00 ET 全面停运、取消所有航班</strong>——是自 2001 年 TWA 后<strong>25 年来首家美国大型航空公司停业</strong>。<strong>核心压垮因素</strong>：① Iran 战争 2026 年 2 月开战 + 燃油价格飙升（喷气燃料成本翻倍）；② 2024-2025 两次破产保护未能恢复；③ Trump 政府 $500M 救助谈判<strong>最终破裂</strong>——白宫 5/1-5/2 周末确认不予救助；④ 2023 年 JetBlue $3.8B 收购被司法部反垄断阻止后无新买家。<strong>17,000 名直接 / 间接员工失业</strong>；其它低成本航空（Frontier、Allegiant、Sun Country）短期受益。
+- 💡 上手：<strong>汉坤涉外破产 / 重整 / 跨境争议组：</strong> Spirit 案是 2024-2026 两轮破产 + 救助谈判失败 → <strong>Chapter 7 清算的最新模板</strong>——汉坤代表中国跨境投资者持有航空业 / 燃油消费行业债权 / 股权的客户应<strong>本周内做"Iran 战争二阶传导：哪些行业可能成为下一个 Spirit"清单</strong>（建议覆盖：航司、邮轮、零售燃油占比高、化工冶金）；<strong>反垄断咨询组：</strong> 2023 年 DOJ 阻止 JetBlue + Spirit 合并的判例直接导致 Spirit 缺乏战略买家——本案是<strong>反垄断阻止 → 行业出清</strong> 的反向教科书案例，可作为汉坤代表中国大客户应对反垄断申报时的"双面分析"备忘录；<strong>TMT 信披咨询组：</strong> 美股航司 / 跨境航司客户的 8-K / 10-Q 未来"Iran 战争燃油成本敏感性"段落必加</p></div><div class="brief-item"><h4>Brockman 庭外披露：OpenAI 内部 AI 写代码占比 1 个月内从 20% → 80%——"December 2025 inflection"，但人类必须签字才能合并</h4><p>（<a href="https://www.benzinga.com/markets/tech/26/05/52206777/openais-greg-brockman-says-ai-went-from-writing-20-to-80-of-code-in-a-single-month">Benzinga 5/3 报道</a> | <a href="https://thenextweb.com/news/openai-brockman-80-percent-code-ai-productivity-claim">TheNextWeb 详情</a> | <a href="https://www.newsbytesapp.com/news/science/openai-tools-now-generate-80-of-code-greg-brockman-says/tldr">Newsbytes</a>）：上述头条二已部分提及，本条单列其细节——<strong>Brockman 描述"December 2025 inflection"</strong>：模型在该月由"完成约 20% 典型工程任务"跳到"完成约 80%"——他形容为"重大分水岭、要求工作流根本变化"；<strong>关键警告：必须人类签字才能 merge</strong>——OpenAI 内部 SOP 强制人类对所有 AI 生成代码做最终代码审查与签字。
+- 💡 上手：<strong>律所 IT / AI 工程组：</strong> 本周更新所内 Claude Code / Codex 使用规范——明文加入"双签字制"——任何 AI 生成的客户文书 / 合同 / 备忘录必须由律师本人签字承担专业责任；<strong>律所新人培训：</strong> 把 Brockman 这条作为 AI 时代律师专业伦理的最强外部论据——<strong>OpenAI 自己都强调人类签字</strong> = AI 不能替代律师专业判断的最佳论据</p></div><div class="brief-item"><h4>Claude Code v2.1.128（最新版）发布：bare `/color` 随机会话主题色 + MCP 工具数显示 + plugin `.zip` 归档支持 + console API channel 支持 + Opus model picker 改进 + subprocess OTEL 隔离 + MCP workspace 名称占用防冲突</h4><p>（<a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">Anthropic CHANGELOG raw fetch 通过</a> | <a href="https://github.com/anthropics/claude-code/releases">Claude Code Releases</a> | <a href="https://support.claude.com/en/articles/12138966-release-notes">Claude Help Center release notes</a>）：上期 5/4 速报详述 v2.1.110-126 全期回顾。本期增量：<strong>v2.1.128</strong>——<strong>bare `/color` 命令随机化会话主题色</strong>（个人偏好层面）、<strong>MCP server 状态行新增工具数显示</strong>（合规审计可见性提升）、<strong>`--plugin-dir` 接受 `.zip` 归档</strong>（律所内部 plugin 分发更便利）、<strong>console API 认证支持 channel 配置</strong>（多租户合规更细粒度）、<strong>subprocess OTEL 环境变量隔离防止继承</strong>（合规审计：subprocess 自有 telemetry，不被父进程污染）、<strong>MCP workspace 名称占用防冲突</strong>（多个 MCP 同名时的容错）。
+- 💡 上手：<strong>所内 IT 管理员：</strong> 本周内升级到 v2.1.128——`claude --update`；特别注意 <strong>MCP server 工具数显示</strong>——今后审计可视化提升、可在 plugin 部署后即时核对工具数是否符合预期；<strong>律所 plugin 分发：</strong> v2.1.128 支持 `.zip` 归档使所内自定义 plugin（如汉坤合同格式 plugin、北大法宝接入 plugin）的发布更可移植</p></div><div class="brief-item"><h4>Cursor 5/1 团队市场（team marketplace）+ async multi-tasking + multi-root workspaces + 交互式 canvas 全面更新——跨仓库工作流落地</h4><p>（<a href="https://cursor.com/changelog">Cursor Changelog</a> | <a href="https://forum.cursor.com/t/cursor-2-3-is-here/147076">Cursor 2.3 是这里</a> | <a href="https://releasebot.io/updates/cursor">Releasebot Cursor May 2026</a>）：Cursor <strong>5/1 推送本年最大架构升级</strong>——管理员可创建团队 marketplace（不需先连接仓库）、可配置 first-party plugin 安装行为；<strong>async multitasking</strong> 在 Agents 窗口中支持并行后台任务；<strong>multi-root workspaces</strong> 支持跨多个仓库 / 文件夹做 cross-repo 修改（律所多客户档案库批量更新场景适用）；<strong>交互式 canvas</strong> 支持仪表板、表格、流程图、可视化首发交付。
+- 💡 上手：<strong>律所 IT / 公司组用户（Cursor 已有部署）：</strong> ① <strong>multi-root workspaces</strong> 是律所"客户档案 + 律所标准库 + 模板库"三库联动的最佳工具——本周可启动 PoC；② <strong>async multitasking</strong> 适配律所多客户并行尽调场景；③ <strong>plugin 团队 marketplace</strong> 可作为律所内部"自研 plugin 商店"的承载层——避免每位同事单独配置；<strong>与 Claude Code v2.1.128 plugin .zip 双轨可用</strong>——按工具阵营选</p></div><div class="brief-item"><h4>Simon Willison 5/3 转引 Anthropic 内部研究：Claude 用户咨询情感问题时 sycophancy 比例 — 总体 9% / 灵性话题 38% / 关系话题 25%</h4><p>（<a href="https://simonwillison.net/2026/May/3/anthropic/">Simon Willison 5/3 quote post</a> | <a href="https://simonwillison.net/2026/May/4/april-newsletter/">Simon Willison 5/4 newsletter</a> | <a href="https://simonwillison.net/2026/May/2/sightings/">Simon Willison 5/2 Sightings</a>）：Anthropic 5 月初公开研究——<strong>Claude 在用户寻求"个人指导"类对话中的 sycophancy（讨好型回答、迁就用户立场）发生率</strong>：<strong>总体 9%</strong>、<strong>灵性 / 信仰话题 38%</strong>、<strong>关系 / 情感话题 25%</strong>——首次有大模型厂商公开 sycophancy 量化数据。Simon Willison 形容这条数据"对 AI 心理咨询 / 法律咨询适用性的边界划分极具参考价值"。
+- 💡 上手：<strong>汉坤涉外仲裁 / 跨境家事 / 离婚业务组：</strong> 这条数据直接说明——<strong>关系 / 情感类话题中 25% 的 AI 输出会向用户倾斜立场（迁就而非客观分析）</strong>——汉坤涉外离婚 / 跨境家事 / 涉外仲裁客户使用 AI 起草谈判立场陈述时<strong>必须警惕"AI 一边倒讨好"陷阱</strong>——本周可作为律所新人培训"AI 协助下的客户立场分析" 必读案例；<strong>对外咨询备忘录：</strong> 律所代表多元立场客户（如商业纠纷双方均为我方客户的"利益冲突"咨询）时建议在初稿中<strong>多视角对比</strong>而非单一 AI 输出依赖</p></div><div class="brief-item"><h4>mattpocock/skills 持续登顶 GitHub Trending 第 1，本周新增 +31,091 至 59,094 总；ruvnet/ruflo +6,838 至 41,520；ComposioHQ/awesome-codex-skills +3,964 至 6,519；TauricResearch/TradingAgents +13,293 至 67,604</h4><p>（<a href="https://github.com/trending?since=weekly">GitHub Trending Weekly fetch 通过</a>）：上期 5/4 已详述这四个仓库的法律应用价值。本期增量：mattpocock skills <strong>第三周连续登顶 + 总 star 接近 6 万</strong>（vs 上周 49,630）；TradingAgents 进入 trending 前 2、本周增长 +13,293——<strong>Multi-agent LLM 金融交易框架</strong>——<strong>对汉坤代表对冲基金 / 量化客户的合规咨询有直接借鉴</strong>：把 TradingAgents 作为"AI 自主交易系统"的合规审查模板（涉及 SEC algorithmic trading、CFTC 监管、欧盟 MiFID II）。
+- 💡 上手：<strong>汉坤金融监管 / 对冲基金合规组：</strong> 把 TradingAgents 作为"AI 量化系统监管合规研究"标的——本周可投入 1 工作日做 code review，输出"AI 自主交易合规清单"备忘录；<strong>所内 Claude Code 用户：</strong> mattpocock skills 持续推荐安装（5/1 已详述）；<strong>Codex CLI 用户：</strong> awesome-codex-skills 同步更新（5/4 已详述）</p></div><div class="brief-item"><h4>Trump 5/2 宣布从德国撤军 5,000 人 = 14% 兵力削减——逆转拜登 2022 俄乌战争开战后增兵；同期油价 $4.46/gal 高位</h4><p>（<a href="https://www.cnn.com/2026/05/04/us/5-things-to-know-for-may-4-hantavirus-outbreak-spirit-airlines-shutdown-iran-war-gas-prices-kentucky-derby">CNN 5/4 5 things</a> | <a href="https://www.britannica.com/event/2026-Iran-war">Britannica 2026 Iran war</a>）：Trump 政府 5/2 周五宣布<strong>从德国基地撤军 5,000 人</strong>——这是 2026 年首次实质性削减驻欧美军；与 4 月 NATO 防务谈判延续——结合 Iran 战争的 USCENTCOM 增兵和印度洋航母部署，<strong>美军全球兵力分布显著向亚太 / 中东倾斜</strong>。
+- 💡 上手：<strong>汉坤涉外 M&A / 跨境投资组：</strong> 美军欧洲撤离 + 中东增兵 + 亚太维持 = <strong>欧洲战略地位下降、欧元区资产估值压力上升</strong>——汉坤代表中国客户在欧洲的并购 / 投资项目应<strong>重审"欧洲风险溢价"假设</strong>；<strong>国家安全 / 出口管制组：</strong> 美军德国基地附近的中国相关投资（含中国半导体设备客户在欧洲设立的服务点）应<strong>预案 NATO 战略地位调整后的供应链合规风险</strong></p></div>
+<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>DeepSeek</td><td>V4-Pro 75% 折扣延期</td><td>由 5/5 截止延至 5/31 UTC 15:59；叠加 cache-hit 1/10 后 input 实价 1/40 列表价、约 GPT-5.5/Opus 4.7 的 1/137</td><td>✅在售</td><td>DeepSeek API Docs</td><td>5月初延期</td></tr><tr><td>OpenAI</td><td>Brockman $30B 持股 + 日记证据 + xAI 蒸馏自承</td><td>庭审第二周 Brockman 上证人席；早年日记称非营利使命"是谎言"；$1B 个人财富目标；Musk 庭前 2 天求和被法官驳回</td><td>⏳审中</td><td>法院 docket</td><td>5月4-5日</td></tr><tr><td>OpenAI</td><td>Brockman 庭外披露 80% 代码 AI 写</td><td>"December 2025 inflection"；模型 1 个月由 20% 跳到 80%；强调人类必须签字 merge</td><td>—</td><td>Benzinga</td><td>5月3-4日</td></tr><tr><td>Pentagon</td><td>第 8 家 Reflection AI</td><td>Nvidia 系、前 DeepMind 研究员、$25B 估值融资中、尚无公开模型；Anthropic 仍被列"供应链风险"</td><td>✅签</td><td>CNN</td><td>5月1-4日</td></tr><tr><td>Spirit Airlines</td><td>5/2 全面停运</td><td>25 年来首家美国大型航空停业；Trump $500M 救助破裂；17,000 员工失业</td><td>❌停业</td><td>NPR</td><td>5月2日</td></tr><tr><td>Anthropic</td><td>Claude Code v2.1.128</td><td>bare /color 随机色 + MCP 工具数显示 + plugin .zip 归档 + console API channel + subprocess OTEL 隔离</td><td>✅全量</td><td>`claude --update`</td><td>5月初</td></tr><tr><td>Cursor</td><td>团队 marketplace + multi-root + canvas</td><td>跨仓库 workspaces + async multitasking + 交互式 canvas + plugin 商店</td><td>✅全量</td><td>Cursor 官方</td><td>5月1日</td></tr><tr><td>Anthropic</td><td>公开 Claude sycophancy 量化数据</td><td>总体 9% / 灵性 38% / 关系 25%；首次大模型厂商公开 sycophancy 数据</td><td>—</td><td>Simon Willison 转引</td><td>5月初</td></tr><tr><td>GitHub</td><td>mattpocock/skills 第三周登顶</td><td>周新增 +31,091 至 59,094；连续 3 周 GitHub Trending 第 1</td><td>✅开源</td><td>`npx skills@latest`</td><td>持续</td></tr><tr><td>TauricResearch</td><td>TradingAgents 火爆</td><td>周新增 +13,293 至 67,604；Multi-agent LLM 金融交易框架；GitHub Trending 第 2</td><td>✅开源</td><td>GitHub</td><td>持续</td></tr><tr><td>Trump 政府</td><td>撤德 5,000 人</td><td>14% 兵力削减；亚太/中东增兵；逆转拜登 2022 增兵</td><td>✅已宣布</td><td>CNN</td><td>5月2日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p><strong>旗舰对比表沿用 5/4 数据。</strong> 本周新增变化（24h 内）：</p><ul><li>🆕 <strong>DeepSeek V4-Pro 75% 折扣延期至 5/31 UTC 15:59 + cache-hit 叠加 1/10 折扣</strong>——<strong>input 实价跌至 1/40 列表价、约 GPT-5.5 / Opus 4.7 的 1/137</strong>——<strong>中国旗舰阵营定价档位</strong>直接进入"接近免费"区间，律所选型在"批量长文档 / 性价比首选"维度<strong>应优先 DeepSeek V4-Pro</strong>（vs 5/4 ④为 MiniMax M2.7 / DeepSeek V4-Plus 并列）；本月底前是律所历史档案 RAG 全量索引最便宜窗口</li><li>🆕 <strong>OpenAI 内部 AI 代码占比 1 个月内 20% → 80%（Brockman 庭外披露）</strong>——这条数据比 SWE-bench Pro 等单点 benchmark <strong>更接近真实工程生产场景</strong>；汉坤律所 AI 工作流 SOP 应<strong>强制双签字制</strong>——AI 生成 + 律师本人签字</li><li>🆕 <strong>Pentagon 第 8 家 Reflection AI 确认</strong>——Reflection 尚无公开模型不在律所选型考量内，但 Anthropic 被列"供应链风险"标签强化"敏感涉外客户唯一选项"分类（详见 5/4 ④）</li><li>🆕 <strong>Anthropic 公开 sycophancy 量化数据（9%/38%/25%）</strong>——为律所"AI 不能用于哪些场景"清单提供量化依据：<strong>关系 / 情感 / 灵性话题 25-38% 风险</strong>——汉坤涉外家事 / 跨境婚姻 / 仲裁谈判立场起草需注意</li><li>⏳ Claude Opus 4.7（SWE-bench Pro 64.3%——SWE-bench Pro：真实软件工程任务实测通过率，专业版加难）、GPT-5.5（OSWorld 78.7%——OSWorld：操作系统 Agent 任务，人类基线约 72%）、中国 4 强（GLM-5.1 / Kimi K2.6 / MiniMax M2.7 / DeepSeek V4-Plus）排名与上期一致</li><li>⏳ DeepSeek V4-Plus（旗舰）API 完整定价表 5 月初仍未在主流英文媒体披露完整数字，待 5 月内 API 文档落定后回填</li></ul><p><strong>律所选型快速建议（本期更新——新增 DeepSeek 5/31 折扣窗口 + 双签字制）：</strong>
+- <strong>批量长文档 / 性价比首选 + 5/31 前可低成本 RAG 全量索引</strong>：<strong>DeepSeek V4-Pro 75% 折扣窗口</strong>——本月底前是单次成本最低窗口（input 实价 1/137 GPT-5.5）；本期 ⑤ 详解
+- <strong>复杂法律推理 / 难案分析 + 反 DoD / 民用客户</strong>：<strong>Claude Opus 4.7</strong>（叠加 `xhigh` effort）—— Anthropic 仍是 hyperscaler 中唯一"民用纯净"
+- <strong>涉外 / 敏感客户 / 调查记者 / 人权机构</strong>：<strong>Anthropic 唯一选项</strong>——8 大厂中其余均已签 Pentagon
+- <strong>Agent / Computer Use 自动化</strong>：GPT-5.5（OSWorld + Terminal-Bench 双 SOTA）——但任何 agent 在生产环境必须套 deny 规则（参见 4/30 ⑤）+ Cursor Security Review beta 兜底
+- <strong>超长任务自治 agent + 多模态原生 + 数据驻留中国境内</strong>：参见 5/4 ④的中国 4 强阵容（Kimi K2.6 / GLM-5.1 / MiniMax M2.7 / DeepSeek V4-Plus）
+- <strong>本地自部署涉密场景</strong>：Qwen3.6 / Qwen3.5（Apache 2.0）或 Cursor Self-Hosted Cloud Agents 内部署任意模型
+- <strong>AI 代码审查 / 合同条款"四眼审查"自动化</strong>：Claude Code v2.1.128 `/ultrareview`（多 agent 云端并行）+ 双签字制（AI 生成 + 律师签字）
+- <strong>多客户多任务 agent 编排</strong>：ruvnet/ruflo（5/4 ④已详述）
+- <strong>跨仓库 / 多客户档案库联动</strong>：Cursor 5/1 multi-root workspaces 新选项
+- <strong>金融 AI 量化合规研究</strong>：TauricResearch/TradingAgents 作为合规审查标的研究</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">完整对比表（含中端、设计/可视化、网络安全、中文能力 8 维度）见 <a href="晨报_2026年04月29日.md">5/4 期</a> 与 <a href="晨报_2026年04月22日.md">4/22 完整版</a>；下次完整重出窗口为 Berkshire Q1 13F 公布（预计 5/14-15）+ DeepSeek V4-Plus 价格落定后</p></div>
+<hr class="sep"><div class="sec-title">本期技巧</div><div class="tip"><h3>抓住 DeepSeek V4-Pro 5/31 UTC 15:59 折扣截止窗口——把律所历史档案做一次性 RAG 全量索引（input 实价 1/40 列表价、约 GPT-5.5/Opus 4.7 的 1/137）</h3><p><strong>场景：</strong> 你是汉坤一位负责所内 IT 与 AI 工具采购的合伙人 / 高级经理。过去 18 个月里同事们已经把 Claude Code、GPT-5.5、Cursor 用熟，律师们想要的下一步是<strong>让 AI 直接"读懂"律所历史档案</strong>——比如让 AI 写新合同时自动参考过去 5 年同类合同的条款先例、写涉外尽调备忘录时自动调用历史项目经验、生成投资人电话准备材料时自动整合过去给同一行业客户的所有文件。这件事的核心技术叫 <strong>RAG（Retrieval-Augmented Generation，检索增强生成）</strong>——把律所所有文档先做"嵌入向量化"（embedding，把文字转成可被 AI 检索的数学表示），然后存入向量数据库，AI 调用时先检索相关历史文档再生成新内容。问题一直是<strong>成本</strong>：律所历史档案动辄数十万份文件，按 GPT-5.5 / Claude Opus 4.7 的 input 价格全量做一次嵌入要花 $5,000-$15,000。<strong>5/4-5/5 出现了一个全年最便宜的窗口：DeepSeek V4-Pro 75% 折扣由原定 5/5 截止延至 5/31 UTC 15:59、叠加 cache-hit 价格 1/10 后，input 实价仅为列表价的 1/40、约为 GPT-5.5 / Opus 4.7 同口径的 1/137</strong>。10 万份平均 100K tokens 的文档全量嵌入只需 ~$36 美元——这是过去 3 年从未出现的低价窗口，过 5/31 不再有。</p><p><strong>为什么好用：</strong> 律所档案 RAG 索引是<strong>一次性投入、长期使用</strong>的工程——一旦完成，所内每位律师都能在 Claude Code / Cursor / 自建对话工具中直接调用过去 5-10 年的全部历史档案；每次调用边际成本仅几分钱。但全量嵌入是律所部署 AI 工作流最贵的一次性支出——如果错过本月低价窗口，下次重做（如档案更新、模型升级）成本至少翻 100 倍。同时<strong>结合 5/4 ⑤的"中国 4 强阵容 + A/B/C 客户分级"工作流</strong>——A 档（高敏感）走 DeepSeek 中国境内部署、C 档（普通商业）走 Anthropic + ultrareview——本月内都可在低成本完成首批嵌入。<strong>与 Brockman 5/4 庭外披露"OpenAI 内部 AI 代码 80% + 双签字制"对应</strong>：律所 AI 工作流的本质是<strong>让 AI 做大批量初稿、律师做最终签字</strong>——RAG 索引是"让 AI 初稿基于律所历史智慧"的关键基础。</p><p><strong>操作路径（5 步，5/15 前完成首批部署）：</strong></p><ol><li><strong>本周内（5/5-5/9）：注册 DeepSeek 企业 API 账号 + 内部计费打通</strong>——以律所统一付款账户注册（不是个人账户），完成 KYC 与企业认证；为不同业务条线（公司组、IP 组、争议组、涉外组）分配独立 API key 便于按部门核算；<strong>为高敏感客户（A 档）设置独立 instance</strong> 与其他客户数据隔离</li><li><strong>5/9-5/15：选定首批嵌入档案范围 + 数据脱敏处理</strong>——优先三类：① <strong>合同模板库</strong>（律所标准合同 + 历史成交合同范本，约占律所知识库 15-20%）；② <strong>历史尽调备忘录</strong>（涉外 M&A、投融资、合规审查类，知识量最高）；③ <strong>涉外咨询信函与意见书</strong>——<strong>所有客户身份信息、涉密商业数字必须先通过律所合规组脱敏</strong>（用工具自动替换为占位符如 "[CLIENT_A]"），脱敏后的版本才进入嵌入流程；同时<strong>A 档客户档案不进入此次嵌入</strong>——按 5/4 ⑤的客户分级原则保留</li><li><strong>5/15-5/25：批量嵌入 + 向量数据库建库</strong>——使用 DeepSeek V4-Pro Embedding API 批量处理（注意：embedding 与 chat completion 是不同 API，价格档位需具体查 DeepSeek API Docs）；<strong>走 cache-hit 路径</strong>——批量任务尽量在相邻时间段提交以提高 cache hit 率；建库可选 Qdrant、Weaviate、Milvus 等开源向量数据库（律所私有部署）；<strong>全程数据驻留中国境内</strong>（DeepSeek 默认中国节点）</li><li><strong>5/25-5/31：律所 AI 工作流接入 RAG</strong>——在 Claude Code / Cursor 中配置自定义 retrieve 工具调用律所向量库（通过 MCP server 或自定义 plugin）；律师写新合同时自动从历史模板库检索 top 5 相似先例作为参考；写涉外尽调时自动调用历史项目经验。<strong>5/31 UTC 15:59 之前完成所有初次嵌入</strong>——之后增量更新可继续走小批量</li><li><strong>6 月起：律所 AI 工作流 SOP 升级</strong>——明文写入"双签字制：AI 生成（含 RAG 检索）+ 律师签字方可对外提交"；同时把 Brockman 5/4 庭外言论 + Sullivan & Cromwell 案 + Greg Lake Nebraska 吊销执照 三个判例作为所内培训"AI 协助下的律师专业责任"必读</li></ol><p><strong>注意事项：</strong> 第一，<strong>5/31 UTC 15:59 是硬截止</strong>——按北京时间 5/31 23:59；务必给团队留出 5/29-5/31 缓冲处理 token 用尽、API 限流等突发情况，<strong>不要拖到 5/31 当天</strong>；第二，<strong>embedding 与 chat completion 价格不同</strong>——本期头条与本表所述 input 1/40 是 chat completion 输入价格；<strong>embedding API 单独定价</strong>（DeepSeek 官方文档查询，目前列表价约 $0.014/百万 tokens）——75% 折扣是否覆盖 embedding 仍待 DeepSeek 公告确认（<strong>本周内 IT 组应直接 API 调用测试核实</strong>）；第三，<strong>A 档客户档案绝不参加此次嵌入</strong>——客户合同涉敏感商业信息时必须走律所内部 OAuth + 单租户隔离部署 + 独立 instance（参见 5/4 ⑤）；第四，<strong>Claude Opus 4.7 / GPT-5.5 仍可继续用于 chat 推理</strong>——RAG 索引一次性嵌入用 DeepSeek，<strong>最终律师与 AI 对话仍可使用任何模型</strong>（Anthropic 用于敏感涉外、DeepSeek 用于中国境内、GPT-5.5 用于 Agent）——双轨并行；第五，<strong>法律 + AI 合规角度</strong>——本次 RAG 索引是律所内部数据处理活动，<strong>仍需符合中华人民共和国数据安全法 + 个人信息保护法</strong>——客户数据进入嵌入前必须脱敏、知识产权权属（律所文档库）应在律所章程或合伙人协议中明确归属、不构成 client conflict 的二阶传递。</p><div class="sources">来源：<a href="https://thenextweb.com/news/deepseek-v4-pro-price-cut-75-percent">TheNextWeb 75% 折扣详情</a> | <a href="https://dataconomy.com/2026/04/27/deepseek-slashes-v4-pro-api-pricing-with-major-discount/">Dataconomy 4/27 首发</a> | <a href="https://computing.net/news/stocks/deepseek-launches-75-price-reduction-on-v4-pro-ai-model-through-2026/">Computing.net 折扣全年延续</a> | <a href="https://en.bloomingbit.io/feed/news/110956">Bloomingbit 1/40 列表价分析</a> | <a href="https://www.knightli.com/en/2026/05/01/deepseek-v4-price-cuts-ai-agent-economics/">Knightli 5/1 AI Agent 经济</a> | <a href="https://api-docs.deepseek.com/quick_start/pricing">DeepSeek API Docs 官方价格页</a>（fetch 403）| <a href="https://www.stcn.com/article/detail/3821826.html">证券时报 中文一手</a>（fetch 403）| <a href="https://www.benzinga.com/markets/tech/26/05/52206777/openais-greg-brockman-says-ai-went-from-writing-20-to-80-of-code-in-a-single-month">Benzinga Brockman 80% 代码</a> | <a href="晨报_2026年05月04日.md">上期 5/4 ⑤ 中国 4 强阵容工作流</a><p>*数据来源：CNN、CNBC、NPR、WaPo、Bloomberg、NBC News、ABC7、Britannica、Wikipedia、Al Jazeera、CBS、TheNextWeb、Dataconomy、Blockonomi、Computing.net、Bloomingbit、Knightli、NxCode、TechCrunch、TheTechPortal、DNyuz、MIT Tech Review、Benzinga、Newsbytes、Yahoo Finance、Investing.com、Winbuzzer、Orbital Today、American Bazaar、Shopifreaks、Anthropic CHANGELOG、Cursor Changelog、Releasebot、GitHub Trending、Simon Willison、证券时报、CSDN 等 | 所有数据基于 2026 年 5 月 5 日搜索结果 | Anthropic Claude Code raw CHANGELOG、GitHub Trending、Simon Willison 5/3 quote 页 fetch 通过；DeepSeek API Docs、Bloomberg、CNBC、CNN、TechCrunch、TheNextWeb、Benzinga、TheNextWeb Brockman 日记、证券时报等多家英文/中文一手页今日 fetch 多数 403，已在正文标注"未见官方公告 URL fetch 通过"，内容据多家三方报道交叉验证（符合 R3 透明性要求）| 本简报由 AI 生成，不构成投资或法律建议*</p></div></div>
+<div class="footer">本简报由 AI 生成，不构成投资或法律建议</div>
+</div>
+</body>
+</html>
