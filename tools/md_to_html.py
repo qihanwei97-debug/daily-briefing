@@ -319,6 +319,8 @@ def render_deep_report(content: str) -> str:
 
 def render_headline(title: str, body: str) -> str:
     """渲染单条头条（含 callout 和 sources）。"""
+    # 清理 markdown ### 前缀（split 没切干净的首块）
+    title = re.sub(r'^#+\s*', '', title)
     # 清理 emoji 前缀
     title = re.sub(r'^🔥\s*', '', title)
     html = f'<div class="feature"><h3>{render_inline(title)}</h3>'
@@ -371,7 +373,17 @@ def render_briefs(body: str) -> str:
             rest = p[len(m.group(0)):].strip() if m else p
             # 把"（日期，来源）："模式拆开
             rest = re.sub(r'^[（(]([^）)]+)[）)]\s*[:：]\s*', '', rest)
-            current_item = f'<div class="brief-item"><h4>{render_inline(title)}</h4><p>{render_inline(rest)}</p>'
+
+            # 拆分描述与 💡 insight 行（速报常用单行 \n 分隔，不会被段落 split 拆开）
+            parts = re.split(r'\n\s*-?\s*💡', rest)
+            description = parts[0].strip()
+            insights = [x.strip() for x in parts[1:]]
+
+            current_item = f'<div class="brief-item"><h4>{render_inline(title)}</h4><p>{render_inline(description)}</p>'
+            for ins in insights:
+                # 去掉前缀如 "上手："、"关联："
+                ins_clean = re.sub(r'^[^：:]{1,8}[：:]\s*', '', ins, count=1)
+                current_item += f'<div class="insight">{render_inline(ins_clean)}</div>'
         elif p.startswith('- 💡') or p.startswith('💡'):
             insight = re.sub(r'^- 💡\s*\S*\s*[:：]?\s*', '', p)
             insight = re.sub(r'^💡\s*\S*\s*[:：]?\s*', '', insight)
@@ -543,10 +555,15 @@ def render_masthead(meta: dict) -> str:
 
 
 def render_footer(md: str) -> str:
-    """提取末尾 *...* 斜体文本作为页脚。"""
-    m = re.search(r'\*([^*]+数据来源[^*]+)\*', md, re.S)
-    if m:
-        return render_inline(m.group(1).replace('|', '<br>').replace('\n', ' '))
+    """提取末尾 *数据来源...*  斜体块作为页脚。
+
+    严格锚定 `*数据来源：` 开头，避免误匹配技巧段中含'数据来源'的 **bold** 文字
+    （bug：`**核查每家'训练数据来源'**` 会被旧 regex 错误捕获）。
+    """
+    matches = re.findall(r'\*(数据来源[:：][^*]+)\*', md)
+    if matches:
+        # 取最后一个（页脚总在文末）
+        return render_inline(matches[-1].replace('|', '<br>').replace('\n', ' '))
     return '本简报由 AI 生成，不构成投资或法律建议'
 
 
