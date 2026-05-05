@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,7 +279,7 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Google发布Gemma 4开源模型家族，Apache 2.0许可证首次用于Gemma系列，31B旗舰模型Arena AI排名第3（Elo 1452），性能超越体量20倍的模型</strong>。<strong>Microsoft发布三款自研MAI模型（语音转写/语音生成/图像生成），加速摆脱对OpenAI的依赖</strong>。<strong>伊朗战争急剧升级：美军F-15E被击落后Delta Force深入伊朗山区救出飞行员，Trump发最后通牒——周二前不重开霍尔木兹海峡就炸毁"每一座电厂和桥梁"；伊朗无人机攻击科威特石油设施和淡水厂</strong>。<strong>Trump提交$1.5万亿国防预算（二战以来最大增幅44%），同时削减$730亿国内支出</strong>。<strong>教皇Leo XIV首次复活节弥撒呼吁和平："让有武器的人放下武器，让有权发动战争的人选择和平。"</strong>
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条一：Google Gemma 4——Apache 2.0许可、端到端开源模型新标杆</h3><p>Google DeepMind于4月2日正式发布<strong>Gemma 4</strong>，这是基于Gemini 3技术构建的新一代开源模型家族，也是Google首次以<strong>Apache 2.0许可证</strong>发布Gemma系列——意味着完全无限制的商用自由。</p><p><strong>模型矩阵（4个尺寸）：</strong>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条一：Google Gemma 4——Apache 2.0许可、端到端开源模型新标杆</h3><p>Google DeepMind于4月2日正式发布<strong>Gemma 4</strong>，这是基于Gemini 3技术构建的新一代开源模型家族，也是Google首次以<strong>Apache 2.0许可证</strong>发布Gemma系列——意味着完全无限制的商用自由。</p><p><strong>模型矩阵（4个尺寸）：</strong>
 - <strong>E2B / E4B</strong>（Effective系列）：面向手机和边缘设备，可在Raspberry Pi、NVIDIA Jetson Orin Nano上完全离线运行
 - <strong>26B MoE</strong>：混合专家架构，Arena AI排名#6（Elo 1441）
 - <strong>31B Dense</strong>：旗舰模型，Arena AI排名<strong>#3</strong>（Elo 1452），<strong>超越体量20倍的模型</strong></p><p><strong>核心能力：</strong>
@@ -252,12 +298,8 @@ a:hover { text-decoration: underline; }
 - 已集成至Copilot驱动图像生成
 - 定价：$5/M文本输入tokens，$33/M图像输出tokens</p><div class="callout"><strong>为什么重要：</strong> Microsoft过去两年一直是OpenAI最大的分发平台和投资方，但自研MAI系列的发布明确表达了"两条腿走路"的战略——即便与OpenAI保持合作，也要在语音、图像等垂直领域建立自有模型能力。对于Azure企业客户，MAI模型提供了不经过OpenAI的原生选择。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://microsoft.ai">Microsoft Foundry</a> / MAI Playground</li><li>💰 定价：见上方各模型定价</li><li>💡 上手：Azure企业用户可直接在Foundry中调用——语音转写场景性价比极高</li></ul><div class="sources">来源：<a href="https://microsoft.ai/news/today-were-announcing-3-new-world-class-mai-models-available-in-foundry/">Microsoft AI</a> | <a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/">TechCrunch</a> | <a href="https://venturebeat.com/technology/microsoft-launches-3-new-ai-models-in-direct-shot-at-openai-and-google/">VentureBeat</a></div><div class="sources">中文解读：<a href="https://analyticsindiamag.com/ai-news/microsoft-launches-three-models-to-reduce-dependence-on-openai">Analytics India Magazine</a></div></div><div class="brief-item"><h4>Gemini 3.1 Pro登顶多项Benchmark：SWE-bench 78.80%领先全场</h4><p>（4月，<a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://www.buildfastwithai.com/blogs/best-ai-models-april-2026">Build Fast with AI</a>）：最新Benchmark数据显示Gemini 3.1 Pro在SWE-bench Verified达<strong>78.80%</strong>（Claude Opus 4.6和GPT-5.4均为78.20%），GPQA Diamond <strong>94.3%</strong>，ARC-AGI-2 <strong>77.1%</strong>，在13/16项主要基准中领先或并列第一。API定价仅$2/$12，性价比碾压。
 - 📍 获取：Gemini API / Google AI Studio
-- 💰 定价：$2/M输入，$12/M输出
-- 💡 上手：综合能力+性价比当前最优——编程、推理、科学问答全面领先</p></div><div class="brief-item"><h4>跟进：Claude Mythos仍限于内部早期访问，公开发布预期推迟至6月</h4><p>（4月，<a href="https://manifold.markets/Bayesian/claude-mythos-anthropic-release-dat">Manifold Markets</a> | <a href="https://www.geeky-gadgets.com/claude-mythos/">Geeky Gadgets</a>）：Anthropic的下一代旗舰模型Claude Mythos（代号Capybara）仍仅对少量网络安全合作伙伴开放早期访问。Polymarket预测市场显示<strong>6月30日前发布概率54%</strong>，4月30日仅26%。该模型在编程、学术推理和网络安全测试中"显著超越"Opus 4.6，但因算力效率和安全评估挑战，公开发布持续延迟。
-- 💡 上手：短期内旗舰格局不变——Gemini 3.1 Pro、GPT-5.4、Claude Opus 4.6三足鼎立</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/">Fortune</a> | <a href="https://wavespeed.ai/blog/posts/what-is-claude-mythos/">WaveSpeed AI</a></p></div><div class="brief-item"><h4>Netflix开源首个公开模型VOID：视频物体与交互删除</h4><p>（4月初，<a href="https://llm-stats.com/ai-news">LLM Stats</a>）：Netflix在HuggingFace上发布其首个公开AI模型<strong>VOID（Video Object and Interaction Deletion）</strong>，专注于视频中的物体移除和交互清理。这是Netflix首次将内部AI研究成果开源。
-- 📍 获取：HuggingFace
-- 💡 上手：视频后期制作和特效的新工具选择</p></div><div class="brief-item"><h4>"Vibe Coding"成为AI编程新趋势</h4><p>（4月5日，<a href="https://www.bloomberg.com/news/newsletters/2026-04-05/what-is-vibe-coding-the-ai-trend-fueling-a-new-kind-of-fomo">Bloomberg</a>）：Bloomberg专题报道"Vibe Coding"——开发者用自然语言描述需求，AI全程生成代码的新工作方式正引发行业FOMO。随着GPT-5.4 Computer Use和Claude Code等工具成熟，"不写代码的程序员"从概念走向现实。
-- 💡 上手：已在使用Claude Code/Cursor/Copilot的开发者即是"Vibe Coding"实践者</p></div>
+- 💰 定价：$2/M输入，$12/M输出</p><div class="insight">综合能力+性价比当前最优——编程、推理、科学问答全面领先</div></div><div class="brief-item"><h4>跟进：Claude Mythos仍限于内部早期访问，公开发布预期推迟至6月</h4><p>（4月，<a href="https://manifold.markets/Bayesian/claude-mythos-anthropic-release-dat">Manifold Markets</a> | <a href="https://www.geeky-gadgets.com/claude-mythos/">Geeky Gadgets</a>）：Anthropic的下一代旗舰模型Claude Mythos（代号Capybara）仍仅对少量网络安全合作伙伴开放早期访问。Polymarket预测市场显示<strong>6月30日前发布概率54%</strong>，4月30日仅26%。该模型在编程、学术推理和网络安全测试中"显著超越"Opus 4.6，但因算力效率和安全评估挑战，公开发布持续延迟。</p><div class="insight">短期内旗舰格局不变——Gemini 3.1 Pro、GPT-5.4、Claude Opus 4.6三足鼎立</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/">Fortune</a> | <a href="https://wavespeed.ai/blog/posts/what-is-claude-mythos/">WaveSpeed AI</a></p></div><div class="brief-item"><h4>Netflix开源首个公开模型VOID：视频物体与交互删除</h4><p>（4月初，<a href="https://llm-stats.com/ai-news">LLM Stats</a>）：Netflix在HuggingFace上发布其首个公开AI模型<strong>VOID（Video Object and Interaction Deletion）</strong>，专注于视频中的物体移除和交互清理。这是Netflix首次将内部AI研究成果开源。
+- 📍 获取：HuggingFace</p><div class="insight">视频后期制作和特效的新工具选择</div></div><div class="brief-item"><h4>"Vibe Coding"成为AI编程新趋势</h4><p>（4月5日，<a href="https://www.bloomberg.com/news/newsletters/2026-04-05/what-is-vibe-coding-the-ai-trend-fueling-a-new-kind-of-fomo">Bloomberg</a>）：Bloomberg专题报道"Vibe Coding"——开发者用自然语言描述需求，AI全程生成代码的新工作方式正引发行业FOMO。随着GPT-5.4 Computer Use和Claude Code等工具成熟，"不写代码的程序员"从概念走向现实。</p><div class="insight">已在使用Claude Code/Cursor/Copilot的开发者即是"Vibe Coding"实践者</div></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第37天：F-15飞行员深山营救、科威特遭袭、Trump下最后通牒
 
 <strong>4月3-5日增量（接续第35天报道）：</strong>
@@ -336,7 +378,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *数据来源：Google Blog、Google DeepMind、Engadget、Microsoft AI、TechCrunch、VentureBeat、BenchLM、CNN、Al Jazeera、NPR、Washington Post、Fortune、Vatican News、CBS News等 | 所有数据基于2026年4月6日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
-<div class="footer">"他同时宣布4月11日将在圣彼得大教堂举行特别和平守夜祈祷。(<a href="https://www.cnn.com/2026/04/05/world/pope-leo-easter-message-vatican-intl">CNN</a> <br> <a href="https://www.vaticannews.va/en/pope/news/2026-04/pope-leo-easter-opens-us-up-to-hope-that-never-fails.html">Vatican News</a>)  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Google <br> Gemma 4（4尺寸） <br> Apache 2.0开源，31B模型Arena #3（Elo 1452） <br> ✅全量 <br> AI Studio / HuggingFace / Cloud <br> 4月2日 <br> <br> Microsoft <br> MAI-Transcribe-1 <br> 25语言SOTA转写，2.5倍速度提升，$0.36/h <br> ✅全量 <br> Microsoft Foundry <br> 4月2日 <br> <br> Microsoft <br> MAI-Voice-1 <br> 1秒生成60秒音频，情感丰富语音合成 <br> ✅全量 <br> Microsoft Foundry <br> 4月2日 <br> <br> Microsoft <br> MAI-Image-2 <br> Arena.ai Top 3图像生成，已集成Copilot <br> ✅全量 <br> Microsoft Foundry <br> 4月2日 <br> <br> Anthropic <br> Claude Mythos（更新） <br> 仍限内部早期访问，公开发布预期推至6月 <br> ⏳内测 <br> — <br> 持续 <br> <br> Netflix <br> VOID <br> 首个公开模型：视频物体与交互删除 <br> ✅开源 <br> HuggingFace <br> 4月 <br> <br> Google <br> Gemini 3.1 Pro（Benchmark更新） <br> SWE-bench 78.80%登顶，13/16基准领先 <br> ✅全量 <br> Gemini API <br> 4月 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> <br> <a href="https://www.buildfastwithai.com/blogs/best-ai-models-april-2026">Build Fast with AI</a> <br> <a href="https://artificialanalysis.ai">Artificial Analysis</a>（2026年4月）  <br> 维度 <br> Gemini 3.1 Pro (Google) 🔄 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Qwen3.6-Plus (阿里) <br> <br>------<br>--------------------------<br>------------------<br>---------------------------<br>----------------------<br> <br> </div>
+<div class="footer">数据来源：Google Blog、Google DeepMind、Engadget、Microsoft AI、TechCrunch、VentureBeat、BenchLM、CNN、Al Jazeera、NPR、Washington Post、Fortune、Vatican News、CBS News等 <br> 所有数据基于2026年4月6日搜索结果 <br> 本简报由AI生成，不构成投资建议</div>
 </div>
 </body>
 </html>

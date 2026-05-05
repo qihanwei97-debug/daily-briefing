@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,7 +279,7 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>OpenAI发布GPT-5.4，首次内置Computer Use能力，1M上下文窗口，GDPval基准83%创纪录</strong>，同步推出Thinking和Pro版本，直接对标Claude Opus 4.6的Agentic能力。<strong>美以对伊军事行动进入第六天，伊朗死亡人数突破1,045人，美军6人阵亡</strong>，战争日耗$10亿，美国众议院未能通过限制总统战争权力的决议。<strong>中国两会发布第十五个五年规划，AI被提及52次（上一个五年计划仅11次）</strong>，明确"AI+"国家战略，目标2030年AI融入90%经济领域。<strong>白宫组织七大科技巨头签署"电费保护承诺"</strong>，承诺AI数据中心电力成本不转嫁至美国家庭。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：OpenAI发布GPT-5.4——首个内置Computer Use的主力模型</h3><p>3月5日，OpenAI发布GPT-5.4系列，包含标准版、GPT-5.4 Thinking（推理增强版）和GPT-5.4 Pro（高性能版）。这是OpenAI迄今最强的基础模型，也是首个原生集成Computer Use能力的主力模型——Agent可直接操作软件界面，执行"构建-运行-验证-修复"闭环。</p><p><strong>核心技术指标：</strong>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：OpenAI发布GPT-5.4——首个内置Computer Use的主力模型</h3><p>3月5日，OpenAI发布GPT-5.4系列，包含标准版、GPT-5.4 Thinking（推理增强版）和GPT-5.4 Pro（高性能版）。这是OpenAI迄今最强的基础模型，也是首个原生集成Computer Use能力的主力模型——Agent可直接操作软件界面，执行"构建-运行-验证-修复"闭环。</p><p><strong>核心技术指标：</strong>
 - <strong>上下文窗口：</strong> API版支持最高<strong>1M tokens</strong>（OpenAI首次达到此规模，追平Gemini 3.1 Pro）
 - <strong>GDPval（知识工作）：</strong> 83.0%（GPT-5.2为70.9%，提升17%）
 - <strong>OSWorld Verified（桌面操作）：</strong> 75.0%（GPT-5.2为47.3%，<strong>首次超越人类水平72.4%</strong>）
@@ -247,17 +293,14 @@ a:hover { text-decoration: underline; }
 <strong>💰 定价：</strong> 标准版$2.50/$15，对比Claude Opus 4.6的$15/$75，<strong>输入便宜6倍、输出便宜5倍</strong>
 <strong>💡 上手：</strong> Computer Use + Tool Search是核心差异化——适合需要Agent自动操作软件、处理电子表格等企业级工作流</p><div class="sources">来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI官方</a> | <a href="https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/">TechCrunch</a> | <a href="https://venturebeat.com/technology/openai-launches-gpt-5-4-with-native-computer-use-mode-financial-plugins-for/">VentureBeat</a> | <a href="https://fortune.com/2026/03/05/openai-new-model-gpt5-4-enterprise-agentic-anthropic/">Fortune</a></div></div><div class="brief-item"><h4>GPT-5.3 Instant上线</h4><p>ChatGPT默认对话模型更新，幻觉率降低26.8%（联网模式）/ 19.7%（纯知识模式），大幅减少"说教式"拒绝和过度谨慎回复。GPT-5.2 Instant将于6月3日退役。
 - 📍 获取：ChatGPT所有用户 + API `gpt-5.3-chat-latest`
-- 💰 定价：ChatGPT订阅内免费使用
-- 💡 上手：日常对话体验显著改善，不再动辄"我建议你咨询专业人士"
-- 来源：<a href="https://openai.com/index/gpt-5-3-instant/">OpenAI官方</a> | <a href="https://techcrunch.com/2026/03/03/chatgpts-new-gpt-5-3-instant-model-will-stop-telling-you-to-calm-down/">TechCrunch</a> | <a href="https://9to5mac.com/2026/03/03/openai-releases-gpt-5-3-instant-update-to-make-chatgpt-less-cringe/">9to5Mac</a></p></div><div class="brief-item"><h4>DeepSeek V4仍未发布</h4><p>尽管多个来源预测"本周发布"，截至3月6日仍无官方公告。万亿参数多模态模型，1M上下文，适配华为昇腾/寒武纪芯片。社区推测可能在两会结束前（3月14日前）正式发布。
+- 💰 定价：ChatGPT订阅内免费使用</p><div class="insight">日常对话体验显著改善，不再动辄"我建议你咨询专业人士"
+- 来源：<a href="https://openai.com/index/gpt-5-3-instant/">OpenAI官方</a> | <a href="https://techcrunch.com/2026/03/03/chatgpts-new-gpt-5-3-instant-model-will-stop-telling-you-to-calm-down/">TechCrunch</a> | <a href="https://9to5mac.com/2026/03/03/openai-releases-gpt-5-3-instant-update-to-make-chatgpt-less-cringe/">9to5Mac</a></div></div><div class="brief-item"><h4>DeepSeek V4仍未发布</h4><p>尽管多个来源预测"本周发布"，截至3月6日仍无官方公告。万亿参数多模态模型，1M上下文，适配华为昇腾/寒武纪芯片。社区推测可能在两会结束前（3月14日前）正式发布。
 - 📍 获取：待定（预计chat.deepseek.com + HuggingFace开源）
-- 💰 定价：预计$0.10–$0.30/M input tokens
-- 💡 上手：关注其编程和长上下文表现是否兑现"超越Claude和ChatGPT"的预期
-- 来源：<a href="https://technode.com/2026/03/02/deepseek-plans-v4-multimodal-model-release-this-week-sources-say/">TechNode</a> | [Financial Times报道综合]</p></div><div class="brief-item"><h4>Seedance 2.0 Pro开放早期访问</h4><p>双分支Diffusion Transformer架构，音视频同步生成（无需后期配音），支持2K/60fps输出，6种宽高比。Artificial Analysis投票排名文生视频和图生视频双料第一，超越Google Veo 3和OpenAI Sora。Hollywood组织抗议其被用于版权侵权。
+- 💰 定价：预计$0.10–$0.30/M input tokens</p><div class="insight">关注其编程和长上下文表现是否兑现"超越Claude和ChatGPT"的预期
+- 来源：<a href="https://technode.com/2026/03/02/deepseek-plans-v4-multimodal-model-release-this-week-sources-say/">TechNode</a> | [Financial Times报道综合]</div></div><div class="brief-item"><h4>Seedance 2.0 Pro开放早期访问</h4><p>双分支Diffusion Transformer架构，音视频同步生成（无需后期配音），支持2K/60fps输出，6种宽高比。Artificial Analysis投票排名文生视频和图生视频双料第一，超越Google Veo 3和OpenAI Sora。Hollywood组织抗议其被用于版权侵权。
 - 📍 获取：<a href="https://www.bigmotion.ai/tools/seedance-pro-2-0">BigMotion.ai</a>（早期访问）
-- 💰 定价：BigMotion订阅制
-- 💡 上手：音视频一体化生成是核心卖点，适合短视频创作
-- 来源：<a href="https://techcrunch.com/2026/02/15/hollywood-isnt-happy-about-the-new-seedance-2-0-video-generator/">TechCrunch</a> | <a href="https://seed.bytedance.com/en/seedance2_0">ByteDance官方</a></p></div><div class="brief-item"><h4>白宫"电费保护承诺"签署</h4><p>Amazon、Google、Meta、Microsoft、OpenAI、Oracle、xAI七家签署，承诺自行承担AI数据中心新增电力生产成本和电网升级费用，不转嫁给美国家庭。但专家指出该承诺为自愿性质，联邦层面不具强制执行力，实际执行依赖各州公用事业监管机构。
+- 💰 定价：BigMotion订阅制</p><div class="insight">音视频一体化生成是核心卖点，适合短视频创作
+- 来源：<a href="https://techcrunch.com/2026/02/15/hollywood-isnt-happy-about-the-new-seedance-2-0-video-generator/">TechCrunch</a> | <a href="https://seed.bytedance.com/en/seedance2_0">ByteDance官方</a></div></div><div class="brief-item"><h4>白宫"电费保护承诺"签署</h4><p>Amazon、Google、Meta、Microsoft、OpenAI、Oracle、xAI七家签署，承诺自行承担AI数据中心新增电力生产成本和电网升级费用，不转嫁给美国家庭。但专家指出该承诺为自愿性质，联邦层面不具强制执行力，实际执行依赖各州公用事业监管机构。
 - 来源：<a href="https://www.whitehouse.gov/articles/2026/03/president-trump-secures-historic-commitment-to-keep-electricity-costs-down-amid-data-center-boom/">白宫官方</a> | <a href="https://www.cnn.com/2026/03/04/politics/electric-bill-costs-trump-pledge">CNN</a> | <a href="https://www.washingtonpost.com/politics/2026/03/04/trump-data-centers-energy-costs/">Washington Post</a></p></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、美以对伊战争第六天：规模持续扩大
 
@@ -330,7 +373,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *数据来源：OpenAI、TechCrunch、VentureBeat、Fortune、Al Jazeera、CNN、SCMP、CNBC、LLM Stats等 | 所有数据基于2026年3月6日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
-<div class="footer">（3月4日）：Amazon、Google、Meta、Microsoft、OpenAI、Oracle、xAI七家签署，承诺自行承担AI数据中心新增电力生产成本和电网升级费用，不转嫁给美国家庭。但专家指出该承诺为自愿性质，联邦层面不具强制执行力，实际执行依赖各州公用事业监管机构。 - 来源：<a href="https://www.whitehouse.gov/articles/2026/03/president-trump-secures-historic-commitment-to-keep-electricity-costs-down-amid-data-center-boom/">白宫官方</a> <br> <a href="https://www.cnn.com/2026/03/04/politics/electric-bill-costs-trump-pledge">CNN</a> <br> <a href="https://www.washingtonpost.com/politics/2026/03/04/trump-data-centers-energy-costs/">Washington Post</a>  ---  ## ③ 国际大事  ### 🌍 一、美以对伊战争第六天：规模持续扩大  截至3月5日，以色列军方宣布进入"下一阶段"，已实施2,500次打击、使用超6,000枚武器。美国潜艇在斯里兰卡海域击沉一艘伊朗军舰。伊朗方面报告死亡1,045人、伤6,000余人；6名美军阵亡。阿联酋单日拦截6枚导弹和126架无人机。伊朗威胁封锁霍尔木兹海峡，全球航运持续受阻。战争日耗美国$10亿。美国众议院未能通过限制总统战争权力的决议，共和党多数支持继续行动。Trump表示"必须参与选择伊朗下一任领导人"。  来源：<a href="https://www.aljazeera.com/news/2026/3/5/iran-war-what-is-happening-on-day-six-of-us-israel-attacks">Al Jazeera</a> <br> <a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-05-26">CNN</a> <br> <a href="https://www.cbsnews.com/live-updates/us-iran-war-spreads-azerbaijan-israel-strikes-tehran-lebanon/">CBS</a>  ### 🌍 二、中国两会发布第十五个五年规划：AI成核心关键词  3月4日–5日，中国两会正式发布新五年规划（2026–2030）。AI被提及52次（2021年第十四个五年规划仅11次）。核心内容：推进"AI+"国家战略，目标2030年AI融入90%经济领域；加速人形机器人产业化和AI Agent部署；扩建算力基础设施；强调"有序发展"——在全球对AI颠覆性影响焦虑加剧之际，北京选择了"加速集成、审慎治理"的路径。科技企业代表提案聚焦人形机器人、AI Agent和算力扩容。  来源：<a href="https://www.scmp.com/news/china/science/article/3345440/two-sessions-two-paths-china-prioritises-ai-integration-amid-us-tech-rivalry">SCMP</a> <br> <a href="https://www.cnn.com/2026/03/03/china/china-two-sessions-tech-future-intl-hnk">CNN</a> <br> <a href="https://www.cnbc.com/2026/03/04/china-two-sessions-policy-meeting.html">CNBC</a>  ### 🌍 三、17,500名美国公民从中东撤离  开战以来，已有超17,500名美国公民从中东返回美国。首批美国政府协调的包机航班已起飞。中东多国机场逐步恢复有限商业航班运营，但空域限制仍广泛存在。  来源：<a href="https://www.cnn.com/2026/03/05/us/5-things-to-know-for-march-5-travel-disruptions-war-powers-electricity-costs-white-house-renovation-weight-loss-drugs">CNN</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> OpenAI <br> GPT-5.4 / Thinking / Pro <br> 首个内置Computer Use的主力模型，1M上下文 <br> ✅全量 <br> ChatGPT / API <br> 3月5日 <br> <br> OpenAI <br> GPT-5.3 Instant <br> 日常对话模型升级，幻觉率降27% <br> ✅全量 <br> ChatGPT / API <br> 3月3日 <br> <br> ByteDance <br> Seedance 2.0 Pro <br> AI视频排名第一，音视频同步生成 <br> ⏳早期访问 <br> BigMotion.ai <br> 3月2日 <br> <br> DeepSeek <br> V4（未发布） <br> 万亿参数多模态，适配国产芯片 <br> ⏳等待 <br> 待定 <br> 预计3月 <br> <br> Anthropic <br> Claude Opus 4.6 <br> 旗舰推理模型 <br> ✅全量 <br> claude.ai / API <br> 2月5日 <br> <br> Google <br> Gemini 3.1 Pro <br> 1M上下文，ARC-AGI-2 77.1% <br> ✅全量 <br> Gemini / API <br> 2月19日 <br> <br> 智谱AI <br> GLM-5 <br> 744B MoE开源，MIT许可证 <br> 🔧自部署 <br> HuggingFace <br> 2月 <br> <br> MiniMax <br> M2.5 <br> SWE-bench 80.2%，编程性价比极高 <br> ✅全量 <br> API <br> 2月 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V3.2 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>---------------<br> <br> </div>
+<div class="footer">数据来源：OpenAI、TechCrunch、VentureBeat、Fortune、Al Jazeera、CNN、SCMP、CNBC、LLM Stats等 <br> 所有数据基于2026年3月6日搜索结果 <br> 本简报由AI生成，不构成投资建议</div>
 </div>
 </body>
 </html>

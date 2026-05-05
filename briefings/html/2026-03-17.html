@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,13 +279,10 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Nvidia GTC 2026主题演讲重磅落地：Vera Rubin平台发布（10倍性能/瓦），Jensen Huang预测Blackwell+Vera Rubin订单将达$1万亿（至2027年）</strong>，下一代Feynman架构和Rosa CPU同步亮相，OpenClaw开源Agent项目成为重点推介。<strong>伊朗战争第17天：伊朗无人机击中迪拜国际机场燃油罐</strong>，全球最繁忙机场一度停飞，Emirates恢复有限航班；战争已扩展至伊朗29/31个省份，累计死亡超2,300人。<strong>Microsoft发布GigaTIME癌症AI模型</strong>——将普通病理切片转化为21通道蛋白质组学地图，已分析14,256名癌症患者、发现1,234个新蛋白-生存关联。<strong>亚洲股市受Nvidia AI前景提振集体上涨</strong>，MSCI亚太指数涨1.4%。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Nvidia GTC 2026主题演讲——Vera Rubin平台、$1万亿订单预期、Feynman架构全线亮相</h3><p>3月16日（太平洋时间11am），Jensen Huang在圣何塞SAP Center发表长达2小时主题演讲，正式揭晓了AI基础设施领域年度最大发布。</p><p><strong>Vera Rubin平台</strong>——由7颗芯片、5套机架级系统和1台超级计算机组成，共130万个组件，性能功耗比（perf/watt）是前代Grace Blackwell的<strong>10倍</strong>。这是Nvidia面向Agentic AI时代的核心基础设施平台，计划2026年下半年出货。</p><p><strong>$1万亿订单预期</strong>——Huang宣布预计Blackwell和Vera Rubin系统截至2027年底的订单总额将达到至少$1万亿，此前预测为$5000亿。增长驱动力来自Agentic AI应用爆发——AI Agent自主生成和协调任务导致token生成量急剧增长，推理算力需求远超预期。</p><p><strong>Feynman架构+Rosa CPU</strong>——下一代架构Feynman配套全新CPU"Rosa"（以Rosalind Franklin命名），专为Agentic AI全栈数据流优化设计。</p><p><strong>其他亮点：</strong> (1) OpenClaw——Huang称之为"人类历史上最受欢迎的开源项目"，Nvidia宣布全平台支持OpenClaw，加速AI Agent安全构建和部署；(2) DLSS 5——新一代图形技术；(3) 自动驾驶合作扩展——Nissan、BYD、吉利、五十铃、现代加入Drive Hyperion L4自动驾驶平台；(4) Space-1——Nvidia计划将AI数据中心送入太空。</p><div class="callout"><strong>为什么重要：</strong> 10倍性能功耗比意味着推理成本将大幅下降，$1万亿订单预期直接反映了全球企业AI部署的井喷速度。Agentic AI从概念进入基础设施规划阶段。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.nvidia.com/gtc/keynote/">主题演讲回放</a></li><li>💰 定价：观看免费；Vera Rubin系统定价待公布</li><li>💡 上手：关注Vera Rubin出货时间和推理成本降幅对API定价的传导</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/03/16/nvidia-gtc-2026-ceo-jensen-huang-keynote-blackwell-vera-rubin.html">CNBC</a> | <a href="https://techcrunch.com/2026/03/16/jensen-just-put-nvidias-blackwell-and-vera-rubin-sales-projections-into-the-1-trillion-stratosphere/">TechCrunch</a> | <a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia官方博客</a> | <a href="https://www.tomshardware.com/news/live/nvidia-gtc-2026-keynote-live-blog-jensen-huang">Tom's Hardware</a></div><div class="sources">中文解读：[36氪等中文媒体预计今日将有大量GTC详细报道]</div></div><div class="brief-item"><h4>Microsoft GigaTIME——AI将$1病理切片变为蛋白质组学地图</h4><p>（3月15日Nadella公布，<a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">Microsoft Research</a>）：GigaTIME是Microsoft Research与Providence、华盛顿大学合作开发的多模态AI模型，输入普通H&E病理切片，输出21通道多重免疫荧光（mIF）蛋白质图谱。训练数据：4000万细胞的配对H&E/mIF图像。已应用于51家医院14,256名患者、覆盖24种癌症类型306个亚型，生成约30万张虚拟mIF图像，发现1,234个蛋白激活与患者生存的统计显著关联。
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：Nvidia GTC 2026主题演讲——Vera Rubin平台、$1万亿订单预期、Feynman架构全线亮相</h3><p>3月16日（太平洋时间11am），Jensen Huang在圣何塞SAP Center发表长达2小时主题演讲，正式揭晓了AI基础设施领域年度最大发布。</p><p><strong>Vera Rubin平台</strong>——由7颗芯片、5套机架级系统和1台超级计算机组成，共130万个组件，性能功耗比（perf/watt）是前代Grace Blackwell的<strong>10倍</strong>。这是Nvidia面向Agentic AI时代的核心基础设施平台，计划2026年下半年出货。</p><p><strong>$1万亿订单预期</strong>——Huang宣布预计Blackwell和Vera Rubin系统截至2027年底的订单总额将达到至少$1万亿，此前预测为$5000亿。增长驱动力来自Agentic AI应用爆发——AI Agent自主生成和协调任务导致token生成量急剧增长，推理算力需求远超预期。</p><p><strong>Feynman架构+Rosa CPU</strong>——下一代架构Feynman配套全新CPU"Rosa"（以Rosalind Franklin命名），专为Agentic AI全栈数据流优化设计。</p><p><strong>其他亮点：</strong> (1) OpenClaw——Huang称之为"人类历史上最受欢迎的开源项目"，Nvidia宣布全平台支持OpenClaw，加速AI Agent安全构建和部署；(2) DLSS 5——新一代图形技术；(3) 自动驾驶合作扩展——Nissan、BYD、吉利、五十铃、现代加入Drive Hyperion L4自动驾驶平台；(4) Space-1——Nvidia计划将AI数据中心送入太空。</p><div class="callout"><strong>为什么重要：</strong> 10倍性能功耗比意味着推理成本将大幅下降，$1万亿订单预期直接反映了全球企业AI部署的井喷速度。Agentic AI从概念进入基础设施规划阶段。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.nvidia.com/gtc/keynote/">主题演讲回放</a></li><li>💰 定价：观看免费；Vera Rubin系统定价待公布</li><li>💡 上手：关注Vera Rubin出货时间和推理成本降幅对API定价的传导</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/03/16/nvidia-gtc-2026-ceo-jensen-huang-keynote-blackwell-vera-rubin.html">CNBC</a> | <a href="https://techcrunch.com/2026/03/16/jensen-just-put-nvidias-blackwell-and-vera-rubin-sales-projections-into-the-1-trillion-stratosphere/">TechCrunch</a> | <a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia官方博客</a> | <a href="https://www.tomshardware.com/news/live/nvidia-gtc-2026-keynote-live-blog-jensen-huang">Tom's Hardware</a></div><div class="sources">中文解读：[36氪等中文媒体预计今日将有大量GTC详细报道]</div></div><div class="brief-item"><h4>Microsoft GigaTIME——AI将$1病理切片变为蛋白质组学地图</h4><p>（3月15日Nadella公布，<a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">Microsoft Research</a>）：GigaTIME是Microsoft Research与Providence、华盛顿大学合作开发的多模态AI模型，输入普通H&E病理切片，输出21通道多重免疫荧光（mIF）蛋白质图谱。训练数据：4000万细胞的配对H&E/mIF图像。已应用于51家医院14,256名患者、覆盖24种癌症类型306个亚型，生成约30万张虚拟mIF图像，发现1,234个蛋白激活与患者生存的统计显著关联。
 - 📍 获取：<a href="https://labs.ai.azure.com/projects/gigatime/">Azure AI Foundry Labs</a> + <a href="https://huggingface.co/">Hugging Face</a>
-- 💰 定价：模型公开可用
-- 💡 上手：肿瘤研究者可直接用于免疫微环境分析</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">Microsoft Research博客</a> | <a href="https://news.microsoft.com/signal/articles/gigatime-ai-tool-advances-cancer-research/">Microsoft Signal Blog</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>Donald Knuth发表论文"Claude's Cycles"——计算机科学教父承认Claude解决了他数周未解的图论问题</h4><p>（2月28日发表/3月6日修订，<a href="https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf">Stanford</a>）：85岁的Knuth教授原本在为《计算机程序设计艺术》准备一个有向图Hamilton分解猜想。其友人Filip Stappers将问题输入Claude Opus 4.6，约1小时、31次系统探索后，Claude发明了"蛇形模式"（serpentine patterns）并找到了对所有奇数m>2有效的构造方法。Knuth亲自撰写了严格数学证明，并表示"我得修正对生成式AI的看法了"。论文已在学术界和Hacker News引发广泛讨论。
-- 📍 获取：<a href="https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf">论文PDF</a>
-- 💡 上手：AI辅助数学研究的标志性案例——需要人机协作，非纯自主</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf">Stanford/Knuth</a> | <a href="https://boingboing.net/2026/03/03/donald-knuth-the-godfather-of-computer-science-says-an-ai-solved-a-math-problem-he-was-stuck-on-for-weeks.html">Boing Boing</a> | <a href="https://news.ycombinator.com/item?id=47230710">Hacker News讨论</a></p></div><div class="brief-item"><h4>跟进：Meta考虑临时授权Google Gemini模型以弥补"Avocado"延期缺口</h4><p>此前已报道Meta旗舰模型Avocado延期至5月。新进展：据报Meta正在考虑临时授权使用Google Gemini模型来填补能力差距，因内部测试显示Avocado在推理、编程和写作任务上落后于Google、OpenAI和Anthropic的竞品。
-- 💡 上手：若属实，这将是AI大厂间首次大规模交叉授权事件</p></div><div class="brief-item"><h4>Nvidia股票短暂跳涨后回落</h4><p>（3月16日，<a href="https://www.bloomberg.com/news/articles/2026-03-16/nvidia-expects-to-make-1-trillion-from-ai-chips-through-2027">Bloomberg</a>）：$1万亿订单预期公布后NVDA盘后一度上涨，但随后回吐涨幅——市场或已部分消化预期。亚洲科技股普遍受益，三星、台积电领涨。</p></div>
+- 💰 定价：模型公开可用</p><div class="insight">肿瘤研究者可直接用于免疫微环境分析</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.microsoft.com/en-us/research/blog/gigatime-scaling-tumor-microenvironment-modeling-using-virtual-population-generated-by-multimodal-ai/">Microsoft Research博客</a> | <a href="https://news.microsoft.com/signal/articles/gigatime-ai-tool-advances-cancer-research/">Microsoft Signal Blog</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>Donald Knuth发表论文"Claude's Cycles"——计算机科学教父承认Claude解决了他数周未解的图论问题</h4><p>（2月28日发表/3月6日修订，<a href="https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf">Stanford</a>）：85岁的Knuth教授原本在为《计算机程序设计艺术》准备一个有向图Hamilton分解猜想。其友人Filip Stappers将问题输入Claude Opus 4.6，约1小时、31次系统探索后，Claude发明了"蛇形模式"（serpentine patterns）并找到了对所有奇数m>2有效的构造方法。Knuth亲自撰写了严格数学证明，并表示"我得修正对生成式AI的看法了"。论文已在学术界和Hacker News引发广泛讨论。
+- 📍 获取：<a href="https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf">论文PDF</a></p><div class="insight">AI辅助数学研究的标志性案例——需要人机协作，非纯自主</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www-cs-faculty.stanford.edu/~knuth/papers/claude-cycles.pdf">Stanford/Knuth</a> | <a href="https://boingboing.net/2026/03/03/donald-knuth-the-godfather-of-computer-science-says-an-ai-solved-a-math-problem-he-was-stuck-on-for-weeks.html">Boing Boing</a> | <a href="https://news.ycombinator.com/item?id=47230710">Hacker News讨论</a></p></div><div class="brief-item"><h4>跟进：Meta考虑临时授权Google Gemini模型以弥补"Avocado"延期缺口</h4><p>此前已报道Meta旗舰模型Avocado延期至5月。新进展：据报Meta正在考虑临时授权使用Google Gemini模型来填补能力差距，因内部测试显示Avocado在推理、编程和写作任务上落后于Google、OpenAI和Anthropic的竞品。</p><div class="insight">若属实，这将是AI大厂间首次大规模交叉授权事件</div></div><div class="brief-item"><h4>Nvidia股票短暂跳涨后回落</h4><p>（3月16日，<a href="https://www.bloomberg.com/news/articles/2026-03-16/nvidia-expects-to-make-1-trillion-from-ai-chips-through-2027">Bloomberg</a>）：$1万亿订单预期公布后NVDA盘后一度上涨，但随后回吐涨幅——市场或已部分消化预期。亚洲科技股普遍受益，三星、台积电领涨。</p></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第17天：迪拜机场遇袭，战火蔓延至29省
 
 3月16日，伊朗无人机击中迪拜国际机场（DXB）附近燃油罐并引发火灾，这座全球最繁忙的国际机场一度全面停飞。Emirates随后恢复有限航班，多班次取消。据DroneXL报道，一架成本约$3万的无人机就瘫痪了这座年客运量近1亿人次的枢纽。
@@ -309,7 +352,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *数据来源：Nvidia、CNBC、TechCrunch、Bloomberg、Washington Post、Al Jazeera、Microsoft Research、Stanford/Knuth等 | 所有数据基于2026年3月17日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
-<div class="footer"> ACLED数据显示，自2月28日开战以来，美以在伊朗29/31个省份实施了近2,000次打击事件，累计造成超2,300人死亡。德黑兰遭受最重轰炸。以色列扩大黎巴嫩地面行动，伊朗已向阿联酋发射超1,800枚导弹和无人机（阿联酋战争开始以来已有6人死亡）。霍尔木兹海峡仍处于封锁状态。Trump威胁"记住"不帮忙的盟友。  来源：<a href="https://www.washingtonpost.com/world/2026/03/16/dubai-airport-drone-strike-iran/">Washington Post</a> <br> <a href="https://www.aljazeera.com/news/2026/3/16/drone-strike-disrupts-dubai-flights-as-iran-continues-gulf-attacks">Al Jazeera</a> <br> <a href="https://www.cnbc.com/2026/03/16/dubai-airport-suspends-flights-drone-attack.html">CNBC</a>  ### 🌍 二、美国汽油价格一个月飙升79美分/加仑，通胀压力加剧  伊朗战争推动全球油价持续攀升，美国汽油价格在过去一个月跳涨近79美分/加仑。IEA此前释放4亿桶战略储备仍远不足以填补霍尔木兹海峡封锁缺口。消费者信心承压，市场担忧通胀卷土重来。  ### 🌍 三、2026奥斯卡颁奖典礼在洛杉矶举行  3月16日（周日），第98届奥斯卡颁奖典礼在洛杉矶举行。具体获奖名单详见各娱乐媒体报道。  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Nvidia <br> Vera Rubin平台 <br> 7芯片+5机架系统，10x perf/watt <br> ⏳2026 H2出货 <br> nvidia.com/gtc <br> 3月16日 <br> <br> Nvidia <br> Feynman架构+Rosa CPU <br> 下一代Agentic AI全栈架构 <br> ⏳路线图 <br> — <br> 3月16日 <br> <br> Nvidia <br> OpenClaw全平台支持 <br> 开源Agent构建加速 <br> ✅已宣布 <br> github.com <br> 3月16日 <br> <br> Microsoft <br> GigaTIME <br> 病理切片→21通道蛋白质图谱 <br> ✅公开可用 <br> Azure AI Foundry + HF <br> 3月15日 <br> <br> Nvidia <br> DLSS 5 <br> 新一代图形超分辨率 <br> ⏳待推送 <br> GeForce驱动 <br> 3月16日 <br> <br> Nvidia <br> Drive Hyperion L4扩展 <br> Nissan/BYD/吉利/五十铃/现代加入 <br> 🔧车企集成 <br> — <br> 3月16日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V4 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>-------------<br> <br> </div>
+<div class="footer">数据来源：Nvidia、CNBC、TechCrunch、Bloomberg、Washington Post、Al Jazeera、Microsoft Research、Stanford/Knuth等 <br> 所有数据基于2026年3月17日搜索结果 <br> 本简报由AI生成，不构成投资建议</div>
 </div>
 </body>
 </html>

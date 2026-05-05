@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,7 +279,7 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">一、今日要闻</div><p><strong>美国和以色列于2月28日对伊朗发动大规模联合军事打击，伊朗最高领袖哈梅内伊身亡，伊朗随即向以色列及海湾多国发射弹道导弹报复，中东局势急剧升级。</strong> <strong>OpenAI宣布完成1100亿美元史上最大私募融资，Amazon出资500亿、Nvidia和SoftBank各300亿，估值达7300亿美元。</strong> <strong>Anthropic拒绝五角大楼移除AI安全护栏的要求，被Trump政府列为"供应链风险"，联邦机构被令停止使用其技术，OpenAI随即拿下国防部合同。</strong> <strong>DeepSeek将V4模型的预发布优化权独家给予华为等中国芯片商，首次将Nvidia和AMD排除在外，标志中国AI硬件生态独立加速。</strong>
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 头条：OpenAI 完成1100亿美元融资，估值7300亿</h3><p>OpenAI于2月27日宣布完成史上最大规模私募融资，总额1100亿美元，估前估值7300亿美元。(<a href="https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html">CNBC, 2026-02-27</a>)</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>投资方</strong>：Amazon 500亿（首期150亿，剩余需满足条件后到位）、Nvidia 300亿、SoftBank 300亿</li><li><strong>战略合作</strong>：OpenAI与AWS扩大合作，未来8年追加1000亿美元；与Nvidia签订下一代推理算力协议</li><li><strong>与Microsoft关系</strong>：OpenAI声明此轮融资不改变与Microsoft的合作条款</li><li><strong>后续</strong>：融资轮仍开放，正与主权基金洽谈追加100亿美元</li><li>📍OpenAI目前周活跃用户达9亿</li><li>💰ChatGPT新增$8/月"Go"套餐，介于免费版与Plus之间；免费和低价套餐已引入广告</li></ul></div><div class="feature"><h3>头条：Anthropic拒绝五角大楼，被列"供应链风险"</h3><p>Anthropic CEO Dario Amodei于2月26日公开声明拒绝五角大楼关于移除Claude模型安全限制（涉及大规模监控和全自主武器）的要求。(<a href="https://www.npr.org/2026/02/26/nx-s1-5727847/anthropic-defense-hegseth-ai-weapons-surveillance">NPR, 2026-02-26</a>)</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>核心分歧</strong>：五角大楼要求Claude可用于"一切合法用途"；Anthropic坚持不允许用于大规模监控美国公民或驱动全自主武器</li><li><strong>后果</strong>：国防部长Hegseth于2月27日宣布Anthropic为"供应链风险"；Trump下令联邦机构"立即"停用Anthropic技术（国防部有6个月过渡期）</li><li><strong>行业影响</strong>：OpenAI同日宣布获得国防部合同，为涉密网络提供AI服务</li><li>💡Anthropic强调其"无广告"立场，与ChatGPT引入广告形成对比</li></ul></div><div class="brief-item"><h4>Claude Sonnet 4.6 & Opus 4.6 更新</h4><p>（2026-02-17发布）
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：OpenAI 完成1100亿美元融资，估值7300亿</h3><p>OpenAI于2月27日宣布完成史上最大规模私募融资，总额1100亿美元，估前估值7300亿美元。(<a href="https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html">CNBC, 2026-02-27</a>)</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>投资方</strong>：Amazon 500亿（首期150亿，剩余需满足条件后到位）、Nvidia 300亿、SoftBank 300亿</li><li><strong>战略合作</strong>：OpenAI与AWS扩大合作，未来8年追加1000亿美元；与Nvidia签订下一代推理算力协议</li><li><strong>与Microsoft关系</strong>：OpenAI声明此轮融资不改变与Microsoft的合作条款</li><li><strong>后续</strong>：融资轮仍开放，正与主权基金洽谈追加100亿美元</li><li>📍OpenAI目前周活跃用户达9亿</li><li>💰ChatGPT新增$8/月"Go"套餐，介于免费版与Plus之间；免费和低价套餐已引入广告</li></ul></div><div class="feature"><h3>头条：Anthropic拒绝五角大楼，被列"供应链风险"</h3><p>Anthropic CEO Dario Amodei于2月26日公开声明拒绝五角大楼关于移除Claude模型安全限制（涉及大规模监控和全自主武器）的要求。(<a href="https://www.npr.org/2026/02/26/nx-s1-5727847/anthropic-defense-hegseth-ai-weapons-surveillance">NPR, 2026-02-26</a>)</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>核心分歧</strong>：五角大楼要求Claude可用于"一切合法用途"；Anthropic坚持不允许用于大规模监控美国公民或驱动全自主武器</li><li><strong>后果</strong>：国防部长Hegseth于2月27日宣布Anthropic为"供应链风险"；Trump下令联邦机构"立即"停用Anthropic技术（国防部有6个月过渡期）</li><li><strong>行业影响</strong>：OpenAI同日宣布获得国防部合同，为涉密网络提供AI服务</li><li>💡Anthropic强调其"无广告"立场，与ChatGPT引入广告形成对比</li></ul></div><div class="brief-item"><h4>Claude Sonnet 4.6 & Opus 4.6 更新</h4><p>（2026-02-17发布）
 - Opus 4.6引入Agent Teams——多AI智能体协作处理复杂任务
 - SWE-bench编码基准领先（Opus 4.5达80.9%）；ARC-AGI-2新颖推理测试最高分（68.8%）
 - 免费用户现可直接生成PPT、Excel、PDF、Word文件
@@ -316,7 +362,7 @@ Anthropic将其Model Context Protocol (MCP)捐赠给Linux基金会新成立的Ag
 ---
 
 *本简报由AI自动生成，数据来源标注于各条目。所有信息基于公开报道，仅供参考。*</p>
-<div class="footer">本简报由AI自动生成，数据来源标注于各条目。所有信息基于公开报道，仅供参考。</div>
+<div class="footer">本简报由 AI 生成，不构成投资或法律建议</div>
 </div>
 </body>
 </html>

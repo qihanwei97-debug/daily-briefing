@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,7 +279,7 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Anthropic遭遇"双重打击"：Claude Code全部源代码因npm打包错误泄露，51.3万行代码曝光后DMCA误删8,100+GitHub仓库</strong>，更严重的是泄露窗口期内npm包疑遭供应链攻击植入木马。<strong>阿里发布Qwen3.6-Plus，1M上下文+Agentic编程能力在SWE-bench上匹配Claude Opus 4.5</strong>，定价仅$0.29/M输入tokens，开源企业级Agent竞争白热化。<strong>Google推出Gemini 3.1 Flash-Lite：$0.25/M输入tokens，2.5倍首token速度提升</strong>，刷新大模型性价比下限。<strong>Trump"解放日"关税一周年：最高法院否决多项关税合法性，工厂岗位减少8.9万，贸易逆差反增2%</strong>。<strong>伊朗战争第35天：累计2,000+伊朗人死亡、24,800+伤，NATO盟友西班牙、法国、意大利限制美军行动</strong>，中国-巴基斯坦提出五点和平方案。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条一：Anthropic Claude Code源代码泄露——npm打包事故引发连锁危机</h3><p>3月31日，Anthropic旗舰编程工具Claude Code的<strong>全部源代码</strong>因npm打包错误意外公开。一个59.8MB的JavaScript source map文件被意外捆绑进公开npm包`@anthropic-ai/claude-code` v2.1.88，包含<strong>约51.3万行</strong>未混淆TypeScript代码（1,906个文件）。</p><p><strong>泄露内容：</strong>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条一：Anthropic Claude Code源代码泄露——npm打包事故引发连锁危机</h3><p>3月31日，Anthropic旗舰编程工具Claude Code的<strong>全部源代码</strong>因npm打包错误意外公开。一个59.8MB的JavaScript source map文件被意外捆绑进公开npm包`@anthropic-ai/claude-code` v2.1.88，包含<strong>约51.3万行</strong>未混淆TypeScript代码（1,906个文件）。</p><p><strong>泄露内容：</strong>
 - Claude Code的<strong>完整架构、专有Agent技术和内部模型性能数据</strong>
 - 数十个<strong>未发布功能的feature flag</strong>：包括会话回顾、"持久助手"后台运行模式、手机/浏览器远程控制Claude等
 - source map引用了Anthropic自有云存储上的完整TypeScript源码ZIP</p><p><strong>原因：</strong> Bun运行时默认生成完整source map，而`.npmignore`和`package.json`的`files`字段均未排除`*.map`文件——一个低级但致命的配置遗漏。</p><p><strong>连锁反应：</strong>
@@ -244,13 +290,8 @@ a:hover { text-decoration: underline; }
 - <strong>Agentic编程</strong>：能分解复杂编程任务、编写测试代码、迭代调试直至完成
 - <strong>SWE-bench表现</strong>：匹配Anthropic Claude Opus 4.5水平</p><p><strong>定价：</strong> 阿里云百炼平台约<strong>$0.29/M输入tokens</strong>——是Claude Opus 4.6（$15/M）的<strong>1/50</strong>，GPT-5.4（$2.50/M）的<strong>1/9</strong>。OpenRouter提供免费预览版。</p><div class="callout"><strong>为什么重要：</strong> Qwen3.6-Plus标志着中国AI厂商在Agent编程领域首次达到西方旗舰水平，且定价差距达到数量级。对于企业用户，这意味着在编程Agent场景中有了极具成本优势的替代选择。阿里数天内连发三款模型的节奏也显示其正在全面加速AI产品线布局。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://bailian.console.aliyun.com">阿里云百炼</a> / <a href="https://openrouter.ai/qwen/qwen3.6-plus-preview">OpenRouter免费预览</a></li><li>💰 定价：$0.29/M输入，$1.25/M输出（百炼）；OpenRouter免费预览</li><li>💡 上手：企业Agent开发首选试用——百万级上下文+超低价是核心卖点</li></ul><div class="sources">来源：<a href="https://www.caixinglobal.com/2026-04-02/alibaba-releases-qwen-36-plus-ai-model-with-enhanced-coding-capabilities-102430395.html">Caixin Global</a> | <a href="https://www.tradingview.com/news/eqs:f6308db73094b:0-alibaba-unveils-qwen3-6-plus-to-accelerate-agentic-ai-deployment-for-enterprises-and-alibaba-s-ai-applications/">TradingView</a> | <a href="https://www.buildfastwithai.com/blogs/qwen-3-6-plus-preview-review">Build Fast with AI</a></div><div class="sources">中文解读：<a href="https://www.caixinglobal.com/2026-04-02/alibaba-releases-qwen-36-plus-ai-model-with-enhanced-coding-capabilities-102430395.html">财新 - 阿里发布Qwen3.6-Plus增强编码能力</a></div></div><div class="brief-item"><h4>Google Gemini 3.1 Flash-Lite：史上最低价大模型，$0.25/M输入tokens</h4><p>（3月-4月，<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/">Google Blog</a>）：Google推出Gemini 3.1 Flash-Lite，首token速度提升<strong>2.5倍</strong>，输出速度提升<strong>45%</strong>，质量匹配Gemini 2.5 Flash。支持可控思维深度（minimal/low/medium/high），适用于翻译、内容审核、UI生成等高吞吐场景。
 - 📍 获取：Google AI Studio / Vertex AI（Preview）
-- 💰 定价：$0.25/M输入，$1.50/M输出——Gemini 3.1 Pro的<strong>1/8</strong>
-- 💡 上手：高并发低延迟场景的成本杀手——替代Flash系列旧版本</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://deepmind.google/models/gemini/flash-lite/">Google DeepMind</a> | <a href="https://venturebeat.com/technology/google-releases-gemini-3-1-flash-lite-at-1-8th-the-cost-of-pro">VentureBeat</a> | <a href="https://siliconangle.com/2026/03/03/google-launches-speedy-gemini-3-1-flash-lite-model-preview/">SiliconANGLE</a></p></div><div class="brief-item"><h4>Cisco发布AI Agent专用Zero Trust架构（RSA Conference 2026）</h4><p>（4月1日，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：Cisco在RSA Conference 2026上发布专门针对自主AI Agent和多Agent系统的零信任安全架构，支持<strong>实时策略执行和异常检测</strong>。随着Agentic AI从演示进入生产，Agent安全基础设施成为新赛道。
-- 📍 获取：Cisco安全产品线
-- 💡 上手：部署多Agent系统的企业需关注Agent间通信的安全合规</p></div><div class="brief-item"><h4>NVIDIA联手Alpamayo打造自动驾驶AI仿真平台</h4><p>（4月初，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：NVIDIA与AI仿真专家Alpamayo达成战略合作，构建超逼真自动驾驶测试环境，大幅降低物理道路测试的时间和成本。
-- 💡 上手：NVIDIA持续扩展AI推理到垂直场景——继芯片互联（Marvell）后布局自动驾驶仿真</p></div><div class="brief-item"><h4>Samsung宣布2026年底前将Gemini AI设备翻倍至8亿台</h4><p>（4月初，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：Samsung目标在2026年底前将搭载Google Gemini AI的移动设备扩展至<strong>8亿台</strong>——Google端侧AI的最大分发渠道。
-- 💡 上手：Gemini在移动端的覆盖规模已构成生态壁垒</p></div><div class="brief-item"><h4>Q1 2026全球创业融资$2,970亿创历史新高</h4><p>（4月2日，<a href="https://techstartups.com/2026/04/02/top-tech-news-today-april-2-2026/">Tech Startups</a>）：2026年第一季度全球创业融资达<strong>$2,970亿</strong>，刷新单季纪录，主要由AI领域的超大型融资驱动（OpenAI $1,220亿、xAI等）。
-- 💡 上手：AI吸金效应持续——少数超级融资拉高整体数据</p></div>
+- 💰 定价：$0.25/M输入，$1.50/M输出——Gemini 3.1 Pro的<strong>1/8</strong></p><div class="insight">高并发低延迟场景的成本杀手——替代Flash系列旧版本</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://deepmind.google/models/gemini/flash-lite/">Google DeepMind</a> | <a href="https://venturebeat.com/technology/google-releases-gemini-3-1-flash-lite-at-1-8th-the-cost-of-pro">VentureBeat</a> | <a href="https://siliconangle.com/2026/03/03/google-launches-speedy-gemini-3-1-flash-lite-model-preview/">SiliconANGLE</a></p></div><div class="brief-item"><h4>Cisco发布AI Agent专用Zero Trust架构（RSA Conference 2026）</h4><p>（4月1日，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：Cisco在RSA Conference 2026上发布专门针对自主AI Agent和多Agent系统的零信任安全架构，支持<strong>实时策略执行和异常检测</strong>。随着Agentic AI从演示进入生产，Agent安全基础设施成为新赛道。
+- 📍 获取：Cisco安全产品线</p><div class="insight">部署多Agent系统的企业需关注Agent间通信的安全合规</div></div><div class="brief-item"><h4>NVIDIA联手Alpamayo打造自动驾驶AI仿真平台</h4><p>（4月初，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：NVIDIA与AI仿真专家Alpamayo达成战略合作，构建超逼真自动驾驶测试环境，大幅降低物理道路测试的时间和成本。</p><div class="insight">NVIDIA持续扩展AI推理到垂直场景——继芯片互联（Marvell）后布局自动驾驶仿真</div></div><div class="brief-item"><h4>Samsung宣布2026年底前将Gemini AI设备翻倍至8亿台</h4><p>（4月初，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：Samsung目标在2026年底前将搭载Google Gemini AI的移动设备扩展至<strong>8亿台</strong>——Google端侧AI的最大分发渠道。</p><div class="insight">Gemini在移动端的覆盖规模已构成生态壁垒</div></div><div class="brief-item"><h4>Q1 2026全球创业融资$2,970亿创历史新高</h4><p>（4月2日，<a href="https://techstartups.com/2026/04/02/top-tech-news-today-april-2-2026/">Tech Startups</a>）：2026年第一季度全球创业融资达<strong>$2,970亿</strong>，刷新单季纪录，主要由AI领域的超大型融资驱动（OpenAI $1,220亿、xAI等）。</p><div class="insight">AI吸金效应持续——少数超级融资拉高整体数据</div></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第35天：NATO盟友限制美军行动，中巴提五点方案
 
 <strong>4月2-3日增量（接续第34天报道）：</strong>
@@ -337,7 +378,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *数据来源：Bloomberg、Axios、Fortune、TechCrunch、VentureBeat、Caixin Global、Google DeepMind、NPR、Al Jazeera、NBC News、Tax Foundation、CFR等 | 所有数据基于2026年4月3日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
-<div class="footer">并实施制裁减免——标志着美国对后Maduro时代委内瑞拉的政策从军事行动转向政治重建。(<a href="https://www.aljazeera.com/">Al Jazeera</a>)  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Anthropic <br> Claude Code源代码泄露 <br> npm打包错误致51.3万行代码公开，DMCA误删8,100+仓库 <br> ✅已修复 <br> npm正常更新 <br> 3月31日 <br> <br> 阿里Qwen <br> Qwen3.6-Plus <br> 1M上下文，Agentic编程匹配Opus 4.5，$0.29/M <br> ✅全量 <br> 百炼 / OpenRouter <br> 4月2日 <br> <br> Google <br> Gemini 3.1 Flash-Lite <br> $0.25/M输入，2.5倍首token速度提升 <br> ⏳Preview <br> AI Studio / Vertex AI <br> 3-4月 <br> <br> Cisco <br> AI Agent Zero Trust <br> 专为多Agent系统设计的零信任安全架构 <br> ✅全量 <br> Cisco安全产品线 <br> 4月1日 <br> <br> NVIDIA+Alpamayo <br> 自动驾驶AI仿真 <br> 超逼真测试环境降低物理道路测试成本 <br> ⏳开发中 <br> — <br> 4月 <br> <br> Samsung <br> Gemini AI设备扩展 <br> 目标2026年底8亿台移动设备搭载Gemini <br> ⏳部署中 <br> Samsung设备 <br> 4月 <br> <br> Google <br> Veo 3.1 Lite <br> 720p视频生成$0.05/秒 <br> ✅全量 <br> Google AI <br> 4月 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/ai-news">LLM Stats</a> <br> <a href="https://artificialanalysis.ai">Artificial Analysis</a>（2026年3月-4月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> Qwen3.6-Plus (阿里) 🔄 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>----------------------<br> <br> </div>
+<div class="footer">数据来源：Bloomberg、Axios、Fortune、TechCrunch、VentureBeat、Caixin Global、Google DeepMind、NPR、Al Jazeera、NBC News、Tax Foundation、CFR等 <br> 所有数据基于2026年4月3日搜索结果 <br> 本简报由AI生成，不构成投资建议</div>
 </div>
 </body>
 </html>

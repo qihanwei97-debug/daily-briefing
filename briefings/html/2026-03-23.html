@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,19 +279,14 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>OpenClaw发布聊天机器人引发"AI模型商品化"恐慌——一个奥地利独立开发者的开源Agent框架击败了数百亿美元的AI实验室</strong>，Jensen Huang在GTC称其为"人类历史上最受欢迎的开源项目"，GitHub星标超25万。<strong>小米MiMo-V2-Pro震撼发布：1万亿参数、ClawEval 61.5逼近Opus 4.6（66.3），定价仅为竞品1/6-1/7</strong>，前DeepSeek核心研究员罗福利领衔。<strong>伊朗战争第23天危机升级：Trump发48小时最后通牒要求重开霍尔木兹海峡，否则"摧毁所有发电厂"；伊朗回击——导弹击中以色列Dimona和Arad（约180人受伤），并威胁"彻底封锁"海峡</strong>。<strong>古巴电网3月内第三次全国性崩溃，Trump威胁"接管古巴"</strong>。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：OpenClaw的"ChatGPT时刻"——开源Agent框架引爆AI商品化辩论</h3><p>3月21日，CNBC发文指出OpenClaw正在经历其"ChatGPT时刻"——但这次引发的不是兴奋，而是对<strong>AI模型商品化</strong>的深层担忧。一个由奥地利独立开发者创建的龙虾主题开源AI Agent平台，在三个月内从默默无闻成长为<strong>GitHub历史最高星标项目（25万+）</strong>，超越React和Linux。</p><p><strong>为什么这很重要：</strong> OpenClaw暴露了大模型投资逻辑的潜在致命缺陷——当基础模型快速商品化，价值可能转移到Agent框架层。OpenClaw内置<strong>100+技能</strong>，可将AI模型直接连接到应用、浏览器和系统工具，实现自主决策和任务执行。开发者在个人Mac Mini上就能管理大量永续运行的AI Agent，成本远低于云端调用大模型。</p><p><strong>GTC上的高光时刻：</strong> Jensen Huang在主题演讲中将OpenClaw与Linux类比，称其为"人类历史上最受欢迎的开源项目"。Nvidia同步发布NemoClaw框架将OpenClaw与Nemo生态打通（已报道）。中国科技公司也在大规模部署OpenClaw——CNBC称其为"龙虾盛宴"。</p><p><strong>商品化隐忧：</strong> 不是一个财力雄厚的实验室（OpenAI、Anthropic），而是一个独立开发者创造了AI领域的"下一个大事件"。这表明：<strong>基础模型正在被商品化，注意力正转向强调自主性、可用性、本地化和控制权的Agent框架</strong>。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://github.com/openclaw">OpenClaw GitHub</a>（开源）</li><li>💰 定价：免费/开源</li><li>💡 上手：Agent开发者必看——OpenClaw+NemoClaw构成完整Agent开发栈，本地运行大幅降本</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/03/21/openclaw-chatgpt-moment-sparks-concern-ai-models-becoming-commodities.html">CNBC</a> | <a href="https://www.cnbc.com/2026/03/17/nvidia-ceo-jensen-huang-says-openclaw-is-definitely-the-next-chatgpt.html">CNBC - Jensen Huang</a> | <a href="https://www.kdnuggets.com/openclaw-explained-the-free-ai-agent-tool-going-viral-already-in-2026">KDnuggets</a> | <a href="https://mlq.ai/news/openclaws-viral-surge-mirrors-chatgpt-launch-fueling-fears-of-ai-model-commoditization/">MLQ AI</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>小米MiMo-V2-Pro发布：万亿参数Agent旗舰，性价比炸裂</h4><p>（3月18-19日，<a href="https://venturebeat.com/technology/xiaomi-stuns-with-new-mimo-v2-pro-llm-nearing-gpt-5-2-opus-4-6-performance">VentureBeat</a>）：小米正式发布MiMo-V2系列，旗舰MiMo-V2-Pro为<strong>1万亿参数</strong>基座模型（MoE架构，单次推理激活42B参数），上下文窗口1M token。在ClawEval（Agent能力基准测试）上得分<strong>61.5</strong>，逼近Claude Opus 4.6（66.3），大幅超越GPT-5.2（50.0）。定价约为Anthropic和OpenAI旗舰的<strong>1/6至1/7</strong>。MiMo-V2-Pro此前以代号"Hunter Alpha"匿名上线OpenRouter，处理超<strong>1万亿token</strong>后才正式揭晓身份。团队由前DeepSeek核心贡献者<strong>罗福利</strong>领衔，2025年底加入小米。同步发布MiMo-V2-Omni（多模态）和MiMo-V2-TTS（表达性语音合成）。
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：OpenClaw的"ChatGPT时刻"——开源Agent框架引爆AI商品化辩论</h3><p>3月21日，CNBC发文指出OpenClaw正在经历其"ChatGPT时刻"——但这次引发的不是兴奋，而是对<strong>AI模型商品化</strong>的深层担忧。一个由奥地利独立开发者创建的龙虾主题开源AI Agent平台，在三个月内从默默无闻成长为<strong>GitHub历史最高星标项目（25万+）</strong>，超越React和Linux。</p><p><strong>为什么这很重要：</strong> OpenClaw暴露了大模型投资逻辑的潜在致命缺陷——当基础模型快速商品化，价值可能转移到Agent框架层。OpenClaw内置<strong>100+技能</strong>，可将AI模型直接连接到应用、浏览器和系统工具，实现自主决策和任务执行。开发者在个人Mac Mini上就能管理大量永续运行的AI Agent，成本远低于云端调用大模型。</p><p><strong>GTC上的高光时刻：</strong> Jensen Huang在主题演讲中将OpenClaw与Linux类比，称其为"人类历史上最受欢迎的开源项目"。Nvidia同步发布NemoClaw框架将OpenClaw与Nemo生态打通（已报道）。中国科技公司也在大规模部署OpenClaw——CNBC称其为"龙虾盛宴"。</p><p><strong>商品化隐忧：</strong> 不是一个财力雄厚的实验室（OpenAI、Anthropic），而是一个独立开发者创造了AI领域的"下一个大事件"。这表明：<strong>基础模型正在被商品化，注意力正转向强调自主性、可用性、本地化和控制权的Agent框架</strong>。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://github.com/openclaw">OpenClaw GitHub</a>（开源）</li><li>💰 定价：免费/开源</li><li>💡 上手：Agent开发者必看——OpenClaw+NemoClaw构成完整Agent开发栈，本地运行大幅降本</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/03/21/openclaw-chatgpt-moment-sparks-concern-ai-models-becoming-commodities.html">CNBC</a> | <a href="https://www.cnbc.com/2026/03/17/nvidia-ceo-jensen-huang-says-openclaw-is-definitely-the-next-chatgpt.html">CNBC - Jensen Huang</a> | <a href="https://www.kdnuggets.com/openclaw-explained-the-free-ai-agent-tool-going-viral-already-in-2026">KDnuggets</a> | <a href="https://mlq.ai/news/openclaws-viral-surge-mirrors-chatgpt-launch-fueling-fears-of-ai-model-commoditization/">MLQ AI</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>小米MiMo-V2-Pro发布：万亿参数Agent旗舰，性价比炸裂</h4><p>（3月18-19日，<a href="https://venturebeat.com/technology/xiaomi-stuns-with-new-mimo-v2-pro-llm-nearing-gpt-5-2-opus-4-6-performance">VentureBeat</a>）：小米正式发布MiMo-V2系列，旗舰MiMo-V2-Pro为<strong>1万亿参数</strong>基座模型（MoE架构，单次推理激活42B参数），上下文窗口1M token。在ClawEval（Agent能力基准测试）上得分<strong>61.5</strong>，逼近Claude Opus 4.6（66.3），大幅超越GPT-5.2（50.0）。定价约为Anthropic和OpenAI旗舰的<strong>1/6至1/7</strong>。MiMo-V2-Pro此前以代号"Hunter Alpha"匿名上线OpenRouter，处理超<strong>1万亿token</strong>后才正式揭晓身份。团队由前DeepSeek核心贡献者<strong>罗福利</strong>领衔，2025年底加入小米。同步发布MiMo-V2-Omni（多模态）和MiMo-V2-TTS（表达性语音合成）。
 - 📍 获取：<a href="https://mimo.xiaomi.com/mimo-v2-pro">MiMo-V2-Pro</a> | OpenRouter API
-- 💰 定价：约为GPT-5.4的1/6-1/7
-- 💡 上手：Agent工作流性价比新王——ClawEval接近Opus 4.6，成本碾压</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://venturebeat.com/technology/xiaomi-stuns-with-new-mimo-v2-pro-llm-nearing-gpt-5-2-opus-4-6-performance">VentureBeat</a> | <a href="https://www.gizmochina.com/2026/03/19/xiaomi-unveils-mimo-v2-pro-its-flagship-llm-with-over-1tb-of-parameters/">Gizmochina</a> | <a href="https://quasa.io/media/xiaomi-unleashes-mimo-v2-family-trillion-parameter-agent-powerhouse-mimo-v2-pro-ex-hunter-alpha-multimodal-omni-and-expressive-tts-hit-the-scene">Quasa.io</a> | <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：<a href="https://mimo.xiaomi.com/mimo-v2-pro">小米MiMo-V2-Pro官网</a></p></div><div class="brief-item"><h4>OpenAI收购Python工具商Astral，强化Codex生态</h4><p>（3月21日，<a href="https://www.gtmaipodcast.com/p/this-week-in-ai-march-1521-2026">GTM AI Podcast</a>）：OpenAI宣布收购Python开发工具公司Astral，将其工具链整合进Codex生态系统。Astral以高性能Python代码格式化和lint工具闻名。此举显示OpenAI正从纯模型能力竞争转向开发者工具链的纵向整合。
-- 📍 获取：Codex用户将直接受益
-- 💡 上手：Python开发者关注Codex+Astral工具链整合动态</p></div><div class="brief-item"><h4>MiniMax M2.7模型公开上线</h4><p>（3月周末，<a href="https://dailyaidigest.net/">Daily AI Digest</a>）：MiniMax发布M2.7模型，通过MiniMax Agent和API平台公开可用。支持软件工程、办公生产力和研究场景，具备自主调试能力。
+- 💰 定价：约为GPT-5.4的1/6-1/7</p><div class="insight">Agent工作流性价比新王——ClawEval接近Opus 4.6，成本碾压</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://venturebeat.com/technology/xiaomi-stuns-with-new-mimo-v2-pro-llm-nearing-gpt-5-2-opus-4-6-performance">VentureBeat</a> | <a href="https://www.gizmochina.com/2026/03/19/xiaomi-unveils-mimo-v2-pro-its-flagship-llm-with-over-1tb-of-parameters/">Gizmochina</a> | <a href="https://quasa.io/media/xiaomi-unleashes-mimo-v2-family-trillion-parameter-agent-powerhouse-mimo-v2-pro-ex-hunter-alpha-multimodal-omni-and-expressive-tts-hit-the-scene">Quasa.io</a> | <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：<a href="https://mimo.xiaomi.com/mimo-v2-pro">小米MiMo-V2-Pro官网</a></p></div><div class="brief-item"><h4>OpenAI收购Python工具商Astral，强化Codex生态</h4><p>（3月21日，<a href="https://www.gtmaipodcast.com/p/this-week-in-ai-march-1521-2026">GTM AI Podcast</a>）：OpenAI宣布收购Python开发工具公司Astral，将其工具链整合进Codex生态系统。Astral以高性能Python代码格式化和lint工具闻名。此举显示OpenAI正从纯模型能力竞争转向开发者工具链的纵向整合。
+- 📍 获取：Codex用户将直接受益</p><div class="insight">Python开发者关注Codex+Astral工具链整合动态</div></div><div class="brief-item"><h4>MiniMax M2.7模型公开上线</h4><p>（3月周末，<a href="https://dailyaidigest.net/">Daily AI Digest</a>）：MiniMax发布M2.7模型，通过MiniMax Agent和API平台公开可用。支持软件工程、办公生产力和研究场景，具备自主调试能力。
 - 📍 获取：MiniMax API Platform
-- 💰 定价：API付费
-- 💡 上手：Agent能力+自主调试是亮点</p></div><div class="brief-item"><h4>跟进：五角大楼内部对移除Claude AI产生分歧</h4><p>（3月21日，<a href="https://medium.com/@stephen.stanley777/ai-daily-update-21-03-2026-d3367b8209a0">Medium</a>）：美国国防部长Pete Hegseth推动将Anthropic的Claude AI从五角大楼系统中移除，但内部用户反映替换过程面临重大操作困难——一旦AI平台嵌入工作流程，切换成本极高。这凸显了企业/政府AI平台选择的"锁定效应"。
-- 💡 上手：AI平台粘性远超预期——选型决策比模型性能更重要</p></div><div class="brief-item"><h4>OpenCode桌面应用beta上线</h4><p>（3月周末，<a href="https://dailyaidigest.net/">Daily AI Digest</a>）：开源AI编程Agent平台OpenCode推出macOS/Windows/Linux桌面应用beta版。目前拥有<strong>500万月活开发者</strong>、<strong>12万GitHub星标</strong>，支持终端/IDE/桌面全场景，兼容75+家LLM提供商。
+- 💰 定价：API付费</p><div class="insight">Agent能力+自主调试是亮点</div></div><div class="brief-item"><h4>跟进：五角大楼内部对移除Claude AI产生分歧</h4><p>（3月21日，<a href="https://medium.com/@stephen.stanley777/ai-daily-update-21-03-2026-d3367b8209a0">Medium</a>）：美国国防部长Pete Hegseth推动将Anthropic的Claude AI从五角大楼系统中移除，但内部用户反映替换过程面临重大操作困难——一旦AI平台嵌入工作流程，切换成本极高。这凸显了企业/政府AI平台选择的"锁定效应"。</p><div class="insight">AI平台粘性远超预期——选型决策比模型性能更重要</div></div><div class="brief-item"><h4>OpenCode桌面应用beta上线</h4><p>（3月周末，<a href="https://dailyaidigest.net/">Daily AI Digest</a>）：开源AI编程Agent平台OpenCode推出macOS/Windows/Linux桌面应用beta版。目前拥有<strong>500万月活开发者</strong>、<strong>12万GitHub星标</strong>，支持终端/IDE/桌面全场景，兼容75+家LLM提供商。
 - 📍 获取：OpenCode官网下载
-- 💰 定价：开源
-- 💡 上手：多LLM兼容的本地AI编程Agent，值得试用</p></div>
+- 💰 定价：开源</p><div class="insight">多LLM兼容的本地AI编程Agent，值得试用</div></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第21-23天：霍尔木兹海峡危机升级，Trump发48小时最后通牒
 
 <strong>3月20-22日增量（接续第20天报道）：</strong>
@@ -321,7 +362,7 @@ WHO确认苏丹西达尔富尔地区一家医院上周遭空袭，至少<strong>
 ---
 
 *数据来源：CNBC、VentureBeat、Gizmochina、NPR、Al Jazeera、CNN、Bloomberg、PBS、Time、Washington Post、Fox News、Fortune等 | 所有数据基于2026年3月23日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
-<div class="footer">。苏丹内战持续恶化，医疗设施频繁成为攻击目标，人道主义危机深化。  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> OpenClaw <br> 聊天机器人+Agent平台 <br> 开源Agent框架引发AI商品化辩论，25万GitHub星 <br> ✅全量 <br> GitHub开源 <br> 3月21日 <br> <br> 小米 <br> MiMo-V2-Pro <br> 1T参数MoE旗舰，ClawEval 61.5，定价1/6竞品 <br> ✅全量 <br> API / OpenRouter <br> 3月19日 <br> <br> 小米 <br> MiMo-V2-Omni <br> 多模态模型，MiMo-V2系列 <br> ✅全量 <br> API <br> 3月19日 <br> <br> 小米 <br> MiMo-V2-TTS <br> 表达性语音合成 <br> ✅全量 <br> API <br> 3月19日 <br> <br> OpenAI <br> 收购Astral <br> Python工具商，强化Codex生态 <br> ⏳整合中 <br> Codex <br> 3月21日 <br> <br> MiniMax <br> M2.7 <br> 自主调试能力，支持复杂工作流 <br> ✅全量 <br> MiniMax API <br> 3月周末 <br> <br> OpenCode <br> 桌面应用beta <br> 开源AI编程Agent，500万月活 <br> ⏳Beta <br> 官网下载 <br> 3月周末 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> MiMo-V2-Pro (小米) 🔄 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>----------------------<br> <br> </div>
+<div class="footer">数据来源：CNBC、VentureBeat、Gizmochina、NPR、Al Jazeera、CNN、Bloomberg、PBS、Time、Washington Post、Fox News、Fortune等 <br> 所有数据基于2026年3月23日搜索结果 <br> 本简报由AI生成，不构成投资建议</div>
 </div>
 </body>
 </html>

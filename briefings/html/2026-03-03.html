@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,7 +279,7 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">一、今日要闻</div><p><strong>美以联合打击伊朗进入第三天，中东局势急剧升级，油价飙升9%、全球航班大面积取消；Block（Square/Cash App母公司）以AI转型为由裁员40%逾4000人，CEO Dorsey称多数公司将在一年内跟进；DeepSeek V4 多模态旗舰模型预计本周发布，时机选在中国"两会"开幕前夕；Apple Gemini 驱动的新 Siri 部分功能或延迟至 iOS 26.5；Anthropic Claude 遭遇大规模宕机，高峰期近2000用户受影响。</strong>
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 头条：Block 裁员40%——AI 替代人力的里程碑事件</h3><p>Jack Dorsey 在致股东信中表示，AI工具已经"改变了构建和运营公司的含义"，Block 将从超过10,000名员工裁至约6,000人。受影响员工获得至少20周遣散费、股权归属延至5月底、6个月医疗保险及5,000美元补贴。消息公布后 Block 股价飙涨超15%。Dorsey 预言"多数公司将在一年内做出类似结构性调整"。（<a href="https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey">CNN, 2026-02-26</a>; <a href="https://techcrunch.com/2026/02/26/jack-dorsey-block-layoffs-4000-halved-employees-your-company-is-next/">TechCrunch, 2026-02-26</a>）</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>💡 <strong>上手提示</strong>: 关注所在行业是否出现类似"AI替代中台"趋势，建议评估个人技能与AI协作的互补性</li></ul></div><div class="feature"><h3>头条：DeepSeek V4 本周发布在即</h3><p>DeepSeek 即将发布首个多模态旗舰模型 V4，支持文本、图片和视频生成。值得关注的是，V4 针对华为和寒武纪芯片进行了优化，标志着中国AI生态"去美芯"进程的实质性突破。发布时间选在3月4日"两会"开幕前夕，分析师认为此举意在强化 DeepSeek 作为"国家AI冠军"的定位。（<a href="https://malaysia.news.yahoo.com/deepseek-release-long-awaited-ai-162425050.html">Yahoo News, 2026-03</a>; <a href="https://www.pymnts.com/artificial-intelligence-2/2026/deepseek-poised-to-unveil-latest-ai-model/">PYMNTS, 2026-03</a>）</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 <strong>获取</strong>: 预计通过 chat.deepseek.com 及 API 同步开放</li><li>💡 <strong>上手提示</strong>: 关注其多模态能力与 GPT-4o/Gemini 2.0 的对标表现</li></ul></div><div class="brief-item"><h4>Anthropic Claude 宕机</h4><p>— Claude 消费端服务于3月2日凌晨大规模中断，高峰期约2,000用户报告故障，官方称系"前所未有的需求"所致。API 企业客户未受影响。（<a href="https://www.bloomberg.com/news/articles/2026-03-02/anthropic-s-claude-chatbot-goes-down-for-thousands-of-users">Bloomberg, 2026-03-02</a>）</p></div><div class="brief-item"><h4>Apple 新 Siri 部分功能延期</h4><p>— Gemini 驱动的新 Siri 原定随 iOS 26.4（3月）发布，但部分高级功能（如跨应用上下文理解）或推迟至 iOS 26.5（5月）甚至 iOS 27（9月）。Apple 为此每年向 Google 支付约10亿美元。（<a href="https://9to5mac.com/2026/02/11/apple-reportedly-pushing-back-gemini-powered-siri-features-beyond-ios-26-4/">9to5Mac, 2026-02-11</a>; <a href="https://www.cnbc.com/2026/01/12/apple-google-ai-siri-gemini.html">CNBC, 2026-01-12</a>）</p></div><div class="brief-item"><h4>伦敦爆发最大规模反AI游行</h4><p>— 2月28日，数百名抗议者在 King's Cross 科技园区（OpenAI、Meta、Google DeepMind 英国总部所在地）游行，诉求涵盖AI生成垃圾内容、深度伪造、自主武器到存在性风险。（<a href="https://www.technologyreview.com/2026/03/02/1133814/i-checked-out-londons-biggest-ever-anti-ai-protest/">MIT Technology Review, 2026-03-02</a>）</p></div><div class="brief-item"><h4>Amazon 180亿欧元投资西班牙数据中心</h4><p>— 计划扩展至2035年，核心用于 AWS 云计算和AI算力扩容。（[搜索综合, 2026-03]）</p></div><div class="brief-item"><h4>新加坡-韩国签署AI联盟</h4><p>— 韩国承诺在新加坡设立3亿美元全球基金，支持联合AI研发至2030年。（[搜索综合, 2026-03]）</p></div>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：Block 裁员40%——AI 替代人力的里程碑事件</h3><p>Jack Dorsey 在致股东信中表示，AI工具已经"改变了构建和运营公司的含义"，Block 将从超过10,000名员工裁至约6,000人。受影响员工获得至少20周遣散费、股权归属延至5月底、6个月医疗保险及5,000美元补贴。消息公布后 Block 股价飙涨超15%。Dorsey 预言"多数公司将在一年内做出类似结构性调整"。（<a href="https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey">CNN, 2026-02-26</a>; <a href="https://techcrunch.com/2026/02/26/jack-dorsey-block-layoffs-4000-halved-employees-your-company-is-next/">TechCrunch, 2026-02-26</a>）</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>💡 <strong>上手提示</strong>: 关注所在行业是否出现类似"AI替代中台"趋势，建议评估个人技能与AI协作的互补性</li></ul></div><div class="feature"><h3>头条：DeepSeek V4 本周发布在即</h3><p>DeepSeek 即将发布首个多模态旗舰模型 V4，支持文本、图片和视频生成。值得关注的是，V4 针对华为和寒武纪芯片进行了优化，标志着中国AI生态"去美芯"进程的实质性突破。发布时间选在3月4日"两会"开幕前夕，分析师认为此举意在强化 DeepSeek 作为"国家AI冠军"的定位。（<a href="https://malaysia.news.yahoo.com/deepseek-release-long-awaited-ai-162425050.html">Yahoo News, 2026-03</a>; <a href="https://www.pymnts.com/artificial-intelligence-2/2026/deepseek-poised-to-unveil-latest-ai-model/">PYMNTS, 2026-03</a>）</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 <strong>获取</strong>: 预计通过 chat.deepseek.com 及 API 同步开放</li><li>💡 <strong>上手提示</strong>: 关注其多模态能力与 GPT-4o/Gemini 2.0 的对标表现</li></ul></div><div class="brief-item"><h4>Anthropic Claude 宕机</h4><p>— Claude 消费端服务于3月2日凌晨大规模中断，高峰期约2,000用户报告故障，官方称系"前所未有的需求"所致。API 企业客户未受影响。（<a href="https://www.bloomberg.com/news/articles/2026-03-02/anthropic-s-claude-chatbot-goes-down-for-thousands-of-users">Bloomberg, 2026-03-02</a>）</p></div><div class="brief-item"><h4>Apple 新 Siri 部分功能延期</h4><p>— Gemini 驱动的新 Siri 原定随 iOS 26.4（3月）发布，但部分高级功能（如跨应用上下文理解）或推迟至 iOS 26.5（5月）甚至 iOS 27（9月）。Apple 为此每年向 Google 支付约10亿美元。（<a href="https://9to5mac.com/2026/02/11/apple-reportedly-pushing-back-gemini-powered-siri-features-beyond-ios-26-4/">9to5Mac, 2026-02-11</a>; <a href="https://www.cnbc.com/2026/01/12/apple-google-ai-siri-gemini.html">CNBC, 2026-01-12</a>）</p></div><div class="brief-item"><h4>伦敦爆发最大规模反AI游行</h4><p>— 2月28日，数百名抗议者在 King's Cross 科技园区（OpenAI、Meta、Google DeepMind 英国总部所在地）游行，诉求涵盖AI生成垃圾内容、深度伪造、自主武器到存在性风险。（<a href="https://www.technologyreview.com/2026/03/02/1133814/i-checked-out-londons-biggest-ever-anti-ai-protest/">MIT Technology Review, 2026-03-02</a>）</p></div><div class="brief-item"><h4>Amazon 180亿欧元投资西班牙数据中心</h4><p>— 计划扩展至2035年，核心用于 AWS 云计算和AI算力扩容。（[搜索综合, 2026-03]）</p></div><div class="brief-item"><h4>新加坡-韩国签署AI联盟</h4><p>— 韩国承诺在新加坡设立3亿美元全球基金，支持联合AI研发至2030年。（[搜索综合, 2026-03]）</p></div>
 <hr class="sep"><div class="sec-title">三、国际大事（非AI）</div><p>### 1. 美以打击伊朗进入第三天，中东全面危机
 
 美国和以色列对伊朗的联合军事打击已持续三天。伊朗最高领袖哈梅内伊在首轮打击中身亡，伊朗已成立三人临时领导委员会。伊朗红新月会报告至少555人死亡。伊朗宣布关闭霍尔木兹海峡，全球油轮通行几乎停滞，布伦特原油飙升9%至79美元/桶以上。已有3名美军阵亡。伊朗对以色列及海湾地区美国资产实施反击，迪拜、多哈、麦纳麦均遭袭击。（<a href="https://www.aljazeera.com/news/2026/3/2/what-we-know-on-day-three-of-us-israeli-attacks-on-iran">Al Jazeera, 2026-03-02</a>; <a href="https://edition.cnn.com/world/live-news/iran-israel-us-attack-03-02-26-intl-hnk">CNN, 2026-03-02</a>）
@@ -286,7 +332,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *数据来源：TechCrunch, Bloomberg, CNN, Al Jazeera, CNBC, 9to5Mac, MIT Technology Review, llm-stats.com, Artificial Analysis 等。所有数据基于2026年3月3日搜索结果。*</p>
-<div class="footer">本简报由 AI 生成，不构成投资或法律建议</div>
+<div class="footer">数据来源：TechCrunch, Bloomberg, CNN, Al Jazeera, CNBC, 9to5Mac, MIT Technology Review, llm-stats.com, Artificial Analysis 等。所有数据基于2026年3月3日搜索结果。</div>
 </div>
 </body>
 </html>

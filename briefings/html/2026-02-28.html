@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,7 +279,7 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>以色列与美国联合对伊朗发动代号"犹大之盾"的先发制人军事打击</strong>，德黑兰等多城市发生爆炸，以色列宣布全国紧急状态并关闭领空。<strong>OpenAI完成史上最大私募融资$1100亿</strong>，估值$7300亿，Amazon($500亿)、Nvidia($300亿)、SoftBank($300亿)领投。<strong>Trump政府下令全面禁止联邦机构使用Anthropic</strong>，因Anthropic拒绝五角大楼要求取消自主武器和大规模监控两条红线。<strong>OpenAI随即宣布接手五角大楼AI合同。</strong>
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 头条</h3><p>#### OpenAI $1100亿融资：史上最大私募轮，AI军备竞赛进入万亿时代</p><p>2月27日，OpenAI宣布完成$1100亿融资，估值$7300亿（含融资后$8400亿），创下私募融资历史最高纪录。</p><p><strong>投资者构成：</strong>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条</h3><p>#### OpenAI $1100亿融资：史上最大私募轮，AI军备竞赛进入万亿时代</p><p>2月27日，OpenAI宣布完成$1100亿融资，估值$7300亿（含融资后$8400亿），创下私募融资历史最高纪录。</p><p><strong>投资者构成：</strong>
 - <strong>Amazon $500亿</strong>（首期$150亿，后续$350亿待条件达成）——同时扩展与AWS的$380亿合作协议，追加$1000亿八年基础设施投入
 - <strong>Nvidia $300亿</strong>——含3GW推理算力承诺
 - <strong>SoftBank $300亿</strong></p><div class="callout"><strong>为什么重要：</strong> 这不仅是融资，更是基础设施联盟。Amazon获得OpenAI的stateful runtime合作，Nvidia锁定推理算力订单，三方形成"资本+算力+模型"铁三角。2026年2月AI相关融资总额预计超过$1950亿，成为风投史上最关键的单月。</div><p><strong>实用信息：</strong>
@@ -247,16 +293,12 @@ a:hover { text-decoration: underline; }
 5. <strong>Trump反击</strong>：下令所有联邦机构"立即停止"使用Anthropic技术，Hegseth将Anthropic列为"供应链风险"
 6. <strong>OpenAI接盘</strong>：Sam Altman虽表示认同Anthropic的红线立场，但OpenAI随即宣布接手五角大楼AI合同</p><p><strong>行业影响：</strong> 这是AI行业首次因伦理立场被政府全面封杀的案例。Anthropic被列为"供应链风险"意味着所有军方供应商也须避开Anthropic。OpenAI的表态耐人寻味——口头支持红线，实际接手合同。</p><p><strong>对用户的影响：</strong> Claude消费端产品（claude.ai、API）不受影响，但联邦政府客户将流失。</p><p>> 来源：<a href="https://www.washingtonpost.com/technology/2026/02/27/anthropic-pentagon-lethal-military-ai/">Washington Post</a>、<a href="https://www.cnbc.com/2026/02/27/defense-anthropic-ai-war-risks-hegseth-amodei.html">CNBC</a>、<a href="https://techcrunch.com/2026/02/27/anthropic-vs-the-pentagon-whats-actually-at-stake/">TechCrunch</a>、<a href="https://www.bloomberg.com/news/articles/2026-02-27/trump-orders-us-government-to-drop-anthropic-after-pentagon-feud">Bloomberg</a></p></div><div class="brief-item"><h4>Microsoft AI Agents in Windows 11</h4><p>AI Agent直接嵌入Windows 11任务栏和文件管理器
 - 📍 获取：Windows 11最新更新
-- 💰 定价：Windows内置
-- 💡 上手：无需离开桌面即可委托AI执行任务</p></div><div class="brief-item"><h4>Anthropic Claude插件系统</h4><p>Claude可直接在Excel、PowerPoint、Google Drive、Gmail等企业工具中执行多步骤操作
+- 💰 定价：Windows内置</p><div class="insight">无需离开桌面即可委托AI执行任务</div></div><div class="brief-item"><h4>Anthropic Claude插件系统</h4><p>Claude可直接在Excel、PowerPoint、Google Drive、Gmail等企业工具中执行多步骤操作
 - 📍 获取：claude.ai / Cowork模式
-- 💰 定价：含在订阅内
-- 💡 上手：连接工具后描述任务，Claude自主完成</p></div><div class="brief-item"><h4>OpenAI退役旧模型</h4><p>GPT-4o、GPT-4.1、GPT-4.1 mini、o4-mini从ChatGPT退役，GPT-5 Instant和Thinking也将退役
-- 📍 影响：用户自动迁移至GPT-5.2系列
-- 💡 意义：OpenAI加速模型迭代，淘汰速度显著加快</p></div><div class="brief-item"><h4>DeepSeek V4</h4><p>编码优化模型，测试显示在编码基准上可能超越Claude Sonnet和GPT-4o
+- 💰 定价：含在订阅内</p><div class="insight">连接工具后描述任务，Claude自主完成</div></div><div class="brief-item"><h4>OpenAI退役旧模型</h4><p>GPT-4o、GPT-4.1、GPT-4.1 mini、o4-mini从ChatGPT退役，GPT-5 Instant和Thinking也将退役
+- 📍 影响：用户自动迁移至GPT-5.2系列</p><div class="insight">OpenAI加速模型迭代，淘汰速度显著加快</div></div><div class="brief-item"><h4>DeepSeek V4</h4><p>编码优化模型，测试显示在编码基准上可能超越Claude Sonnet和GPT-4o
 - 📍 获取：尚未发布，预计近日
-- 💰 定价：预计延续低价策略
-- 💡 关注：CNBC已预警可能引发纳斯达克波动</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">> 来源：<a href="https://www.marketingprofs.com/opinions/2026/54358/ai-update-february-27-2026-ai-news-and-views-from-the-past-week">MarketingProfs</a>、<a href="https://www.cnbc.com/2026/02/23/deepseek-to-release-new-ai-model-a-rough-period-for-nasdaq-stocks-could-follow.html">CNBC</a></p></div>
+- 💰 定价：预计延续低价策略</p><div class="insight">CNBC已预警可能引发纳斯达克波动</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">> 来源：<a href="https://www.marketingprofs.com/opinions/2026/54358/ai-update-february-27-2026-ai-news-and-views-from-the-past-week">MarketingProfs</a>、<a href="https://www.cnbc.com/2026/02/23/deepseek-to-release-new-ai-model-a-rough-period-for-nasdaq-stocks-could-follow.html">CNBC</a></p></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p><strong>以色列与美国联合打击伊朗</strong>（2月28日）：代号"犹大之盾"(Operation Shield of Judah)，以色列国防部长Katz称为"先发制人打击，旨在消除对以色列国的威胁"。导弹击中德黑兰最高领袖住所附近区域，库姆、克尔曼沙赫、伊斯法罕、卡拉季也发生爆炸。美方称"这不是一次小规模打击"。以色列宣布全国紧急状态，关闭领空、学校和公共场所。伊朗随后发射弹道导弹反击，以色列全境响起防空警报。背景：2025年12月以来伊朗爆发自1979年革命以来最大规模反政权抗议。
 
 > 来源：<a href="https://npr.org/2026/02/28/nx-s1-5730158/israel-iran-strikes">NPR</a>、<a href="https://www.cbsnews.com/news/israel-launches-preemptive-strike-on-iran-israeli-military-says/">CBS News</a>、<a href="https://www.euronews.com/2026/02/28/israel-launches-attack-on-iran-defence-minister-says">Euronews</a>
@@ -317,7 +359,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *数据来源：CNBC、Bloomberg、TechCrunch、Washington Post、NPR、CBS News、Euronews、Al Jazeera、MarketingProfs 等。所有数据基于2月28日搜索结果，模型评分基于公开基准和搜索共识，仅供参考。*</p>
-<div class="footer">本简报由 AI 生成，不构成投资或法律建议</div>
+<div class="footer">数据来源：CNBC、Bloomberg、TechCrunch、Washington Post、NPR、CBS News、Euronews、Al Jazeera、MarketingProfs 等。所有数据基于2月28日搜索结果，模型评分基于公开基准和搜索共识，仅供参考。</div>
 </div>
 </body>
 </html>

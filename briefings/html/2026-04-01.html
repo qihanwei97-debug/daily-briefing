@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,18 +279,14 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>阿里Qwen团队发布Qwen3.5-Omni全模态模型，原生支持文本/音频/视频/实时交互，在215项音频和视听基准上达SOTA</strong>，直接对标Gemini 3.1 Pro。<strong>NASA Artemis II今日发射：4名宇航员将于美东时间18:24从肯尼迪航天中心升空</strong>，完成人类53年来首次载人绕月飞行，Victor Glover将成为首位飞越低地球轨道的有色人种宇航员。<strong>伊朗总统Pezeshkian致信欧洲理事会主席称伊朗具有"必要意愿"结束战争，但要求安全保障和赔偿</strong>，美股应声大涨——S&P 500涨2.5%，纳斯达克涨3.3%。<strong>美国汽油均价突破$4/加仑，为2022年以来首次</strong>，布伦特原油站上$112/桶，分析师警告若霍尔木兹海峡持续受阻油价可能冲击$200。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：阿里Qwen3.5-Omni——全模态AI模型的新标杆</h3><p>阿里Qwen团队于3月30日正式发布<strong>Qwen3.5-Omni</strong>，这是一款原生全模态（Omnimodal）大模型，采用独创的<strong>Thinker-Talker双模块架构</strong>，在单一计算管道中统一处理文本、图像、音频和视频输入，并能生成文本和自然语音输出。</p><p><strong>核心能力：</strong>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：阿里Qwen3.5-Omni——全模态AI模型的新标杆</h3><p>阿里Qwen团队于3月30日正式发布<strong>Qwen3.5-Omni</strong>，这是一款原生全模态（Omnimodal）大模型，采用独创的<strong>Thinker-Talker双模块架构</strong>，在单一计算管道中统一处理文本、图像、音频和视频输入，并能生成文本和自然语音输出。</p><p><strong>核心能力：</strong>
 - <strong>上下文窗口</strong>：256K tokens
 - <strong>音频处理</strong>：支持<strong>10+小时</strong>连续音频输入，<strong>113种语言/方言</strong>的语音识别，<strong>36种语言/方言</strong>的语音生成
 - <strong>视频理解</strong>：支持400+秒720p视频@1FPS
 - <strong>语音克隆</strong>：支持实时语音克隆和交互
 - <strong>突破性发现</strong>：模型自发学会了从<strong>语音指令和视频中编写代码</strong>——这一能力并未经过专门训练</p><p><strong>性能表现：</strong> 在<strong>215项</strong>音频及视听理解、推理和交互子任务上达到<strong>SOTA</strong>。在音频理解基准上超越Gemini 3.1 Pro（<a href="https://apidog.com/blog/qwen-3-5-omni/">Apidog</a>）。提供<strong>Plus、Flash、Light</strong>三个版本，覆盖不同算力需求。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://qwen.alibaba.com">Qwen API</a> / HuggingFace开源</li><li>💰 定价：API定价低于Gemini同级；开源可自部署</li><li>💡 上手：中文多模态场景首选——语音+视频+文本统一处理，国内延迟优势明显</li></ul><div class="sources">来源：<a href="https://www.marktechpost.com/2026/03/30/alibaba-qwen-team-releases-qwen3-5-omni-a-native-multimodal-model-for-text-audio-video-and-realtime-interaction/">MarkTechPost</a> | <a href="https://the-decoder.com/qwen3-5-omni-learned-to-write-code-from-spoken-instructions-and-video-without-anyone-training-it-to/">The Decoder</a> | <a href="https://decrypt.co/362742/alibaba-qwen-omni-major-upgrade-review">Decrypt</a> | <a href="https://gigazine.net/gsc_news/en/20260331-qwen3-5-omni">GIGAZINE</a></div><div class="sources">中文解读：<a href="https://zhuanlan.zhihu.com/p/670574382">知乎专栏 - 国内外知名大模型</a></div></div><div class="brief-item"><h4>DeepSeek V4即将发布：4月窗口确认，多模态+长期记忆突破</h4><p>（3月31日，<a href="https://dataconomy.com/2026/03/16/deepseek-v4-and-tencents-new-hunyuan-model-to-launch-in-april/">Dataconomy</a>）：据鲸鱼实验室报道，DeepSeek V4确认4月发布，同期腾讯新版混元模型也将亮相。V4将是<strong>多模态大模型</strong>，原生支持文本、图像和视频生成，并首创<strong>LTM（长期记忆）技术</strong>。此前3月9日"V4 Lite"变体曾短暂出现在DeepSeek官网。梁文锋和姚舜禹将在4月提交相关论文。
 - 📍 获取：预计4月中下旬上线
-- 💰 定价：预计延续低价策略
-- 💡 上手：关注LTM技术——这可能是Agent场景的关键突破</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://dataconomy.com/2026/03/16/deepseek-v4-and-tencents-new-hunyuan-model-to-launch-in-april/">Dataconomy</a> | <a href="https://eu.36kr.com/en/p/3723883117376256">36Kr</a> | <a href="https://www.nxcode.io/resources/news/deepseek-v4-release-specs-benchmarks-2026">NxCode</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：<a href="https://www.sina.cn/news/detail/5276330975303638.html">新浪新闻 - DeepSeek-V4预计2026年发布</a></p></div><div class="brief-item"><h4>跟进：Model Context Protocol（MCP）3月安装量破9,700万次</h4><p>（3月31日，<a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything">Digital Applied</a>）：MCP正从实验性标准过渡为<strong>Agentic基础设施的基石</strong>，标志着AI Agent生态标准化进入实质阶段。
-- 💡 上手：构建AI Agent优先采用MCP协议——生态支持已达临界规模</p></div><div class="brief-item"><h4>礼来LillyPod超算启用：1,016块Blackwell Ultra GPU的制药AI超算</h4><p>（3月31日，<a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything">Digital Applied</a>）：礼来制药启用<strong>LillyPod</strong>，基于NVIDIA DGX SuperPOD构建，配备<strong>1,016块Blackwell Ultra GPU</strong>，成为制药行业最强AI超算，用于药物发现和分子模拟。
-- 💡 上手：AI制药从"辅助筛选"进入"全流程加速"——大算力是核心壁垒</p></div><div class="brief-item"><h4>跟进：伊朗IRGC警告4月1日20:00起实施报复</h4><p>（4月1日，<a href="https://www.cnn.com/2026/03/31/world/live-news/iran-war-us-trump-oil">CNN</a>）：伊朗革命卫队威胁从德黑兰时间4月1日20:00起，对参与暗杀行动的相关方实施"毁灭性报复"。与Pezeshkian的和谈信号形成矛盾——伊朗内部鹰鸽分歧明显。
-- 💡 上手：革命卫队和总统府的矛盾信号是判断战局走向的关键</p></div>
+- 💰 定价：预计延续低价策略</p><div class="insight">关注LTM技术——这可能是Agent场景的关键突破</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://dataconomy.com/2026/03/16/deepseek-v4-and-tencents-new-hunyuan-model-to-launch-in-april/">Dataconomy</a> | <a href="https://eu.36kr.com/en/p/3723883117376256">36Kr</a> | <a href="https://www.nxcode.io/resources/news/deepseek-v4-release-specs-benchmarks-2026">NxCode</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：<a href="https://www.sina.cn/news/detail/5276330975303638.html">新浪新闻 - DeepSeek-V4预计2026年发布</a></p></div><div class="brief-item"><h4>跟进：Model Context Protocol（MCP）3月安装量破9,700万次</h4><p>（3月31日，<a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything">Digital Applied</a>）：MCP正从实验性标准过渡为<strong>Agentic基础设施的基石</strong>，标志着AI Agent生态标准化进入实质阶段。</p><div class="insight">构建AI Agent优先采用MCP协议——生态支持已达临界规模</div></div><div class="brief-item"><h4>礼来LillyPod超算启用：1,016块Blackwell Ultra GPU的制药AI超算</h4><p>（3月31日，<a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything">Digital Applied</a>）：礼来制药启用<strong>LillyPod</strong>，基于NVIDIA DGX SuperPOD构建，配备<strong>1,016块Blackwell Ultra GPU</strong>，成为制药行业最强AI超算，用于药物发现和分子模拟。</p><div class="insight">AI制药从"辅助筛选"进入"全流程加速"——大算力是核心壁垒</div></div><div class="brief-item"><h4>跟进：伊朗IRGC警告4月1日20:00起实施报复</h4><p>（4月1日，<a href="https://www.cnn.com/2026/03/31/world/live-news/iran-war-us-trump-oil">CNN</a>）：伊朗革命卫队威胁从德黑兰时间4月1日20:00起，对参与暗杀行动的相关方实施"毁灭性报复"。与Pezeshkian的和谈信号形成矛盾——伊朗内部鹰鸽分歧明显。</p><div class="insight">革命卫队和总统府的矛盾信号是判断战局走向的关键</div></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第33天：和平信号与报复威胁并存，美股暴涨
 
 <strong>4月1日增量（接续第31天报道）：</strong>
@@ -325,7 +367,7 @@ EU AI Act在1月全面生效后，已向部分AI系统部署方发出<strong>首
 ---
 
 *数据来源：MarkTechPost、The Decoder、Decrypt、Dataconomy、NASA、CNN、CNBC、NPR、Bloomberg、Euronews、RFE/RL、Seeking Alpha、CBS News等 | 所有数据基于2026年4月1日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
-<div class="footer">，要求使用AI做重要决策的公司定期发布偏见审计报告。三个州级AI透明法也已通过。(<a href="https://www.digitalapplied.com/blog/march-2026-ai-roundup-month-that-changed-everything">Digital Applied</a>)  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> 阿里Qwen <br> Qwen3.5-Omni <br> 全模态模型，215项SOTA，113语言语音识别 <br> ✅全量 <br> Qwen API / HuggingFace <br> 3月30日 <br> <br> DeepSeek <br> V4（预告） <br> 多模态+LTM长期记忆突破，4月发布 <br> ⏳4月 <br> — <br> 预告 <br> <br> 腾讯 <br> 混元新模型（预告） <br> 4月与DeepSeek V4同期发布 <br> ⏳4月 <br> — <br> 预告 <br> <br> 礼来 <br> LillyPod超算 <br> 1,016块Blackwell Ultra GPU制药超算 <br> 🔧内部 <br> — <br> 3月31日 <br> <br> MCP生态 <br> 9,700万安装量 <br> Agent基础设施标准化里程碑 <br> ✅全量 <br> 各MCP客户端 <br> 3月统计 <br> <br> NASA <br> Artemis II <br> 53年来首次载人绕月，今日18:24 ET发射 <br> — <br> NASA+ 直播 <br> 4月1日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月-4月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> MiMo-V2-Pro (小米) <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>----------------------<br> <br> </div>
+<div class="footer">数据来源：MarkTechPost、The Decoder、Decrypt、Dataconomy、NASA、CNN、CNBC、NPR、Bloomberg、Euronews、RFE/RL、Seeking Alpha、CBS News等 <br> 所有数据基于2026年4月1日搜索结果 <br> 本简报由AI生成，不构成投资建议</div>
 </div>
 </body>
 </html>

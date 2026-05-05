@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -235,7 +281,7 @@ a:hover { text-decoration: underline; }
 <strong>OpenAI完成史上最大私募融资——以$7300亿估值融资$1100亿</strong>，由Amazon（$500亿）、NVIDIA（$300亿）、SoftBank（$300亿）联合领投，同步宣布扩大与AWS的战略合作（未来8年追加$1000亿算力采购）。<strong>DeepSeek V4本周内将正式发布</strong>，这是一个万亿参数多模态模型，优化适配华为昇腾芯片，被视为中国在芯片制裁压力下的战略突破。<strong>Anthropic公开指控DeepSeek、Moonshot AI、MiniMax通过24,000个虚假账号、累计1600万次对话对Claude实施"工业级蒸馏攻击"</strong>，将此定性为国家安全威胁。<strong>Block（Square母公司）宣布裁员40%（约4,000人），CEO Jack Dorsey明确将裁员归因于AI替代</strong>，并预测"大多数公司将在未来一年内做出同样决定"。<strong>MWC 2026于巴塞罗那落幕</strong>，AI成为核心主题：Samsung Galaxy S26推出Agent AI体验，Google Android XR智能眼镜现场演示实时翻译，Qualcomm发布Snapdragon Wear Elite芯片。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条一：OpenAI完成$1100亿融资，估值$7300亿</h3><p><strong>来源：</strong> <a href="https://techcrunch.com/2026/02/27/openai-raises-110b-in-one-of-the-largest-private-funding-rounds-in-history/">TechCrunch</a> | <a href="https://www.bloomberg.com/news/articles/2026-02-27/openai-finalizes-110-billion-funding-at-730-billion-valuation">Bloomberg</a> | <a href="https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html">CNBC</a></p><p><strong>融资结构：</strong>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条一：OpenAI完成$1100亿融资，估值$7300亿</h3><p><strong>来源：</strong> <a href="https://techcrunch.com/2026/02/27/openai-raises-110b-in-one-of-the-largest-private-funding-rounds-in-history/">TechCrunch</a> | <a href="https://www.bloomberg.com/news/articles/2026-02-27/openai-finalizes-110-billion-funding-at-730-billion-valuation">Bloomberg</a> | <a href="https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html">CNBC</a></p><p><strong>融资结构：</strong>
 - Amazon：初始承诺$150亿，条件成就后追加$350亿，合计$500亿
 - NVIDIA：$300亿
 - SoftBank：$300亿
@@ -325,7 +371,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *简报生成时间：2026年03月05日 | 数据截止：本日搜索 | 制作：Claude AI 每日晨报系统*</p>
-<div class="footer"> - Brent原油单日最高涨幅13%，一度突破$82/桶 - 中东七大机场取消航班超过12,300架次（2月28日至3月3日） - 霍尔木兹海峡航运受阻，约20%全球石油与LNG过境该地区  来源：<a href="https://www.euronews.com/2026/03/04/us-and-israeli-strikes-on-iran-disrupt-regional-and-international-flights">Euronews</a> <br> <a href="https://www.aljazeera.com/news/2026/2/28/world-reacts-to-us-israel-attack-on-iran-tehran-retaliation">Al Jazeera</a> <br> <a href="https://www.weforum.org/stories/2026/03/us-trade-deficit-international-trade-stories-march-2026/">World Economic Forum</a>  ---  ### 🌍 二、MWC 2026落幕：AI成为移动通信主旋律  巴塞罗那MWC 2026（3月2–5日）以"智商时代（The IQ Era）"为主题，AI渗透全场。Samsung展示Galaxy S26的Agent AI，Google带来可实时翻译并将字幕浮现于镜片的Android XR原型眼镜，Nokia与Deutsche Telekom宣布AI原生网络战略合作，推进Open RAN智能化。Qualcomm发布Snapdragon Wear Elite芯片，主攻AI吊坠、徽章及无屏幕智能眼镜等新品类。  来源：<a href="https://www.techloy.com/ai-was-everywhere-at-mwc-2026-here-are-the-biggest-announcements/">Techloy</a>  ---  ### 🌍 三、AI就业冲击引发全球政策讨论  随着Block宣布裁员，CNN等媒体发布专题调查，援引劳工数据表明AI尚未引发系统性失业潮，但"AI就业末日论"的讨论已进入主流政策议程。美国多个州开始起草AI劳动力保护法案，欧盟要求技术公司提交"AI就业影响评估"。  来源：<a href="https://edition.cnn.com/2026/03/02/business/ai-tech-jobs-layoffs">CNN Business</a>  ---  ## ④ AI产品速览表  <br> 产品 <br> 公司 <br> 类型 <br> 最新版本 <br> 定价（输入/输出，$/M tokens） <br> 上下文窗口 <br> 本周动态 <br> <br>------<br>------<br>------<br>----------<br>------------------------------<br>-----------<br>---------<br> <br> ChatGPT / GPT-5.2 <br> OpenAI <br> 通用对话+API <br> GPT-5.2 / GPT-5.3-Codex <br> $10 / $30（5.2）；$8 / $25（5.3-Codex） <br> 400K <br> 完成$1100亿融资 <br> <br> Claude Opus 4.6 <br> Anthropic <br> 通用旗舰 <br> Claude Opus 4.6（2月5日） <br> $15 / $75 <br> 200K <br> 公开指控中国蒸馏攻击 <br> <br> Claude Sonnet 4.6 <br> Anthropic <br> 中端平衡 <br> Claude Sonnet 4.6（2月17日） <br> $3 / $15 <br> 200K <br> GDPval-AA Elo 1633分领先 <br> <br> Gemini 3.1 Pro <br> Google DeepMind <br> 多模态旗舰 <br> Gemini 3.1 Pro（2月19日） <br> $2 / $12 <br> 1M <br> ARC-AGI-2得分77.1% <br> <br> DeepSeek V3.2 / V4 <br> DeepSeek <br> 开源旗舰 <br> V4（本周发布中） <br> $0.10–$0.30（预计） <br> 1M（预计） <br> 万亿参数多模态，适配昇腾 <br> <br> Qwen3.5 <br> Alibaba <br> 中文优化 <br> Qwen3.5（2月16日） <br> 待定 <br> 128K+ <br> 支持3D游戏生成、医疗影像 <br> <br> Doubao 2.0 <br> ByteDance <br> 消费+API <br> Doubao 2.0（2月上旬） <br> 免费（消费端） <br> 未披露 <br> 推理能力对齐GPT水平 <br> <br> GLM-5 <br> 智谱AI <br> 开源大模型 <br> GLM-5（7440亿MoE） <br> 开源免费 <br> 200K <br> MIT许可证，昇腾训练 <br> <br> Grok 3 <br> xAI <br> 通用+推理 <br> Grok 3 <br> X Premium（$22/月） <br> 128K <br> 无重大更新 <br>  ---  ## ⑤ 旗舰+中端模型横向对比表  > 数据来源：<a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> <br> <a href="https://www.shakudo.io/blog/top-9-large-language-models">Shakudo</a>（2026年2月-3月）  <br> 维度 <br> GPT-5.2 (OpenAI) <br> Claude Sonnet 4.6 (Anthropic) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V3.2 <br> <br>------<br>-----------------<br>-------------------------------<br>---------------------------<br>------------------------<br>---------------<br> <br> </div>
+<div class="footer">本简报由 AI 生成，不构成投资或法律建议</div>
 </div>
 </body>
 </html>

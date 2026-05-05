@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,7 +279,7 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>DeepSeek V4确认仅运行于华为昇腾Ascend 950PR芯片——首个无需NVIDIA的前沿AI模型</strong>，DeepSeek拒绝向Nvidia和AMD提供早期访问权限，把数周优化窗口交给国产芯片商；<strong>Nvidia CEO黄仁勋警告"对美国是糟糕的结果"</strong>，预计4月底前发布。<strong>智元机器人2026合作伙伴大会今日在上海召开</strong>——2,500位来自34国合作伙伴齐聚，发布4款本体新品+4个AI大模型+7套行业解决方案，邓泰华与"稚晖君"彭志辉联袂演讲，标志国产具身智能从"亮相秀肌肉"转向"实战交付"。<strong>马克龙与斯塔默今日在巴黎主持视频峰会</strong>——召集约40国讨论霍尔木兹海峡"防御性多边任务"和对伊朗金融制裁；<strong>特朗普被欧洲排除在外</strong>，称伊战"非常接近结束"。<strong>欧盟代表团今日抵布达佩斯</strong>，启动€900亿对乌贷款工作——Magyar承诺撤回否决权但匈牙利不出资。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：DeepSeek V4独家运行华为芯片"去CUDA化"——Nvidia CEO称对美国是糟糕结果</h3><p>继昨日报道"4月下半月发布"后，今日Reuters和Dataconomy带来重大增量信息：DeepSeek V4将<strong>完全运行于华为Ascend 950PR芯片</strong>，<strong>全球首个不依赖NVIDIA硬件的前沿AI模型</strong>即将诞生。</p><p><strong>关键事实（4月16日 Dataconomy/Reuters增量）：</strong>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：DeepSeek V4独家运行华为芯片"去CUDA化"——Nvidia CEO称对美国是糟糕结果</h3><p>继昨日报道"4月下半月发布"后，今日Reuters和Dataconomy带来重大增量信息：DeepSeek V4将<strong>完全运行于华为Ascend 950PR芯片</strong>，<strong>全球首个不依赖NVIDIA硬件的前沿AI模型</strong>即将诞生。</p><p><strong>关键事实（4月16日 Dataconomy/Reuters增量）：</strong>
 - <strong>独家硬件适配</strong>：V4训练和推理<strong>全程使用华为Ascend 950PR</strong>，无NVIDIA GPU参与
 - <strong>拒绝Nvidia/AMD早期访问</strong>：DeepSeek<strong>仅向中国芯片厂商</strong>（华为、寒武纪等）开放V4预览版本，让国产芯片有数周时间针对模型优化——美国厂商出局
 - <strong>规格再确认</strong>：1万亿参数（MoE架构）、100万Token上下文、原生多模态、API定价约<strong>$0.27/M Token</strong>——比Anthropic Opus便宜约40倍
@@ -254,11 +300,7 @@ a:hover { text-decoration: underline; }
 - 4月14日21经济报道：智元人形机器人已实现"进厂打工8小时"直播，显示进入真实工业场景的能力。
 - 公司2025年累计下线<strong>1,000台</strong>人形机器人，2026年瞄准万台量产。</div><p><strong>主题演讲方向：</strong> 邓泰华与彭志辉将围绕"具身智能如何在现实物理世界更快更好发挥<strong>生产力效能</strong>"展开——关键词从"通用智能"转向"生产力"。</p><div class="sources">来源：<a href="https://finance.sina.com.cn/tech/digi/2026-04-13/doc-inhufuxw6413787.shtml">新浪科技</a> | <a href="https://www.citnews.com.cn/news/216071">中文科技资讯</a> | <a href="https://www.chinaz.com/ainews/27049.shtml">Chinaz</a> | <a href="https://www.nbd.com.cn/articles/2026-04-12/4335662.html">每经网</a> | <a href="https://www.21jingji.com/article/20260415/herald/47517f6711d8f546af107ecc376443b9.html">21经济网（进厂打工实测）</a> | <a href="https://www.agibot.com.cn/article/188/detail/96.html">智元官网</a></div></div><div class="brief-item"><h4>Anthropic营收暴涨：年化收入(ARR)突破$300亿，半年增长3.3倍</h4><p>（4月，<a href="https://www.anthropic.com/news/google-broadcom-partnership-compute">Anthropic</a>）：Claude需求加速增长——Anthropic ARR已突破<strong>$300亿</strong>，对比2025年底的约$90亿，<strong>半年内增长3.3倍</strong>。同时宣布扩展与Google和Broadcom的合作，新增多个吉瓦级新一代算力。
 - 📍 获取：claude.ai 仍可正常使用，企业API容量持续扩张
-- 💰 定价：Pro $20/月、Max $100-200/月、API $3/$15起（Sonnet）
-- 💡 上手：API用户感受不到容量紧张了——但价格短期内不会降</p></div><div class="brief-item"><h4>GPT-6/Spud：4月14日传闻彻底破产，Polymarket仍押4月底前78%</h4><p>（4月17日，<a href="https://findskill.ai/blog/gpt-6-release-date/">FindSkill</a>）：跟进——昨日已是传闻的4月14日发布日，<strong>OpenAI官方依然零动静</strong>：无博客、无产品页、无model card、无API公告。Sam Altman 3月24日称"几周内发布"已过去24天。预训练3月24日完成，按OpenAI过往3-6周节奏，最现实的窗口已收窄至<strong>4月下旬-5月初</strong>。
-- 💡 上手：继续等待——OpenAI官方推特/blog为唯一可靠信号</p></div><div class="brief-item"><h4>Stanford研究：科学家在复杂任务上仍轻松击败最强AI Agents</h4><p>（4月，<a href="https://www.nature.com/articles/d41586-026-01199-z">Nature</a>）：Nature新研究指出——尽管AI在benchmark上接近人类，但<strong>真实科学工作流中，人类科学家仍轻松碾压最强AI Agents</strong>。Stanford AI Index 2026也对"AI能否自主完成科学研究"持保留态度。Agent的"可演示能力"与"实际生产力"鸿沟仍然存在。
-- 💡 上手：科研人员可放心：Agent仍是助手而非替代</p></div><div class="brief-item"><h4>研究突破：新架构可将AI能耗降低100倍</h4><p>（4月，<a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/">ScienceDaily</a>）：研究人员公布一种<strong>全新架构</strong>，可将AI推理能耗降低<strong>最多100倍</strong>。如果可大规模工程化，将根本性解决"AI耗电吃地球"难题（参考：训练单模型≈16,000次SF-NY往返航班）。论文细节仍在公开过程中。
-- 💡 上手：暂未产品化，但2026年可能改变芯片和能源板块投资逻辑</p></div>
+- 💰 定价：Pro $20/月、Max $100-200/月、API $3/$15起（Sonnet）</p><div class="insight">API用户感受不到容量紧张了——但价格短期内不会降</div></div><div class="brief-item"><h4>GPT-6/Spud：4月14日传闻彻底破产，Polymarket仍押4月底前78%</h4><p>（4月17日，<a href="https://findskill.ai/blog/gpt-6-release-date/">FindSkill</a>）：跟进——昨日已是传闻的4月14日发布日，<strong>OpenAI官方依然零动静</strong>：无博客、无产品页、无model card、无API公告。Sam Altman 3月24日称"几周内发布"已过去24天。预训练3月24日完成，按OpenAI过往3-6周节奏，最现实的窗口已收窄至<strong>4月下旬-5月初</strong>。</p><div class="insight">继续等待——OpenAI官方推特/blog为唯一可靠信号</div></div><div class="brief-item"><h4>Stanford研究：科学家在复杂任务上仍轻松击败最强AI Agents</h4><p>（4月，<a href="https://www.nature.com/articles/d41586-026-01199-z">Nature</a>）：Nature新研究指出——尽管AI在benchmark上接近人类，但<strong>真实科学工作流中，人类科学家仍轻松碾压最强AI Agents</strong>。Stanford AI Index 2026也对"AI能否自主完成科学研究"持保留态度。Agent的"可演示能力"与"实际生产力"鸿沟仍然存在。</p><div class="insight">科研人员可放心：Agent仍是助手而非替代</div></div><div class="brief-item"><h4>研究突破：新架构可将AI能耗降低100倍</h4><p>（4月，<a href="https://www.sciencedaily.com/news/computers_math/artificial_intelligence/">ScienceDaily</a>）：研究人员公布一种<strong>全新架构</strong>，可将AI推理能耗降低<strong>最多100倍</strong>。如果可大规模工程化，将根本性解决"AI耗电吃地球"难题（参考：训练单模型≈16,000次SF-NY往返航班）。论文细节仍在公开过程中。</p><div class="insight">暂未产品化，但2026年可能改变芯片和能源板块投资逻辑</div></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、霍尔木兹封锁Day 4——欧洲今日召集40国会议，特朗普被排除在外
 
 <strong>4月17日今日峰会（Macron + Starmer 主持）：</strong>
@@ -356,7 +398,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *数据来源：Dataconomy、TechBriefly、PC Gamer、Huawei Central、Asia Financial、新浪科技、中文科技资讯、Chinaz、每经网、21经济网、Anthropic、FindSkill、Nature、ScienceDaily、Bloomberg、CNBC、Times of Israel、Al-Monitor、The Tribune、NBC News、Pravda EU、Al Jazeera、CNN、Atlantic Council等 | 所有数据基于2026年4月17日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
-<div class="footer">获得喘息——可能改变战场补给节奏。同时验证了Magyar"建设性成员"承诺的真实性。  来源：<a href="https://eu.news-pravda.com/world/2026/04/16/187091.html">Pravda EU</a> <br> <a href="https://www.aljazeera.com/news/2026/4/13/hungary-election">Al Jazeera（Magyar专访）</a> <br> <a href="https://www.cnn.com/2026/04/14/europe/orban-hungary-trump-putin-magyar-intl">CNN</a> <br> <a href="https://www.atlanticcouncil.org/blogs/ukrainealert/orbans-hungarian-election-defeat-good-for-ukraine-bad-for-russia/">Atlantic Council</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> DeepSeek <br> V4（华为芯片版） <br> 1T参数+1M上下文+独家Ascend，Nvidia/AMD出局 <br> ⏳即将发布 <br> 4月下旬 <br> 4月16日确认 <br> <br> 智元机器人 <br> 4本体+4大模型+7方案 <br> 2,500合作伙伴大会今日上海召开 <br> ⏳今日发布 <br> agibot.com.cn <br> 4月17日 <br> <br> Anthropic <br> ARR突破$300亿 <br> 半年增长3.3倍，扩展Google+Broadcom算力 <br> ✅运营中 <br> claude.ai <br> 4月 <br> <br> OpenAI <br> GPT-6/Spud <br> 4月14日传闻破产，仍零动静 <br> ⏳评估中 <br> — <br> 预计4月下旬-5月 <br> <br> Nature研究 <br> 人类vs AI Agent <br> 真实科学任务人类仍碾压AI <br> ✅论文 <br> nature.com <br> 4月 <br> <br> 研究突破 <br> AI能耗-100x架构 <br> 全新架构推理能耗降百倍 <br> ⏳论文 <br> sciencedaily <br> 4月 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford AI Index</a> <br> <a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> <br> <a href="https://artificialanalysis.ai">Artificial Analysis</a> <br> <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）  <br> 维度 <br> Gemini 3.1 Pro (Google) <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Qwen3.6-Plus (阿里) <br> Muse Spark (Meta) <br> <br>------<br>--------------------------<br>------------------<br>---------------------------<br>----------------------<br>-------------------<br> <br> </div>
+<div class="footer">数据来源：Dataconomy、TechBriefly、PC Gamer、Huawei Central、Asia Financial、新浪科技、中文科技资讯、Chinaz、每经网、21经济网、Anthropic、FindSkill、Nature、ScienceDaily、Bloomberg、CNBC、Times of Israel、Al-Monitor、The Tribune、NBC News、Pravda EU、Al Jazeera、CNN、Atlantic Council等 <br> 所有数据基于2026年4月17日搜索结果 <br> 本简报由AI生成，不构成投资建议</div>
 </div>
 </body>
 </html>

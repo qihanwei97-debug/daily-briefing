@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,20 +279,15 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Mistral在Nvidia GTC发布Forge企业AI定制平台+Mistral Small 4——支持企业用自有数据从头训练模型，已签约Ericsson、欧洲航天局等客户</strong>，ARR年内有望突破$10亿。<strong>Nvidia IGX Thor工业级边缘AI平台正式GA——强生、卡特彼勒、Planet Labs等首批采用</strong>，实时物理AI从概念进入生产部署。<strong>伊朗战争第19天重大升级：以色列连杀3名高官（含情报部长Khatib），美以空袭全球最大气田South Pars，伊朗报复性导弹击中卡塔尔Ras Laffan能源枢纽</strong>，油价急涨，战争向能源基础设施全面扩展。<strong>Meta考虑裁员20%（约15,000人）以抵消AI基建支出$1150-1350亿</strong>，为2022年以来最大规模重组。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Mistral Forge——欧洲AI独角兽的企业级"造模工厂"在GTC亮相</h3><p>3月17日，法国AI公司Mistral在Nvidia GTC上正式发布<strong>Forge</strong>平台，定位为企业AI定制化的全栈解决方案。与传统的微调（fine-tuning）或RAG不同，Forge允许企业使用自有私有数据<strong>从基座模型重新训练</strong>，实现更深层次的定制——尤其在非英语语言、高度专业领域和需要强化学习的Agent系统上效果显著优于微调。</p><p><strong>核心能力：</strong>
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：Mistral Forge——欧洲AI独角兽的企业级"造模工厂"在GTC亮相</h3><p>3月17日，法国AI公司Mistral在Nvidia GTC上正式发布<strong>Forge</strong>平台，定位为企业AI定制化的全栈解决方案。与传统的微调（fine-tuning）或RAG不同，Forge允许企业使用自有私有数据<strong>从基座模型重新训练</strong>，实现更深层次的定制——尤其在非英语语言、高度专业领域和需要强化学习的Agent系统上效果显著优于微调。</p><p><strong>核心能力：</strong>
 - 基于Mistral开源模型库（包括新发布的<strong>Mistral Small 4</strong>）进行全面定制
 - 配备"前线部署工程师"（Forward-Deployed Engineers）团队，嵌入客户现场
 - 支持企业和政府客户，数据不出客户环境</p><p><strong>首批客户：</strong> Ericsson（电信）、欧洲航天局ESA（卫星数据）、意大利Reply（咨询）、新加坡DSO和HTX（国防/安全）。</p><div class="callout"><strong>为什么重要：</strong> TechCrunch指出，Mistral正走出一条与OpenAI和Anthropic截然不同的路线——不卖通用API，而是帮企业"造自己的模型"。CEO Arthur Mensch表示Mistral年ARR有望今年突破<strong>$10亿</strong>。这对欧洲企业客户尤其有吸引力——数据合规（GDPR）和语言多样性是刚需。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：联系Mistral商务团队申请Forge访问</li><li>💰 定价：企业定制，价格未公开</li><li>💡 上手：非英语市场+高合规要求的企业场景首选方案</li></ul><div class="sources">来源：<a href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/">TechCrunch</a> | <a href="https://venturebeat.com/infrastructure/mistral-ai-launches-forge-to-help-companies-build-proprietary-ai-models/">VentureBeat</a> | <a href="https://dataconomy.com/2026/03/18/mistral-launches-forge-platform-to-help-enterprises-build-cu/">Dataconomy</a> | <a href="https://www.eweek.com/news/mistral-forge-custom-enterprise-ai-models/">eWeek</a></div><div class="sources">中文解读：<a href="https://news.aibase.com/news/26320">AI Base中文报道</a></div></div><div class="brief-item"><h4>Nvidia IGX Thor正式GA——工业级边缘AI进入生产部署</h4><p>（3月18日，<a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia</a>）：IGX Thor是Nvidia面向工业场景的边缘AI平台，支持实时高速传感器处理、企业级可靠性和功能安全（functional safety）。首批采用方：<strong>强生</strong>（Polyphonic数字手术平台，手术室实时AI推理）、<strong>卡特彼勒</strong>（驾驶舱对话AI助手）、<strong>Hitachi Rail</strong>（预测性维护+自主巡检）、<strong>Planet Labs</strong>（在轨卫星数据AI处理）、<strong>Agility/Hexagon Robotics</strong>（人形机器人多模态传感融合）。
 - 📍 获取：IGX Thor开发套件已通过全球分销商发售 | <a href="https://www.nvidia.com/en-us/edge-computing/igx/">Nvidia IGX</a>
-- 💰 定价：开发套件可购买，嵌入式模块和高性能工作站版本稍后推出
-- 💡 上手：工业AI+功能安全场景的硬件基座，医疗/制造/机器人优先关注</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia Blog</a> | <a href="https://www.techrepublic.com/article/news-nvidia-gtc-2026-live-updates/">TechRepublic</a></p></div><div class="brief-item"><h4>Nvidia NemoClaw——OpenClaw社区的官方Agent框架</h4><p>（3月18日，<a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia Newsroom</a>）：Nvidia在GTC发布NemoClaw，将Nemo生态与OpenClaw开源Agent社区打通，提供Agent构建、安全治理和部署的标准化框架。ServiceNow同步宣布基于NemoClaw的"自治劳动力治理"方案。
+- 💰 定价：开发套件可购买，嵌入式模块和高性能工作站版本稍后推出</p><div class="insight">工业AI+功能安全场景的硬件基座，医疗/制造/机器人优先关注</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia Blog</a> | <a href="https://www.techrepublic.com/article/news-nvidia-gtc-2026-live-updates/">TechRepublic</a></p></div><div class="brief-item"><h4>Nvidia NemoClaw——OpenClaw社区的官方Agent框架</h4><p>（3月18日，<a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia Newsroom</a>）：Nvidia在GTC发布NemoClaw，将Nemo生态与OpenClaw开源Agent社区打通，提供Agent构建、安全治理和部署的标准化框架。ServiceNow同步宣布基于NemoClaw的"自治劳动力治理"方案。
 - 📍 获取：<a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia NemoClaw</a>
-- 💰 定价：开源/开放
-- 💡 上手：Agent开发者关注——OpenClaw+NemoClaw构成完整Agent开发栈</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia Newsroom</a> | <a href="https://newsroom.servicenow.com/press-releases/details/2026/NVIDIA-GTC-2026-Governing-the-Autonomous-Workforce/default.aspx">ServiceNow</a></p></div><div class="brief-item"><h4>Meta考虑裁员20%以抵消AI支出</h4><p>（3月14-16日，<a href="https://www.cnbc.com/2026/03/16/meta-ai-costs-mass-layoffs-20percent-up-premarket.html">CNBC</a>）：据Reuters和Fox Business报道，Meta正考虑裁减最多20%员工（约15,000人），以抵消2026年AI基建资本开支<strong>$1150-1350亿</strong>——几乎是2025年的两倍。裁员时间和规模未最终确定，Meta称报道"具有推测性"。消息公布后META股价反而上涨近3%。如果实施，将是Meta自2022-2023年以来最大规模重组。
-- 💡 上手：AI行业"以裁养AI"趋势加速——Atlassian（1,600人/10%）、Block此前已行动</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/14/meta-planning-sweeping-layoffs-as-ai-costs-mount-reuters.html">CNBC</a> | <a href="https://www.foxbusiness.com/technology/meta-eyes-massive-20-workforce-cut-ai-infrastructure-costs-continue-soar-across-operations-report">Fox Business</a> | <a href="https://www.ibtimes.com/meta-faces-potential-20-layoffs-ai-spending-tops-135-billion-2026-3799498">IBTimes</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>Atlassian裁员1,600人（10%），CTO换帅，全力押注AI</h4><p>（3月11日，<a href="https://www.atlassian.com/blog/announcements/atlassian-team-update-march-2026">Atlassian</a>）：Atlassian CEO Mike Cannon-Brookes宣布裁减1,600人，其中<strong>900+来自研发部门</strong>。北美占40%（~640人）、澳洲30%（~480人）、印度16%（~250人）。CTO Rajeev Rajan 3月31日卸任，职责由AI产品负责人Taroon Mandhana和首席信任官Vikram Rao分担。重组费用$2.25-2.36亿。
-- 💡 上手：企业软件公司AI转型的典型路径——砍传统研发、扩AI团队</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://techcrunch.com/2026/03/12/atlassian-follows-blocks-footsteps-and-cuts-staff-in-the-name-of-ai/">TechCrunch</a> | <a href="https://www.computerworld.com/article/4144218/atlassian-cuts-1600-jobs-to-fund-ai-and-enterprise-expansion.html">Computerworld</a> | <a href="https://thenextweb.com/news/atlassian-is-cutting-1600-jobs-and-replacing-its-cto">The Next Web</a></p></div><div class="brief-item"><h4>ROC（Rank One Computing）登陆纳斯达克</h4><p>（3月19日，<a href="https://www.globenewswire.com/news-release/2026/03/18/3258080/0/en/ROC-to-Ring-the-Nasdaq-Closing-Bell-on-March-19-2026-in-Celebration-of-its-Public-Listing.html">GlobeNewsWire</a>）：面部识别和计算机视觉AI公司ROC在纳斯达克敲钟上市（Nasdaq: ROC），专注政府和企业级身份认证AI。
-- 📍 获取：Nasdaq: ROC
-- 💡 上手：AI计算机视觉细分赛道的上市风向标</p></div>
+- 💰 定价：开源/开放</p><div class="insight">Agent开发者关注——OpenClaw+NemoClaw构成完整Agent开发栈</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia Newsroom</a> | <a href="https://newsroom.servicenow.com/press-releases/details/2026/NVIDIA-GTC-2026-Governing-the-Autonomous-Workforce/default.aspx">ServiceNow</a></p></div><div class="brief-item"><h4>Meta考虑裁员20%以抵消AI支出</h4><p>（3月14-16日，<a href="https://www.cnbc.com/2026/03/16/meta-ai-costs-mass-layoffs-20percent-up-premarket.html">CNBC</a>）：据Reuters和Fox Business报道，Meta正考虑裁减最多20%员工（约15,000人），以抵消2026年AI基建资本开支<strong>$1150-1350亿</strong>——几乎是2025年的两倍。裁员时间和规模未最终确定，Meta称报道"具有推测性"。消息公布后META股价反而上涨近3%。如果实施，将是Meta自2022-2023年以来最大规模重组。</p><div class="insight">AI行业"以裁养AI"趋势加速——Atlassian（1,600人/10%）、Block此前已行动</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/14/meta-planning-sweeping-layoffs-as-ai-costs-mount-reuters.html">CNBC</a> | <a href="https://www.foxbusiness.com/technology/meta-eyes-massive-20-workforce-cut-ai-infrastructure-costs-continue-soar-across-operations-report">Fox Business</a> | <a href="https://www.ibtimes.com/meta-faces-potential-20-layoffs-ai-spending-tops-135-billion-2026-3799498">IBTimes</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>Atlassian裁员1,600人（10%），CTO换帅，全力押注AI</h4><p>（3月11日，<a href="https://www.atlassian.com/blog/announcements/atlassian-team-update-march-2026">Atlassian</a>）：Atlassian CEO Mike Cannon-Brookes宣布裁减1,600人，其中<strong>900+来自研发部门</strong>。北美占40%（~640人）、澳洲30%（~480人）、印度16%（~250人）。CTO Rajeev Rajan 3月31日卸任，职责由AI产品负责人Taroon Mandhana和首席信任官Vikram Rao分担。重组费用$2.25-2.36亿。</p><div class="insight">企业软件公司AI转型的典型路径——砍传统研发、扩AI团队</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://techcrunch.com/2026/03/12/atlassian-follows-blocks-footsteps-and-cuts-staff-in-the-name-of-ai/">TechCrunch</a> | <a href="https://www.computerworld.com/article/4144218/atlassian-cuts-1600-jobs-to-fund-ai-and-enterprise-expansion.html">Computerworld</a> | <a href="https://thenextweb.com/news/atlassian-is-cutting-1600-jobs-and-replacing-its-cto">The Next Web</a></p></div><div class="brief-item"><h4>ROC（Rank One Computing）登陆纳斯达克</h4><p>（3月19日，<a href="https://www.globenewswire.com/news-release/2026/03/18/3258080/0/en/ROC-to-Ring-the-Nasdaq-Closing-Bell-on-March-19-2026-in-Celebration-of-its-Public-Listing.html">GlobeNewsWire</a>）：面部识别和计算机视觉AI公司ROC在纳斯达克敲钟上市（Nasdaq: ROC），专注政府和企业级身份认证AI。
+- 📍 获取：Nasdaq: ROC</p><div class="insight">AI计算机视觉细分赛道的上市风向标</div></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第19天：连杀3高官+能源战升级，全球油价急涨
 
 <strong>3月18-19日增量：</strong>
@@ -322,7 +363,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *数据来源：Mistral、Nvidia、TechCrunch、VentureBeat、CNBC、Bloomberg、Washington Post、Al Jazeera、CNN、Newsweek、Fox Business等 | 所有数据基于2026年3月19日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
-<div class="footer">此前已宣布类似举措。市场反应：裁员消息后META股价反涨3%，投资者将裁员视为"AI纪律"信号而非负面。  来源：<a href="https://www.cnbc.com/2026/03/16/meta-ai-costs-mass-layoffs-20percent-up-premarket.html">CNBC</a> <br> <a href="https://techcrunch.com/2026/03/12/atlassian-follows-blocks-footsteps-and-cuts-staff-in-the-name-of-ai/">TechCrunch</a>  ### 🌍 三、美国2026年中期选举初选启动——伊利诺伊州率先投票  伊利诺伊州3月18日完成2026年中期选举初选投票，副州长Juliana Stratton赢得民主党州长提名。这是今年中期选举季的首批初选之一，AI监管政策预计将成为竞选核心议题之一。  来源：<a href="https://chicago.suntimes.com/live/election-day-illinois-primaries-2026-results-analysis">Chicago Sun-Times</a>  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Mistral <br> Forge平台 <br> 企业用自有数据从头训练定制模型 <br> ✅合作伙伴可用 <br> 联系商务 <br> 3月17日 <br> <br> Mistral <br> Small 4 <br> Forge配套的新一代小模型 <br> ✅全量 <br> API / 开源 <br> 3月17日 <br> <br> Nvidia <br> IGX Thor <br> 工业级边缘实时物理AI平台 <br> ✅GA <br> 全球分销商 <br> 3月18日 <br> <br> Nvidia <br> NemoClaw <br> OpenClaw社区官方Agent框架 <br> ✅全量 <br> 开源 <br> 3月18日 <br> <br> ROC <br> 纳斯达克上市 <br> 面部识别/计算机视觉AI <br> 💰上市 <br> Nasdaq: ROC <br> 3月19日 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V4 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>-------------<br> <br> </div>
+<div class="footer">数据来源：Mistral、Nvidia、TechCrunch、VentureBeat、CNBC、Bloomberg、Washington Post、Al Jazeera、CNN、Newsweek、Fox Business等 <br> 所有数据基于2026年3月19日搜索结果 <br> 本简报由AI生成，不构成投资建议</div>
 </div>
 </body>
 </html>

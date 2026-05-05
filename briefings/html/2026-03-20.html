@@ -117,6 +117,52 @@ a:hover { text-decoration: underline; }
   background: #fffdf9;
 }
 .callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 18px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster a { color: #9a938a; }
+.link-cluster a:hover { color: #2563eb; }
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -233,13 +279,10 @@ a:hover { text-decoration: underline; }
 <hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Google Gemini全面接管Workspace——Docs/Sheets/Slides/Drive今日启动beta，Sheets自然语言建表达SpreadsheetBench 70.48% SOTA</strong>，AI Ultra/Pro订阅者率先可用。<strong>a16z发布第6版Top 100 Gen AI消费应用报告：ChatGPT周活达9亿，Claude付费订阅YoY增长200%+，OpenClaw成GitHub历史最高星项目</strong>。<strong>Micron Q2财报炸裂：营收$238.6亿（同比近3倍），毛利率74.9%，AI内存需求驱动全线暴涨</strong>，Q3指引$335亿再超预期，2026年资本开支上调$50亿至$250亿+。<strong>伊朗战争第20天：布伦特原油突破$115/桶，美国汽油均价$3.89，Gabbard参议院作证时删除与Trump矛盾的核情报内容引发政治风暴</strong>。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>### 🔥 头条：Google Gemini深度融入Workspace——办公AI从"助手"升级为"执行者"</h3><p>3月20日起，Google正式向AI Ultra和Pro订阅者推送<strong>Gemini in Workspace</strong>重大更新（beta），覆盖Docs、Sheets、Slides和Drive四大核心应用。这不是简单的AI对话框嵌入，而是让Gemini<strong>直接操作文档内容</strong>——从零生成、跨文件引用、自动填充数据。</p><p><strong>Google Docs：</strong> 在侧面板或底部栏用自然语言描述需求（如"用1月HOA会议纪要和活动清单起草社区通讯"），Gemini自动从用户文件中提取相关内容生成初稿。新增"Match writing style"（统一全文风格）和"Match doc format"（对齐参考文档格式）功能。</p><p><strong>Google Sheets（最大亮点）：</strong> 用自然语言描述需求，Gemini从零构建完整电子表格——包括多步骤数据编排、跨文件/邮件/聊天记录数据整合。新增"Fill with Gemini"功能：AI自动填充表格，对100个单元格的任务<strong>比手动快9倍</strong>。Gemini在<strong>SpreadsheetBench基准测试中达70.48%，刷新SOTA</strong>。</p><p><strong>Google Slides：</strong> 支持单张幻灯片AI生成并自动匹配现有主题配色，全套演示文稿一键生成功能即将推出。</p><div class="callout"><strong>为什么重要：</strong> 这是Google对Microsoft Copilot 365的最直接回应——且在数据层面更有优势：Gemini可以同时访问Gmail、Chat、Drive中的用户数据进行跨应用编排，这是Microsoft Office AI尚未完全打通的能力。对企业用户而言，Sheets的自然语言建表能力可能是最具生产力冲击的功能。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：Google AI Ultra（$249.99/月）或Pro（$19.99/月）订阅者 | <a href="https://workspace.google.com/">Google Workspace</a></li><li>💰 定价：AI Ultra / Pro订阅内含</li><li>💡 上手：Sheets自然语言建表是最值得立即试用的功能，尤其适合数据分析师和项目经理</li></ul><div class="sources">来源：<a href="https://blog.google/products-and-platforms/products/workspace/gemini-workspace-updates-march-2026/">Google Blog</a> | <a href="https://techcrunch.com/2026/03/10/google-rolls-out-new-gemini-capabilities-to-docs-sheets-slides-and-drive/">TechCrunch</a> | <a href="https://www.androidheadlines.com/2026/03/google-workspace-gemini-docs-sheets-slides-update-features.html">Android Headlines</a> | <a href="https://www.itpro.com/technology/artificial-intelligence/google-workspace-just-got-a-huge-gemini-update-heres-what-to-expect-with-new-ai-features-in-docs-slides-sheets-and-drive">IT Pro</a> | <a href="https://www.notebookcheck.net/Google-Gemini-now-builds-Docs-and-Sheets-using-your-personal-data.1249635.0.html">NotebookCheck</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>a16z发布第6版Top 100 Gen AI消费应用报告</h4><p>（3月20日，<a href="https://a16z.com/100-gen-ai-apps-6/">a16z</a>）：ChatGPT依然遥遥领先——Web端流量是第二名Gemini的2.7倍，移动端MAU是Gemini的2.5倍，<strong>周活用户已达9亿</strong>（一年增长5亿）。Claude和Gemini付费订阅加速增长：Claude YoY增长<strong>200%+</strong>，Gemini增长<strong>258%</strong>（但体量仍是ChatGPT的1/8和1/4）。<strong>OpenClaw超越React和Linux成为GitHub历史最高星项目</strong>。报告首次将CapCut、Canva、Notion等AI化产品纳入统计范围。Manus和Genspark作为Agent平台首次上榜。
-- 📍 获取：<a href="https://www.a16z.news/p/top-100-gen-ai-consumer-apps-march">a16z报告全文</a>
-- 💡 上手：AI消费市场格局参考——ChatGPT统治地位稳固，但Claude增速最快</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://a16z.com/100-gen-ai-apps-6/">a16z</a> | <a href="https://www.theneuron.ai/explainer-articles/a16z-just-ranked-the-100-most-popular-ai-apps-heres-the-full-list-and-what-it-tells-us-/">The Neuron</a></p></div><div class="brief-item"><h4>Micron Q2财报：AI内存需求驱动营收近3倍增长</h4><p>（3月18日，<a href="https://www.cnbc.com/2026/03/18/micron-mu-q2-earnings-report-2026.html">CNBC</a>）：Micron Q2营收<strong>$238.6亿</strong>（预期$200.7亿），同比增长近3倍（去年同期$80.5亿），EPS $12.20（预期$9.31）。毛利率从去年38%飙升至<strong>74.9%</strong>。云内存业务收入暴涨160%+至$77.5亿，移动/客户端从$22.4亿跃升至$77.1亿。<strong>Q3指引$335亿</strong>（去年同期$93亿，隐含200%+增长）。2026年资本开支上调$50亿至$250亿+，Q3单季度capex预计$70亿。
+<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：Google Gemini深度融入Workspace——办公AI从"助手"升级为"执行者"</h3><p>3月20日起，Google正式向AI Ultra和Pro订阅者推送<strong>Gemini in Workspace</strong>重大更新（beta），覆盖Docs、Sheets、Slides和Drive四大核心应用。这不是简单的AI对话框嵌入，而是让Gemini<strong>直接操作文档内容</strong>——从零生成、跨文件引用、自动填充数据。</p><p><strong>Google Docs：</strong> 在侧面板或底部栏用自然语言描述需求（如"用1月HOA会议纪要和活动清单起草社区通讯"），Gemini自动从用户文件中提取相关内容生成初稿。新增"Match writing style"（统一全文风格）和"Match doc format"（对齐参考文档格式）功能。</p><p><strong>Google Sheets（最大亮点）：</strong> 用自然语言描述需求，Gemini从零构建完整电子表格——包括多步骤数据编排、跨文件/邮件/聊天记录数据整合。新增"Fill with Gemini"功能：AI自动填充表格，对100个单元格的任务<strong>比手动快9倍</strong>。Gemini在<strong>SpreadsheetBench基准测试中达70.48%，刷新SOTA</strong>。</p><p><strong>Google Slides：</strong> 支持单张幻灯片AI生成并自动匹配现有主题配色，全套演示文稿一键生成功能即将推出。</p><div class="callout"><strong>为什么重要：</strong> 这是Google对Microsoft Copilot 365的最直接回应——且在数据层面更有优势：Gemini可以同时访问Gmail、Chat、Drive中的用户数据进行跨应用编排，这是Microsoft Office AI尚未完全打通的能力。对企业用户而言，Sheets的自然语言建表能力可能是最具生产力冲击的功能。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：Google AI Ultra（$249.99/月）或Pro（$19.99/月）订阅者 | <a href="https://workspace.google.com/">Google Workspace</a></li><li>💰 定价：AI Ultra / Pro订阅内含</li><li>💡 上手：Sheets自然语言建表是最值得立即试用的功能，尤其适合数据分析师和项目经理</li></ul><div class="sources">来源：<a href="https://blog.google/products-and-platforms/products/workspace/gemini-workspace-updates-march-2026/">Google Blog</a> | <a href="https://techcrunch.com/2026/03/10/google-rolls-out-new-gemini-capabilities-to-docs-sheets-slides-and-drive/">TechCrunch</a> | <a href="https://www.androidheadlines.com/2026/03/google-workspace-gemini-docs-sheets-slides-update-features.html">Android Headlines</a> | <a href="https://www.itpro.com/technology/artificial-intelligence/google-workspace-just-got-a-huge-gemini-update-heres-what-to-expect-with-new-ai-features-in-docs-slides-sheets-and-drive">IT Pro</a> | <a href="https://www.notebookcheck.net/Google-Gemini-now-builds-Docs-and-Sheets-using-your-personal-data.1249635.0.html">NotebookCheck</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>a16z发布第6版Top 100 Gen AI消费应用报告</h4><p>（3月20日，<a href="https://a16z.com/100-gen-ai-apps-6/">a16z</a>）：ChatGPT依然遥遥领先——Web端流量是第二名Gemini的2.7倍，移动端MAU是Gemini的2.5倍，<strong>周活用户已达9亿</strong>（一年增长5亿）。Claude和Gemini付费订阅加速增长：Claude YoY增长<strong>200%+</strong>，Gemini增长<strong>258%</strong>（但体量仍是ChatGPT的1/8和1/4）。<strong>OpenClaw超越React和Linux成为GitHub历史最高星项目</strong>。报告首次将CapCut、Canva、Notion等AI化产品纳入统计范围。Manus和Genspark作为Agent平台首次上榜。
+- 📍 获取：<a href="https://www.a16z.news/p/top-100-gen-ai-consumer-apps-march">a16z报告全文</a></p><div class="insight">AI消费市场格局参考——ChatGPT统治地位稳固，但Claude增速最快</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://a16z.com/100-gen-ai-apps-6/">a16z</a> | <a href="https://www.theneuron.ai/explainer-articles/a16z-just-ranked-the-100-most-popular-ai-apps-heres-the-full-list-and-what-it-tells-us-/">The Neuron</a></p></div><div class="brief-item"><h4>Micron Q2财报：AI内存需求驱动营收近3倍增长</h4><p>（3月18日，<a href="https://www.cnbc.com/2026/03/18/micron-mu-q2-earnings-report-2026.html">CNBC</a>）：Micron Q2营收<strong>$238.6亿</strong>（预期$200.7亿），同比增长近3倍（去年同期$80.5亿），EPS $12.20（预期$9.31）。毛利率从去年38%飙升至<strong>74.9%</strong>。云内存业务收入暴涨160%+至$77.5亿，移动/客户端从$22.4亿跃升至$77.1亿。<strong>Q3指引$335亿</strong>（去年同期$93亿，隐含200%+增长）。2026年资本开支上调$50亿至$250亿+，Q3单季度capex预计$70亿。
 - 📍 获取：Nasdaq: MU
-- 💰 定价：股息提高30%
-- 💡 上手：AI基建投资的晴雨表——HBM和AI内存需求远超供给，Nvidia GPU出货量的"影子指标"</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/18/micron-mu-q2-earnings-report-2026.html">CNBC</a> | <a href="https://qz.com/micron-earnings-q2-2026-ai-memory-demand-bottleneck">Quartz</a> | <a href="https://www.indexbox.io/blog/micron-q2-2026-earnings-surge-on-ai-memory-demand-stock-up-357/">IndexBox</a> | <a href="https://www.alphaspread.com/market-news/earnings/micron-posts-record-fiscal-q2-as-ai-driven-memory-demand-pushes-revenue-to-239-billion">Alpha Spread</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>跟进：OpenAI年化营收突破$250亿，IPO筹备加速</h4><p>（3月初数据，<a href="https://www.investing.com/news/stock-market-news/openai-tops-25-billion-in-annualized-revenue-last-month-the-information-reports-4542796">The Information</a>）：OpenAI 2月底年化营收达<strong>$250亿</strong>，较2025年底$214亿增长17%。据Reuters和Bloomberg，公司内部讨论H2 2026提交IPO文件、2027年上市，目标估值最高<strong>$1万亿</strong>——将成史上最大IPO。2月已完成$1100亿融资，投前估值约$7300亿。Codex周活用户达200万，周增长25%。
-- 💡 上手：OpenAI IPO时间表值得关注——$1万亿估值意味着AI行业估值天花板再次被抬高</p><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/17/openai-preps-for-ipo-in-2026-says-chatgpt-must-be-productivity-tool.html">CNBC</a> | <a href="https://winbuzzer.com/2026/03/06/openai-hits-25-billion-revenue-anthropic-closes-gap-xcxwbn/">WinBuzzer</a> | <a href="https://www.benzinga.com/markets/tech/26/03/51061532/openais-annualized-revenue-skyrockets-beyond-25-billion-report">Benzinga</a></p></div>
+- 💰 定价：股息提高30%</p><div class="insight">AI基建投资的晴雨表——HBM和AI内存需求远超供给，Nvidia GPU出货量的"影子指标"</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/18/micron-mu-q2-earnings-report-2026.html">CNBC</a> | <a href="https://qz.com/micron-earnings-q2-2026-ai-memory-demand-bottleneck">Quartz</a> | <a href="https://www.indexbox.io/blog/micron-q2-2026-earnings-surge-on-ai-memory-demand-stock-up-357/">IndexBox</a> | <a href="https://www.alphaspread.com/market-news/earnings/micron-posts-record-fiscal-q2-as-ai-driven-memory-demand-pushes-revenue-to-239-billion">Alpha Spread</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>跟进：OpenAI年化营收突破$250亿，IPO筹备加速</h4><p>（3月初数据，<a href="https://www.investing.com/news/stock-market-news/openai-tops-25-billion-in-annualized-revenue-last-month-the-information-reports-4542796">The Information</a>）：OpenAI 2月底年化营收达<strong>$250亿</strong>，较2025年底$214亿增长17%。据Reuters和Bloomberg，公司内部讨论H2 2026提交IPO文件、2027年上市，目标估值最高<strong>$1万亿</strong>——将成史上最大IPO。2月已完成$1100亿融资，投前估值约$7300亿。Codex周活用户达200万，周增长25%。</p><div class="insight">OpenAI IPO时间表值得关注——$1万亿估值意味着AI行业估值天花板再次被抬高</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/17/openai-preps-for-ipo-in-2026-says-chatgpt-must-be-productivity-tool.html">CNBC</a> | <a href="https://winbuzzer.com/2026/03/06/openai-hits-25-billion-revenue-anthropic-closes-gap-xcxwbn/">WinBuzzer</a> | <a href="https://www.benzinga.com/markets/tech/26/03/51061532/openais-annualized-revenue-skyrockets-beyond-25-billion-report">Benzinga</a></p></div>
 <hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第20天：油价破$115，美国汽油$3.89，Gabbard作证引政治地震
 
 <strong>3月19-20日增量：</strong>
@@ -315,7 +358,7 @@ a:hover { text-decoration: underline; }
 ---
 
 *数据来源：Google、a16z、CNBC、Micron、OpenAI、CNN、NBC News、Washington Post、Bloomberg、Al Jazeera、European Commission、Tech.eu等 | 所有数据基于2026年3月20日搜索结果 | 本简报由AI生成，不构成投资建议*</p>
-<div class="footer"> 欧洲初创企业长期面临的痛点——跨境运营需在每个成员国分别注册——是人才和资本流向美国的核心原因之一。EU Inc.直接对标美国Delaware公司注册的便捷性。对AI初创企业尤其关键——可以在单一法律框架下快速跨27国市场扩展。  来源：<a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_26_614">European Commission</a> <br> <a href="https://tech.eu/2026/03/18/eu-inc-marks-major-win-for-startups-as-commission-unveils-28th-regime-proposal/">Tech.eu</a> <br> <a href="https://money.usnews.com/investing/news/articles/2026-03-18/eu-inc-proposal-seeks-to-rival-us-in-innovation-by-easing-startup-creation">US News</a> <br> <a href="https://www.trendingtopics.eu/eu-inc-proposal-eu-commission/">Trending Topics</a>  中文解读：暂无中国媒体深度报道  ---  ## ④ AI 产品速览表  <br> 公司 <br> 产品/更新 <br> 一句话 <br> 可用性 <br> 获取方式 <br> 日期 <br> <br>------<br>----------<br>--------<br>--------<br>----------<br>------<br> <br> Google <br> Gemini in Workspace <br> Docs/Sheets/Slides全面AI化，自然语言建表 <br> ⏳Beta（AI Ultra/Pro） <br> Google Workspace订阅 <br> 3月20日 <br> <br> a16z <br> Top 100 Gen AI报告（第6版） <br> ChatGPT 9亿WAU，Claude增速200%+ <br> ✅全量 <br> <a href="https://a16z.com/100-gen-ai-apps-6/">a16z官网</a> <br> 3月20日 <br> <br> Micron <br> Q2 2026财报 <br> 营收$238.6亿近3倍增长，AI内存供不应求 <br> 💰上市公司 <br> Nasdaq: MU <br> 3月18日 <br> <br> OpenAI <br> 年化营收$250亿+IPO筹备 <br> H2 2026提交文件，目标$1万亿估值 <br> ⏳筹备中 <br> — <br> 3月初 <br>  ---  ## ⑤ 主流AI产品横向对比  ### 旗舰模型对比表  > 数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> <br> <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> <br> <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）  <br> 维度 <br> GPT-5.4 (OpenAI) <br> Claude Opus 4.6 (Anthropic) <br> Gemini 3.1 Pro (Google) <br> DeepSeek V4 <br> <br>------<br>------------------<br>---------------------------<br>------------------------<br>-------------<br> <br> </div>
+<div class="footer">数据来源：Google、a16z、CNBC、Micron、OpenAI、CNN、NBC News、Washington Post、Bloomberg、Al Jazeera、European Commission、Tech.eu等 <br> 所有数据基于2026年3月20日搜索结果 <br> 本简报由AI生成，不构成投资建议</div>
 </div>
 </body>
 </html>
