@@ -13,20 +13,26 @@ import os
 from pathlib import Path
 
 CSS = """
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -54,9 +60,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -77,12 +84,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -105,11 +114,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -160,7 +171,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -169,8 +180,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -184,10 +236,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -207,6 +261,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -231,7 +286,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -265,10 +321,13 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 """
@@ -282,6 +341,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <style>{css}</style>
 </head>
 <body>
+{toc}
 <div class="page">
 {masthead}
 {body}
@@ -413,9 +473,12 @@ def render_headline(title: str, body: str) -> str:
                 html += '</ul></div>'
             else:
                 html += '<div class="callout">' + fold_link_clusters(render_inline(p)) + '</div>'
-        # 来源行：以 来源： 开头
+        # 来源行：渲染为紧凑 link-cluster（📚 英文 / 💬 中文 / ⚠️ 一手）
         elif p.startswith('来源') or p.startswith('中文解读') or p.startswith('⚠️ 一手信源'):
-            html += f'<div class="sources">{render_inline(p)}</div>'
+            cls = 'zh' if p.startswith('中文解读') else ''
+            # 去掉 "来源：" / "中文解读：" / "⚠️ 一手信源：" 前缀
+            content_only = re.sub(r'^[^：:]{1,12}[：:]\s*', '', p)
+            html += f'<div class="link-cluster {cls}">{render_inline(content_only)}</div>'
         # bullet list（- 开头）
         elif p.startswith('- '):
             items = re.findall(r'^- (.+?)$', p, re.M)
@@ -547,7 +610,9 @@ def render_tip(content: str) -> str:
     paragraphs = [p.strip() for p in content.split('\n\n') if p.strip() and p.strip() != '---']
     for p in paragraphs:
         if p.startswith('来源') or p.startswith('中文解读'):
-            html += f'<div class="sources">{render_inline(p)}</div>'
+            cls = 'zh' if p.startswith('中文解读') else ''
+            content_only = re.sub(r'^[^：:]{1,12}[：:]\s*', '', p)
+            html += f'<div class="link-cluster {cls}">{fold_link_clusters(render_inline(content_only))}</div>'
         elif re.match(r'^\d+\.', p, re.M) or p.count('\n1.') > 0 or p.startswith('1.'):
             # 编号列表
             items = re.findall(r'^\d+\.\s*(.+?)(?=\n\d+\.|\Z)', p, re.M | re.S)
@@ -585,24 +650,30 @@ def render_section(title: str, content: str) -> str:
     is_tip = '本期技巧' in plain or '技巧' in plain
 
     sec_label = ''
+    sec_id = ''
     if is_summary:
         sec_label = '60 秒速览'
+        sec_id = 'sec-summary'
         body = render_summary(content)
     elif is_deep:
         sec_label = '深度报道'
+        sec_id = 'sec-deep'
         body = render_deep_report(content)
     elif is_product:
         sec_label = '产品速览'
+        sec_id = 'sec-product'
         # 找到第一个表格
         m = re.search(r'(\|.+?)(?=\n##|\Z)', content, re.S)
         body = render_table(m.group(1)) if m else f'<p>{render_inline(content)}</p>'
     elif is_compare:
         sec_label = '模型对比动态'
+        sec_id = 'sec-compare'
         body = render_changes(content)
     elif is_tip:
         # 技巧标题可能是 "本期技巧：xxx"
         sub = title.split('：', 1)
         sec_label = '本期技巧'
+        sec_id = 'sec-tip'
         if len(sub) == 2:
             tip_title = sub[1].strip()
             body = '<div class="tip"><h3>' + render_inline(tip_title) + '</h3>'
@@ -614,9 +685,10 @@ def render_section(title: str, content: str) -> str:
             body = render_tip(content)
     else:
         sec_label = title
+        sec_id = 'sec-' + re.sub(r'[^a-z0-9]', '-', title.lower())[:20]
         body = f'<p>{render_inline(content)}</p>'
 
-    return f'<hr class="sep"><div class="sec-title">{sec_label}</div>{body}'
+    return f'<hr class="sep"><div class="sec-title" id="{sec_id}">{sec_label}</div>{body}', (sec_id, sec_label)
 
 
 def render_masthead(meta: dict) -> str:
@@ -646,20 +718,34 @@ def render_footer(md: str) -> str:
     return '本简报由 AI 生成，不构成投资或法律建议'
 
 
+def render_toc(toc_entries: list) -> str:
+    """渲染桌面端浮动目录条（≥1024px 显示）。"""
+    if not toc_entries:
+        return ''
+    items = ''
+    for sec_id, sec_label in toc_entries:
+        items += f'<a href="#{sec_id}">{sec_label}</a>'
+    return f'<aside class="toc"><div class="toc-label">Sections</div>{items}</aside>'
+
+
 def convert(md_path: Path, out_path: Path):
     md = md_path.read_text(encoding='utf-8')
     meta = parse_metadata(md)
     sections = split_sections(md)
 
     masthead = render_masthead(meta)
-    body_parts = [render_section(t, c) for t, c in sections]
+    rendered = [render_section(t, c) for t, c in sections]
+    body_parts = [r[0] for r in rendered]
+    toc_entries = [r[1] for r in rendered]
     body = '\n'.join(body_parts)
+    toc = render_toc(toc_entries)
 
     footer = render_footer(md)
 
     html = HTML_TEMPLATE.format(
         date=meta.get('date', ''),
         css=CSS,
+        toc=toc,
         masthead=masthead,
         body=body,
         footer=footer,
