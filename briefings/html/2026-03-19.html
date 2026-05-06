@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年3月19日 星期四</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</a><a href="#sec-------">⑦ 本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,19 +336,19 @@ a:hover { text-decoration: underline; }
     <span>覆盖24小时 · 预计阅读11分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Mistral在Nvidia GTC发布Forge企业AI定制平台+Mistral Small 4——支持企业用自有数据从头训练模型，已签约Ericsson、欧洲航天局等客户</strong>，ARR年内有望突破$10亿。<strong>Nvidia IGX Thor工业级边缘AI平台正式GA——强生、卡特彼勒、Planet Labs等首批采用</strong>，实时物理AI从概念进入生产部署。<strong>伊朗战争第19天重大升级：以色列连杀3名高官（含情报部长Khatib），美以空袭全球最大气田South Pars，伊朗报复性导弹击中卡塔尔Ras Laffan能源枢纽</strong>，油价急涨，战争向能源基础设施全面扩展。<strong>Meta考虑裁员20%（约15,000人）以抵消AI基建支出$1150-1350亿</strong>，为2022年以来最大规模重组。
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p><strong>Mistral在Nvidia GTC发布Forge企业AI定制平台+Mistral Small 4——支持企业用自有数据从头训练模型，已签约Ericsson、欧洲航天局等客户</strong>，ARR年内有望突破$10亿。<strong>Nvidia IGX Thor工业级边缘AI平台正式GA——强生、卡特彼勒、Planet Labs等首批采用</strong>，实时物理AI从概念进入生产部署。<strong>伊朗战争第19天重大升级：以色列连杀3名高官（含情报部长Khatib），美以空袭全球最大气田South Pars，伊朗报复性导弹击中卡塔尔Ras Laffan能源枢纽</strong>，油价急涨，战争向能源基础设施全面扩展。<strong>Meta考虑裁员20%（约15,000人）以抵消AI基建支出$1150-1350亿</strong>，为2022年以来最大规模重组。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：Mistral Forge——欧洲AI独角兽的企业级"造模工厂"在GTC亮相</h3><p>3月17日，法国AI公司Mistral在Nvidia GTC上正式发布<strong>Forge</strong>平台，定位为企业AI定制化的全栈解决方案。与传统的微调（fine-tuning）或RAG不同，Forge允许企业使用自有私有数据<strong>从基座模型重新训练</strong>，实现更深层次的定制——尤其在非英语语言、高度专业领域和需要强化学习的Agent系统上效果显著优于微调。</p><p><strong>核心能力：</strong>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条：Mistral Forge——欧洲AI独角兽的企业级"造模工厂"在GTC亮相</h3><p>3月17日，法国AI公司Mistral在Nvidia GTC上正式发布<strong>Forge</strong>平台，定位为企业AI定制化的全栈解决方案。与传统的微调（fine-tuning）或RAG不同，Forge允许企业使用自有私有数据<strong>从基座模型重新训练</strong>，实现更深层次的定制——尤其在非英语语言、高度专业领域和需要强化学习的Agent系统上效果显著优于微调。</p><p><strong>核心能力：</strong>
 - 基于Mistral开源模型库（包括新发布的<strong>Mistral Small 4</strong>）进行全面定制
 - 配备"前线部署工程师"（Forward-Deployed Engineers）团队，嵌入客户现场
-- 支持企业和政府客户，数据不出客户环境</p><p><strong>首批客户：</strong> Ericsson（电信）、欧洲航天局ESA（卫星数据）、意大利Reply（咨询）、新加坡DSO和HTX（国防/安全）。</p><div class="callout"><strong>为什么重要：</strong> TechCrunch指出，Mistral正走出一条与OpenAI和Anthropic截然不同的路线——不卖通用API，而是帮企业"造自己的模型"。CEO Arthur Mensch表示Mistral年ARR有望今年突破<strong>$10亿</strong>。这对欧洲企业客户尤其有吸引力——数据合规（GDPR）和语言多样性是刚需。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：联系Mistral商务团队申请Forge访问</li><li>💰 定价：企业定制，价格未公开</li><li>💡 上手：非英语市场+高合规要求的企业场景首选方案</li></ul><div class="sources">来源：<a href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/">TechCrunch</a> | <a href="https://venturebeat.com/infrastructure/mistral-ai-launches-forge-to-help-companies-build-proprietary-ai-models/">VentureBeat</a> | <a href="https://dataconomy.com/2026/03/18/mistral-launches-forge-platform-to-help-enterprises-build-cu/">Dataconomy</a> | <a href="https://www.eweek.com/news/mistral-forge-custom-enterprise-ai-models/">eWeek</a></div><div class="sources">中文解读：<a href="https://news.aibase.com/news/26320">AI Base中文报道</a></div></div><div class="brief-item"><h4>Nvidia IGX Thor正式GA——工业级边缘AI进入生产部署</h4><p>（3月18日，<a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia</a>）：IGX Thor是Nvidia面向工业场景的边缘AI平台，支持实时高速传感器处理、企业级可靠性和功能安全（functional safety）。首批采用方：<strong>强生</strong>（Polyphonic数字手术平台，手术室实时AI推理）、<strong>卡特彼勒</strong>（驾驶舱对话AI助手）、<strong>Hitachi Rail</strong>（预测性维护+自主巡检）、<strong>Planet Labs</strong>（在轨卫星数据AI处理）、<strong>Agility/Hexagon Robotics</strong>（人形机器人多模态传感融合）。
+- 支持企业和政府客户，数据不出客户环境</p><p><strong>首批客户：</strong> Ericsson（电信）、欧洲航天局ESA（卫星数据）、意大利Reply（咨询）、新加坡DSO和HTX（国防/安全）。</p><div class="callout"><strong>为什么重要：</strong> TechCrunch指出，Mistral正走出一条与OpenAI和Anthropic截然不同的路线——不卖通用API，而是帮企业"造自己的模型"。CEO Arthur Mensch表示Mistral年ARR有望今年突破<strong>$10亿</strong>。这对欧洲企业客户尤其有吸引力——数据合规（GDPR）和语言多样性是刚需。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：联系Mistral商务团队申请Forge访问</li><li>💰 定价：企业定制，价格未公开</li><li>💡 上手：非英语市场+高合规要求的企业场景首选方案</li></ul><div class="link-cluster "><a href="https://techcrunch.com/2026/03/17/mistral-forge-nvidia-gtc-build-your-own-ai-enterprise/">TechCrunch</a> | <a href="https://venturebeat.com/infrastructure/mistral-ai-launches-forge-to-help-companies-build-proprietary-ai-models/">VentureBeat</a> | <a href="https://dataconomy.com/2026/03/18/mistral-launches-forge-platform-to-help-enterprises-build-cu/">Dataconomy</a> | <a href="https://www.eweek.com/news/mistral-forge-custom-enterprise-ai-models/">eWeek</a></div><div class="link-cluster zh"><a href="https://news.aibase.com/news/26320">AI Base中文报道</a></div></div><div class="brief-item"><h4>Nvidia IGX Thor正式GA——工业级边缘AI进入生产部署</h4><p>（3月18日，<a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia</a>）：IGX Thor是Nvidia面向工业场景的边缘AI平台，支持实时高速传感器处理、企业级可靠性和功能安全（functional safety）。首批采用方：<strong>强生</strong>（Polyphonic数字手术平台，手术室实时AI推理）、<strong>卡特彼勒</strong>（驾驶舱对话AI助手）、<strong>Hitachi Rail</strong>（预测性维护+自主巡检）、<strong>Planet Labs</strong>（在轨卫星数据AI处理）、<strong>Agility/Hexagon Robotics</strong>（人形机器人多模态传感融合）。
 - 📍 获取：IGX Thor开发套件已通过全球分销商发售 | <a href="https://www.nvidia.com/en-us/edge-computing/igx/">Nvidia IGX</a>
 - 💰 定价：开发套件可购买，嵌入式模块和高性能工作站版本稍后推出</p><div class="insight">工业AI+功能安全场景的硬件基座，医疗/制造/机器人优先关注</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia Blog</a> | <a href="https://www.techrepublic.com/article/news-nvidia-gtc-2026-live-updates/">TechRepublic</a></p></div><div class="brief-item"><h4>Nvidia NemoClaw——OpenClaw社区的官方Agent框架</h4><p>（3月18日，<a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia Newsroom</a>）：Nvidia在GTC发布NemoClaw，将Nemo生态与OpenClaw开源Agent社区打通，提供Agent构建、安全治理和部署的标准化框架。ServiceNow同步宣布基于NemoClaw的"自治劳动力治理"方案。
 - 📍 获取：<a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia NemoClaw</a>
 - 💰 定价：开源/开放</p><div class="insight">Agent开发者关注——OpenClaw+NemoClaw构成完整Agent开发栈</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw">Nvidia Newsroom</a> | <a href="https://newsroom.servicenow.com/press-releases/details/2026/NVIDIA-GTC-2026-Governing-the-Autonomous-Workforce/default.aspx">ServiceNow</a></p></div><div class="brief-item"><h4>Meta考虑裁员20%以抵消AI支出</h4><p>（3月14-16日，<a href="https://www.cnbc.com/2026/03/16/meta-ai-costs-mass-layoffs-20percent-up-premarket.html">CNBC</a>）：据Reuters和Fox Business报道，Meta正考虑裁减最多20%员工（约15,000人），以抵消2026年AI基建资本开支<strong>$1150-1350亿</strong>——几乎是2025年的两倍。裁员时间和规模未最终确定，Meta称报道"具有推测性"。消息公布后META股价反而上涨近3%。如果实施，将是Meta自2022-2023年以来最大规模重组。</p><div class="insight">AI行业"以裁养AI"趋势加速——Atlassian（1,600人/10%）、Block此前已行动</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/14/meta-planning-sweeping-layoffs-as-ai-costs-mount-reuters.html">CNBC</a> | <a href="https://www.foxbusiness.com/technology/meta-eyes-massive-20-workforce-cut-ai-infrastructure-costs-continue-soar-across-operations-report">Fox Business</a> | <a href="https://www.ibtimes.com/meta-faces-potential-20-layoffs-ai-spending-tops-135-billion-2026-3799498">IBTimes</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>Atlassian裁员1,600人（10%），CTO换帅，全力押注AI</h4><p>（3月11日，<a href="https://www.atlassian.com/blog/announcements/atlassian-team-update-march-2026">Atlassian</a>）：Atlassian CEO Mike Cannon-Brookes宣布裁减1,600人，其中<strong>900+来自研发部门</strong>。北美占40%（~640人）、澳洲30%（~480人）、印度16%（~250人）。CTO Rajeev Rajan 3月31日卸任，职责由AI产品负责人Taroon Mandhana和首席信任官Vikram Rao分担。重组费用$2.25-2.36亿。</p><div class="insight">企业软件公司AI转型的典型路径——砍传统研发、扩AI团队</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://techcrunch.com/2026/03/12/atlassian-follows-blocks-footsteps-and-cuts-staff-in-the-name-of-ai/">TechCrunch</a> | <a href="https://www.computerworld.com/article/4144218/atlassian-cuts-1600-jobs-to-fund-ai-and-enterprise-expansion.html">Computerworld</a> | <a href="https://thenextweb.com/news/atlassian-is-cutting-1600-jobs-and-replacing-its-cto">The Next Web</a></p></div><div class="brief-item"><h4>ROC（Rank One Computing）登陆纳斯达克</h4><p>（3月19日，<a href="https://www.globenewswire.com/news-release/2026/03/18/3258080/0/en/ROC-to-Ring-the-Nasdaq-Closing-Bell-on-March-19-2026-in-Celebration-of-its-Public-Listing.html">GlobeNewsWire</a>）：面部识别和计算机视觉AI公司ROC在纳斯达克敲钟上市（Nasdaq: ROC），专注政府和企业级身份认证AI。
 - 📍 获取：Nasdaq: ROC</p><div class="insight">AI计算机视觉细分赛道的上市风向标</div></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第19天：连杀3高官+能源战升级，全球油价急涨
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p>### 🌍 一、伊朗战争第19天：连杀3高官+能源战升级，全球油价急涨
 
 <strong>3月18-19日增量：</strong>
 
@@ -311,8 +371,8 @@ a:hover { text-decoration: underline; }
 来源：<a href="https://chicago.suntimes.com/live/election-day-illinois-primaries-2026-results-analysis">Chicago Sun-Times</a>
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Mistral</td><td>Forge平台</td><td>企业用自有数据从头训练定制模型</td><td>✅合作伙伴可用</td><td>联系商务</td><td>3月17日</td></tr><tr><td>Mistral</td><td>Small 4</td><td>Forge配套的新一代小模型</td><td>✅全量</td><td>API / 开源</td><td>3月17日</td></tr><tr><td>Nvidia</td><td>IGX Thor</td><td>工业级边缘实时物理AI平台</td><td>✅GA</td><td>全球分销商</td><td>3月18日</td></tr><tr><td>Nvidia</td><td>NemoClaw</td><td>OpenClaw社区官方Agent框架</td><td>✅全量</td><td>开源</td><td>3月18日</td></tr><tr><td>ROC</td><td>纳斯达克上市</td><td>面部识别/计算机视觉AI</td><td>💰上市</td><td>Nasdaq: ROC</td><td>3月19日</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Mistral</td><td>Forge平台</td><td>企业用自有数据从头训练定制模型</td><td>✅合作伙伴可用</td><td>联系商务</td><td>3月17日</td></tr><tr><td>Mistral</td><td>Small 4</td><td>Forge配套的新一代小模型</td><td>✅全量</td><td>API / 开源</td><td>3月17日</td></tr><tr><td>Nvidia</td><td>IGX Thor</td><td>工业级边缘实时物理AI平台</td><td>✅GA</td><td>全球分销商</td><td>3月18日</td></tr><tr><td>Nvidia</td><td>NemoClaw</td><td>OpenClaw社区官方Agent框架</td><td>✅全量</td><td>开源</td><td>3月18日</td></tr><tr><td>ROC</td><td>纳斯达克上市</td><td>面部识别/计算机视觉AI</td><td>💰上市</td><td>Nasdaq: ROC</td><td>3月19日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
 |------|------------------|---------------------------|------------------------|-------------|
 | <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (待测) |
 | <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
@@ -331,7 +391,7 @@ a:hover { text-decoration: underline; }
 | <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 | <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | 低价 | 低价（降60%） |
 | <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大排名变动。Mistral Forge发布为企业定制模型开辟新路径，但不改变通用模型排名。关注Mistral Small 4在中端模型层的定位——若benchmark数据发布，可能影响性价比排名。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+<hr class="sep"><div class="sec-title" id="sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
 |------|------|------|----------|-----------|
 | 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | GPT-5.4 mini（免费） | Computer Use闭环验证代码 |
 | ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
@@ -350,7 +410,7 @@ a:hover { text-decoration: underline; }
 <strong>🔄 本周变化：</strong> 本周无场景变动。Mistral Forge为企业定制场景提供新选项（非通用推荐），关注Mistral Small 4 benchmark数据发布后是否影响中端排名。
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🎮 Nvidia GTC 2026今日闭幕（3月19日）</strong>：最后一批技术分会，关注Nemotron 4基座模型时间表、Vera Rubin详细定价、NemoClaw技术文档发布。
+<hr class="sep"><div class="sec-title" id="sec-------">⑦ 本周前瞻</div><p>1. <strong>🎮 Nvidia GTC 2026今日闭幕（3月19日）</strong>：最后一批技术分会，关注Nemotron 4基座模型时间表、Vera Rubin详细定价、NemoClaw技术文档发布。
 
 2. <strong>⚔️ 伊朗战争：能源战升级的连锁反应</strong>：South Pars+Ras Laffan遇袭标志着战争进入能源基础设施互攻阶段。全球LNG供应链承压（卡塔尔占全球LNG出口25%+），欧洲天然气价格或再度飙涨。关注OPEC+紧急应对和美国是否加大对伊石油设施打击。
 

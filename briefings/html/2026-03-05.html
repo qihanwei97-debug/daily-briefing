@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | </title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai-----13---">⑥ 场景化AI工具推荐（13场景）</a><a href="#sec--------3-5--11--">⑦ 本周前瞻（3月5日–11日）</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,12 +336,12 @@ a:hover { text-decoration: underline; }
     <span></span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p>> <strong>执行摘要（5句话）</strong>
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p>> <strong>执行摘要（5句话）</strong>
 
 <strong>OpenAI完成史上最大私募融资——以$7300亿估值融资$1100亿</strong>，由Amazon（$500亿）、NVIDIA（$300亿）、SoftBank（$300亿）联合领投，同步宣布扩大与AWS的战略合作（未来8年追加$1000亿算力采购）。<strong>DeepSeek V4本周内将正式发布</strong>，这是一个万亿参数多模态模型，优化适配华为昇腾芯片，被视为中国在芯片制裁压力下的战略突破。<strong>Anthropic公开指控DeepSeek、Moonshot AI、MiniMax通过24,000个虚假账号、累计1600万次对话对Claude实施"工业级蒸馏攻击"</strong>，将此定性为国家安全威胁。<strong>Block（Square母公司）宣布裁员40%（约4,000人），CEO Jack Dorsey明确将裁员归因于AI替代</strong>，并预测"大多数公司将在未来一年内做出同样决定"。<strong>MWC 2026于巴塞罗那落幕</strong>，AI成为核心主题：Samsung Galaxy S26推出Agent AI体验，Google Android XR智能眼镜现场演示实时翻译，Qualcomm发布Snapdragon Wear Elite芯片。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条一：OpenAI完成$1100亿融资，估值$7300亿</h3><p><strong>来源：</strong> <a href="https://techcrunch.com/2026/02/27/openai-raises-110b-in-one-of-the-largest-private-funding-rounds-in-history/">TechCrunch</a> | <a href="https://www.bloomberg.com/news/articles/2026-02-27/openai-finalizes-110-billion-funding-at-730-billion-valuation">Bloomberg</a> | <a href="https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html">CNBC</a></p><p><strong>融资结构：</strong>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条一：OpenAI完成$1100亿融资，估值$7300亿</h3><p><strong>来源：</strong> <a href="https://techcrunch.com/2026/02/27/openai-raises-110b-in-one-of-the-largest-private-funding-rounds-in-history/">TechCrunch</a> | <a href="https://www.bloomberg.com/news/articles/2026-02-27/openai-finalizes-110-billion-funding-at-730-billion-valuation">Bloomberg</a> | <a href="https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html">CNBC</a></p><p><strong>融资结构：</strong>
 - Amazon：初始承诺$150亿，条件成就后追加$350亿，合计$500亿
 - NVIDIA：$300亿
 - SoftBank：$300亿
@@ -293,7 +353,7 @@ a:hover { text-decoration: underline; }
 - Moonshot AI：超过340万次对话，针对Agent推理、工具使用、代码分析和计算机视觉
 - MiniMax：规模数据未披露，但涉及多模态内容生成方向
 - 三家合计：超过<strong>1600万次</strong>Claude对话</p><p><strong>📍 后续影响：</strong> Anthropic已向美国立法机构提交报告，要求将AI蒸馏纳入出口管制讨论；OpenAI随后也提交类似公开信，称发现DeepSeek正采用"新型混淆方法"蒸馏其模型。</p></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、美以联合军事行动持续，伊朗遭受重大打击
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p>### 🌍 一、美以联合军事行动持续，伊朗遭受重大打击
 
 美国与以色列的联合对伊军事行动自2月28日开始，截至3月5日仍在持续。伊朗最高领袖哈梅内伊已在此轮打击中身亡。伊朗对以色列和美国地区盟友发动导弹与无人机反击。Trump对媒体表示"一切都已被摧毁"，但尚未提出明确的战后方案；民主党议员警告冲突有扩大风险。
 
@@ -321,8 +381,8 @@ a:hover { text-decoration: underline; }
 来源：<a href="https://edition.cnn.com/2026/03/02/business/ai-tech-jobs-layoffs">CNN Business</a>
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>产品</th><th>公司</th><th>类型</th><th>最新版本</th><th>定价（输入/输出，$/M tokens）</th><th>上下文窗口</th><th>本周动态</th></tr></thead><tbody><tr><td>ChatGPT / GPT-5.2</td><td>OpenAI</td><td>通用对话+API</td><td>GPT-5.2 / GPT-5.3-Codex</td><td>$10 / $30（5.2）；$8 / $25（5.3-Codex）</td><td>400K</td><td>完成$1100亿融资</td></tr><tr><td>Claude Opus 4.6</td><td>Anthropic</td><td>通用旗舰</td><td>Claude Opus 4.6（2月5日）</td><td>$15 / $75</td><td>200K</td><td>公开指控中国蒸馏攻击</td></tr><tr><td>Claude Sonnet 4.6</td><td>Anthropic</td><td>中端平衡</td><td>Claude Sonnet 4.6（2月17日）</td><td>$3 / $15</td><td>200K</td><td>GDPval-AA Elo 1633分领先</td></tr><tr><td>Gemini 3.1 Pro</td><td>Google DeepMind</td><td>多模态旗舰</td><td>Gemini 3.1 Pro（2月19日）</td><td>$2 / $12</td><td>1M</td><td>ARC-AGI-2得分77.1%</td></tr><tr><td>DeepSeek V3.2 / V4</td><td>DeepSeek</td><td>开源旗舰</td><td>V4（本周发布中）</td><td>$0.10–$0.30（预计）</td><td>1M（预计）</td><td>万亿参数多模态，适配昇腾</td></tr><tr><td>Qwen3.5</td><td>Alibaba</td><td>中文优化</td><td>Qwen3.5（2月16日）</td><td>待定</td><td>128K+</td><td>支持3D游戏生成、医疗影像</td></tr><tr><td>Doubao 2.0</td><td>ByteDance</td><td>消费+API</td><td>Doubao 2.0（2月上旬）</td><td>免费（消费端）</td><td>未披露</td><td>推理能力对齐GPT水平</td></tr><tr><td>GLM-5</td><td>智谱AI</td><td>开源大模型</td><td>GLM-5（7440亿MoE）</td><td>开源免费</td><td>200K</td><td>MIT许可证，昇腾训练</td></tr><tr><td>Grok 3</td><td>xAI</td><td>通用+推理</td><td>Grok 3</td><td>X Premium（$22/月）</td><td>128K</td><td>无重大更新</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://www.shakudo.io/blog/top-9-large-language-models">Shakudo</a>（2026年2月-3月）</p><p>| 维度 | GPT-5.2 (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V3.2 |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>产品</th><th>公司</th><th>类型</th><th>最新版本</th><th>定价（输入/输出，$/M tokens）</th><th>上下文窗口</th><th>本周动态</th></tr></thead><tbody><tr><td>ChatGPT / GPT-5.2</td><td>OpenAI</td><td>通用对话+API</td><td>GPT-5.2 / GPT-5.3-Codex</td><td>$10 / $30（5.2）；$8 / $25（5.3-Codex）</td><td>400K</td><td>完成$1100亿融资</td></tr><tr><td>Claude Opus 4.6</td><td>Anthropic</td><td>通用旗舰</td><td>Claude Opus 4.6（2月5日）</td><td>$15 / $75</td><td>200K</td><td>公开指控中国蒸馏攻击</td></tr><tr><td>Claude Sonnet 4.6</td><td>Anthropic</td><td>中端平衡</td><td>Claude Sonnet 4.6（2月17日）</td><td>$3 / $15</td><td>200K</td><td>GDPval-AA Elo 1633分领先</td></tr><tr><td>Gemini 3.1 Pro</td><td>Google DeepMind</td><td>多模态旗舰</td><td>Gemini 3.1 Pro（2月19日）</td><td>$2 / $12</td><td>1M</td><td>ARC-AGI-2得分77.1%</td></tr><tr><td>DeepSeek V3.2 / V4</td><td>DeepSeek</td><td>开源旗舰</td><td>V4（本周发布中）</td><td>$0.10–$0.30（预计）</td><td>1M（预计）</td><td>万亿参数多模态，适配昇腾</td></tr><tr><td>Qwen3.5</td><td>Alibaba</td><td>中文优化</td><td>Qwen3.5（2月16日）</td><td>待定</td><td>128K+</td><td>支持3D游戏生成、医疗影像</td></tr><tr><td>Doubao 2.0</td><td>ByteDance</td><td>消费+API</td><td>Doubao 2.0（2月上旬）</td><td>免费（消费端）</td><td>未披露</td><td>推理能力对齐GPT水平</td></tr><tr><td>GLM-5</td><td>智谱AI</td><td>开源大模型</td><td>GLM-5（7440亿MoE）</td><td>开源免费</td><td>200K</td><td>MIT许可证，昇腾训练</td></tr><tr><td>Grok 3</td><td>xAI</td><td>通用+推理</td><td>Grok 3</td><td>X Premium（$22/月）</td><td>128K</td><td>无重大更新</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://www.shakudo.io/blog/top-9-large-language-models">Shakudo</a>（2026年2月-3月）</p><p>| 维度 | GPT-5.2 (OpenAI) | Claude Sonnet 4.6 (Anthropic) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V3.2 |
 |------|-----------------|-------------------------------|---------------------------|------------------------|---------------|
 | <strong>定价（输入/输出）</strong> | $10 / $30 | $3 / $15 ✅最具性价比 | $15 / $75 | $2 / $12 ✅最便宜旗舰 | ~$0.27 / $1.10 |
 | <strong>上下文窗口</strong> | 400K | 200K | 200K | <strong>1M</strong> ✅最大 | 128K |
@@ -339,7 +399,7 @@ a:hover { text-decoration: underline; }
 - <strong>Claude Sonnet 4.6</strong>在对话质量Elo排行榜上意外超越Opus 4.6，成为"日常使用综合最优选择"。
 - <strong>DeepSeek V4</strong>若本周如期发布，将是首个在官方适配国产芯片的同时具备万亿参数和多模态能力的开源模型，对整个格局影响重大。
 - <strong>GPT-5.3 Codex</strong>在SWE-bench上以77.3%暂列第一，专为代码任务优化，但通用能力不及GPT-5.2。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13场景）</div><p>> 本周如有变化在【本周变化】列标注
+<hr class="sep"><div class="sec-title" id="sec------ai-----13---">⑥ 场景化AI工具推荐（13场景）</div><p>> 本周如有变化在【本周变化】列标注
 
 | # | 场景 | 首选工具 | 备选工具 | 本周变化 |
 |---|------|---------|---------|---------|
@@ -358,7 +418,7 @@ a:hover { text-decoration: underline; }
 | 13 | 🌏 中文专项任务（创作/客服/问答） | Doubao 2.0 / Qwen3.5 | DeepSeek V3.2 | Doubao 2.0 & Qwen3.5 双双发布，中文生态全面升级 |
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻（3月5日–11日）</div><p>1. <strong>🚀 DeepSeek V4正式发布（高概率本周落地）</strong>：据TechNode消息，发布窗口为3月第一周，需密切关注其多模态能力表现及API定价，这将对整体AI成本格局产生影响。来源：<a href="https://technode.com/2026/03/02/deepseek-plans-v4-multimodal-model-release-this-week-sources-say/">TechNode</a>
+<hr class="sep"><div class="sec-title" id="sec--------3-5--11--">⑦ 本周前瞻（3月5日–11日）</div><p>1. <strong>🚀 DeepSeek V4正式发布（高概率本周落地）</strong>：据TechNode消息，发布窗口为3月第一周，需密切关注其多模态能力表现及API定价，这将对整体AI成本格局产生影响。来源：<a href="https://technode.com/2026/03/02/deepseek-plans-v4-multimodal-model-release-this-week-sources-say/">TechNode</a>
 
 2. <strong>🍎 Apple MacBook Air M5 开售（3月11日）</strong>：新一代硬件与AI Siri组合正式落地，关注Apple Intelligence本地推理的实际体验反馈。来源：<a href="https://www.apple.com/newsroom/2026/03/apple-introduces-the-new-macbook-air-with-m5/">Apple官网</a>
 

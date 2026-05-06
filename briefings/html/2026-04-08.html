@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年4月8日 星期三</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</a><a href="#sec-------">⑦ 本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,17 +336,17 @@ a:hover { text-decoration: underline; }
     <span>覆盖24小时 · 预计阅读10-12分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>伊朗战争戏剧性转折：Trump在最后通牒到期前数小时宣布两周停火，伊朗接受并宣布"胜利"——条件为立即重开霍尔木兹海峡；油价暴跌16%至$94以下，美股期货飙涨（S&P +2.5%、道指+1000点、纳指+3%）</strong>。<strong>Google悄然上线AI Edge Eloquent——基于Gemma的离线AI听写App，完全免费无订阅，自动清除口头禅生成干净文稿，iOS先行</strong>。<strong>GPT-6传闻4月14日发布：未经证实的泄露称预训练已于3月17日完成，性能比GPT-5.4提升40%、2M上下文窗口——OpenAI官方未确认</strong>。<strong>Artemis II第7天：机组完成远距通话开始返航，溅落时间更新至4月10日晚8:07 PM EDT</strong>。
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p><strong>伊朗战争戏剧性转折：Trump在最后通牒到期前数小时宣布两周停火，伊朗接受并宣布"胜利"——条件为立即重开霍尔木兹海峡；油价暴跌16%至$94以下，美股期货飙涨（S&P +2.5%、道指+1000点、纳指+3%）</strong>。<strong>Google悄然上线AI Edge Eloquent——基于Gemma的离线AI听写App，完全免费无订阅，自动清除口头禅生成干净文稿，iOS先行</strong>。<strong>GPT-6传闻4月14日发布：未经证实的泄露称预训练已于3月17日完成，性能比GPT-5.4提升40%、2M上下文窗口——OpenAI官方未确认</strong>。<strong>Artemis II第7天：机组完成远距通话开始返航，溅落时间更新至4月10日晚8:07 PM EDT</strong>。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：Google AI Edge Eloquent——离线AI听写，免费无限量，Gemma驱动</h3><p>Google于4月6日悄然在iOS App Store上架了一款名为<strong>AI Edge Eloquent</strong>的AI听写应用——没有新闻发布会，没有博客公告，但这款产品可能是2026年最实用的AI工具之一。</p><p><strong>核心能力：</strong>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条：Google AI Edge Eloquent——离线AI听写，免费无限量，Gemma驱动</h3><p>Google于4月6日悄然在iOS App Store上架了一款名为<strong>AI Edge Eloquent</strong>的AI听写应用——没有新闻发布会，没有博客公告，但这款产品可能是2026年最实用的AI工具之一。</p><p><strong>核心能力：</strong>
 - <strong>离线优先</strong>：基于设备端Gemma模型，完全离线运行，<strong>语音数据不离开手机</strong>
 - <strong>智能清洁</strong>：自动过滤"嗯""啊"等口头禅和中途自我纠正，输出<strong>干净、可用的专业文稿</strong>
 - <strong>后处理工具</strong>：一键提取要点（bullets）、调节正式度（Formal）、缩短或扩展文本
 - <strong>个性化词库</strong>：可从Gmail导入专有名词/术语，也支持手动添加自定义词汇
-- <strong>云端模式</strong>（可选）：开启后调用Gemini模型做文本润色，获得更高质量输出</p><div class="callout"><strong>为什么重要：</strong> 市面上AI听写工具（如Wispr Flow、Otter.ai）几乎都依赖云端+订阅模式。Eloquent做到了<strong>完全离线+完全免费+无使用上限</strong>——这对律师、记者、医生等需要隐私保护的职业群体是杀手级功能。Google把它做成iOS先行而非Android优先，也是一个有趣的战略选择。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://apps.apple.com/app/ai-edge-eloquent">iOS App Store搜索"AI Edge Eloquent"</a>（Android版开发中）</li><li>💰 定价：<strong>完全免费，无订阅，无使用上限</strong></li><li>💡 上手：会议/访谈/庭审笔录场景首选——离线模式确保数据隐私</li></ul><div class="sources">来源：<a href="https://techcrunch.com/2026/04/06/google-quietly-releases-an-offline-first-ai-dictation-app-on-ios/">TechCrunch</a> | <a href="https://9to5google.com/2026/04/06/google-ai-edge-eloquent-app/">9to5Google</a> | <a href="https://www.neowin.net/news/google-ai-edge-eloquent-is-a-gemma-powered-dictation-app-that-works-offline/">Neowin</a> | <a href="https://www.androidauthority.com/google-ai-edge-eloquent-ai-dictation-app-3655274/">Android Authority</a></div><div class="sources">中文解读：<a href="https://www.techtimes.com/articles/315710/20260407/google-launches-free-ai-edge-eloquent-offline-voice-dictation-app-smart-transcription-tools.htm">TechTimes</a></div></div><div class="brief-item"><h4>GPT-6传闻4月14日发布——40%性能提升+2M上下文，但未经证实</h4><p>（4月5日，<a href="https://vgtimes.com/tech-and-hardware/152833-40-more-power-and-a-super-app-insider-reveals-gpt-6-release-date-but-few-believe-them.html">VGTimes</a> | <a href="https://finance.sina.cn/tech/2026-04-05/detail-inhtmhex8594187.d.html">新浪财经</a>）：一位未经验证的"内部人士"在网上泄露称，OpenAI GPT-6预训练已于3月17日完成，将于<strong>4月14日发布</strong>。据称GPT-6在编码、逻辑推理和Agent任务上比GPT-5.4提升<strong>40%以上</strong>，上下文窗口扩展至<strong>2M tokens</strong>。<strong>OpenAI官方未确认任何发布日期</strong>。Manifold预测市场对此持谨慎态度——此前GPT-6多次"泄露日期"均未兑现。
+- <strong>云端模式</strong>（可选）：开启后调用Gemini模型做文本润色，获得更高质量输出</p><div class="callout"><strong>为什么重要：</strong> 市面上AI听写工具（如Wispr Flow、Otter.ai）几乎都依赖云端+订阅模式。Eloquent做到了<strong>完全离线+完全免费+无使用上限</strong>——这对律师、记者、医生等需要隐私保护的职业群体是杀手级功能。Google把它做成iOS先行而非Android优先，也是一个有趣的战略选择。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://apps.apple.com/app/ai-edge-eloquent">iOS App Store搜索"AI Edge Eloquent"</a>（Android版开发中）</li><li>💰 定价：<strong>完全免费，无订阅，无使用上限</strong></li><li>💡 上手：会议/访谈/庭审笔录场景首选——离线模式确保数据隐私</li></ul><div class="link-cluster "><a href="https://techcrunch.com/2026/04/06/google-quietly-releases-an-offline-first-ai-dictation-app-on-ios/">TechCrunch</a> | <a href="https://9to5google.com/2026/04/06/google-ai-edge-eloquent-app/">9to5Google</a> | <a href="https://www.neowin.net/news/google-ai-edge-eloquent-is-a-gemma-powered-dictation-app-that-works-offline/">Neowin</a> | <a href="https://www.androidauthority.com/google-ai-edge-eloquent-ai-dictation-app-3655274/">Android Authority</a></div><div class="link-cluster zh"><a href="https://www.techtimes.com/articles/315710/20260407/google-launches-free-ai-edge-eloquent-offline-voice-dictation-app-smart-transcription-tools.htm">TechTimes</a></div></div><div class="brief-item"><h4>GPT-6传闻4月14日发布——40%性能提升+2M上下文，但未经证实</h4><p>（4月5日，<a href="https://vgtimes.com/tech-and-hardware/152833-40-more-power-and-a-super-app-insider-reveals-gpt-6-release-date-but-few-believe-them.html">VGTimes</a> | <a href="https://finance.sina.cn/tech/2026-04-05/detail-inhtmhex8594187.d.html">新浪财经</a>）：一位未经验证的"内部人士"在网上泄露称，OpenAI GPT-6预训练已于3月17日完成，将于<strong>4月14日发布</strong>。据称GPT-6在编码、逻辑推理和Agent任务上比GPT-5.4提升<strong>40%以上</strong>，上下文窗口扩展至<strong>2M tokens</strong>。<strong>OpenAI官方未确认任何发布日期</strong>。Manifold预测市场对此持谨慎态度——此前GPT-6多次"泄露日期"均未兑现。
 - 📍 获取：待确认</p><div class="insight">持观望态度——如果真的4月14日发布，旗舰对比表将迎来地震级洗牌</div></div><div class="brief-item"><h4>Gartner报告：仅28%的AI项目产生有意义回报，20%完全失败</h4><p>（4月，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：Gartner最新调研显示，企业AI项目在基础设施和运营领域的落地率远低于预期——<strong>仅28%</strong>的项目带来有意义的投资回报，<strong>20%直接失败</strong>。这与AI投资热潮形成鲜明反差。报告强调"AI野心与执行之间存在巨大鸿沟"。</p><div class="insight">企业AI决策者必读——避免"为AI而AI"的投资陷阱</div></div><div class="brief-item"><h4>OpenAI年化收入突破$250亿，IPO最快Q4 2026</h4><p>（4月，<a href="https://llm-stats.com/ai-news">LLM Stats</a> | <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：OpenAI年化收入已突破<strong>$250亿</strong>大关。CEO Sam Altman和CFO Sarah Friar据报对公司在完成$1220亿融资后的上市进程充满信心，<strong>IPO最快2026年Q4启动</strong>。如果成行，这将是科技史上最大规模的AI公司IPO之一。</p><div class="insight">跟进：此前已报道$1220亿融资（4/2），现在有了IPO时间表</div></div><div class="brief-item"><h4>跟进：DeepSeek R2仍在开发中，发布日期未定</h4><p>（4月，<a href="https://dataconomy.com/2026/01/15/deepseek-v4-and-r2-launch-timing-stays-hidden/">Dataconomy</a> | <a href="https://manifold.markets/Bayesian/when-will-deepseek-release-r2">Manifold</a>）：DeepSeek R2因华为Ascend芯片训练困难持续延迟，团队已转回使用NVIDIA硬件进行关键训练阶段。CEO对模型性能仍不满意。V4预计采用<strong>1万亿参数MoE架构</strong>（比V3的6710亿增加约50%）。Polymarket"5月前发布"概率偏低，社区普遍预期<strong>2026年中后期</strong>。</p><div class="insight">短期内不会改变旗舰格局——关注GPT-6传闻是否成真更实际</div></div><div class="brief-item"><h4>ByteDance被迫缩减豆包手机Agent能力</h4><p>（4月，<a href="https://digitalinasia.com/2026/04/06/china-ai-models-chips-strategy/">Digital in Asia</a>）：豆包App周活跃用户达<strong>1.552亿</strong>，但ByteDance被迫缩减其手机端Agent功能——原因是多款国内主流App限制了豆包的语音操控接口。这凸显了中国AI Agent生态的一个结构性问题：超级App之间的"围墙花园"限制了跨App Agent的能力边界。</p><div class="insight">Agent能力受限于App生态开放度——中国市场独有的挑战</div></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第39天：两周停火达成——从"整个文明今晚将死"到双边停火仅3小时
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p>### 🌍 一、伊朗战争第39天：两周停火达成——从"整个文明今晚将死"到双边停火仅3小时
 
 <strong>4月7日增量（接续第38天"最后通牒到期"报道）：</strong>
 
@@ -340,8 +400,8 @@ Artemis II进入返航阶段。第7天（4月7日）关键事件：
 来源：<a href="https://www.nbcnews.com/business/markets/oil-prices-stocks-trump-iran-ceasefire-rcna267182">NBC News</a> | <a href="https://www.cnn.com/2026/04/07/business/us-stocks-oil-trump-iran-ceasefire">CNN</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-06/stock-market-today-dow-s-p-live-updates">Bloomberg</a>
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Google</td><td>AI Edge Eloquent</td><td>离线AI听写App，Gemma驱动，免费无限量</td><td>✅全量</td><td>iOS App Store</td><td>4月6日</td></tr><tr><td>OpenAI</td><td>GPT-6（传闻）</td><td>传言4月14日发布，40%提升+2M上下文</td><td>⏳未确认</td><td>—</td><td>传闻4月14日</td></tr><tr><td>OpenAI</td><td>IPO计划</td><td>年化收入$250亿，IPO最快Q4 2026</td><td>⏳筹备中</td><td>—</td><td>4月</td></tr><tr><td>ByteDance</td><td>豆包Agent缩减</td><td>周活1.55亿，但手机Agent功能被多App限制</td><td>✅全量</td><td>豆包App</td><td>4月</td></tr><tr><td>DeepSeek</td><td>R2（跟进）</td><td>仍在开发，Ascend训练困难，转回NVIDIA</td><td>⏳开发中</td><td>—</td><td>待定</td></tr><tr><td>Gartner</td><td>AI项目ROI报告</td><td>仅28%的AI项目有回报，20%直接失败</td><td>✅报告</td><td>Gartner</td><td>4月</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://www.buildfastwithai.com/blogs/best-ai-models-april-2026">Build Fast with AI</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a> | <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Qwen3.6-Plus (阿里) |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Google</td><td>AI Edge Eloquent</td><td>离线AI听写App，Gemma驱动，免费无限量</td><td>✅全量</td><td>iOS App Store</td><td>4月6日</td></tr><tr><td>OpenAI</td><td>GPT-6（传闻）</td><td>传言4月14日发布，40%提升+2M上下文</td><td>⏳未确认</td><td>—</td><td>传闻4月14日</td></tr><tr><td>OpenAI</td><td>IPO计划</td><td>年化收入$250亿，IPO最快Q4 2026</td><td>⏳筹备中</td><td>—</td><td>4月</td></tr><tr><td>ByteDance</td><td>豆包Agent缩减</td><td>周活1.55亿，但手机Agent功能被多App限制</td><td>✅全量</td><td>豆包App</td><td>4月</td></tr><tr><td>DeepSeek</td><td>R2（跟进）</td><td>仍在开发，Ascend训练困难，转回NVIDIA</td><td>⏳开发中</td><td>—</td><td>待定</td></tr><tr><td>Gartner</td><td>AI项目ROI报告</td><td>仅28%的AI项目有回报，20%直接失败</td><td>✅报告</td><td>Gartner</td><td>4月</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://www.buildfastwithai.com/blogs/best-ai-models-april-2026">Build Fast with AI</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a> | <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Qwen3.6-Plus (阿里) |
 |------|--------------------------|------------------|---------------------------|----------------------|
 | <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ BenchLM 87分 | ⭐⭐⭐⭐⭐ BenchLM 82分 | ⭐⭐⭐⭐⭐ BenchLM 85分 | ⭐⭐⭐⭐ (社区测试中) |
 | <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐⭐ <strong>78.80%</strong> | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 匹配Opus 4.5 |
@@ -363,7 +423,7 @@ Artemis II进入返航阶段。第7天（4月7日）关键事件：
 | <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 140+语言 |
 | <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | <strong>$0.25/$1.50</strong> | <strong>免费开源</strong> |
 | <strong>开源</strong> | ❌ | ❌ | ❌ | ✅ Apache 2.0 |</p><p><strong>📝 本周变化：</strong> 本周无重大新模型正式发布，对比表数据与上期一致，无排名变动。<strong>关注点：</strong> ①GPT-6传闻4月14日发布（未确认）——如属实，将是2026年最大的旗舰洗牌事件，编码/推理/Agent三维度40%提升+2M上下文将重新定义顶级模型标准。②DeepSeek R2持续延迟，短期无法挑战现有格局。③Google AI Edge Eloquent展示了Gemma生态在端侧应用的落地能力。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+<hr class="sep"><div class="sec-title" id="sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
 |------|------|------|----------|-----------|
 | 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | Gemma 4 31B | Computer Use闭环验证代码 |
 | ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Gemma 4 31B | 128K输出+自然散文质量 |
@@ -382,7 +442,7 @@ Artemis II进入返航阶段。第7天（4月7日）关键事件：
 <strong>🔄 本周变化：</strong> 本期各场景推荐与上期一致，无排名变动。<strong>值得关注：</strong> Google AI Edge Eloquent的发布为"语音对话"和"手机端日常"场景提供了新维度（离线听写），但其定位为听写工具而非对话AI，暂不纳入推荐表。若GPT-6于4月14日确认发布，编程/Agent/推理三个场景的首选可能面临洗牌。
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🔥 伊朗两周停火倒计时开始</strong>：停火期至约4月21日。关键观察点：①霍尔木兹海峡实际通行规则如何执行？双方对"开放"的定义存在分歧。②150艘滞留货轮（含大量油轮）能否顺利通过？③伊朗10点和平方案的具体内容何时公开？停火脆弱，任何摩擦都可能触发重新升级。
+<hr class="sep"><div class="sec-title" id="sec-------">⑦ 本周前瞻</div><p>1. <strong>🔥 伊朗两周停火倒计时开始</strong>：停火期至约4月21日。关键观察点：①霍尔木兹海峡实际通行规则如何执行？双方对"开放"的定义存在分歧。②150艘滞留货轮（含大量油轮）能否顺利通过？③伊朗10点和平方案的具体内容何时公开？停火脆弱，任何摩擦都可能触发重新升级。
 
 2. <strong>🚀 Artemis II溅落（4月10日 8:07 PM EDT）</strong>：返程中的<strong>热盾再入测试</strong>是整个任务最关键安全节点——Orion将以接近40,000 km/h的速度重返大气层。USS John P. Murtha号待命回收。
 

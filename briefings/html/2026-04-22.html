@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年4月22日 星期三</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</a><a href="#sec-------">⑦ 本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,15 +336,15 @@ a:hover { text-decoration: underline; }
     <span>覆盖24小时 · 预计阅读10-12分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Trump在4月22日停火到期前一天宣布"无限期延期"对伊朗停火——此前刚说"极不可能延期"，在巴基斯坦总理Shehbaz Sharif亲自请求下180度反转；副总统Vance原定飞Islamabad未成行留在白宫"补开政策会议"，美军封锁伊朗港口仍继续，Trump同时称伊朗"财务崩溃"</strong>。<strong>Meta公布2026年AI资本支出$115-135B（中位$125B）——几乎是2025年$72B的两倍，CFO Susan Li明确归因"Meta Superintelligence Labs + 核心业务"，Barclays预计Meta自由现金流将暴跌近90%</strong>。<strong>Big Tech四大合计2026 AI Capex逼近$690B——Google $185B、Amazon $125B、Microsoft财季$36.25B（YoY+60%）——Q2财报季即将验收这一史上最大资本支出</strong>。<strong>内布拉斯加州最高法院无限期吊销Omaha律师Greg Lake执业资格——AI撰写的诉状63条引用中57条有缺陷含20条幻觉+4条完全虚构案例，成为美国首例因AI引发的律师执业吊销</strong>。<strong>美国断供伊拉克美元+冻结军事合作——NY联储拦下$5亿现钞运输，担忧资金回流伊朗</strong>，喷气燃料破$100/桶引发航班取消担忧。
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p><strong>Trump在4月22日停火到期前一天宣布"无限期延期"对伊朗停火——此前刚说"极不可能延期"，在巴基斯坦总理Shehbaz Sharif亲自请求下180度反转；副总统Vance原定飞Islamabad未成行留在白宫"补开政策会议"，美军封锁伊朗港口仍继续，Trump同时称伊朗"财务崩溃"</strong>。<strong>Meta公布2026年AI资本支出$115-135B（中位$125B）——几乎是2025年$72B的两倍，CFO Susan Li明确归因"Meta Superintelligence Labs + 核心业务"，Barclays预计Meta自由现金流将暴跌近90%</strong>。<strong>Big Tech四大合计2026 AI Capex逼近$690B——Google $185B、Amazon $125B、Microsoft财季$36.25B（YoY+60%）——Q2财报季即将验收这一史上最大资本支出</strong>。<strong>内布拉斯加州最高法院无限期吊销Omaha律师Greg Lake执业资格——AI撰写的诉状63条引用中57条有缺陷含20条幻觉+4条完全虚构案例，成为美国首例因AI引发的律师执业吊销</strong>。<strong>美国断供伊拉克美元+冻结军事合作——NY联储拦下$5亿现钞运输，担忧资金回流伊朗</strong>，喷气燃料破$100/桶引发航班取消担忧。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：Meta宣告$125B AI Capex时代——4大云巨头2026合计$690B，自由现金流暴跌90%</h3><p>Meta在最新财报中给出2026年AI Capex指引：<strong>$115-135B</strong>（<a href="https://www.datacenterdynamics.com/en/news/meta-estimates-2026-capex-to-be-between-115-135bn/">DCD报道</a> | <a href="https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html">CNBC</a>），中位$125B，是2025年<strong>全年$72.22B的近两倍</strong>，史上最激进单年基建扩张。CFO Susan Li明确三大方向：①Meta Superintelligence Labs（Alexandr Wang领衔的$14B并购案产物）；②AI驱动广告；③内容推荐系统。</p><p><strong>Big Tech 2026 AI Capex全景（<a href="https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/">Futurum</a> | <a href="https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html">CNBC</a>）：</strong></p><div class="product-table"><table><thead><tr><th>公司</th><th>2026 Capex</th><th>YoY变化</th><th>备注</th></tr></thead><tbody><tr><td><strong>Google/Alphabet</strong></td><td><strong>$185B</strong></td><td>最高</td><td>Gemini + Cloud基建</td></tr><tr><td><strong>Meta</strong></td><td><strong>$115-135B</strong></td><td>+90%（$72B→$125B）</td><td>Superintelligence Labs</td></tr><tr><td><strong>Amazon</strong></td><td><strong>$125B</strong></td><td>10月从$118B上调</td><td>AWS AI服务需求</td></tr><tr><td><strong>Microsoft</strong></td><td><strong>$36.25B</strong>（单季度）</td><td><strong>YoY +60%</strong></td><td>FY2026 Q2 Consensus</td></tr><tr><td><strong>4大合计</strong></td><td><strong>~$690B</strong></td><td>—</td><td>超 <strong>GDP前120国</strong></td></tr></tbody></table></div><p><strong>财务代价（<a href="https://markets.financialcontent.com/stocks/article/finterra-2026-4-13-metas-giga-capex-era-can-personal-superintelligence-justify-a-135-billion-bet">FinancialContent</a> | <a href="https://qz.com/meta-earnings-q4-2025-ai-mark-zuckerberg">Quartz</a>）：</strong>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条：Meta宣告$125B AI Capex时代——4大云巨头2026合计$690B，自由现金流暴跌90%</h3><p>Meta在最新财报中给出2026年AI Capex指引：<strong>$115-135B</strong>（<a href="https://www.datacenterdynamics.com/en/news/meta-estimates-2026-capex-to-be-between-115-135bn/">DCD报道</a> | <a href="https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html">CNBC</a>），中位$125B，是2025年<strong>全年$72.22B的近两倍</strong>，史上最激进单年基建扩张。CFO Susan Li明确三大方向：①Meta Superintelligence Labs（Alexandr Wang领衔的$14B并购案产物）；②AI驱动广告；③内容推荐系统。</p><p><strong>Big Tech 2026 AI Capex全景（<a href="https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/">Futurum</a> | <a href="https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html">CNBC</a>）：</strong></p><div class="product-table"><table><thead><tr><th>公司</th><th>2026 Capex</th><th>YoY变化</th><th>备注</th></tr></thead><tbody><tr><td><strong>Google/Alphabet</strong></td><td><strong>$185B</strong></td><td>最高</td><td>Gemini + Cloud基建</td></tr><tr><td><strong>Meta</strong></td><td><strong>$115-135B</strong></td><td>+90%（$72B→$125B）</td><td>Superintelligence Labs</td></tr><tr><td><strong>Amazon</strong></td><td><strong>$125B</strong></td><td>10月从$118B上调</td><td>AWS AI服务需求</td></tr><tr><td><strong>Microsoft</strong></td><td><strong>$36.25B</strong>（单季度）</td><td><strong>YoY +60%</strong></td><td>FY2026 Q2 Consensus</td></tr><tr><td><strong>4大合计</strong></td><td><strong>~$690B</strong></td><td>—</td><td>超 <strong>GDP前120国</strong></td></tr></tbody></table></div><p><strong>财务代价（<a href="https://markets.financialcontent.com/stocks/article/finterra-2026-4-13-metas-giga-capex-era-can-personal-superintelligence-justify-a-135-billion-bet">FinancialContent</a> | <a href="https://qz.com/meta-earnings-q4-2025-ai-mark-zuckerberg">Quartz</a>）：</strong>
 - <strong>Meta自由现金流预计下降近90%</strong>——Barclays分析师警告
 - <strong>Amazon 2026自由现金流或转负</strong>——史上首次
-- Google 2025年自由现金流曾连续下滑3个季度</p><div class="callout"><div class="callout-intro"><strong>为什么重要：</strong></div><ul class="callout-list"><li><strong>2026是AI产业"烧钱拐点"</strong>——所有云巨头同时把50%+营收现金流扔进数据中心</li><li><strong>Meta是赌得最猛的</strong>——从"广告机器"转向"AI Lab+数据中心REIT混合体"，Zuckerberg已把个人超级智能（Personal Superintelligence）作为公司存续理由</li><li>Q2财报季将是试金石——若营收增长跟不上资本支出曲线，<strong>AI Capex泡沫叙事将首次严肃浮现</strong>。现有市盈率是<strong>"相信Meta/Google/Amazon/Microsoft能把$690B基建变现"</strong></li></ul></div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.datacenterdynamics.com/en/news/meta-estimates-2026-capex-to-be-between-115-135bn/">DataCenterDynamics深度</a> | <a href="https://finance.yahoo.com/news/big-techs-rising-ai-investments-show-market-bubble-still-has-a-good-ways-to-go-154416770.html">Yahoo Finance</a></li><li>💰 影响：2026H2美债收益率 + 英伟达/博通/台积电订单饱和度是关键观测指标</li><li>💡 上手：<strong>科技股投资者必须跟进4月末-5月初四大财报</strong>——任何一家下调AI Capex指引即引发板块共振</li></ul><div class="sources">来源：<a href="https://www.datacenterdynamics.com/en/news/meta-estimates-2026-capex-to-be-between-115-135bn/">DataCenterDynamics</a> | <a href="https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/">Futurum</a> | <a href="https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html">CNBC（现金流告急）</a> | <a href="https://qz.com/meta-earnings-q4-2025-ai-mark-zuckerberg">Quartz（Meta财报）</a> | <a href="https://www.advisorperspectives.com/commentaries/2026/02/03/ai-capex-clouds-tech-horizon-meta-tesla-shine">Advisor Perspectives</a></div><div class="sources">中文解读：<a href="https://www.sohu.com">搜狐科技大厂Capex分析</a>（同步追踪中）</div></div><div class="brief-item"><h4>美国首例：内布拉斯加州最高法院无限期吊销律师执照——AI幻觉57/63条引用，辩护律师先称"上传错版"后承认用AI</h4><p>（4月15日裁定，<a href="https://nebraskapublicmedia.org/en/news/news-articles/nebraska-supreme-court-blasts-ai-authored-court-filings-recommends-discipline/">Nebraska Public Media</a> | <a href="https://www.wowt.com/2026/04/16/nebraska-supreme-court-suspends-omaha-attorney-over-ai-use/">WOWT</a>）：Omaha律师<strong>Greg Lake</strong>在一起离婚案上诉书中引用<strong>63条判例、57条有缺陷——其中20条是纯AI幻觉、4条完全虚构不存在于任何司法管辖区</strong>。Lake最初辩称"结婚周年旅行中电脑坏了上传错版本"——被大法官识破后承认使用AI，被认定"对法庭缺乏坦诚"。无限期执业吊销若维持，是<strong>美国首例因AI引发的律师执业全面吊销</strong>——此前同类案件仅为罚款或短期暂停。HEC Paris研究员Damien Charlotin维护的<a href="https://www.damiencharlotin.com/hallucinations/">AI幻觉案例数据库</a>已追踪<strong>1,200+全球案例、其中800+来自美国法院</strong>。</p><div class="insight"><strong>所有使用AI写法律文书的从业者必须做citation check</strong>——推荐用Westlaw/LexisNexis验证每一条cite；Claude for Word的tracked changes+跨文档验证功能（本项目已使用）对避免此类灾难有关键价值</div></div><div class="brief-item"><h4>DeepSeek V4"4月下旬"窗口仅剩8天——仍零官方动作</h4><p>（4月22日跟进，<a href="https://finance.biggo.com/news/202604102303_DeepSeek_V4_April_Launch_Details">BigGo Finance</a> | <a href="https://techxplore.com/news/2026-04-deepseek-china-ai-ambitions.html">TechXplore</a>）：上周Reuters/Dataconomy报道"V4独家华为Ascend 950PR+拒绝Nvidia/AMD早期访问"已过去7天，DeepSeek官方GitHub、微博、推特<strong>仍无任何预热或版本号提交</strong>。最激进窗口4月22-30日，最保守5月初。V4-Lite API实测的"128K召回率94%+速度+30%"仍是社区唯一落地验证。</p><div class="insight">等本周末若仍零动作，5月发布概率将超过4月；不建议因传闻提前迁移项目</div></div><div class="brief-item"><h4>OpenAI "Spud"/GPT-6：预训练完成第29天，零动静——Polymarket概率继续下滑</h4><p>（4月22日跟进，<a href="https://www.tmtpost.com/agent/ai-article/14445">TMTPost</a>）：Sam Altman 3月24日"几周内发布"承诺到期已近一个月。最近一周Polymarket"4月30日前发布"概率从78%→72%→预计本周末进一步下滑。合理窗口已收窄至<strong>5月初-5月25日</strong>。GPT-5.5 vs GPT-6命名至今未官方确认。</p><div class="insight">继续等——OpenAI官方blog/推特为唯一可靠信号</div></div><div class="brief-item"><h4>Vocalbeats.AI为Apple Watch推出"Owll"AI笔记应用</h4><p>（4月22日发布，<a href="https://www.globenewswire.com/news-release/2026/04/22/3278615/0/en/vocalbeats-ai-brings-ai-note-taking-to-the-wrist-with-apple-watch-experience-for-owll.html">GlobeNewswire</a>）：新加坡AI音频公司Vocalbeats发布Apple Watch版Owll——在手腕即可触发AI笔记录音+实时转写+智能摘要，主打"会议/医生问诊/课堂"三大场景。免费增值模式。
+- Google 2025年自由现金流曾连续下滑3个季度</p><div class="callout"><div class="callout-intro"><strong>为什么重要：</strong></div><ul class="callout-list"><li><strong>2026是AI产业"烧钱拐点"</strong>——所有云巨头同时把50%+营收现金流扔进数据中心</li><li><strong>Meta是赌得最猛的</strong>——从"广告机器"转向"AI Lab+数据中心REIT混合体"，Zuckerberg已把个人超级智能（Personal Superintelligence）作为公司存续理由</li><li>Q2财报季将是试金石——若营收增长跟不上资本支出曲线，<strong>AI Capex泡沫叙事将首次严肃浮现</strong>。现有市盈率是<strong>"相信Meta/Google/Amazon/Microsoft能把$690B基建变现"</strong></li></ul></div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.datacenterdynamics.com/en/news/meta-estimates-2026-capex-to-be-between-115-135bn/">DataCenterDynamics深度</a> | <a href="https://finance.yahoo.com/news/big-techs-rising-ai-investments-show-market-bubble-still-has-a-good-ways-to-go-154416770.html">Yahoo Finance</a></li><li>💰 影响：2026H2美债收益率 + 英伟达/博通/台积电订单饱和度是关键观测指标</li><li>💡 上手：<strong>科技股投资者必须跟进4月末-5月初四大财报</strong>——任何一家下调AI Capex指引即引发板块共振</li></ul><div class="link-cluster "><a href="https://www.datacenterdynamics.com/en/news/meta-estimates-2026-capex-to-be-between-115-135bn/">DataCenterDynamics</a> | <a href="https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/">Futurum</a> | <a href="https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html">CNBC（现金流告急）</a> | <a href="https://qz.com/meta-earnings-q4-2025-ai-mark-zuckerberg">Quartz（Meta财报）</a> | <a href="https://www.advisorperspectives.com/commentaries/2026/02/03/ai-capex-clouds-tech-horizon-meta-tesla-shine">Advisor Perspectives</a></div><div class="link-cluster zh"><a href="https://www.sohu.com">搜狐科技大厂Capex分析</a>（同步追踪中）</div></div><div class="brief-item"><h4>美国首例：内布拉斯加州最高法院无限期吊销律师执照——AI幻觉57/63条引用，辩护律师先称"上传错版"后承认用AI</h4><p>（4月15日裁定，<a href="https://nebraskapublicmedia.org/en/news/news-articles/nebraska-supreme-court-blasts-ai-authored-court-filings-recommends-discipline/">Nebraska Public Media</a> | <a href="https://www.wowt.com/2026/04/16/nebraska-supreme-court-suspends-omaha-attorney-over-ai-use/">WOWT</a>）：Omaha律师<strong>Greg Lake</strong>在一起离婚案上诉书中引用<strong>63条判例、57条有缺陷——其中20条是纯AI幻觉、4条完全虚构不存在于任何司法管辖区</strong>。Lake最初辩称"结婚周年旅行中电脑坏了上传错版本"——被大法官识破后承认使用AI，被认定"对法庭缺乏坦诚"。无限期执业吊销若维持，是<strong>美国首例因AI引发的律师执业全面吊销</strong>——此前同类案件仅为罚款或短期暂停。HEC Paris研究员Damien Charlotin维护的<a href="https://www.damiencharlotin.com/hallucinations/">AI幻觉案例数据库</a>已追踪<strong>1,200+全球案例、其中800+来自美国法院</strong>。</p><div class="insight"><strong>所有使用AI写法律文书的从业者必须做citation check</strong>——推荐用Westlaw/LexisNexis验证每一条cite；Claude for Word的tracked changes+跨文档验证功能（本项目已使用）对避免此类灾难有关键价值</div></div><div class="brief-item"><h4>DeepSeek V4"4月下旬"窗口仅剩8天——仍零官方动作</h4><p>（4月22日跟进，<a href="https://finance.biggo.com/news/202604102303_DeepSeek_V4_April_Launch_Details">BigGo Finance</a> | <a href="https://techxplore.com/news/2026-04-deepseek-china-ai-ambitions.html">TechXplore</a>）：上周Reuters/Dataconomy报道"V4独家华为Ascend 950PR+拒绝Nvidia/AMD早期访问"已过去7天，DeepSeek官方GitHub、微博、推特<strong>仍无任何预热或版本号提交</strong>。最激进窗口4月22-30日，最保守5月初。V4-Lite API实测的"128K召回率94%+速度+30%"仍是社区唯一落地验证。</p><div class="insight">等本周末若仍零动作，5月发布概率将超过4月；不建议因传闻提前迁移项目</div></div><div class="brief-item"><h4>OpenAI "Spud"/GPT-6：预训练完成第29天，零动静——Polymarket概率继续下滑</h4><p>（4月22日跟进，<a href="https://www.tmtpost.com/agent/ai-article/14445">TMTPost</a>）：Sam Altman 3月24日"几周内发布"承诺到期已近一个月。最近一周Polymarket"4月30日前发布"概率从78%→72%→预计本周末进一步下滑。合理窗口已收窄至<strong>5月初-5月25日</strong>。GPT-5.5 vs GPT-6命名至今未官方确认。</p><div class="insight">继续等——OpenAI官方blog/推特为唯一可靠信号</div></div><div class="brief-item"><h4>Vocalbeats.AI为Apple Watch推出"Owll"AI笔记应用</h4><p>（4月22日发布，<a href="https://www.globenewswire.com/news-release/2026/04/22/3278615/0/en/vocalbeats-ai-brings-ai-note-taking-to-the-wrist-with-apple-watch-experience-for-owll.html">GlobeNewswire</a>）：新加坡AI音频公司Vocalbeats发布Apple Watch版Owll——在手腕即可触发AI笔记录音+实时转写+智能摘要，主打"会议/医生问诊/课堂"三大场景。免费增值模式。
 - 📍 获取：App Store搜索"Owll" | 需Apple Watch Series 6+</p><div class="insight">律师/咨询问答会议的"一分钟即刻录制"场景——比拿出手机/打开Otter快3秒</div></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、霍尔木兹停火大逆转——Trump在到期前一天宣布"无限期延期"，Vance留白宫未赴巴基斯坦
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p>### 🌍 一、霍尔木兹停火大逆转——Trump在到期前一天宣布"无限期延期"，Vance留白宫未赴巴基斯坦
 
 <strong>4月21-22日关键反转：</strong>
 
@@ -356,8 +416,8 @@ a:hover { text-decoration: underline; }
 来源：<a href="https://www.timesofisrael.com/liveblog-april-22-2026/">Times of Israel</a>
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Meta</td><td>2026 Capex $115-135B指引</td><td>Superintelligence Labs驱动，FCF或-90%</td><td>✅财报确认</td><td>Meta IR</td><td>4月22日（财报季）</td></tr><tr><td>Google/Alphabet</td><td>2026 Capex $185B</td><td>领先Big Tech Capex规模</td><td>✅已披露</td><td>Alphabet IR</td><td>2026财年</td></tr><tr><td>Amazon</td><td>2026 Capex $125B</td><td>AI服务需求驱动</td><td>✅已披露</td><td>Amazon IR</td><td>10月上调</td></tr><tr><td>Microsoft</td><td>FY2026 Q2单季$36.25B</td><td>YoY +60%，Consensus</td><td>✅已披露</td><td>MSFT IR</td><td>Q2财报</td></tr><tr><td>Nebraska最高法院</td><td>首例AI律师吊销</td><td>20条AI幻觉+4条虚构案例，无限期吊销</td><td>✅裁定</td><td>公开判决</td><td>4月15日</td></tr><tr><td>DeepSeek</td><td>V4（华为Ascend）</td><td>4月下旬窗口仅剩8天，零动作</td><td>⏳等待</td><td>官方发布前</td><td>4月22日Day7跟进</td></tr><tr><td>OpenAI</td><td>Spud/GPT-6</td><td>预训练完成第29天，零动作</td><td>⏳等待</td><td>—</td><td>持续跟进</td></tr><tr><td>Vocalbeats</td><td>Owll Apple Watch版</td><td>手腕AI笔记+实时转写</td><td>✅全量</td><td>App Store</td><td>4月22日</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://www.anthropic.com/news">Anthropic</a> | <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford AI Index</a> | <a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | <strong>Claude Opus 4.7 (Anthropic)</strong> | Qwen3.6-Plus (阿里) | Muse Spark (Meta) |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Meta</td><td>2026 Capex $115-135B指引</td><td>Superintelligence Labs驱动，FCF或-90%</td><td>✅财报确认</td><td>Meta IR</td><td>4月22日（财报季）</td></tr><tr><td>Google/Alphabet</td><td>2026 Capex $185B</td><td>领先Big Tech Capex规模</td><td>✅已披露</td><td>Alphabet IR</td><td>2026财年</td></tr><tr><td>Amazon</td><td>2026 Capex $125B</td><td>AI服务需求驱动</td><td>✅已披露</td><td>Amazon IR</td><td>10月上调</td></tr><tr><td>Microsoft</td><td>FY2026 Q2单季$36.25B</td><td>YoY +60%，Consensus</td><td>✅已披露</td><td>MSFT IR</td><td>Q2财报</td></tr><tr><td>Nebraska最高法院</td><td>首例AI律师吊销</td><td>20条AI幻觉+4条虚构案例，无限期吊销</td><td>✅裁定</td><td>公开判决</td><td>4月15日</td></tr><tr><td>DeepSeek</td><td>V4（华为Ascend）</td><td>4月下旬窗口仅剩8天，零动作</td><td>⏳等待</td><td>官方发布前</td><td>4月22日Day7跟进</td></tr><tr><td>OpenAI</td><td>Spud/GPT-6</td><td>预训练完成第29天，零动作</td><td>⏳等待</td><td>—</td><td>持续跟进</td></tr><tr><td>Vocalbeats</td><td>Owll Apple Watch版</td><td>手腕AI笔记+实时转写</td><td>✅全量</td><td>App Store</td><td>4月22日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://www.anthropic.com/news">Anthropic</a> | <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford AI Index</a> | <a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | <strong>Claude Opus 4.7 (Anthropic)</strong> | Qwen3.6-Plus (阿里) | Muse Spark (Meta) |
 |------|--------------------------|------------------|---------------------------|----------------------|-------------------|
 | <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ BenchLM 87分 | ⭐⭐⭐⭐⭐ BenchLM 82分 | ⭐⭐⭐⭐⭐ 4.7社区测试中 | ⭐⭐⭐⭐ (社区测试中) | ⭐⭐⭐⭐½ AA Index #4 |
 | <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐⭐ <strong>78.80%</strong> | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 78.20%+（4.7待测） | ⭐⭐⭐⭐½ 匹配Opus 4.5 | ⭐⭐⭐⭐ (待独立测试) |
@@ -381,7 +441,7 @@ a:hover { text-decoration: underline; }
 | <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 140+语言 |
 | <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | <strong>$0.25/$1.50</strong> | <strong>免费开源</strong> |
 | <strong>开源</strong> | ❌ | ❌ | ❌ | ✅ Apache 2.0 |</p><p><strong>📝 本周变化：</strong> 本期数据与上期（4/21）一致——旗舰和中端表均无重大排名变动。原因：①DeepSeek V4仍在发布前窗口期；②OpenAI Spud/GPT-6仍未披露；③Anthropic Opus 4.7刚完成代际更迭，尚无新benchmark独立验证。<strong>真正的洗牌要等未来7-30天的三个关键发布：DeepSeek V4（4月底）+ Spud（5月上旬）+ Anthropic对Opus 4.7 SWE-bench/GPQA的官方披露</strong>。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+<hr class="sep"><div class="sec-title" id="sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
 |------|------|------|----------|-----------|
 | 💻 编程/代码 | GPT-5.4 | Claude Opus 4.7 | Gemma 4 31B | Claude Code多会话+Routines增强 |
 | ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Gemma 4 31B | 128K输出+自然散文质量 |
@@ -400,7 +460,7 @@ a:hover { text-decoration: underline; }
 <strong>🔄 本周变化：</strong> ①⚖️<strong>法律文书场景特别注记</strong>——Nebraska律师Greg Lake被无限期吊销执照（首例），强化了"Claude for Word tracked changes + Westlaw/LexisNexis citation cross-check"为法律AI工作流最佳实践。本栏目"一句话理由"已更新；②其他12场景排名不变；③手腕端新工具Vocalbeats Owll可能在未来1-2期补入"语音对话"或"手机端日常"的备选，待社区验证体验。
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>💰 Q2财报季连发——AI Capex验收周（4月23-5月2日）</strong>：Alphabet、Microsoft、Meta、Amazon四大将陆续披露Q1/Q2季报。关键观察点：①是否上调/下调$690B Capex指引；②AI相关营收增长能否跟上资本支出曲线；③自由现金流下降幅度是否超出预期。任何一家"利润miss+Capex不下调"组合都可能引发板块级估值重置。
+<hr class="sep"><div class="sec-title" id="sec-------">⑦ 本周前瞻</div><p>1. <strong>💰 Q2财报季连发——AI Capex验收周（4月23-5月2日）</strong>：Alphabet、Microsoft、Meta、Amazon四大将陆续披露Q1/Q2季报。关键观察点：①是否上调/下调$690B Capex指引；②AI相关营收增长能否跟上资本支出曲线；③自由现金流下降幅度是否超出预期。任何一家"利润miss+Capex不下调"组合都可能引发板块级估值重置。
 
 2. <strong>⚓ 霍尔木兹停火"无限期延期"下的谈判实质（持续）</strong>：Trump+Sharif vs 伊朗内部"严重分裂"——未来观察点：①伊朗能否组织出有签字权的代表团；②Vance何时真正飞Islamabad；③封锁会不会因伊拉克断美元触发伊朗激进反应（如再扣船）。
 

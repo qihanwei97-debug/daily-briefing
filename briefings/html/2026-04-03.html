@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年4月3日 星期五</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</a><a href="#sec-------">⑦ 本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,23 +336,23 @@ a:hover { text-decoration: underline; }
     <span>覆盖24小时 · 预计阅读10-12分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Anthropic遭遇"双重打击"：Claude Code全部源代码因npm打包错误泄露，51.3万行代码曝光后DMCA误删8,100+GitHub仓库</strong>，更严重的是泄露窗口期内npm包疑遭供应链攻击植入木马。<strong>阿里发布Qwen3.6-Plus，1M上下文+Agentic编程能力在SWE-bench上匹配Claude Opus 4.5</strong>，定价仅$0.29/M输入tokens，开源企业级Agent竞争白热化。<strong>Google推出Gemini 3.1 Flash-Lite：$0.25/M输入tokens，2.5倍首token速度提升</strong>，刷新大模型性价比下限。<strong>Trump"解放日"关税一周年：最高法院否决多项关税合法性，工厂岗位减少8.9万，贸易逆差反增2%</strong>。<strong>伊朗战争第35天：累计2,000+伊朗人死亡、24,800+伤，NATO盟友西班牙、法国、意大利限制美军行动</strong>，中国-巴基斯坦提出五点和平方案。
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p><strong>Anthropic遭遇"双重打击"：Claude Code全部源代码因npm打包错误泄露，51.3万行代码曝光后DMCA误删8,100+GitHub仓库</strong>，更严重的是泄露窗口期内npm包疑遭供应链攻击植入木马。<strong>阿里发布Qwen3.6-Plus，1M上下文+Agentic编程能力在SWE-bench上匹配Claude Opus 4.5</strong>，定价仅$0.29/M输入tokens，开源企业级Agent竞争白热化。<strong>Google推出Gemini 3.1 Flash-Lite：$0.25/M输入tokens，2.5倍首token速度提升</strong>，刷新大模型性价比下限。<strong>Trump"解放日"关税一周年：最高法院否决多项关税合法性，工厂岗位减少8.9万，贸易逆差反增2%</strong>。<strong>伊朗战争第35天：累计2,000+伊朗人死亡、24,800+伤，NATO盟友西班牙、法国、意大利限制美军行动</strong>，中国-巴基斯坦提出五点和平方案。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条一：Anthropic Claude Code源代码泄露——npm打包事故引发连锁危机</h3><p>3月31日，Anthropic旗舰编程工具Claude Code的<strong>全部源代码</strong>因npm打包错误意外公开。一个59.8MB的JavaScript source map文件被意外捆绑进公开npm包`@anthropic-ai/claude-code` v2.1.88，包含<strong>约51.3万行</strong>未混淆TypeScript代码（1,906个文件）。</p><p><strong>泄露内容：</strong>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条一：Anthropic Claude Code源代码泄露——npm打包事故引发连锁危机</h3><p>3月31日，Anthropic旗舰编程工具Claude Code的<strong>全部源代码</strong>因npm打包错误意外公开。一个59.8MB的JavaScript source map文件被意外捆绑进公开npm包`@anthropic-ai/claude-code` v2.1.88，包含<strong>约51.3万行</strong>未混淆TypeScript代码（1,906个文件）。</p><p><strong>泄露内容：</strong>
 - Claude Code的<strong>完整架构、专有Agent技术和内部模型性能数据</strong>
 - 数十个<strong>未发布功能的feature flag</strong>：包括会话回顾、"持久助手"后台运行模式、手机/浏览器远程控制Claude等
 - source map引用了Anthropic自有云存储上的完整TypeScript源码ZIP</p><p><strong>原因：</strong> Bun运行时默认生成完整source map，而`.npmignore`和`package.json`的`files`字段均未排除`*.map`文件——一个低级但致命的配置遗漏。</p><p><strong>连锁反应：</strong>
 1. <strong>DMCA误伤风暴</strong>：Anthropic发起大规模DMCA下架，<strong>误删8,100+GitHub仓库</strong>——其中大量是Anthropic自己公开Claude Code仓库的合法fork。工程师Boris Cherny承认"下架范围超出预期"，最终缩减至1个仓库和96个包含泄露代码的fork（<a href="https://techcrunch.com/2026/04/01/anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-company-says-was-an-accident/">TechCrunch</a>）
-2. <strong>供应链攻击警报</strong>：3月31日00:21-03:29 UTC期间通过npm安装或更新Claude Code的用户，可能拉取到<strong>被植入远程访问木马（RAT）的篡改版HTTP客户端</strong>（<a href="https://thehackernews.com/2026/04/claude-code-tleaked-via-npm-packaging.html">The Hacker News</a>）</p><div class="callout"><strong>为什么重要：</strong> 这是Anthropic一周内的<strong>第二次安全事故</strong>——此前CMS配置错误已泄露近3,000份未发布文档（包括Claude Mythos相关草稿）。对于一家以"AI安全"为核心品牌的公司，连续的安全管理失误严重损害可信度。泄露的Agent技术细节也为竞争对手提供了价值数十亿美元的研发蓝图。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：Claude Code仍正常可用，已修复打包问题</li><li>💡 上手：3月31日更新过Claude Code的开发者应立即检查npm缓存，排查供应链攻击风险</li></ul><div class="sources">来源：<a href="https://www.bloomberg.com/news/articles/2026-04-01/anthropic-accidentally-releases-source-code-for-claude-ai-agent">Bloomberg</a> | <a href="https://www.axios.com/2026/03/31/anthropic-leaked-source-code-ai">Axios</a> | <a href="https://fortune.com/2026/03/31/anthropic-source-code-claude-code-data-leak-second-security-lapse-days-after-accidentally-revealing-mythos/">Fortune</a> | <a href="https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know">VentureBeat</a> | <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-code-source-code-accidentally-leaked-in-npm-package/">Bleeping Computer</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="feature"><h3>头条二：阿里Qwen3.6-Plus——百万级上下文的企业级Agent模型</h3><p>阿里于4月2日正式发布<strong>Qwen3.6-Plus</strong>，这是继Qwen3.5-Omni之后数天内发布的第三款模型，定位为企业级Agentic AI部署核心引擎。</p><p><strong>核心能力：</strong>
+2. <strong>供应链攻击警报</strong>：3月31日00:21-03:29 UTC期间通过npm安装或更新Claude Code的用户，可能拉取到<strong>被植入远程访问木马（RAT）的篡改版HTTP客户端</strong>（<a href="https://thehackernews.com/2026/04/claude-code-tleaked-via-npm-packaging.html">The Hacker News</a>）</p><div class="callout"><strong>为什么重要：</strong> 这是Anthropic一周内的<strong>第二次安全事故</strong>——此前CMS配置错误已泄露近3,000份未发布文档（包括Claude Mythos相关草稿）。对于一家以"AI安全"为核心品牌的公司，连续的安全管理失误严重损害可信度。泄露的Agent技术细节也为竞争对手提供了价值数十亿美元的研发蓝图。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：Claude Code仍正常可用，已修复打包问题</li><li>💡 上手：3月31日更新过Claude Code的开发者应立即检查npm缓存，排查供应链攻击风险</li></ul><div class="link-cluster "><a href="https://www.bloomberg.com/news/articles/2026-04-01/anthropic-accidentally-releases-source-code-for-claude-ai-agent">Bloomberg</a> | <a href="https://www.axios.com/2026/03/31/anthropic-leaked-source-code-ai">Axios</a> | <a href="https://fortune.com/2026/03/31/anthropic-source-code-claude-code-data-leak-second-security-lapse-days-after-accidentally-revealing-mythos/">Fortune</a> | <a href="https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know">VentureBeat</a> | <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-code-source-code-accidentally-leaked-in-npm-package/">Bleeping Computer</a></div><div class="link-cluster zh">暂无中国媒体深度报道</div></div><div class="feature"><h3>头条二：阿里Qwen3.6-Plus——百万级上下文的企业级Agent模型</h3><p>阿里于4月2日正式发布<strong>Qwen3.6-Plus</strong>，这是继Qwen3.5-Omni之后数天内发布的第三款模型，定位为企业级Agentic AI部署核心引擎。</p><p><strong>核心能力：</strong>
 - <strong>上下文窗口</strong>：1M tokens（百万级）
 - <strong>原生多模态</strong>：可从截图、设计稿和文本提示直接生成前端网页和代码
 - <strong>Agentic编程</strong>：能分解复杂编程任务、编写测试代码、迭代调试直至完成
-- <strong>SWE-bench表现</strong>：匹配Anthropic Claude Opus 4.5水平</p><p><strong>定价：</strong> 阿里云百炼平台约<strong>$0.29/M输入tokens</strong>——是Claude Opus 4.6（$15/M）的<strong>1/50</strong>，GPT-5.4（$2.50/M）的<strong>1/9</strong>。OpenRouter提供免费预览版。</p><div class="callout"><strong>为什么重要：</strong> Qwen3.6-Plus标志着中国AI厂商在Agent编程领域首次达到西方旗舰水平，且定价差距达到数量级。对于企业用户，这意味着在编程Agent场景中有了极具成本优势的替代选择。阿里数天内连发三款模型的节奏也显示其正在全面加速AI产品线布局。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://bailian.console.aliyun.com">阿里云百炼</a> / <a href="https://openrouter.ai/qwen/qwen3.6-plus-preview">OpenRouter免费预览</a></li><li>💰 定价：$0.29/M输入，$1.25/M输出（百炼）；OpenRouter免费预览</li><li>💡 上手：企业Agent开发首选试用——百万级上下文+超低价是核心卖点</li></ul><div class="sources">来源：<a href="https://www.caixinglobal.com/2026-04-02/alibaba-releases-qwen-36-plus-ai-model-with-enhanced-coding-capabilities-102430395.html">Caixin Global</a> | <a href="https://www.tradingview.com/news/eqs:f6308db73094b:0-alibaba-unveils-qwen3-6-plus-to-accelerate-agentic-ai-deployment-for-enterprises-and-alibaba-s-ai-applications/">TradingView</a> | <a href="https://www.buildfastwithai.com/blogs/qwen-3-6-plus-preview-review">Build Fast with AI</a></div><div class="sources">中文解读：<a href="https://www.caixinglobal.com/2026-04-02/alibaba-releases-qwen-36-plus-ai-model-with-enhanced-coding-capabilities-102430395.html">财新 - 阿里发布Qwen3.6-Plus增强编码能力</a></div></div><div class="brief-item"><h4>Google Gemini 3.1 Flash-Lite：史上最低价大模型，$0.25/M输入tokens</h4><p>（3月-4月，<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/">Google Blog</a>）：Google推出Gemini 3.1 Flash-Lite，首token速度提升<strong>2.5倍</strong>，输出速度提升<strong>45%</strong>，质量匹配Gemini 2.5 Flash。支持可控思维深度（minimal/low/medium/high），适用于翻译、内容审核、UI生成等高吞吐场景。
+- <strong>SWE-bench表现</strong>：匹配Anthropic Claude Opus 4.5水平</p><p><strong>定价：</strong> 阿里云百炼平台约<strong>$0.29/M输入tokens</strong>——是Claude Opus 4.6（$15/M）的<strong>1/50</strong>，GPT-5.4（$2.50/M）的<strong>1/9</strong>。OpenRouter提供免费预览版。</p><div class="callout"><strong>为什么重要：</strong> Qwen3.6-Plus标志着中国AI厂商在Agent编程领域首次达到西方旗舰水平，且定价差距达到数量级。对于企业用户，这意味着在编程Agent场景中有了极具成本优势的替代选择。阿里数天内连发三款模型的节奏也显示其正在全面加速AI产品线布局。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://bailian.console.aliyun.com">阿里云百炼</a> / <a href="https://openrouter.ai/qwen/qwen3.6-plus-preview">OpenRouter免费预览</a></li><li>💰 定价：$0.29/M输入，$1.25/M输出（百炼）；OpenRouter免费预览</li><li>💡 上手：企业Agent开发首选试用——百万级上下文+超低价是核心卖点</li></ul><div class="link-cluster "><a href="https://www.caixinglobal.com/2026-04-02/alibaba-releases-qwen-36-plus-ai-model-with-enhanced-coding-capabilities-102430395.html">Caixin Global</a> | <a href="https://www.tradingview.com/news/eqs:f6308db73094b:0-alibaba-unveils-qwen3-6-plus-to-accelerate-agentic-ai-deployment-for-enterprises-and-alibaba-s-ai-applications/">TradingView</a> | <a href="https://www.buildfastwithai.com/blogs/qwen-3-6-plus-preview-review">Build Fast with AI</a></div><div class="link-cluster zh"><a href="https://www.caixinglobal.com/2026-04-02/alibaba-releases-qwen-36-plus-ai-model-with-enhanced-coding-capabilities-102430395.html">财新 - 阿里发布Qwen3.6-Plus增强编码能力</a></div></div><div class="brief-item"><h4>Google Gemini 3.1 Flash-Lite：史上最低价大模型，$0.25/M输入tokens</h4><p>（3月-4月，<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/">Google Blog</a>）：Google推出Gemini 3.1 Flash-Lite，首token速度提升<strong>2.5倍</strong>，输出速度提升<strong>45%</strong>，质量匹配Gemini 2.5 Flash。支持可控思维深度（minimal/low/medium/high），适用于翻译、内容审核、UI生成等高吞吐场景。
 - 📍 获取：Google AI Studio / Vertex AI（Preview）
 - 💰 定价：$0.25/M输入，$1.50/M输出——Gemini 3.1 Pro的<strong>1/8</strong></p><div class="insight">高并发低延迟场景的成本杀手——替代Flash系列旧版本</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://deepmind.google/models/gemini/flash-lite/">Google DeepMind</a> | <a href="https://venturebeat.com/technology/google-releases-gemini-3-1-flash-lite-at-1-8th-the-cost-of-pro">VentureBeat</a> | <a href="https://siliconangle.com/2026/03/03/google-launches-speedy-gemini-3-1-flash-lite-model-preview/">SiliconANGLE</a></p></div><div class="brief-item"><h4>Cisco发布AI Agent专用Zero Trust架构（RSA Conference 2026）</h4><p>（4月1日，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：Cisco在RSA Conference 2026上发布专门针对自主AI Agent和多Agent系统的零信任安全架构，支持<strong>实时策略执行和异常检测</strong>。随着Agentic AI从演示进入生产，Agent安全基础设施成为新赛道。
 - 📍 获取：Cisco安全产品线</p><div class="insight">部署多Agent系统的企业需关注Agent间通信的安全合规</div></div><div class="brief-item"><h4>NVIDIA联手Alpamayo打造自动驾驶AI仿真平台</h4><p>（4月初，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：NVIDIA与AI仿真专家Alpamayo达成战略合作，构建超逼真自动驾驶测试环境，大幅降低物理道路测试的时间和成本。</p><div class="insight">NVIDIA持续扩展AI推理到垂直场景——继芯片互联（Marvell）后布局自动驾驶仿真</div></div><div class="brief-item"><h4>Samsung宣布2026年底前将Gemini AI设备翻倍至8亿台</h4><p>（4月初，<a href="https://www.crescendo.ai/news/latest-ai-news-and-updates">Crescendo AI</a>）：Samsung目标在2026年底前将搭载Google Gemini AI的移动设备扩展至<strong>8亿台</strong>——Google端侧AI的最大分发渠道。</p><div class="insight">Gemini在移动端的覆盖规模已构成生态壁垒</div></div><div class="brief-item"><h4>Q1 2026全球创业融资$2,970亿创历史新高</h4><p>（4月2日，<a href="https://techstartups.com/2026/04/02/top-tech-news-today-april-2-2026/">Tech Startups</a>）：2026年第一季度全球创业融资达<strong>$2,970亿</strong>，刷新单季纪录，主要由AI领域的超大型融资驱动（OpenAI $1,220亿、xAI等）。</p><div class="insight">AI吸金效应持续——少数超级融资拉高整体数据</div></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第35天：NATO盟友限制美军行动，中巴提五点方案
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p>### 🌍 一、伊朗战争第35天：NATO盟友限制美军行动，中巴提五点方案
 
 <strong>4月2-3日增量（接续第34天报道）：</strong>
 
@@ -323,8 +383,8 @@ a:hover { text-decoration: underline; }
 在1月美军抓获Maduro之后，美国最新宣布<strong>承认Rodríguez为委内瑞拉合法当局</strong>并实施制裁减免——标志着美国对后Maduro时代委内瑞拉的政策从军事行动转向政治重建。(<a href="https://www.aljazeera.com/">Al Jazeera</a>)
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Anthropic</td><td>Claude Code源代码泄露</td><td>npm打包错误致51.3万行代码公开，DMCA误删8,100+仓库</td><td>✅已修复</td><td>npm正常更新</td><td>3月31日</td></tr><tr><td>阿里Qwen</td><td>Qwen3.6-Plus</td><td>1M上下文，Agentic编程匹配Opus 4.5，$0.29/M</td><td>✅全量</td><td>百炼 / OpenRouter</td><td>4月2日</td></tr><tr><td>Google</td><td>Gemini 3.1 Flash-Lite</td><td>$0.25/M输入，2.5倍首token速度提升</td><td>⏳Preview</td><td>AI Studio / Vertex AI</td><td>3-4月</td></tr><tr><td>Cisco</td><td>AI Agent Zero Trust</td><td>专为多Agent系统设计的零信任安全架构</td><td>✅全量</td><td>Cisco安全产品线</td><td>4月1日</td></tr><tr><td>NVIDIA+Alpamayo</td><td>自动驾驶AI仿真</td><td>超逼真测试环境降低物理道路测试成本</td><td>⏳开发中</td><td>—</td><td>4月</td></tr><tr><td>Samsung</td><td>Gemini AI设备扩展</td><td>目标2026年底8亿台移动设备搭载Gemini</td><td>⏳部署中</td><td>Samsung设备</td><td>4月</td></tr><tr><td>Google</td><td>Veo 3.1 Lite</td><td>720p视频生成$0.05/秒</td><td>✅全量</td><td>Google AI</td><td>4月</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/ai-news">LLM Stats</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a>（2026年3月-4月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | Qwen3.6-Plus (阿里) 🔄 |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Anthropic</td><td>Claude Code源代码泄露</td><td>npm打包错误致51.3万行代码公开，DMCA误删8,100+仓库</td><td>✅已修复</td><td>npm正常更新</td><td>3月31日</td></tr><tr><td>阿里Qwen</td><td>Qwen3.6-Plus</td><td>1M上下文，Agentic编程匹配Opus 4.5，$0.29/M</td><td>✅全量</td><td>百炼 / OpenRouter</td><td>4月2日</td></tr><tr><td>Google</td><td>Gemini 3.1 Flash-Lite</td><td>$0.25/M输入，2.5倍首token速度提升</td><td>⏳Preview</td><td>AI Studio / Vertex AI</td><td>3-4月</td></tr><tr><td>Cisco</td><td>AI Agent Zero Trust</td><td>专为多Agent系统设计的零信任安全架构</td><td>✅全量</td><td>Cisco安全产品线</td><td>4月1日</td></tr><tr><td>NVIDIA+Alpamayo</td><td>自动驾驶AI仿真</td><td>超逼真测试环境降低物理道路测试成本</td><td>⏳开发中</td><td>—</td><td>4月</td></tr><tr><td>Samsung</td><td>Gemini AI设备扩展</td><td>目标2026年底8亿台移动设备搭载Gemini</td><td>⏳部署中</td><td>Samsung设备</td><td>4月</td></tr><tr><td>Google</td><td>Veo 3.1 Lite</td><td>720p视频生成$0.05/秒</td><td>✅全量</td><td>Google AI</td><td>4月</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/ai-news">LLM Stats</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a>（2026年3月-4月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | Qwen3.6-Plus (阿里) 🔄 |
 |------|------------------|---------------------------|------------------------|----------------------|
 | <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ AI Index并列GPT-5.4 | ⭐⭐⭐⭐ (社区测试中) |
 | <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐½ 匹配Opus 4.5水平 🔄 |
@@ -346,7 +406,7 @@ a:hover { text-decoration: underline; }
 | <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 | <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | <strong>$0.25/$1.50</strong> 🔄 | 低价（降60%） |
 | <strong>开源</strong> | ❌ | ❌ | ❌ | ✅ Omni开源 |</p><p><strong>📝 本周变化：</strong> ①<strong>旗舰表新增Qwen3.6-Plus替换MiMo-V2-Pro</strong>：阿里在SWE-bench和Terminal-Bench上匹配Claude Opus 4.5水平，且定价仅$0.29/M——以1/50的价格提供旗舰级编程能力，性价比优势碾压。②<strong>中端表Google列替换为Gemini 3.1 Flash-Lite</strong>：$0.25/M输入刷新大模型底价，速度提升显著，但综合能力略逊于Gemini 3 Flash。③Anthropic连续安全事故（Mythos泄露+Claude Code源码泄露+DMCA误伤）暂未影响产品可用性，但品牌信任度受损。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+<hr class="sep"><div class="sec-title" id="sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
 |------|------|------|----------|-----------|
 | 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | Qwen3.6-Plus（免费预览）🔄 | Computer Use闭环验证代码 |
 | ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
@@ -365,7 +425,7 @@ a:hover { text-decoration: underline; }
 <strong>🔄 本周变化：</strong> ①<strong>编程免费方案更新</strong>：Qwen3.6-Plus通过OpenRouter提供免费预览，编程能力匹配Opus 4.5水平——免费编程Agent的新标杆。②<strong>AI Agent备选更新</strong>：Qwen3.6-Plus的Agentic编程能力和1M上下文使其替代MiMo-V2-Pro成为Agent场景备选。③<strong>极致性价比首选变更</strong>：Qwen3.6-Plus以$0.29/M输入提供旗舰级编程能力，性价比远超GPT-5.4 nano。
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🔒 Anthropic安全风暴后续</strong>：Claude Code供应链攻击的影响范围仍在调查中。Anthropic需要在未来数日内发布完整的安全事件报告以恢复市场信心。关注是否有用户实际受到RAT木马影响。
+<hr class="sep"><div class="sec-title" id="sec-------">⑦ 本周前瞻</div><p>1. <strong>🔒 Anthropic安全风暴后续</strong>：Claude Code供应链攻击的影响范围仍在调查中。Anthropic需要在未来数日内发布完整的安全事件报告以恢复市场信心。关注是否有用户实际受到RAT木马影响。
 
 2. <strong>🧠 DeepSeek V4四月发布窗口</strong>：LTM长期记忆技术+多模态原生支持，4月中下旬可能亮相。若发布，旗舰对比表将迎来重大洗牌。
 

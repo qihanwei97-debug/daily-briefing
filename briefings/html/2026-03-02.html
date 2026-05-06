@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | </title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">一、今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">三、国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec-------ai------13---">六、场景化 AI 工具推荐（13场景）</a><a href="#sec--------3-2--3-8--">七、本周前瞻（3月2日–3月8日）</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,10 +336,10 @@ a:hover { text-decoration: underline; }
     <span></span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">一、今日要闻</div><p><strong>美国和以色列于2月28日对伊朗发动大规模联合军事打击，伊朗最高领袖哈梅内伊身亡，伊朗随即向以色列及海湾多国发射弹道导弹报复，中东局势急剧升级。</strong> <strong>OpenAI宣布完成1100亿美元史上最大私募融资，Amazon出资500亿、Nvidia和SoftBank各300亿，估值达7300亿美元。</strong> <strong>Anthropic拒绝五角大楼移除AI安全护栏的要求，被Trump政府列为"供应链风险"，联邦机构被令停止使用其技术，OpenAI随即拿下国防部合同。</strong> <strong>DeepSeek将V4模型的预发布优化权独家给予华为等中国芯片商，首次将Nvidia和AMD排除在外，标志中国AI硬件生态独立加速。</strong>
+<hr class="sep"><div class="sec-title" id="sec-------">一、今日要闻</div><p><strong>美国和以色列于2月28日对伊朗发动大规模联合军事打击，伊朗最高领袖哈梅内伊身亡，伊朗随即向以色列及海湾多国发射弹道导弹报复，中东局势急剧升级。</strong> <strong>OpenAI宣布完成1100亿美元史上最大私募融资，Amazon出资500亿、Nvidia和SoftBank各300亿，估值达7300亿美元。</strong> <strong>Anthropic拒绝五角大楼移除AI安全护栏的要求，被Trump政府列为"供应链风险"，联邦机构被令停止使用其技术，OpenAI随即拿下国防部合同。</strong> <strong>DeepSeek将V4模型的预发布优化权独家给予华为等中国芯片商，首次将Nvidia和AMD排除在外，标志中国AI硬件生态独立加速。</strong>
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：OpenAI 完成1100亿美元融资，估值7300亿</h3><p>OpenAI于2月27日宣布完成史上最大规模私募融资，总额1100亿美元，估前估值7300亿美元。(<a href="https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html">CNBC, 2026-02-27</a>)</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>投资方</strong>：Amazon 500亿（首期150亿，剩余需满足条件后到位）、Nvidia 300亿、SoftBank 300亿</li><li><strong>战略合作</strong>：OpenAI与AWS扩大合作，未来8年追加1000亿美元；与Nvidia签订下一代推理算力协议</li><li><strong>与Microsoft关系</strong>：OpenAI声明此轮融资不改变与Microsoft的合作条款</li><li><strong>后续</strong>：融资轮仍开放，正与主权基金洽谈追加100亿美元</li><li>📍OpenAI目前周活跃用户达9亿</li><li>💰ChatGPT新增$8/月"Go"套餐，介于免费版与Plus之间；免费和低价套餐已引入广告</li></ul></div><div class="feature"><h3>头条：Anthropic拒绝五角大楼，被列"供应链风险"</h3><p>Anthropic CEO Dario Amodei于2月26日公开声明拒绝五角大楼关于移除Claude模型安全限制（涉及大规模监控和全自主武器）的要求。(<a href="https://www.npr.org/2026/02/26/nx-s1-5727847/anthropic-defense-hegseth-ai-weapons-surveillance">NPR, 2026-02-26</a>)</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>核心分歧</strong>：五角大楼要求Claude可用于"一切合法用途"；Anthropic坚持不允许用于大规模监控美国公民或驱动全自主武器</li><li><strong>后果</strong>：国防部长Hegseth于2月27日宣布Anthropic为"供应链风险"；Trump下令联邦机构"立即"停用Anthropic技术（国防部有6个月过渡期）</li><li><strong>行业影响</strong>：OpenAI同日宣布获得国防部合同，为涉密网络提供AI服务</li><li>💡Anthropic强调其"无广告"立场，与ChatGPT引入广告形成对比</li></ul></div><div class="brief-item"><h4>Claude Sonnet 4.6 & Opus 4.6 更新</h4><p>（2026-02-17发布）
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条：OpenAI 完成1100亿美元融资，估值7300亿</h3><p>OpenAI于2月27日宣布完成史上最大规模私募融资，总额1100亿美元，估前估值7300亿美元。(<a href="https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html">CNBC, 2026-02-27</a>)</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>投资方</strong>：Amazon 500亿（首期150亿，剩余需满足条件后到位）、Nvidia 300亿、SoftBank 300亿</li><li><strong>战略合作</strong>：OpenAI与AWS扩大合作，未来8年追加1000亿美元；与Nvidia签订下一代推理算力协议</li><li><strong>与Microsoft关系</strong>：OpenAI声明此轮融资不改变与Microsoft的合作条款</li><li><strong>后续</strong>：融资轮仍开放，正与主权基金洽谈追加100亿美元</li><li>📍OpenAI目前周活跃用户达9亿</li><li>💰ChatGPT新增$8/月"Go"套餐，介于免费版与Plus之间；免费和低价套餐已引入广告</li></ul></div><div class="feature"><h3>头条：Anthropic拒绝五角大楼，被列"供应链风险"</h3><p>Anthropic CEO Dario Amodei于2月26日公开声明拒绝五角大楼关于移除Claude模型安全限制（涉及大规模监控和全自主武器）的要求。(<a href="https://www.npr.org/2026/02/26/nx-s1-5727847/anthropic-defense-hegseth-ai-weapons-surveillance">NPR, 2026-02-26</a>)</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>核心分歧</strong>：五角大楼要求Claude可用于"一切合法用途"；Anthropic坚持不允许用于大规模监控美国公民或驱动全自主武器</li><li><strong>后果</strong>：国防部长Hegseth于2月27日宣布Anthropic为"供应链风险"；Trump下令联邦机构"立即"停用Anthropic技术（国防部有6个月过渡期）</li><li><strong>行业影响</strong>：OpenAI同日宣布获得国防部合同，为涉密网络提供AI服务</li><li>💡Anthropic强调其"无广告"立场，与ChatGPT引入广告形成对比</li></ul></div><div class="brief-item"><h4>Claude Sonnet 4.6 & Opus 4.6 更新</h4><p>（2026-02-17发布）
 - Opus 4.6引入Agent Teams——多AI智能体协作处理复杂任务
 - SWE-bench编码基准领先（Opus 4.5达80.9%）；ARC-AGI-2新颖推理测试最高分（68.8%）
 - 免费用户现可直接生成PPT、Excel、PDF、Word文件
@@ -302,7 +362,7 @@ a:hover { text-decoration: underline; }
 - 三层架构：简单任务本地处理→复杂请求Apple云→高强度查询调用Google Gemini
 - Apple每年向Google支付约10亿美元
 - 📍iOS 26.4更新 | 💡上下文感知、跨应用集成、屏幕识别</p></div>
-<hr class="sep"><div class="sec-title">三、国际大事</div><p>### 1. 美以联合打击伊朗，哈梅内伊身亡，中东剧变
+<hr class="sep"><div class="sec-title" id="sec-------">三、国际大事</div><p>### 1. 美以联合打击伊朗，哈梅内伊身亡，中东剧变
 
 2月28日，美国和以色列对伊朗发动大规模军事打击，伊朗最高领袖哈梅内伊及多名高级安全官员身亡。(<a href="https://www.aljazeera.com/news/liveblog/2026/2/28/live-israel-launches-attacks-on-iran-multiple-explosions-heard-in-tehran">Al Jazeera, 2026-02-28</a>)
 
@@ -322,8 +382,8 @@ a:hover { text-decoration: underline; }
 Anthropic将其Model Context Protocol (MCP)捐赠给Linux基金会新成立的Agentic AI Foundation。OpenAI和Microsoft已公开支持MCP。该协议被称为"AI的USB-C"，正在成为AI智能体连接外部工具的行业标准。
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>产品/模型</th><th>厂商</th><th>发布日期</th><th>亮点</th><th>定价</th></tr></thead><tbody><tr><td>GPT-5.2</td><td>OpenAI</td><td>2026年2月</td><td>三种推理模式、256k上下文、Codex并行编码</td><td>Go $8/月、Plus $20/月、Pro $200/月</td></tr><tr><td>Claude Opus 4.6</td><td>Anthropic</td><td>2026-02-17</td><td>Agent Teams、SWE-bench 80.9%、ARC-AGI-2 68.8%</td><td>Pro $20/月、API按量计费</td></tr><tr><td>Claude Sonnet 4.6</td><td>Anthropic</td><td>2026-02-17</td><td>性价比升级、免费用户可生成办公文件</td><td>免费可用</td></tr><tr><td>Gemini 3.1 Pro</td><td>Google</td><td>2026-02-19</td><td>1M上下文、ARC-AGI-2 77.1%、多模态</td><td>Google AI Studio免费/按量</td></tr><tr><td>MiniMax M2.5</td><td>MiniMax</td><td>2026-02-12</td><td>SWE-bench 80.2%、MoE 2300亿参数、超低成本</td><td>$0.30/$1.20 每百万token</td></tr><tr><td>DeepSeek V4</td><td>DeepSeek</td><td>预计2026年3月初</td><td>万亿参数MoE、华为芯片优化、100万上下文</td><td>待公布</td></tr><tr><td>Qwen 3.5</td><td>Alibaba</td><td>2026年2月</td><td>多模态增强、智能体能力升级</td><td>开源</td></tr><tr><td>Seedance 2.0</td><td>ByteDance</td><td>2026年2月</td><td>视频生成模型</td><td>API</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型（截至2026年3月2日）</p><p>| 维度 | GPT-5.2 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 (预计) |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>产品/模型</th><th>厂商</th><th>发布日期</th><th>亮点</th><th>定价</th></tr></thead><tbody><tr><td>GPT-5.2</td><td>OpenAI</td><td>2026年2月</td><td>三种推理模式、256k上下文、Codex并行编码</td><td>Go $8/月、Plus $20/月、Pro $200/月</td></tr><tr><td>Claude Opus 4.6</td><td>Anthropic</td><td>2026-02-17</td><td>Agent Teams、SWE-bench 80.9%、ARC-AGI-2 68.8%</td><td>Pro $20/月、API按量计费</td></tr><tr><td>Claude Sonnet 4.6</td><td>Anthropic</td><td>2026-02-17</td><td>性价比升级、免费用户可生成办公文件</td><td>免费可用</td></tr><tr><td>Gemini 3.1 Pro</td><td>Google</td><td>2026-02-19</td><td>1M上下文、ARC-AGI-2 77.1%、多模态</td><td>Google AI Studio免费/按量</td></tr><tr><td>MiniMax M2.5</td><td>MiniMax</td><td>2026-02-12</td><td>SWE-bench 80.2%、MoE 2300亿参数、超低成本</td><td>$0.30/$1.20 每百万token</td></tr><tr><td>DeepSeek V4</td><td>DeepSeek</td><td>预计2026年3月初</td><td>万亿参数MoE、华为芯片优化、100万上下文</td><td>待公布</td></tr><tr><td>Qwen 3.5</td><td>Alibaba</td><td>2026年2月</td><td>多模态增强、智能体能力升级</td><td>开源</td></tr><tr><td>Seedance 2.0</td><td>ByteDance</td><td>2026年2月</td><td>视频生成模型</td><td>API</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型（截至2026年3月2日）</p><p>| 维度 | GPT-5.2 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 (预计) |
 |------|------------------|----------------------------|------------------------|-------------------|
 | 上下文窗口 | 256k (Thinking) / 128k | 200k | 1M | 1M |
 | SWE-bench | ~78% | 80.9% | ~75% | 待公布 |
@@ -336,7 +396,7 @@ Anthropic将其Model Context Protocol (MCP)捐赠给Linux基金会新成立的Ag
 | SWE-bench | ~70% | ~65% | 80.2% | ~68% |
 | 成本 | 中 | 低 | 极低 | 开源免费 |
 | 特色 | 免费文件生成 | 速度极快 | 性价比之王 | 开源生态 |</p><p><strong>本周变化点评</strong>：MiniMax M2.5以不到Opus 1/10的价格达到接近旗舰水平的编码能力，是本周最值得关注的性价比选手。Gemini 3.1 Pro凭借ARC-AGI-2 77.1%的推理分数在逻辑推理方面超越所有竞品。DeepSeek V4即将发布，其华为芯片优化路线将深刻影响AI硬件格局。</p></div>
-<hr class="sep"><div class="sec-title">六、场景化 AI 工具推荐（13场景）</div><p>| # | 场景 | 首选工具 | 备选 | 本周变化 |
+<hr class="sep"><div class="sec-title" id="sec-------ai------13---">六、场景化 AI 工具推荐（13场景）</div><p>| # | 场景 | 首选工具 | 备选 | 本周变化 |
 |---|------|---------|------|---------|
 | 1 | 日常对话/问答 | ChatGPT (GPT-5.2) | Claude Sonnet 4.6 | ChatGPT Go套餐$8/月上线 |
 | 2 | 长文档分析 | Gemini 3.1 Pro (1M上下文) | Claude Opus 4.6 | Gemini推理能力大幅提升 |
@@ -353,7 +413,7 @@ Anthropic将其Model Context Protocol (MCP)捐赠给Linux基金会新成立的Ag
 | 13 | 并行编码 | OpenAI Codex (MacOS) | Claude Code | Codex支持多智能体并行+后台任务 |
 
 ---</p>
-<hr class="sep"><div class="sec-title">七、本周前瞻（3月2日–3月8日）</div><p>1. <strong>DeepSeek V4正式发布</strong>——预计本周内上线，关注其在华为Ascend芯片上的实际性能表现及与Nvidia平台的性能差距
+<hr class="sep"><div class="sec-title" id="sec--------3-2--3-8--">七、本周前瞻（3月2日–3月8日）</div><p>1. <strong>DeepSeek V4正式发布</strong>——预计本周内上线，关注其在华为Ascend芯片上的实际性能表现及与Nvidia平台的性能差距
 2. <strong>Apple新版Siri发布</strong>——随iOS 26.4一同推出，搭载Google Gemini底层，验证"Apple+Google"AI联盟的实际体验
 3. <strong>中东局势持续演变</strong>——伊朗最高领袖身亡后权力交接、报复与反报复循环、全球能源市场和供应链冲击值得密切关注
 4. <strong>OpenAI融资轮追加</strong>——与主权基金的追加100亿谈判接近尾声，最终估值可能进一步攀升

@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年2月28日 星期六</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai----">⑥ 场景化AI工具推荐</a><a href="#sec-------">⑦ 本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,10 +336,10 @@ a:hover { text-decoration: underline; }
     <span>覆盖24小时 · 预计阅读12分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>以色列与美国联合对伊朗发动代号"犹大之盾"的先发制人军事打击</strong>，德黑兰等多城市发生爆炸，以色列宣布全国紧急状态并关闭领空。<strong>OpenAI完成史上最大私募融资$1100亿</strong>，估值$7300亿，Amazon($500亿)、Nvidia($300亿)、SoftBank($300亿)领投。<strong>Trump政府下令全面禁止联邦机构使用Anthropic</strong>，因Anthropic拒绝五角大楼要求取消自主武器和大规模监控两条红线。<strong>OpenAI随即宣布接手五角大楼AI合同。</strong>
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p><strong>以色列与美国联合对伊朗发动代号"犹大之盾"的先发制人军事打击</strong>，德黑兰等多城市发生爆炸，以色列宣布全国紧急状态并关闭领空。<strong>OpenAI完成史上最大私募融资$1100亿</strong>，估值$7300亿，Amazon($500亿)、Nvidia($300亿)、SoftBank($300亿)领投。<strong>Trump政府下令全面禁止联邦机构使用Anthropic</strong>，因Anthropic拒绝五角大楼要求取消自主武器和大规模监控两条红线。<strong>OpenAI随即宣布接手五角大楼AI合同。</strong>
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条</h3><p>#### OpenAI $1100亿融资：史上最大私募轮，AI军备竞赛进入万亿时代</p><p>2月27日，OpenAI宣布完成$1100亿融资，估值$7300亿（含融资后$8400亿），创下私募融资历史最高纪录。</p><p><strong>投资者构成：</strong>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条</h3><p>#### OpenAI $1100亿融资：史上最大私募轮，AI军备竞赛进入万亿时代</p><p>2月27日，OpenAI宣布完成$1100亿融资，估值$7300亿（含融资后$8400亿），创下私募融资历史最高纪录。</p><p><strong>投资者构成：</strong>
 - <strong>Amazon $500亿</strong>（首期$150亿，后续$350亿待条件达成）——同时扩展与AWS的$380亿合作协议，追加$1000亿八年基础设施投入
 - <strong>Nvidia $300亿</strong>——含3GW推理算力承诺
 - <strong>SoftBank $300亿</strong></p><div class="callout"><strong>为什么重要：</strong> 这不仅是融资，更是基础设施联盟。Amazon获得OpenAI的stateful runtime合作，Nvidia锁定推理算力订单，三方形成"资本+算力+模型"铁三角。2026年2月AI相关融资总额预计超过$1950亿，成为风投史上最关键的单月。</div><p><strong>实用信息：</strong>
@@ -299,7 +359,7 @@ a:hover { text-decoration: underline; }
 - 📍 影响：用户自动迁移至GPT-5.2系列</p><div class="insight">OpenAI加速模型迭代，淘汰速度显著加快</div></div><div class="brief-item"><h4>DeepSeek V4</h4><p>编码优化模型，测试显示在编码基准上可能超越Claude Sonnet和GPT-4o
 - 📍 获取：尚未发布，预计近日
 - 💰 定价：预计延续低价策略</p><div class="insight">CNBC已预警可能引发纳斯达克波动</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">> 来源：<a href="https://www.marketingprofs.com/opinions/2026/54358/ai-update-february-27-2026-ai-news-and-views-from-the-past-week">MarketingProfs</a>、<a href="https://www.cnbc.com/2026/02/23/deepseek-to-release-new-ai-model-a-rough-period-for-nasdaq-stocks-could-follow.html">CNBC</a></p></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p><strong>以色列与美国联合打击伊朗</strong>（2月28日）：代号"犹大之盾"(Operation Shield of Judah)，以色列国防部长Katz称为"先发制人打击，旨在消除对以色列国的威胁"。导弹击中德黑兰最高领袖住所附近区域，库姆、克尔曼沙赫、伊斯法罕、卡拉季也发生爆炸。美方称"这不是一次小规模打击"。以色列宣布全国紧急状态，关闭领空、学校和公共场所。伊朗随后发射弹道导弹反击，以色列全境响起防空警报。背景：2025年12月以来伊朗爆发自1979年革命以来最大规模反政权抗议。
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p><strong>以色列与美国联合打击伊朗</strong>（2月28日）：代号"犹大之盾"(Operation Shield of Judah)，以色列国防部长Katz称为"先发制人打击，旨在消除对以色列国的威胁"。导弹击中德黑兰最高领袖住所附近区域，库姆、克尔曼沙赫、伊斯法罕、卡拉季也发生爆炸。美方称"这不是一次小规模打击"。以色列宣布全国紧急状态，关闭领空、学校和公共场所。伊朗随后发射弹道导弹反击，以色列全境响起防空警报。背景：2025年12月以来伊朗爆发自1979年革命以来最大规模反政权抗议。
 
 > 来源：<a href="https://npr.org/2026/02/28/nx-s1-5730158/israel-iran-strikes">NPR</a>、<a href="https://www.cbsnews.com/news/israel-launches-preemptive-strike-on-iran-israeli-military-says/">CBS News</a>、<a href="https://www.euronews.com/2026/02/28/israel-launches-attack-on-iran-defence-minister-says">Euronews</a>
 
@@ -310,8 +370,8 @@ a:hover { text-decoration: underline; }
 > 来源：<a href="https://www.aljazeera.com/">Al Jazeera</a>、<a href="https://www.euronews.com/video/2026/02/28/latest-news-bulletin-february-28th-2026-morning">Euronews</a>
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>OpenAI</td><td>$1100亿融资</td><td>史上最大私募轮，估值$7300亿</td><td>—</td><td>—</td><td>2月27日</td></tr><tr><td>Anthropic</td><td>被联邦封杀</td><td>拒绝五角大楼自主武器要求</td><td>✅消费端不受影响</td><td>claude.ai</td><td>2月27日</td></tr><tr><td>Microsoft</td><td>Windows 11 AI Agent</td><td>任务栏+文件管理器嵌入AI</td><td>⏳推送中</td><td>Windows Update</td><td>2月27日</td></tr><tr><td>Anthropic</td><td>Claude插件系统</td><td>Excel/PPT/Drive/Gmail集成</td><td>✅全量</td><td>Cowork模式</td><td>2月</td></tr><tr><td>OpenAI</td><td>旧模型退役</td><td>GPT-4o/4.1/o4-mini退役</td><td>✅自动迁移</td><td>ChatGPT</td><td>2月</td></tr><tr><td>Google</td><td>Gemini 3.1 Pro</td><td>ARC-AGI-2达77.1%</td><td>✅全量</td><td>API/Gemini App</td><td>2月19日</td></tr><tr><td>Anthropic</td><td>Claude Sonnet 4.6</td><td>近Opus性能+100万上下文</td><td>✅全量</td><td>API/claude.ai</td><td>2月17日</td></tr><tr><td>DeepSeek</td><td>V4</td><td>编码优化，预计超越Sonnet</td><td>⏳等待</td><td>待发布</td><td>预计近日</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表（2026年2月28日更新）</p><p>| 维度 | Claude Opus 4.6 | GPT-5.2 | Gemini 3.1 Pro | DeepSeek V3 |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>OpenAI</td><td>$1100亿融资</td><td>史上最大私募轮，估值$7300亿</td><td>—</td><td>—</td><td>2月27日</td></tr><tr><td>Anthropic</td><td>被联邦封杀</td><td>拒绝五角大楼自主武器要求</td><td>✅消费端不受影响</td><td>claude.ai</td><td>2月27日</td></tr><tr><td>Microsoft</td><td>Windows 11 AI Agent</td><td>任务栏+文件管理器嵌入AI</td><td>⏳推送中</td><td>Windows Update</td><td>2月27日</td></tr><tr><td>Anthropic</td><td>Claude插件系统</td><td>Excel/PPT/Drive/Gmail集成</td><td>✅全量</td><td>Cowork模式</td><td>2月</td></tr><tr><td>OpenAI</td><td>旧模型退役</td><td>GPT-4o/4.1/o4-mini退役</td><td>✅自动迁移</td><td>ChatGPT</td><td>2月</td></tr><tr><td>Google</td><td>Gemini 3.1 Pro</td><td>ARC-AGI-2达77.1%</td><td>✅全量</td><td>API/Gemini App</td><td>2月19日</td></tr><tr><td>Anthropic</td><td>Claude Sonnet 4.6</td><td>近Opus性能+100万上下文</td><td>✅全量</td><td>API/claude.ai</td><td>2月17日</td></tr><tr><td>DeepSeek</td><td>V4</td><td>编码优化，预计超越Sonnet</td><td>⏳等待</td><td>待发布</td><td>预计近日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表（2026年2月28日更新）</p><p>| 维度 | Claude Opus 4.6 | GPT-5.2 | Gemini 3.1 Pro | DeepSeek V3 |
 |------|-----------------|---------|----------------|-------------|
 | 综合推理 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
 | 编程(SWE-bench) | ⭐⭐⭐⭐⭐ 80.9% | ⭐⭐⭐⭐⭐ 80.6% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ |
@@ -331,7 +391,7 @@ a:hover { text-decoration: underline; }
 | 定价(input/M) | $3.00 | $0.30 | $0.10 | ~$0.15 |
 | 定价(output/M) | $15.00 | $1.25 | $0.40 | ~$0.60 |
 | 核心优势 | 近旗舰编码能力 | 极致性价比 | 最便宜的长上下文 | 中文最强+多模态 |</p><p>📝 <strong>本周变化：</strong> Gemini 3.1 Pro定价确认为$2/$12（≤200K上下文），性价比优于Claude Opus 4.6约7.5倍。Anthropic被联邦封杀不影响API定价和可用性，但政府客户流失可能影响长期营收。OpenAI $1100亿融资+Nvidia 3GW算力承诺，预计将加速GPT系列迭代。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+<hr class="sep"><div class="sec-title" id="sec------ai----">⑥ 场景化AI工具推荐</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
 |------|------|------|---------|-----------|
 | 💻 编程/代码 | Claude Opus 4.6 | GPT-5.3-Codex | DeepSeek V3 | SWE-bench 80.9%最高 |
 | ✍️ 长文写作 | Claude Opus 4.6 | GPT-5.2 | Qwen 3.5 | 128K输出+风格把控 |
@@ -350,7 +410,7 @@ a:hover { text-decoration: underline; }
 🔄 <strong>本周变化：</strong> AI Agent备选从OpenAI OpenClaw调整为Claude Code（Anthropic插件系统上线增强了Agent能力）。极致性价比备选新增Gemini 3.1 Flash（$0.10/M input，比Qwen更便宜）。注意：Anthropic联邦封杀不影响消费端使用。
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>以伊冲突后续</strong>：国际社会反应、联合国紧急会议、油价走向将成为下周焦点
+<hr class="sep"><div class="sec-title" id="sec-------">⑦ 本周前瞻</div><p>1. <strong>以伊冲突后续</strong>：国际社会反应、联合国紧急会议、油价走向将成为下周焦点
 2. <strong>DeepSeek V4</strong> 预计近日发布，编码基准可能超越当前Sonnet级别
 3. <strong>Anthropic联邦封杀后续</strong> 其他科技公司是否跟进表态、对API客户的实际影响
 4. <strong>OpenAI融资轮</strong> 仍未关闭，更多投资者可能加入

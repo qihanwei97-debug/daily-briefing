@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年4月15日 星期三</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</a><a href="#sec-------">⑦ 本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,20 +336,20 @@ a:hover { text-decoration: underline; }
     <span>覆盖24小时 · 预计阅读10-12分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>IMF发布2026年4月《世界经济展望》——全球增长预期下调至3.1%，警告若伊朗战争持续、油价维持$100+，全球可能陷入衰退；IMF首席经济学家Gourinchas称"不利情景越来越可能成为现实"</strong>。<strong>Trump与教皇Leo XIV爆发公开冲突——Trump称教皇"weak""terrible"，Leo XIV回应"我不惧怕Trump政府"；意大利总理Meloni谴责Trump言论"不可接受"</strong>。<strong>油价大幅回落：WTI暴跌8%至$91.28、Brent跌4%至$94.79——白宫暗示考虑与伊朗重启谈判，但IEA预测Q2石油需求将萎缩150万桶/天为疫情以来最大降幅</strong>。<strong>中国互联网巨头封杀外部AI模型：京东全面禁止员工使用DeepSeek、通义千问等外部AI工具，美团限制千问访问推自研LongCat模型——中国AI从"百模大战"转向"各自为战"</strong>。
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p><strong>IMF发布2026年4月《世界经济展望》——全球增长预期下调至3.1%，警告若伊朗战争持续、油价维持$100+，全球可能陷入衰退；IMF首席经济学家Gourinchas称"不利情景越来越可能成为现实"</strong>。<strong>Trump与教皇Leo XIV爆发公开冲突——Trump称教皇"weak""terrible"，Leo XIV回应"我不惧怕Trump政府"；意大利总理Meloni谴责Trump言论"不可接受"</strong>。<strong>油价大幅回落：WTI暴跌8%至$91.28、Brent跌4%至$94.79——白宫暗示考虑与伊朗重启谈判，但IEA预测Q2石油需求将萎缩150万桶/天为疫情以来最大降幅</strong>。<strong>中国互联网巨头封杀外部AI模型：京东全面禁止员工使用DeepSeek、通义千问等外部AI工具，美团限制千问访问推自研LongCat模型——中国AI从"百模大战"转向"各自为战"</strong>。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：中国互联网巨头封杀外部AI——京东全面禁止，美团限制千问，推自研模型"各自为战"</h3><p>中国AI生态正出现一个显著转折：头部互联网企业开始系统性封杀外部AI模型，转而强制推广自研模型。</p><p><strong>京东（JD.com）：</strong>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条：中国互联网巨头封杀外部AI——京东全面禁止，美团限制千问，推自研模型"各自为战"</h3><p>中国AI生态正出现一个显著转折：头部互联网企业开始系统性封杀外部AI模型，转而强制推广自研模型。</p><p><strong>京东（JD.com）：</strong>
 - <strong>全面禁止员工使用外部AI工具</strong>——包括字节跳动的豆包（Doubao）、阿里的通义千问（Qwen）、DeepSeek等均被屏蔽
 - 转而推广自研<strong>JoyAI系列模型</strong>（3B至750B参数，支持多模态），覆盖电商运营、客服、物流等全链路
 - 理由：数据安全合规、工作流定制化、供应链信息保护</p><p><strong>美团（Meituan）：</strong>
 - <strong>限制阿里千问（Qwen）的内部使用</strong>——员工需提交书面申请并获高管批准才能使用
 - 字节豆包（Doubao）仍可无需审批使用（体现字节与美团的投资关系）
 - 主推自研<strong>LongCat模型</strong>，信号明确：美团要建自己的AI技术栈
-- 同时推出AI Agent<strong>"小美"</strong>（Xiao Mei），用于应对即时零售竞争</p><div class="callout"><strong>为什么重要：</strong> 这标志着中国AI从2023-2025年的"百模大战"（开放竞争、API互通）转向2026年的"围墙花园"模式——各巨头将AI视为核心竞争壁垒而非通用工具。短期看，企业数据安全得到保障；长期看，生态碎片化可能拖慢整体创新速度。对DeepSeek和阿里云来说，失去京东和美团这样的超大客户是重大打击——To B市场的竞争格局正在被改写。</div><div class="sources">来源：<a href="https://pandaily.com/jd-com-reportedly-blocks-external-ai-tools-meituan-tightens-use-of-alibaba-s-qwen-model">Pandaily</a> | <a href="https://www.yuyjo.com/archives/62544">Yuyjo</a> | <a href="https://www.verifiedmarketresearch.com/blog/meituan-unleashes-ai-agent-xiao-mei-to-combat-competitive-headwinds/">Verified Market Research</a></div></div><div class="brief-item"><h4>Tesla Cybercab正式量产启动——无方向盘无踏板，Robotaxi即将扩展至5城</h4><p>（4月，<a href="https://insideevs.com/news/778232/tesla-cybercab-production-april-2026/">InsideEVs</a> | <a href="https://www.basenor.com/blogs/news/tesla-cybercab-production-starts-april-2026-the-autonomous-era-begins">Basenor</a>）：Tesla Cybercab（代号CT-0）已于4月在Gigafactory Texas开始量产——这是<strong>全球首款无方向盘、无踏板的量产自动驾驶出租车</strong>。此前Robotaxi服务于2025年6月在Austin启动，现计划扩展至<strong>迈阿密、达拉斯、凤凰城和拉斯维加斯</strong>。已有完全无人驾驶车辆在迈阿密被目击。
+- 同时推出AI Agent<strong>"小美"</strong>（Xiao Mei），用于应对即时零售竞争</p><div class="callout"><strong>为什么重要：</strong> 这标志着中国AI从2023-2025年的"百模大战"（开放竞争、API互通）转向2026年的"围墙花园"模式——各巨头将AI视为核心竞争壁垒而非通用工具。短期看，企业数据安全得到保障；长期看，生态碎片化可能拖慢整体创新速度。对DeepSeek和阿里云来说，失去京东和美团这样的超大客户是重大打击——To B市场的竞争格局正在被改写。</div><div class="link-cluster "><a href="https://pandaily.com/jd-com-reportedly-blocks-external-ai-tools-meituan-tightens-use-of-alibaba-s-qwen-model">Pandaily</a> | <a href="https://www.yuyjo.com/archives/62544">Yuyjo</a> | <a href="https://www.verifiedmarketresearch.com/blog/meituan-unleashes-ai-agent-xiao-mei-to-combat-competitive-headwinds/">Verified Market Research</a></div></div><div class="brief-item"><h4>Tesla Cybercab正式量产启动——无方向盘无踏板，Robotaxi即将扩展至5城</h4><p>（4月，<a href="https://insideevs.com/news/778232/tesla-cybercab-production-april-2026/">InsideEVs</a> | <a href="https://www.basenor.com/blogs/news/tesla-cybercab-production-starts-april-2026-the-autonomous-era-begins">Basenor</a>）：Tesla Cybercab（代号CT-0）已于4月在Gigafactory Texas开始量产——这是<strong>全球首款无方向盘、无踏板的量产自动驾驶出租车</strong>。此前Robotaxi服务于2025年6月在Austin启动，现计划扩展至<strong>迈阿密、达拉斯、凤凰城和拉斯维加斯</strong>。已有完全无人驾驶车辆在迈阿密被目击。
 - 📍 获取：Austin已可通过Tesla App体验Robotaxi服务，更多城市2026年下半年开放
 - 💰 定价：车辆$30,000起，Robotaxi乘车费用待定</p><div class="insight">Austin居民可通过Tesla App预约无人出租车体验</div></div><div class="brief-item"><h4>IMF报告对AI行业的隐含冲击——宏观逆风可能压缩AI资本支出</h4><p>（4月14日，<a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026">IMF</a>）：IMF衰退警告虽非纯AI新闻，但对行业影响深远：①全球增长下调意味着企业AI预算可能收紧；②能源成本飙升直接推高AI训练和推理的电力成本；③Meta刚宣布2026年AI资本支出将达<strong>$1,150-1,350亿</strong>（约同比翻倍）——在衰退阴影下如此激进的支出计划引发投资者担忧。</p><div class="insight">关注Q2财报季各大AI企业是否调整资本支出计划</div></div><div class="brief-item"><h4>智元机器人合作伙伴大会后天举行（4月17日提醒）</h4><p>（4月13日，<a href="https://finance.sina.com.cn/tech/digi/2026-04-13/doc-inhufuxw6413787.shtml">新浪科技</a>）：提醒——距智元机器人2026合作伙伴大会仅剩<strong>2天</strong>。将发布4款机器人新品+4个AI大模型+7个解决方案。国产具身智能赛道年度重要节点。</p><div class="insight">4月17日关注发布会直播</div></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、IMF发布4月《世界经济展望》：全球经济走向衰退边缘
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p>### 🌍 一、IMF发布4月《世界经济展望》：全球经济走向衰退边缘
 
 IMF于4月14日发布2026年4月《世界经济展望》（WEO），这是伊朗战争和霍尔木兹封锁以来首份全面经济评估：
 
@@ -351,8 +411,8 @@ IMF于4月14日发布2026年4月《世界经济展望》（WEO），这是伊朗
 来源：<a href="https://www.npr.org/2026/04/14/nx-s1-5783750/overdose-fentanyl-medetomidine-xylazine">NPR</a> | <a href="https://www.npr.org/2026/04/12/nx-s1-5776933/drug-overdose-deaths-drop-sharply-in-the-u-s-even-as-new-street-drugs-emerge">NPR</a>
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>京东</td><td>JoyAI（内部强制）</td><td>全面禁止外部AI，推自研3B-750B多模态模型</td><td>🔧内部</td><td>京东内部系统</td><td>4月</td></tr><tr><td>美团</td><td>LongCat + 小美Agent</td><td>限制千问访问，推自研LongCat+AI Agent小美</td><td>🔧内部</td><td>美团内部系统</td><td>4月</td></tr><tr><td>Tesla</td><td>Cybercab（CT-0）量产</td><td>无方向盘无踏板量产启动，Robotaxi扩5城</td><td>⏳量产中</td><td>Austin可体验</td><td>4月</td></tr><tr><td>IMF</td><td>WEO April 2026</td><td>全球增长下调至3.1%，警告衰退风险</td><td>✅全量</td><td>imf.org</td><td>4月14日</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford AI Index</a> | <a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a> | <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Qwen3.6-Plus (阿里) | Muse Spark (Meta) |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>京东</td><td>JoyAI（内部强制）</td><td>全面禁止外部AI，推自研3B-750B多模态模型</td><td>🔧内部</td><td>京东内部系统</td><td>4月</td></tr><tr><td>美团</td><td>LongCat + 小美Agent</td><td>限制千问访问，推自研LongCat+AI Agent小美</td><td>🔧内部</td><td>美团内部系统</td><td>4月</td></tr><tr><td>Tesla</td><td>Cybercab（CT-0）量产</td><td>无方向盘无踏板量产启动，Robotaxi扩5城</td><td>⏳量产中</td><td>Austin可体验</td><td>4月</td></tr><tr><td>IMF</td><td>WEO April 2026</td><td>全球增长下调至3.1%，警告衰退风险</td><td>✅全量</td><td>imf.org</td><td>4月14日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">Stanford AI Index</a> | <a href="https://benchlm.ai/blog/posts/chatgpt-vs-claude-vs-gemini-2026">BenchLM</a> | <a href="https://artificialanalysis.ai">Artificial Analysis</a> | <a href="https://openrouter.ai">OpenRouter</a>（2026年4月）</p><p>| 维度 | Gemini 3.1 Pro (Google) | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Qwen3.6-Plus (阿里) | Muse Spark (Meta) |
 |------|--------------------------|------------------|---------------------------|----------------------|-------------------|
 | <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ BenchLM 87分 | ⭐⭐⭐⭐⭐ BenchLM 82分 | ⭐⭐⭐⭐⭐ BenchLM 85分 | ⭐⭐⭐⭐ (社区测试中) | ⭐⭐⭐⭐½ AA Index #4 |
 | <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐⭐ <strong>78.80%</strong> | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 78.20% | ⭐⭐⭐⭐½ 匹配Opus 4.5 | ⭐⭐⭐⭐ (待独立测试) |
@@ -375,7 +435,7 @@ IMF于4月14日发布2026年4月《世界经济展望》（WEO），这是伊朗
 | <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ 140+语言 |
 | <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | <strong>$0.25/$1.50</strong> | <strong>免费开源</strong> |
 | <strong>开源</strong> | ❌ | ❌ | ❌ | ✅ Apache 2.0 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大模型发布或排名变动。<strong>前瞻</strong>：DeepSeek V4和OpenAI Spud/GPT-6均进入4月下半月发布窗口——未来10天内旗舰格局可能迎来重大洗牌。IMF衰退警告可能影响AI企业资本支出计划——Q2财报季值得关注。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+<hr class="sep"><div class="sec-title" id="sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
 |------|------|------|----------|-----------|
 | 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | Gemma 4 31B | Super App三合一编码体验 |
 | ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Gemma 4 31B | 128K输出+自然散文质量 |
@@ -394,7 +454,7 @@ IMF于4月14日发布2026年4月《世界经济展望》（WEO），这是伊朗
 <strong>🔄 本周变化：</strong> 本周场景推荐与上期一致，无重大调整。京东/美团封杀外部AI不影响消费者端推荐。<strong>前瞻</strong>：若DeepSeek V4本周发布，编程、Agent和极致性价比三个场景可能迎来调整。
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🤖 智元机器人合作伙伴大会（4月17日，后天）</strong>：4款机器人本体+4个AI大模型+7个解决方案——中国具身智能赛道年度重要节点。
+<hr class="sep"><div class="sec-title" id="sec-------">⑦ 本周前瞻</div><p>1. <strong>🤖 智元机器人合作伙伴大会（4月17日，后天）</strong>：4款机器人本体+4个AI大模型+7个解决方案——中国具身智能赛道年度重要节点。
 
 2. <strong>🧠 DeepSeek V4发布窗口已开启</strong>：创始人确认"4月下半月"——随时可能发布。万亿参数+百万Token上下文+华为芯片适配。若成功，将证明中国AI可绕开NVIDIA芯片限制。
 

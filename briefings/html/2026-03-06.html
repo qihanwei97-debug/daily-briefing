@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年3月6日 星期五</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</a><a href="#sec-------">⑦ 本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,10 +336,10 @@ a:hover { text-decoration: underline; }
     <span>覆盖24小时 · 预计阅读11分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>OpenAI发布GPT-5.4，首次内置Computer Use能力，1M上下文窗口，GDPval基准83%创纪录</strong>，同步推出Thinking和Pro版本，直接对标Claude Opus 4.6的Agentic能力。<strong>美以对伊军事行动进入第六天，伊朗死亡人数突破1,045人，美军6人阵亡</strong>，战争日耗$10亿，美国众议院未能通过限制总统战争权力的决议。<strong>中国两会发布第十五个五年规划，AI被提及52次（上一个五年计划仅11次）</strong>，明确"AI+"国家战略，目标2030年AI融入90%经济领域。<strong>白宫组织七大科技巨头签署"电费保护承诺"</strong>，承诺AI数据中心电力成本不转嫁至美国家庭。
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p><strong>OpenAI发布GPT-5.4，首次内置Computer Use能力，1M上下文窗口，GDPval基准83%创纪录</strong>，同步推出Thinking和Pro版本，直接对标Claude Opus 4.6的Agentic能力。<strong>美以对伊军事行动进入第六天，伊朗死亡人数突破1,045人，美军6人阵亡</strong>，战争日耗$10亿，美国众议院未能通过限制总统战争权力的决议。<strong>中国两会发布第十五个五年规划，AI被提及52次（上一个五年计划仅11次）</strong>，明确"AI+"国家战略，目标2030年AI融入90%经济领域。<strong>白宫组织七大科技巨头签署"电费保护承诺"</strong>，承诺AI数据中心电力成本不转嫁至美国家庭。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：OpenAI发布GPT-5.4——首个内置Computer Use的主力模型</h3><p>3月5日，OpenAI发布GPT-5.4系列，包含标准版、GPT-5.4 Thinking（推理增强版）和GPT-5.4 Pro（高性能版）。这是OpenAI迄今最强的基础模型，也是首个原生集成Computer Use能力的主力模型——Agent可直接操作软件界面，执行"构建-运行-验证-修复"闭环。</p><p><strong>核心技术指标：</strong>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条：OpenAI发布GPT-5.4——首个内置Computer Use的主力模型</h3><p>3月5日，OpenAI发布GPT-5.4系列，包含标准版、GPT-5.4 Thinking（推理增强版）和GPT-5.4 Pro（高性能版）。这是OpenAI迄今最强的基础模型，也是首个原生集成Computer Use能力的主力模型——Agent可直接操作软件界面，执行"构建-运行-验证-修复"闭环。</p><p><strong>核心技术指标：</strong>
 - <strong>上下文窗口：</strong> API版支持最高<strong>1M tokens</strong>（OpenAI首次达到此规模，追平Gemini 3.1 Pro）
 - <strong>GDPval（知识工作）：</strong> 83.0%（GPT-5.2为70.9%，提升17%）
 - <strong>OSWorld Verified（桌面操作）：</strong> 75.0%（GPT-5.2为47.3%，<strong>首次超越人类水平72.4%</strong>）
@@ -291,7 +351,7 @@ a:hover { text-decoration: underline; }
 - 超过272K input tokens后，input 2x、output 1.5x
 - Batch/Flex模式半价，Priority模式双倍</p><p><strong>📍 获取：</strong> ChatGPT（Plus/Teams/Pro用户）、Codex、API均已上线，model name `gpt-5.4`
 <strong>💰 定价：</strong> 标准版$2.50/$15，对比Claude Opus 4.6的$15/$75，<strong>输入便宜6倍、输出便宜5倍</strong>
-<strong>💡 上手：</strong> Computer Use + Tool Search是核心差异化——适合需要Agent自动操作软件、处理电子表格等企业级工作流</p><div class="sources">来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI官方</a> | <a href="https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/">TechCrunch</a> | <a href="https://venturebeat.com/technology/openai-launches-gpt-5-4-with-native-computer-use-mode-financial-plugins-for/">VentureBeat</a> | <a href="https://fortune.com/2026/03/05/openai-new-model-gpt5-4-enterprise-agentic-anthropic/">Fortune</a></div></div><div class="brief-item"><h4>GPT-5.3 Instant上线</h4><p>ChatGPT默认对话模型更新，幻觉率降低26.8%（联网模式）/ 19.7%（纯知识模式），大幅减少"说教式"拒绝和过度谨慎回复。GPT-5.2 Instant将于6月3日退役。
+<strong>💡 上手：</strong> Computer Use + Tool Search是核心差异化——适合需要Agent自动操作软件、处理电子表格等企业级工作流</p><div class="link-cluster "><a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI官方</a> | <a href="https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/">TechCrunch</a> | <a href="https://venturebeat.com/technology/openai-launches-gpt-5-4-with-native-computer-use-mode-financial-plugins-for/">VentureBeat</a> | <a href="https://fortune.com/2026/03/05/openai-new-model-gpt5-4-enterprise-agentic-anthropic/">Fortune</a></div></div><div class="brief-item"><h4>GPT-5.3 Instant上线</h4><p>ChatGPT默认对话模型更新，幻觉率降低26.8%（联网模式）/ 19.7%（纯知识模式），大幅减少"说教式"拒绝和过度谨慎回复。GPT-5.2 Instant将于6月3日退役。
 - 📍 获取：ChatGPT所有用户 + API `gpt-5.3-chat-latest`
 - 💰 定价：ChatGPT订阅内免费使用</p><div class="insight">日常对话体验显著改善，不再动辄"我建议你咨询专业人士"
 - 来源：<a href="https://openai.com/index/gpt-5-3-instant/">OpenAI官方</a> | <a href="https://techcrunch.com/2026/03/03/chatgpts-new-gpt-5-3-instant-model-will-stop-telling-you-to-calm-down/">TechCrunch</a> | <a href="https://9to5mac.com/2026/03/03/openai-releases-gpt-5-3-instant-update-to-make-chatgpt-less-cringe/">9to5Mac</a></div></div><div class="brief-item"><h4>DeepSeek V4仍未发布</h4><p>尽管多个来源预测"本周发布"，截至3月6日仍无官方公告。万亿参数多模态模型，1M上下文，适配华为昇腾/寒武纪芯片。社区推测可能在两会结束前（3月14日前）正式发布。
@@ -302,7 +362,7 @@ a:hover { text-decoration: underline; }
 - 💰 定价：BigMotion订阅制</p><div class="insight">音视频一体化生成是核心卖点，适合短视频创作
 - 来源：<a href="https://techcrunch.com/2026/02/15/hollywood-isnt-happy-about-the-new-seedance-2-0-video-generator/">TechCrunch</a> | <a href="https://seed.bytedance.com/en/seedance2_0">ByteDance官方</a></div></div><div class="brief-item"><h4>白宫"电费保护承诺"签署</h4><p>Amazon、Google、Meta、Microsoft、OpenAI、Oracle、xAI七家签署，承诺自行承担AI数据中心新增电力生产成本和电网升级费用，不转嫁给美国家庭。但专家指出该承诺为自愿性质，联邦层面不具强制执行力，实际执行依赖各州公用事业监管机构。
 - 来源：<a href="https://www.whitehouse.gov/articles/2026/03/president-trump-secures-historic-commitment-to-keep-electricity-costs-down-amid-data-center-boom/">白宫官方</a> | <a href="https://www.cnn.com/2026/03/04/politics/electric-bill-costs-trump-pledge">CNN</a> | <a href="https://www.washingtonpost.com/politics/2026/03/04/trump-data-centers-energy-costs/">Washington Post</a></p></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、美以对伊战争第六天：规模持续扩大
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p>### 🌍 一、美以对伊战争第六天：规模持续扩大
 
 截至3月5日，以色列军方宣布进入"下一阶段"，已实施2,500次打击、使用超6,000枚武器。美国潜艇在斯里兰卡海域击沉一艘伊朗军舰。伊朗方面报告死亡1,045人、伤6,000余人；6名美军阵亡。阿联酋单日拦截6枚导弹和126架无人机。伊朗威胁封锁霍尔木兹海峡，全球航运持续受阻。战争日耗美国$10亿。美国众议院未能通过限制总统战争权力的决议，共和党多数支持继续行动。Trump表示"必须参与选择伊朗下一任领导人"。
 
@@ -321,8 +381,8 @@ a:hover { text-decoration: underline; }
 来源：<a href="https://www.cnn.com/2026/03/05/us/5-things-to-know-for-march-5-travel-disruptions-war-powers-electricity-costs-white-house-renovation-weight-loss-drugs">CNN</a>
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>OpenAI</td><td>GPT-5.4 / Thinking / Pro</td><td>首个内置Computer Use的主力模型，1M上下文</td><td>✅全量</td><td>ChatGPT / API</td><td>3月5日</td></tr><tr><td>OpenAI</td><td>GPT-5.3 Instant</td><td>日常对话模型升级，幻觉率降27%</td><td>✅全量</td><td>ChatGPT / API</td><td>3月3日</td></tr><tr><td>ByteDance</td><td>Seedance 2.0 Pro</td><td>AI视频排名第一，音视频同步生成</td><td>⏳早期访问</td><td>BigMotion.ai</td><td>3月2日</td></tr><tr><td>DeepSeek</td><td>V4（未发布）</td><td>万亿参数多模态，适配国产芯片</td><td>⏳等待</td><td>待定</td><td>预计3月</td></tr><tr><td>Anthropic</td><td>Claude Opus 4.6</td><td>旗舰推理模型</td><td>✅全量</td><td>claude.ai / API</td><td>2月5日</td></tr><tr><td>Google</td><td>Gemini 3.1 Pro</td><td>1M上下文，ARC-AGI-2 77.1%</td><td>✅全量</td><td>Gemini / API</td><td>2月19日</td></tr><tr><td>智谱AI</td><td>GLM-5</td><td>744B MoE开源，MIT许可证</td><td>🔧自部署</td><td>HuggingFace</td><td>2月</td></tr><tr><td>MiniMax</td><td>M2.5</td><td>SWE-bench 80.2%，编程性价比极高</td><td>✅全量</td><td>API</td><td>2月</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V3.2 |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>OpenAI</td><td>GPT-5.4 / Thinking / Pro</td><td>首个内置Computer Use的主力模型，1M上下文</td><td>✅全量</td><td>ChatGPT / API</td><td>3月5日</td></tr><tr><td>OpenAI</td><td>GPT-5.3 Instant</td><td>日常对话模型升级，幻觉率降27%</td><td>✅全量</td><td>ChatGPT / API</td><td>3月3日</td></tr><tr><td>ByteDance</td><td>Seedance 2.0 Pro</td><td>AI视频排名第一，音视频同步生成</td><td>⏳早期访问</td><td>BigMotion.ai</td><td>3月2日</td></tr><tr><td>DeepSeek</td><td>V4（未发布）</td><td>万亿参数多模态，适配国产芯片</td><td>⏳等待</td><td>待定</td><td>预计3月</td></tr><tr><td>Anthropic</td><td>Claude Opus 4.6</td><td>旗舰推理模型</td><td>✅全量</td><td>claude.ai / API</td><td>2月5日</td></tr><tr><td>Google</td><td>Gemini 3.1 Pro</td><td>1M上下文，ARC-AGI-2 77.1%</td><td>✅全量</td><td>Gemini / API</td><td>2月19日</td></tr><tr><td>智谱AI</td><td>GLM-5</td><td>744B MoE开源，MIT许可证</td><td>🔧自部署</td><td>HuggingFace</td><td>2月</td></tr><tr><td>MiniMax</td><td>M2.5</td><td>SWE-bench 80.2%，编程性价比极高</td><td>✅全量</td><td>API</td><td>2月</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V3.2 |
 |------|------------------|---------------------------|------------------------|---------------|
 | <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ |
 | <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ ~77% |
@@ -341,7 +401,7 @@ a:hover { text-decoration: underline; }
 | <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 | <strong>定价</strong> | 订阅制内 | $3/$15 | 低价 | 低价（降60%） |
 | <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> GPT-5.4横空出世，以$2.50/$15的定价提供旗舰级能力，<strong>性价比直接碾压Claude Opus 4.6（$15/$75）</strong>。Computer Use能力和1M上下文窗口使其成为Agent工作流的新首选。不过Opus 4.6在深度分析和写作质量上仍有优势。Gemini 3.1 Pro在科学推理基准上维持领先。DeepSeek V4若本周未能发布，市场窗口将被GPT-5.4进一步压缩。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+<hr class="sep"><div class="sec-title" id="sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
 |------|------|------|----------|-----------|
 | 💻 编程/代码 | GPT-5.4 🔄 | Claude Opus 4.6 | DeepSeek V3.2 | Computer Use闭环验证代码 |
 | ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
@@ -360,7 +420,7 @@ a:hover { text-decoration: underline; }
 <strong>🔄 本周变化：</strong> GPT-5.4发布引发多个场景首选更替——编程（Computer Use闭环验证）、数据分析（电子表格建模大幅领先）、AI Agent（OSWorld超人类水平）三个场景GPT-5.4取代上期首选。AI视频场景Seedance 2.0凭借音视频同步生成和排行榜双料第一升至首选。
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🚀 DeepSeek V4正式发布窗口收窄</strong>：两会将于3月14日闭幕，V4大概率在此之前发布。若进一步延迟，GPT-5.4的先发优势将持续扩大。
+<hr class="sep"><div class="sec-title" id="sec-------">⑦ 本周前瞻</div><p>1. <strong>🚀 DeepSeek V4正式发布窗口收窄</strong>：两会将于3月14日闭幕，V4大概率在此之前发布。若进一步延迟，GPT-5.4的先发优势将持续扩大。
 
 2. <strong>📊 GPT-5.4社区实测数据涌现</strong>：未来几天将有大量独立评测和实际使用反馈，关注Computer Use能力在真实Agent工作流中的表现是否兑现基准分数。
 

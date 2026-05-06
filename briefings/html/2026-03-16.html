@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年3月16日 星期一</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</a><a href="#sec-------">⑦ 本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,10 +336,10 @@ a:hover { text-decoration: underline; }
     <span>覆盖72小时（周末版） · 预计阅读12分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>Nvidia GTC 2026今日开幕，Jensen Huang主题演讲（太平洋时间11am / 北京时间3月17日凌晨3点）</strong>，预计发布Vera Rubin GPU架构、Feynman路线图和NemoClaw Agent平台——这是AI基础设施年度最重要发布会。<strong>Anthropic投入$1亿启动Claude Partner Network</strong>，Accenture培训3万人、Cognizant向35万员工开放Claude，企业AI部署进入渠道化时代。<strong>Meta据报考虑裁员20%（约1.6万人）以支撑$6000亿AI基础设施投资</strong>，同时其下一代AI模型"Avocado"因性能不达标从3月推迟至5月。<strong>伊朗战争第16天：美以攻击伊斯法罕致15人死亡，伊朗外长否认曾请求停火</strong>，Trump考虑打击伊朗石油枢纽，沙特利雅得再遭无人机袭击。
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p><strong>Nvidia GTC 2026今日开幕，Jensen Huang主题演讲（太平洋时间11am / 北京时间3月17日凌晨3点）</strong>，预计发布Vera Rubin GPU架构、Feynman路线图和NemoClaw Agent平台——这是AI基础设施年度最重要发布会。<strong>Anthropic投入$1亿启动Claude Partner Network</strong>，Accenture培训3万人、Cognizant向35万员工开放Claude，企业AI部署进入渠道化时代。<strong>Meta据报考虑裁员20%（约1.6万人）以支撑$6000亿AI基础设施投资</strong>，同时其下一代AI模型"Avocado"因性能不达标从3月推迟至5月。<strong>伊朗战争第16天：美以攻击伊斯法罕致15人死亡，伊朗外长否认曾请求停火</strong>，Trump考虑打击伊朗石油枢纽，沙特利雅得再遭无人机袭击。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条一：Nvidia GTC 2026今日开幕——AI基础设施"超级碗"</h3><p>3月16-19日，Nvidia GTC 2026在圣何塞SAP Center举行。Jensen Huang将于今天太平洋时间11am（北京时间3月17日凌晨3点）发表长达2小时的主题演讲，涵盖加速计算、AI工厂、开放模型、Agentic系统和物理AI的最新进展。</p><div class="callout"><strong>为什么重要：</strong> GTC前夜Nvidia已连续释放重磅消息——Nemotron 3 Super 120B开源模型（3月11日）、$20亿入股Nebius（3月11日），今天主题演讲预计正式发布：(1) <strong>Vera Rubin GPU架构</strong>——下一代数据中心GPU；(2) <strong>Feynman架构</strong>——更远期路线图；(3) <strong>NemoClaw企业AI Agent平台</strong>——开源Agent构建工具包，支持多步骤自主任务执行；(4) 新推理芯片，优化Agent工作流。Truist证券称GTC为"AI的超级碗"，预计将成为Nvidia股价正催化剂。来自190个国家的3万+参会者齐聚，Huang将与a16z、AI2、Black Forest Labs、Cursor、Reflection AI等对谈。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.nvidia.com/gtc/keynote/">主题演讲直播</a>，无需注册</li><li>💰 定价：线上免费</li><li>💡 上手：关注Vera Rubin性能数据、NemoClaw对Agent开发生态的影响、推理成本是否进一步下降</li></ul><div class="sources">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-ceo-jensen-huang-and-global-technology-leaders-to-showcase-age-of-ai-at-gtc-2026">Nvidia官方</a> | <a href="https://techcrunch.com/2026/03/12/how-to-watch-jensen-huangs-nvidia-gtc-2026-keynote/">TechCrunch</a> | <a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia GTC博客</a></div><div class="sources">中文解读：预计明天主题演讲后将有大量中文报道</div></div><div class="feature"><h3>头条二：Anthropic投入$1亿启动Claude Partner Network——企业AI渠道化时代到来</h3><p>3月12日，Anthropic正式推出Claude Partner Network，投入$1亿资金用于2026年合作伙伴生态建设。首批合作伙伴包括Accenture、Deloitte、Cognizant和Infosys，覆盖咨询、系统集成和专业AI部署。</p><div class="callout"><strong>为什么重要：</strong> 这是Anthropic从"API公司"向"企业平台公司"转型的关键一步。具体动作包括：Accenture正在培训3万名顾问使用Claude；Cognizant向全球35万员工开放Claude访问权限；Anthropic自身将合作伙伴团队扩充5倍，增设Applied AI工程师、技术架构师和国际市场支持。$1亿资金主要用于合作伙伴的培训、销售赋能和联合市场推广。Anthropic已示意后续年份投入将更多。这标志着Claude从开发者工具进入Fortune 500采购清单。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.anthropic.com/news/claude-partner-network">Anthropic官方公告</a> | claude.ai / API</li><li>💰 定价：企业级定制，通过合作伙伴渠道</li><li>💡 上手：企业用户可通过Accenture/Deloitte/Cognizant获取Claude部署支持</li></ul><div class="sources">来源：<a href="https://www.anthropic.com/news/claude-partner-network">Anthropic官方</a> | <a href="https://thenextweb.com/news/anthropic-commits-100m-to-claude-partner-network">The Next Web</a> | <a href="https://www.investing.com/news/economy-news/anthropic-launches-partner-network-with-100m-investment-93CH-4557957">CNBC</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>Meta据报裁员20%+Avocado模型延期——$6000亿AI豪赌的代价</h4><p>（3月14-15日，<a href="https://www.cnbc.com/2026/03/14/meta-planning-sweeping-layoffs-as-ai-costs-mount-reuters.html">CNBC</a>）：Reuters报道Meta正考虑裁减约20%员工（约1.6万人），以抵消飙升的AI基础设施成本。Zuckerberg此前承诺$6000亿AI投资（含MTIA自研芯片和数据中心），同时其下一代旗舰模型"Avocado"因内部推理和编程测试表现不佳，从3月推迟至5月发布。Meta发言人称报道"推测性"。SiliconANGLE报道称部分被裁岗位将被AI工人替代。
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条一：Nvidia GTC 2026今日开幕——AI基础设施"超级碗"</h3><p>3月16-19日，Nvidia GTC 2026在圣何塞SAP Center举行。Jensen Huang将于今天太平洋时间11am（北京时间3月17日凌晨3点）发表长达2小时的主题演讲，涵盖加速计算、AI工厂、开放模型、Agentic系统和物理AI的最新进展。</p><div class="callout"><strong>为什么重要：</strong> GTC前夜Nvidia已连续释放重磅消息——Nemotron 3 Super 120B开源模型（3月11日）、$20亿入股Nebius（3月11日），今天主题演讲预计正式发布：(1) <strong>Vera Rubin GPU架构</strong>——下一代数据中心GPU；(2) <strong>Feynman架构</strong>——更远期路线图；(3) <strong>NemoClaw企业AI Agent平台</strong>——开源Agent构建工具包，支持多步骤自主任务执行；(4) 新推理芯片，优化Agent工作流。Truist证券称GTC为"AI的超级碗"，预计将成为Nvidia股价正催化剂。来自190个国家的3万+参会者齐聚，Huang将与a16z、AI2、Black Forest Labs、Cursor、Reflection AI等对谈。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.nvidia.com/gtc/keynote/">主题演讲直播</a>，无需注册</li><li>💰 定价：线上免费</li><li>💡 上手：关注Vera Rubin性能数据、NemoClaw对Agent开发生态的影响、推理成本是否进一步下降</li></ul><div class="link-cluster "><a href="https://nvidianews.nvidia.com/news/nvidia-ceo-jensen-huang-and-global-technology-leaders-to-showcase-age-of-ai-at-gtc-2026">Nvidia官方</a> | <a href="https://techcrunch.com/2026/03/12/how-to-watch-jensen-huangs-nvidia-gtc-2026-keynote/">TechCrunch</a> | <a href="https://blogs.nvidia.com/blog/gtc-2026-news/">Nvidia GTC博客</a></div><div class="link-cluster zh">预计明天主题演讲后将有大量中文报道</div></div><div class="feature"><h3>头条二：Anthropic投入$1亿启动Claude Partner Network——企业AI渠道化时代到来</h3><p>3月12日，Anthropic正式推出Claude Partner Network，投入$1亿资金用于2026年合作伙伴生态建设。首批合作伙伴包括Accenture、Deloitte、Cognizant和Infosys，覆盖咨询、系统集成和专业AI部署。</p><div class="callout"><strong>为什么重要：</strong> 这是Anthropic从"API公司"向"企业平台公司"转型的关键一步。具体动作包括：Accenture正在培训3万名顾问使用Claude；Cognizant向全球35万员工开放Claude访问权限；Anthropic自身将合作伙伴团队扩充5倍，增设Applied AI工程师、技术架构师和国际市场支持。$1亿资金主要用于合作伙伴的培训、销售赋能和联合市场推广。Anthropic已示意后续年份投入将更多。这标志着Claude从开发者工具进入Fortune 500采购清单。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.anthropic.com/news/claude-partner-network">Anthropic官方公告</a> | claude.ai / API</li><li>💰 定价：企业级定制，通过合作伙伴渠道</li><li>💡 上手：企业用户可通过Accenture/Deloitte/Cognizant获取Claude部署支持</li></ul><div class="link-cluster "><a href="https://www.anthropic.com/news/claude-partner-network">Anthropic官方</a> | <a href="https://thenextweb.com/news/anthropic-commits-100m-to-claude-partner-network">The Next Web</a> | <a href="https://www.investing.com/news/economy-news/anthropic-launches-partner-network-with-100m-investment-93CH-4557957">CNBC</a></div><div class="link-cluster zh">暂无中国媒体深度报道</div></div><div class="brief-item"><h4>Meta据报裁员20%+Avocado模型延期——$6000亿AI豪赌的代价</h4><p>（3月14-15日，<a href="https://www.cnbc.com/2026/03/14/meta-planning-sweeping-layoffs-as-ai-costs-mount-reuters.html">CNBC</a>）：Reuters报道Meta正考虑裁减约20%员工（约1.6万人），以抵消飙升的AI基础设施成本。Zuckerberg此前承诺$6000亿AI投资（含MTIA自研芯片和数据中心），同时其下一代旗舰模型"Avocado"因内部推理和编程测试表现不佳，从3月推迟至5月发布。Meta发言人称报道"推测性"。SiliconANGLE报道称部分被裁岗位将被AI工人替代。
 - 📍 获取：影响Meta全线产品节奏
 - 💰 定价：不适用</p><div class="insight">Meta AI产品更新可能放缓，Llama开源模型节奏或受影响</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://www.cnbc.com/2026/03/14/meta-planning-sweeping-layoffs-as-ai-costs-mount-reuters.html">CNBC</a> | <a href="https://www.foxbusiness.com/technology/meta-eyes-massive-20-workforce-cut-ai-infrastructure-costs-continue-soar-across-operations-report">Fox Business</a> | <a href="https://siliconangle.com/2026/03/15/report-meta-layoff-20-staff-replace-many-ai-workers/">SiliconANGLE</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：暂无中国媒体深度报道</p></div><div class="brief-item"><h4>OpenAI将Sora视频模型整合进ChatGPT</h4><p>OpenAI计划将Sora AI视频生成功能直接集成到ChatGPT中，目标推动周活用户从9亿向10亿迈进。此举将使ChatGPT成为文本+图片+视频的全能创作平台。
 - 📍 获取：ChatGPT（预计近期更新）
@@ -287,7 +347,7 @@ a:hover { text-decoration: underline; }
 - 📍 获取：Grok（grok.x.ai）</p><div class="insight">xAI短期竞争力存疑，关注Q2是否有追赶动作</div></div><div class="brief-item"><h4>UN/ILO报告：AI已在重塑工作条件</h4><p>（3月15日，<a href="https://news.un.org/en/story/2026/03/1167075">UN News</a>）：ILO与ITU联合研讨会指出，从快递骑手到内容审核员，AI正在全面改变劳动条件。ILO协调员Sher Verick表示，关键问题已不是AI是否会改变工作——它已经在改变了。
 - 📍 获取：<a href="https://news.un.org/en/story/2026/03/1167075">UN News</a></p><div class="insight">关注AI对劳动权益的政策影响</div></div><div class="brief-item"><h4>Nature社论呼吁停止在战争中使用AI</h4><p>（3月10日，<a href="https://www.nature.com/articles/d41586-026-00762-y">Nature</a>）：Nature发表社论，呼吁在制定法律框架之前暂停AI在军事中的应用。ChatGPT、Claude和Gemini背后的研究人员正敦促各公司停止将AI用于大规模监控和完全自主武器。
 - 📍 获取：<a href="https://www.nature.com/articles/d41586-026-00762-y">Nature社论</a></p></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第16天：伊斯法罕遭攻击，停火无望，Trump考虑打击石油枢纽
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p>### 🌍 一、伊朗战争第16天：伊斯法罕遭攻击，停火无望，Trump考虑打击石油枢纽
 
 3月15日（周日），美以联军攻击伊朗伊斯法罕市，造成至少15人死亡。伊朗称56座博物馆、历史建筑和文化遗址已在战争中受损。以色列军方称已"对伊朗西部发动大规模攻击"。
 
@@ -306,8 +366,8 @@ a:hover { text-decoration: underline; }
 一场强大的三月暴风雪给明尼苏达中部和南部带来暴风雪条件和危险出行，东南明尼苏达多所学校周一停课或推迟上课。美国多地面临雷暴和龙卷风威胁。
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Nvidia</td><td>GTC 2026</td><td>今日开幕，Vera Rubin/NemoClaw待发布</td><td>⏳今天11am PT</td><td>nvidia.com/gtc</td><td>3月16日</td></tr><tr><td>Anthropic</td><td>Claude Partner Network</td><td>$1亿投入，Accenture/Deloitte/Cognizant加入</td><td>✅已启动</td><td>anthropic.com</td><td>3月12日</td></tr><tr><td>Meta</td><td>裁员20%+Avocado延期</td><td>1.6万岗位待裁，旗舰模型推迟至5月</td><td>⏳未确认</td><td>—</td><td>3月14日</td></tr><tr><td>OpenAI</td><td>Sora整合ChatGPT</td><td>视频生成进入聊天主界面</td><td>⏳即将</td><td>chatgpt.com</td><td>3月中</td></tr><tr><td>xAI</td><td>团队动荡</td><td>10/12联合创始人离职，招Cursor工程师</td><td>✅Grok 4.20运营中</td><td>grok.x.ai</td><td>3月</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Nvidia</td><td>GTC 2026</td><td>今日开幕，Vera Rubin/NemoClaw待发布</td><td>⏳今天11am PT</td><td>nvidia.com/gtc</td><td>3月16日</td></tr><tr><td>Anthropic</td><td>Claude Partner Network</td><td>$1亿投入，Accenture/Deloitte/Cognizant加入</td><td>✅已启动</td><td>anthropic.com</td><td>3月12日</td></tr><tr><td>Meta</td><td>裁员20%+Avocado延期</td><td>1.6万岗位待裁，旗舰模型推迟至5月</td><td>⏳未确认</td><td>—</td><td>3月14日</td></tr><tr><td>OpenAI</td><td>Sora整合ChatGPT</td><td>视频生成进入聊天主界面</td><td>⏳即将</td><td>chatgpt.com</td><td>3月中</td></tr><tr><td>xAI</td><td>团队动荡</td><td>10/12联合创始人离职，招Cursor工程师</td><td>✅Grok 4.20运营中</td><td>grok.x.ai</td><td>3月</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://www.minimax.io/news/minimax-m25">MiniMax</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | DeepSeek V4 |
 |------|------------------|---------------------------|------------------------|-------------|
 | <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (待测) |
 | <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
@@ -326,7 +386,7 @@ a:hover { text-decoration: underline; }
 | <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 | <strong>定价</strong> | 订阅制内 | $3/$15 | 低价 | 低价（降60%） |
 | <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 本周数据与上期一致，无重大排名变动。Meta Avocado模型延期意味着Llama系列短期不会有新旗舰挑战者。今日GTC主题演讲后，关注Nvidia是否发布影响推理成本格局的新硬件/软件。DeepSeek V4独立Benchmark仍未公布。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+<hr class="sep"><div class="sec-title" id="sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
 |------|------|------|----------|-----------|
 | 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | DeepSeek V4 | Computer Use闭环验证代码 |
 | ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
@@ -345,7 +405,7 @@ a:hover { text-decoration: underline; }
 <strong>🔄 本周变化：</strong> 本周场景排名与上期一致，无变动。关注今日GTC后Nvidia NemoClaw是否改变AI Agent/自动化场景的工具选择。Sora整合ChatGPT后，AI视频场景可能出现格局变动。
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>🎮 Nvidia GTC 2026主题演讲（今天11am PT）</strong>：Vera Rubin GPU架构、Feynman路线图、NemoClaw Agent平台、新推理芯片。AI基础设施年度最重要发布，今晚/明天将有大量细节释出。
+<hr class="sep"><div class="sec-title" id="sec-------">⑦ 本周前瞻</div><p>1. <strong>🎮 Nvidia GTC 2026主题演讲（今天11am PT）</strong>：Vera Rubin GPU架构、Feynman路线图、NemoClaw Agent平台、新推理芯片。AI基础设施年度最重要发布，今晚/明天将有大量细节释出。
 
 2. <strong>⚔️ 伊朗战争：石油设施成下一个目标？</strong>：Trump正权衡打击伊朗石油枢纽，伊朗拒绝停火。以色列称还需三周作战。$500亿战争拨款国会投票临近。油价$100+持续施压全球经济。
 

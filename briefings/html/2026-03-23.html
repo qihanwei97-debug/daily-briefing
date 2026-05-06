@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年3月23日 星期一</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">① 今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec-------">③ 国际大事</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</a><a href="#sec-------">⑦ 本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,10 +336,10 @@ a:hover { text-decoration: underline; }
     <span>覆盖72小时 · 预计阅读11分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">① 今日要闻</div><p><strong>OpenClaw发布聊天机器人引发"AI模型商品化"恐慌——一个奥地利独立开发者的开源Agent框架击败了数百亿美元的AI实验室</strong>，Jensen Huang在GTC称其为"人类历史上最受欢迎的开源项目"，GitHub星标超25万。<strong>小米MiMo-V2-Pro震撼发布：1万亿参数、ClawEval 61.5逼近Opus 4.6（66.3），定价仅为竞品1/6-1/7</strong>，前DeepSeek核心研究员罗福利领衔。<strong>伊朗战争第23天危机升级：Trump发48小时最后通牒要求重开霍尔木兹海峡，否则"摧毁所有发电厂"；伊朗回击——导弹击中以色列Dimona和Arad（约180人受伤），并威胁"彻底封锁"海峡</strong>。<strong>古巴电网3月内第三次全国性崩溃，Trump威胁"接管古巴"</strong>。
+<hr class="sep"><div class="sec-title" id="sec-------">① 今日要闻</div><p><strong>OpenClaw发布聊天机器人引发"AI模型商品化"恐慌——一个奥地利独立开发者的开源Agent框架击败了数百亿美元的AI实验室</strong>，Jensen Huang在GTC称其为"人类历史上最受欢迎的开源项目"，GitHub星标超25万。<strong>小米MiMo-V2-Pro震撼发布：1万亿参数、ClawEval 61.5逼近Opus 4.6（66.3），定价仅为竞品1/6-1/7</strong>，前DeepSeek核心研究员罗福利领衔。<strong>伊朗战争第23天危机升级：Trump发48小时最后通牒要求重开霍尔木兹海峡，否则"摧毁所有发电厂"；伊朗回击——导弹击中以色列Dimona和Arad（约180人受伤），并威胁"彻底封锁"海峡</strong>。<strong>古巴电网3月内第三次全国性崩溃，Trump威胁"接管古巴"</strong>。
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：OpenClaw的"ChatGPT时刻"——开源Agent框架引爆AI商品化辩论</h3><p>3月21日，CNBC发文指出OpenClaw正在经历其"ChatGPT时刻"——但这次引发的不是兴奋，而是对<strong>AI模型商品化</strong>的深层担忧。一个由奥地利独立开发者创建的龙虾主题开源AI Agent平台，在三个月内从默默无闻成长为<strong>GitHub历史最高星标项目（25万+）</strong>，超越React和Linux。</p><p><strong>为什么这很重要：</strong> OpenClaw暴露了大模型投资逻辑的潜在致命缺陷——当基础模型快速商品化，价值可能转移到Agent框架层。OpenClaw内置<strong>100+技能</strong>，可将AI模型直接连接到应用、浏览器和系统工具，实现自主决策和任务执行。开发者在个人Mac Mini上就能管理大量永续运行的AI Agent，成本远低于云端调用大模型。</p><p><strong>GTC上的高光时刻：</strong> Jensen Huang在主题演讲中将OpenClaw与Linux类比，称其为"人类历史上最受欢迎的开源项目"。Nvidia同步发布NemoClaw框架将OpenClaw与Nemo生态打通（已报道）。中国科技公司也在大规模部署OpenClaw——CNBC称其为"龙虾盛宴"。</p><p><strong>商品化隐忧：</strong> 不是一个财力雄厚的实验室（OpenAI、Anthropic），而是一个独立开发者创造了AI领域的"下一个大事件"。这表明：<strong>基础模型正在被商品化，注意力正转向强调自主性、可用性、本地化和控制权的Agent框架</strong>。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://github.com/openclaw">OpenClaw GitHub</a>（开源）</li><li>💰 定价：免费/开源</li><li>💡 上手：Agent开发者必看——OpenClaw+NemoClaw构成完整Agent开发栈，本地运行大幅降本</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/03/21/openclaw-chatgpt-moment-sparks-concern-ai-models-becoming-commodities.html">CNBC</a> | <a href="https://www.cnbc.com/2026/03/17/nvidia-ceo-jensen-huang-says-openclaw-is-definitely-the-next-chatgpt.html">CNBC - Jensen Huang</a> | <a href="https://www.kdnuggets.com/openclaw-explained-the-free-ai-agent-tool-going-viral-already-in-2026">KDnuggets</a> | <a href="https://mlq.ai/news/openclaws-viral-surge-mirrors-chatgpt-launch-fueling-fears-of-ai-model-commoditization/">MLQ AI</a></div><div class="sources">中文解读：暂无中国媒体深度报道</div></div><div class="brief-item"><h4>小米MiMo-V2-Pro发布：万亿参数Agent旗舰，性价比炸裂</h4><p>（3月18-19日，<a href="https://venturebeat.com/technology/xiaomi-stuns-with-new-mimo-v2-pro-llm-nearing-gpt-5-2-opus-4-6-performance">VentureBeat</a>）：小米正式发布MiMo-V2系列，旗舰MiMo-V2-Pro为<strong>1万亿参数</strong>基座模型（MoE架构，单次推理激活42B参数），上下文窗口1M token。在ClawEval（Agent能力基准测试）上得分<strong>61.5</strong>，逼近Claude Opus 4.6（66.3），大幅超越GPT-5.2（50.0）。定价约为Anthropic和OpenAI旗舰的<strong>1/6至1/7</strong>。MiMo-V2-Pro此前以代号"Hunter Alpha"匿名上线OpenRouter，处理超<strong>1万亿token</strong>后才正式揭晓身份。团队由前DeepSeek核心贡献者<strong>罗福利</strong>领衔，2025年底加入小米。同步发布MiMo-V2-Omni（多模态）和MiMo-V2-TTS（表达性语音合成）。
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条：OpenClaw的"ChatGPT时刻"——开源Agent框架引爆AI商品化辩论</h3><p>3月21日，CNBC发文指出OpenClaw正在经历其"ChatGPT时刻"——但这次引发的不是兴奋，而是对<strong>AI模型商品化</strong>的深层担忧。一个由奥地利独立开发者创建的龙虾主题开源AI Agent平台，在三个月内从默默无闻成长为<strong>GitHub历史最高星标项目（25万+）</strong>，超越React和Linux。</p><p><strong>为什么这很重要：</strong> OpenClaw暴露了大模型投资逻辑的潜在致命缺陷——当基础模型快速商品化，价值可能转移到Agent框架层。OpenClaw内置<strong>100+技能</strong>，可将AI模型直接连接到应用、浏览器和系统工具，实现自主决策和任务执行。开发者在个人Mac Mini上就能管理大量永续运行的AI Agent，成本远低于云端调用大模型。</p><p><strong>GTC上的高光时刻：</strong> Jensen Huang在主题演讲中将OpenClaw与Linux类比，称其为"人类历史上最受欢迎的开源项目"。Nvidia同步发布NemoClaw框架将OpenClaw与Nemo生态打通（已报道）。中国科技公司也在大规模部署OpenClaw——CNBC称其为"龙虾盛宴"。</p><p><strong>商品化隐忧：</strong> 不是一个财力雄厚的实验室（OpenAI、Anthropic），而是一个独立开发者创造了AI领域的"下一个大事件"。这表明：<strong>基础模型正在被商品化，注意力正转向强调自主性、可用性、本地化和控制权的Agent框架</strong>。</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://github.com/openclaw">OpenClaw GitHub</a>（开源）</li><li>💰 定价：免费/开源</li><li>💡 上手：Agent开发者必看——OpenClaw+NemoClaw构成完整Agent开发栈，本地运行大幅降本</li></ul><div class="link-cluster "><a href="https://www.cnbc.com/2026/03/21/openclaw-chatgpt-moment-sparks-concern-ai-models-becoming-commodities.html">CNBC</a> | <a href="https://www.cnbc.com/2026/03/17/nvidia-ceo-jensen-huang-says-openclaw-is-definitely-the-next-chatgpt.html">CNBC - Jensen Huang</a> | <a href="https://www.kdnuggets.com/openclaw-explained-the-free-ai-agent-tool-going-viral-already-in-2026">KDnuggets</a> | <a href="https://mlq.ai/news/openclaws-viral-surge-mirrors-chatgpt-launch-fueling-fears-of-ai-model-commoditization/">MLQ AI</a></div><div class="link-cluster zh">暂无中国媒体深度报道</div></div><div class="brief-item"><h4>小米MiMo-V2-Pro发布：万亿参数Agent旗舰，性价比炸裂</h4><p>（3月18-19日，<a href="https://venturebeat.com/technology/xiaomi-stuns-with-new-mimo-v2-pro-llm-nearing-gpt-5-2-opus-4-6-performance">VentureBeat</a>）：小米正式发布MiMo-V2系列，旗舰MiMo-V2-Pro为<strong>1万亿参数</strong>基座模型（MoE架构，单次推理激活42B参数），上下文窗口1M token。在ClawEval（Agent能力基准测试）上得分<strong>61.5</strong>，逼近Claude Opus 4.6（66.3），大幅超越GPT-5.2（50.0）。定价约为Anthropic和OpenAI旗舰的<strong>1/6至1/7</strong>。MiMo-V2-Pro此前以代号"Hunter Alpha"匿名上线OpenRouter，处理超<strong>1万亿token</strong>后才正式揭晓身份。团队由前DeepSeek核心贡献者<strong>罗福利</strong>领衔，2025年底加入小米。同步发布MiMo-V2-Omni（多模态）和MiMo-V2-TTS（表达性语音合成）。
 - 📍 获取：<a href="https://mimo.xiaomi.com/mimo-v2-pro">MiMo-V2-Pro</a> | OpenRouter API
 - 💰 定价：约为GPT-5.4的1/6-1/7</p><div class="insight">Agent工作流性价比新王——ClawEval接近Opus 4.6，成本碾压</div><p style="font-size:14px;color:#4a4540;margin-top:6px;">来源：<a href="https://venturebeat.com/technology/xiaomi-stuns-with-new-mimo-v2-pro-llm-nearing-gpt-5-2-opus-4-6-performance">VentureBeat</a> | <a href="https://www.gizmochina.com/2026/03/19/xiaomi-unveils-mimo-v2-pro-its-flagship-llm-with-over-1tb-of-parameters/">Gizmochina</a> | <a href="https://quasa.io/media/xiaomi-unleashes-mimo-v2-family-trillion-parameter-agent-powerhouse-mimo-v2-pro-ex-hunter-alpha-multimodal-omni-and-expressive-tts-hit-the-scene">Quasa.io</a> | <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a></p><p style="font-size:14px;color:#4a4540;margin-top:6px;">中文解读：<a href="https://mimo.xiaomi.com/mimo-v2-pro">小米MiMo-V2-Pro官网</a></p></div><div class="brief-item"><h4>OpenAI收购Python工具商Astral，强化Codex生态</h4><p>（3月21日，<a href="https://www.gtmaipodcast.com/p/this-week-in-ai-march-1521-2026">GTM AI Podcast</a>）：OpenAI宣布收购Python开发工具公司Astral，将其工具链整合进Codex生态系统。Astral以高性能Python代码格式化和lint工具闻名。此举显示OpenAI正从纯模型能力竞争转向开发者工具链的纵向整合。
 - 📍 获取：Codex用户将直接受益</p><div class="insight">Python开发者关注Codex+Astral工具链整合动态</div></div><div class="brief-item"><h4>MiniMax M2.7模型公开上线</h4><p>（3月周末，<a href="https://dailyaidigest.net/">Daily AI Digest</a>）：MiniMax发布M2.7模型，通过MiniMax Agent和API平台公开可用。支持软件工程、办公生产力和研究场景，具备自主调试能力。
@@ -287,7 +347,7 @@ a:hover { text-decoration: underline; }
 - 💰 定价：API付费</p><div class="insight">Agent能力+自主调试是亮点</div></div><div class="brief-item"><h4>跟进：五角大楼内部对移除Claude AI产生分歧</h4><p>（3月21日，<a href="https://medium.com/@stephen.stanley777/ai-daily-update-21-03-2026-d3367b8209a0">Medium</a>）：美国国防部长Pete Hegseth推动将Anthropic的Claude AI从五角大楼系统中移除，但内部用户反映替换过程面临重大操作困难——一旦AI平台嵌入工作流程，切换成本极高。这凸显了企业/政府AI平台选择的"锁定效应"。</p><div class="insight">AI平台粘性远超预期——选型决策比模型性能更重要</div></div><div class="brief-item"><h4>OpenCode桌面应用beta上线</h4><p>（3月周末，<a href="https://dailyaidigest.net/">Daily AI Digest</a>）：开源AI编程Agent平台OpenCode推出macOS/Windows/Linux桌面应用beta版。目前拥有<strong>500万月活开发者</strong>、<strong>12万GitHub星标</strong>，支持终端/IDE/桌面全场景，兼容75+家LLM提供商。
 - 📍 获取：OpenCode官网下载
 - 💰 定价：开源</p><div class="insight">多LLM兼容的本地AI编程Agent，值得试用</div></div>
-<hr class="sep"><div class="sec-title">③ 国际大事</div><p>### 🌍 一、伊朗战争第21-23天：霍尔木兹海峡危机升级，Trump发48小时最后通牒
+<hr class="sep"><div class="sec-title" id="sec-------">③ 国际大事</div><p>### 🌍 一、伊朗战争第21-23天：霍尔木兹海峡危机升级，Trump发48小时最后通牒
 
 <strong>3月20-22日增量（接续第20天报道）：</strong>
 
@@ -310,8 +370,8 @@ a:hover { text-decoration: underline; }
 WHO确认苏丹西达尔富尔地区一家医院上周遭空袭，至少<strong>64人死亡，其中13名儿童</strong>。苏丹内战持续恶化，医疗设施频繁成为攻击目标，人道主义危机深化。
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>OpenClaw</td><td>聊天机器人+Agent平台</td><td>开源Agent框架引发AI商品化辩论，25万GitHub星</td><td>✅全量</td><td>GitHub开源</td><td>3月21日</td></tr><tr><td>小米</td><td>MiMo-V2-Pro</td><td>1T参数MoE旗舰，ClawEval 61.5，定价1/6竞品</td><td>✅全量</td><td>API / OpenRouter</td><td>3月19日</td></tr><tr><td>小米</td><td>MiMo-V2-Omni</td><td>多模态模型，MiMo-V2系列</td><td>✅全量</td><td>API</td><td>3月19日</td></tr><tr><td>小米</td><td>MiMo-V2-TTS</td><td>表达性语音合成</td><td>✅全量</td><td>API</td><td>3月19日</td></tr><tr><td>OpenAI</td><td>收购Astral</td><td>Python工具商，强化Codex生态</td><td>⏳整合中</td><td>Codex</td><td>3月21日</td></tr><tr><td>MiniMax</td><td>M2.7</td><td>自主调试能力，支持复杂工作流</td><td>✅全量</td><td>MiniMax API</td><td>3月周末</td></tr><tr><td>OpenCode</td><td>桌面应用beta</td><td>开源AI编程Agent，500万月活</td><td>⏳Beta</td><td>官网下载</td><td>3月周末</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | MiMo-V2-Pro (小米) 🔄 |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>OpenClaw</td><td>聊天机器人+Agent平台</td><td>开源Agent框架引发AI商品化辩论，25万GitHub星</td><td>✅全量</td><td>GitHub开源</td><td>3月21日</td></tr><tr><td>小米</td><td>MiMo-V2-Pro</td><td>1T参数MoE旗舰，ClawEval 61.5，定价1/6竞品</td><td>✅全量</td><td>API / OpenRouter</td><td>3月19日</td></tr><tr><td>小米</td><td>MiMo-V2-Omni</td><td>多模态模型，MiMo-V2系列</td><td>✅全量</td><td>API</td><td>3月19日</td></tr><tr><td>小米</td><td>MiMo-V2-TTS</td><td>表达性语音合成</td><td>✅全量</td><td>API</td><td>3月19日</td></tr><tr><td>OpenAI</td><td>收购Astral</td><td>Python工具商，强化Codex生态</td><td>⏳整合中</td><td>Codex</td><td>3月21日</td></tr><tr><td>MiniMax</td><td>M2.7</td><td>自主调试能力，支持复杂工作流</td><td>✅全量</td><td>MiniMax API</td><td>3月周末</td></tr><tr><td>OpenCode</td><td>桌面应用beta</td><td>开源AI编程Agent，500万月活</td><td>⏳Beta</td><td>官网下载</td><td>3月周末</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型对比表</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">数据来源：<a href="https://openai.com/index/introducing-gpt-5-4/">OpenAI</a> | <a href="https://www.vellum.ai/blog/flagship-model-report">Vellum AI</a> | <a href="https://llm-stats.com/leaderboards/llm-leaderboard">LLM Stats</a> | <a href="https://artificialanalysis.ai/models/mimo-v2-pro">Artificial Analysis</a>（2026年3月）</p><p>| 维度 | GPT-5.4 (OpenAI) | Claude Opus 4.6 (Anthropic) | Gemini 3.1 Pro (Google) | MiMo-V2-Pro (小米) 🔄 |
 |------|------------------|---------------------------|------------------------|----------------------|
 | <strong>综合推理</strong> | ⭐⭐⭐⭐⭐ GDPval 83% | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐½ | ⭐⭐⭐⭐ (社区测试中) |
 | <strong>编程(SWE-bench)</strong> | ⭐⭐⭐⭐½ ~75% | ⭐⭐⭐⭐½ ~72% | ⭐⭐⭐⭐ ~73% | ⭐⭐⭐⭐ (待测) |
@@ -330,7 +390,7 @@ WHO确认苏丹西达尔富尔地区一家医院上周遭空袭，至少<strong>
 | <strong>中文能力</strong> | ⭐⭐⭐⭐ | ⭐⭐⭐½ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 | <strong>定价(input/output)</strong> | $0.75/$4.50 | $3/$15 | 低价 | 低价（降60%） |
 | <strong>开源</strong> | ❌ | ❌ | ❌ | 部分开源 |</p><p><strong>📝 本周变化：</strong> 🔄 <strong>旗舰对比表重大调整——小米MiMo-V2-Pro替换DeepSeek V4进入动态对比位。</strong> MiMo-V2-Pro以1T参数（42B激活）、ClawEval 61.5的Agent能力、1M上下文和约1/6竞品定价，成为本周最值得关注的新旗舰。前DeepSeek核心研究员罗福利带队，架构DNA源自DeepSeek。DeepSeek V4因R2持续延期、缺乏新benchmark数据暂退动态位。中端层无变动。</p></div>
-<hr class="sep"><div class="sec-title">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
+<hr class="sep"><div class="sec-title" id="sec------ai-----13------">⑥ 场景化AI工具推荐（13个固定场景）</div><p>| 场景 | 首选 | 备选 | 免费方案 | 一句话理由 |
 |------|------|------|----------|-----------|
 | 💻 编程/代码 | GPT-5.4 | Claude Opus 4.6 | GPT-5.4 mini（免费） | Computer Use闭环验证代码 |
 | ✍️ 长文写作 | Claude Sonnet 4.6 | GPT-5.4 | Qwen 3.5 | Elo对话质量第一 |
@@ -349,7 +409,7 @@ WHO确认苏丹西达尔富尔地区一家医院上周遭空袭，至少<strong>
 <strong>🔄 本周变化：</strong> 2个场景调整。🤖Agent备选由Claude Opus 4.6调整为MiMo-V2-Pro——ClawEval 61.5接近Opus 4.6（66.3）但成本仅1/6，Agent性价比更优；免费方案新增OpenClaw+本地模型组合（开源Agent框架+本地推理，零API成本）。💰极致性价比备选由DeepSeek V4调整为MiMo-V2-Pro——前者R2持续延期，后者已公开可用且benchmark数据完整。
 
 ---</p>
-<hr class="sep"><div class="sec-title">⑦ 本周前瞻</div><p>1. <strong>⚠️ 霍尔木兹海峡48小时倒计时（周一晚到期）</strong>：Trump最后通牒到期后的下一步是本周最大变量。若美国攻击伊朗发电厂，伊朗威胁彻底封锁海峡——全球20%石油运输将中断，油价可能突破$130+。
+<hr class="sep"><div class="sec-title" id="sec-------">⑦ 本周前瞻</div><p>1. <strong>⚠️ 霍尔木兹海峡48小时倒计时（周一晚到期）</strong>：Trump最后通牒到期后的下一步是本周最大变量。若美国攻击伊朗发电厂，伊朗威胁彻底封锁海峡——全球20%石油运输将中断，油价可能突破$130+。
 
 2. <strong>📱 Apple iOS 26.4 + 新Siri（3月底-4月初）</strong>：Gemini驱动的新Siri仍锁定本周至下周窗口，将是2026年消费端AI最大事件之一。
 

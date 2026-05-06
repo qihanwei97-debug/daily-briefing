@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | 2026年4月28日 星期二</title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-summary">60 秒速览</a><a href="#sec-deep">深度报道</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec-tip">本期技巧</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,20 +336,20 @@ a:hover { text-decoration: underline; }
     <span>覆盖24小时 · 预计阅读6-8分钟</span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">60 秒速览</div><div class="summary"><ul><li><strong>【微软-OpenAI 解绑：IP 非独家、Azure 不再排他、微软不再向 OpenAI 付分成】</strong><span class="aside">——AI 行业最大双边合约重写，5 年合作进入"半离婚"状态；OpenAI 可走 AWS/Google Cloud，微软股价当日承压</span></li><li><strong>【中国发改委正式叫停 Meta 20 亿美元收购 Manus】</strong><span class="aside">——AI 领域首例援引"外资安全审查"全面禁止+要求撤销已完成交易；涉外 M&A 客户尤其要重审中国 AI 资产敞口</span></li><li><strong>【DeepSeek V4 上线 4 天后再降价，引爆中国 AI 价格战 2.0】</strong><span class="aside">——豆包/通义/Kimi 跟进概率高，企业 LLM 采购预算 5 月或大幅重估</span></li><li><strong>【Big Tech Q1 财报明晚 4/29 集中发布】</strong><span class="aside">——Meta/Microsoft/Google/Amazon 同夜披露，叠加 MSFT-OAI 解绑余震，AI 板块波动率拉满</span></li><li><strong>【Claude Code Week 17 跟进：`/team-onboarding` 已成新人入职标配】</strong><span class="aside">——4/10 上线后实测好评，律所知识传承场景值得本期 ⑤ 板块拆解</span></li></ul></div>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条一：微软-OpenAI 解绑——AI 行业最大双边合约改写，"独家排他时代"终结</h3><p>微软与 OpenAI 4 月 27 日联合宣布<strong>修订自 2019 年以来的全部合作核心条款</strong>，把这段曾被视为"AI 行业最重要联盟"的关系切换到"非独家+多云+营收上限"模式<span class="link-cluster"><a href="https://www.cnbc.com/2026/04/27/openai-microsoft-partnership-revenue-cap.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai">Bloomberg</a> | <a href="https://techcrunch.com/2026/04/27/openai-ends-microsoft-legal-peril-over:-its-50b-amazon-deal/">TechCrunch</a> | <a href="https://finance.yahoo.com/sectors/technology/article/microsoft-openai-rewrite-partnership-to-eliminate-exclusive-model-access-change-revenue-sharing-140522820.html">Yahoo Finance</a> | <a href="https://interestingengineering.com/ai-robotics/microsoft-openai-partnership-restructuring">Interesting Engineering</a></span>。一手信源 <a href="https://blogs.microsoft.com/blog/2026/04/27/the-next-phase-of-the-microsoft-openai-partnership/">Microsoft 官方博客</a>、<a href="https://openai.com/index/next-phase-of-microsoft-partnership/">OpenAI 官方介绍页</a> 今日 fetch 均返回 403，下文内容来自三方报道交叉验证。</p><p><strong>核心条款变化：</strong></p><div class="product-table"><table><thead><tr><th>维度</th><th>原条款（2019-2026.4）</th><th>新条款（2026.4.27 起）</th></tr></thead><tbody><tr><td><strong>微软对 OpenAI IP 授权</strong></td><td>独家、排他</td><td><strong>非独家</strong>，期限延至 <strong>2032 年</strong></td></tr><tr><td><strong>OpenAI 云服务部署</strong></td><td>Azure 独家承载</td><td>Azure 仍优先，但<strong>全产品线可上任意云</strong>（AWS/Google Cloud）</td></tr><tr><td><strong>微软向 OpenAI 营收分成</strong></td><td>持续支付</td><td><strong>彻底停止</strong></td></tr><tr><td><strong>OpenAI 向微软营收分成</strong></td><td>20% 比例长期支付</td><td>比例不变但<strong>封顶 cap</strong>，2030 年到期</td></tr><tr><td><strong>AGI 触发条款</strong></td><td>微软须就 OpenAI 自宣 AGI 做出商业反应</td><td><strong>删除</strong>——AGI 实现与否由独立专家组判定，不再绑定微软</td></tr></tbody></table></div><div class="callout"><div class="callout-intro"><strong>为什么重要：</strong></div><ul class="callout-list"><li><strong>Azure 排他终结，OpenAI 与 AWS 的 500 亿美元算力协议从"潜在违约"转为合规</strong>——OpenAI 4 月与 Amazon 签署的 $50B Azure-外算力订单终于落地（<a href="https://techcrunch.com/2026/04/27/openai-ends-microsoft-legal-peril-over-its-50b-amazon-deal/">TechCrunch</a>），这条结构性变化是触发本次重写的直接动因</li><li><strong>微软实质获得"AI 多供应商权利"</strong>——可继续推 Anthropic Claude、Mistral、自研 MAI 系列，不再被独家锁定</li><li><strong>20% 营收分成封顶</strong>对 OpenAI 是巨大现金流松绑——按当前 ARR ~$130B 估算，封顶后每年节省数十亿美元</li><li><strong>AGI 条款删除</strong>移除了微软最大法律风险——原条款下 OpenAI 一旦"自宣 AGI"可能触发微软义务对赌，此次改由独立专家组判定彻底拆雷</li><li><strong>法律视角</strong>：本次修订是教科书级的"超大型科技合约重写"案例——值得 M&A、TMT 业务部门以正式备忘录形式归档复盘，跨境 IP 授权 + 云服务非独家化 + 营收分成上限三件事的写法模板都是新的</li></ul></div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://blogs.microsoft.com/blog/2026/04/27/the-next-phase-of-the-microsoft-openai-partnership/">微软官方博客（403）</a> | <a href="https://openai.com/index/next-phase-of-microsoft-partnership/">OpenAI 官方介绍页（403）</a> | 中文整理见新浪财经（下方"中文解读"）</li><li>💡 上手：<strong>律所美股客户：</strong> MSFT 因失去独家性短期估值承压，OpenAI IPO 路径打通对 SoftBank/Thrive 等 PE LP 客户构成估值重置；<strong>TMT/合规部门：</strong> 把"AGI 客观判定独立专家组"条款收集为先例库参考</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/04/27/openai-microsoft-partnership-revenue-cap.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai">Bloomberg</a> | <a href="https://techcrunch.com/2026/04/27/openai-ends-microsoft-legal-peril-over-its-50b-amazon-deal/">TechCrunch</a> | <a href="https://seekingalpha.com/news/4579947-microsoft-falls-as-openai-partnership-evolves-says-it-will-no-longer-pay-revenue-share">Seeking Alpha</a> | <a href="https://www.eweek.com/news/microsoft-openai-deal-multi-cloud-ai-infrastructure/">eWeek</a> | <a href="https://www.theneuron.ai/explainer-articles/microsoft-and-openai-rewrote-their-marriage-contract/">The Neuron AI 详解</a></div><div class="sources">中文解读：<a href="https://finance.sina.com.cn/stock/usstock/c/2026-04-27/doc-inhvyeeu8927857.shtml">新浪财经（微软不再付分成）</a> | <a href="https://finance.sina.com.cn/stock/usstock/c/2026-04-27/doc-inhvyeex2202409.shtml">新浪财经（OpenAI 解绑独家）</a> | <a href="https://36kr.com/p/3785656214838530">36氪（开庭前夕分手了？）</a></div></div><div class="feature"><h3>头条二：中国发改委正式叫停 Meta 20 亿美元收购 Manus——AI 领域首例外资安全审查全面禁令</h3><p>国家发展改革委下属"<strong>外商投资安全审查工作机制办公室</strong>" 4 月 27 日就 <strong>Meta 收购 Manus 项目作出安全审查决定</strong>——<strong>禁止外资完成本次收购，要求双方撤销已签署的交易</strong><span class="link-cluster"><a href="https://finance.sina.com.cn/roll/2026-04-27/doc-inhvyefa7758572.shtml">新浪财经</a> | <a href="https://www.guancha.cn/economy/2026_04_27_815117.shtml">观察者网</a> | <a href="https://www.cnbc.com/2026/04/27/meta-manus-china-blocks-acquisition-ai-startup.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-27/china-blocks-meta-s-2-billion-acquisition-of-ai-startup-manus">Bloomberg</a> | <a href="https://www.cnn.com/2026/04/27/tech/china-blocks-meta-manus-intl-hnk">CNN</a> | <a href="https://techcrunch.com/2026/04/27/china-vetoes-metas-2b-manus-deal-after-months-long-probe/">TechCrunch</a></span>。一手政府公告 <a href="https://zfxxgk.ndrc.gov.cn/web/iteminfo.jsp?id=20623">发改委政务公开页</a> 今日 fetch 返回 403，下文据交叉报道还原。</p><p><strong>事件全貌：</strong></p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>2025 年 12 月 30 日：</strong> Manus（新加坡注册、华人创始团队、北京研发主力）宣布被 Meta <strong>以约 20 亿美元收购</strong>——Meta 史上第三大并购案，创始人肖弘将出任 Meta 副总裁</li><li><strong>2026 年 1 月 8 日：</strong> 商务部启动评估调查，重点核查"出口管制+技术进出口+外商投资"三方面合规</li><li><strong>2026 年 4 月 27 日：</strong> 发改委下属安全审查办公室作出<strong>最终禁令</strong>，要求撤销交易</li><li><strong>行业揭示的三大触发因素：</strong> ① <strong>Manus 核心技术被认定为出口受限敏感类目</strong>——未走中国出口审批程序；② <strong>训练数据高度依赖境内数据</strong>——存在数据出境合规风险；③ <strong>外资收购环节本身</strong>未满足外商投资法相关合规要求</li></ul><div class="callout"><div class="callout-intro"><strong>为什么重要（律所视角）：</strong></div><ul class="callout-list"><li><strong>AI 领域首次援引"外商投资安全审查"全面禁令</strong>——此前同类案件多为附条件批准（如剥离子业务、技术隔离），本案是教科书级"全面禁止+撤销"先例，对所有涉中国 AI 资产的跨境 M&A 客户敲响警钟</li><li><strong>撤销路径极其复杂</strong>——按 Odaily <a href="https://www.odaily.news/zh-CN/post/5210509">独立解读</a>，<strong>20 亿美元价款需退回、数据需隔离与删除、已 onboard 至 Meta 的 Manus 团队需脱离</strong>，技术上"AI 收购怎么撤销"几乎无先例</li><li><strong>触及涉外业务两条红线</strong>：(a) <strong>AI 模型本身可能被列为"两用物项"出口管制对象</strong>——后续中国 AI 公司被海外收购需提前申请出口许可，律所要为客户预警这条新合规路径；(b) <strong>训练数据出境</strong>——《数据出境安全评估办法》《促进和规范数据跨境流动规定》在 AI 训练场景下首次成为否决依据</li><li><strong>预计未来 6-12 个月，类似案件会显著增加</strong>——任何"中国创始团队 + 海外注册主体 + 国内研发"结构（即典型 VIE/红筹+AI 公司）被外资收购，<strong>都需重做"国家安全 + 数据出境 + 出口管制"三重合规评估</strong></li></ul></div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://zfxxgk.ndrc.gov.cn/web/iteminfo.jsp?id=20623">发改委政务公开页（403）</a> | <a href="https://finance.sina.com.cn/roll/2026-04-27/doc-inhvyefa7758572.shtml">新浪财经全文</a></li><li>💡 上手：<strong>汉坤跨境 M&A、出海合规、数据合规三个组今日起把本案纳入培训案例库</strong>——尤其涉及"AI/数据中心/算力"标的的 outbound M&A 客户尽调清单需新增"安全审查+出口管制"专项；Meta 的法律团队可能寻求外部中国律所协助"撤销执行"——这是难得的逆向 inbound 业务窗口</li></ul><div class="sources">来源：<a href="https://www.cnbc.com/2026/04/27/meta-manus-china-blocks-acquisition-ai-startup.html">CNBC</a> | <a href="https://news.bloomberglaw.com/antitrust/china-blocks-metas-2-billion-acquisition-of-ai-startup-manus">Bloomberg Law（反垄断）</a> | <a href="https://www.cnn.com/2026/04/27/tech/china-blocks-meta-manus-intl-hnk">CNN</a> | <a href="https://www.washingtonpost.com/world/2026/04/27/china-ai-meta-manus/">Washington Post</a> | <a href="https://www.axios.com/2026/04/27/china-blocks-metas-acquisition-of-manus-ai">Axios</a> | <a href="https://techcrunch.com/2026/04/27/china-vetoes-metas-2b-manus-deal-after-months-long-probe/">TechCrunch</a> | <a href="https://www.npr.org/2026/04/27/g-s1-118892/china-blocks-meta-from-acquiring-ai-startup-manus">NPR</a></div><div class="sources">中文解读：<a href="https://finance.sina.com.cn/roll/2026-04-27/doc-inhvyefa7758572.shtml">新浪财经（发改委禁令全文）</a> | <a href="https://www.guancha.cn/economy/2026_04_27_815117.shtml">观察者网（最严格审查结论）</a> | <a href="https://www.odaily.news/zh-CN/post/5210509">Odaily（撤销路径详解）</a> | <a href="https://m.thepaper.cn/newsDetail_forward_32344411">澎湃新闻（商务部评估时间线）</a></div></div><div class="brief-item"><h4>DeepSeek V4 上线 4 天后再次降价——引爆中国 AI 价格战 2.0</h4><p>（4 月 27 日，<a href="https://www.bloomberg.com/news/articles/2026-04-27/deepseek-slashes-fees-for-new-ai-model-in-chinese-price-war">Bloomberg</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-27/why-china-s-deepseek-qwen-and-moonshot-are-a-worry-for-us-ai-rivals">Bloomberg China AI 担忧专文</a>）：DeepSeek 在 V4-Pro/V4-Flash 4/24 发布后，<strong>4/27 进一步下调 API 调用费率</strong>，被 Bloomberg 描述为"主动挑起中国 AI 第二轮价格战"。同期 Bloomberg 专文点名 DeepSeek、阿里 Qwen、月之暗面 Kimi（Moonshot）三家是美国 AI 行业最现实的威胁——核心论点是"中国厂商以接近 SOTA 性能 + 非旗舰硬件 + 极致定价同时压低 OpenAI/Anthropic 的能力护城河和价差护城河"。</p><div class="insight"><strong>律所 IT 采购：</strong> 5 月若豆包/通义/Kimi 跟进降价，企业 LLM 月费预算应预留 30-50% 下浮空间，先签短约（季度合同）等价格落定再续；<strong>律所投融资部门：</strong> 美股 AI 概念股客户（Nvidia/Palantir/CRWD 等）需重检"中国不是真竞争对手"叙事，Bloomberg 这篇是新一轮空头报告的可能模板</div></div><div class="brief-item"><h4>Big Tech Q1 财报 4/29 当晚集中发布——叠加 MSFT-OAI 解绑余震</h4><p>（跟进上期，<a href="https://www.fool.com/investing/2026/04/26/meta-google-amazon-microsoft-and-sofi-all-report-o/">Motley Fool</a>）：上期"Q2 财报季验收 Capex"基础上的关键增量——Meta、Microsoft、Google、Amazon 4/29 同夜盘后报 Q1，Apple 4/30 跟进。<strong>MSFT 在解绑 OpenAI 当周报财报，分析师电话会大概率聚焦三件事</strong>：(a) Azure 增速是否因失去 OpenAI 独家承载权而预期下修；(b) 微软自研 MAI 模型 + Anthropic 合作占比；(c) 营收分成停止对 FY26 利润的瞬时影响（应正向）。Meta/Google/Amazon 三家则继续验收 $650B Capex 故事。</p><div class="insight"><strong>美股客户尽调与估值模型必须在 4/29 盘后到 4/30 开盘 6 小时内更新</strong>——MSFT 此次财报是 AI 板块最关键单一事件之一，建议律所投行客户预设两套估值场景（Azure 增速维持 vs 下修 5-8 个百分点）</div></div><div class="brief-item"><h4>Bloomberg 专文：DeepSeek + Qwen + Moonshot 已成 OpenAI/Anthropic 实质威胁</h4><p>（4 月 27 日，<a href="https://www.bloomberg.com/news/articles/2026-04-27/why-china-s-deepseek-qwen-and-moonshot-are-a-worry-for-us-ai-rivals">Bloomberg</a>）：除上文价格战角度外，文章给出三条实质论据：① <strong>开源 + Apache/MIT 许可</strong>意味着海外企业可以零成本本地部署中国模型，绕开"地缘风险"叙事；② <strong>硬件去耦</strong>——DeepSeek 已切到华为 Ascend 950，Qwen 长期混用国产+海外卡，<strong>减弱 Nvidia 在中国 AI 训练侧的卡脖子杠杆</strong>；③ <strong>国产开源模型全球累计下载量突破 100 亿次</strong>（<a href="https://finance.sina.com.cn/jjxw/2026-04-27/doc-inhvxtrh7810958.shtml">新浪财经</a>），生态网络效应已成。</p><div class="insight">合规视角——若客户使用 DeepSeek/Qwen 自部署版本，<strong>注意核查模型权重随附的 license 是否含 use restriction</strong>（如不得用于评估对抗中国国家利益的应用）以及训练数据的来源声明</div></div><div class="brief-item"><h4>Claude Code Week 17 跟进：v2.1.117-119 已稳定运行，xhigh effort + Monitor 工具流式后台事件</h4><p>（<a href="https://code.claude.com/docs/en/whats-new/2026-w15">官方 Week 15 摘要</a> | <a href="https://help.apiyi.com/en/claude-code-changelog-2026-april-updates-en.html">Apiyi 中文整理</a>）：4/22-23 三连版本更新已上期覆盖；本期增量：Anthropic 官方 Week 15 摘要确认 <strong>`/team-onboarding`（v2.1.101，4/10 上线）</strong>、<strong>Monitor 后台流式工具（v2.1.98）</strong>、<strong>Ultraplan 云端规划研究预览</strong>和 <strong>`/autofix-pr` 终端一键开 CI 自动修复</strong>四件功能稳定可用。<strong>Opus 4.7 现支持 `xhigh` effort 等级</strong>——介于 high 与 max 之间，在 `/effort` 交互式滑块中选择。</p><div class="insight"><strong>法律文书复杂推理任务可试 `xhigh` effort——比 high 更深，但比 max 省 token</strong>；本期 ⑤ 板块拆 `/team-onboarding` 给所内新人入职的具体路径</div></div>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Microsoft / OpenAI</td><td>合作协议重写</td><td>IP 非独家、Azure 不再排他、微软停付分成、AGI 条款删除</td><td>✅生效</td><td>官方公告</td><td>4月27日</td></tr><tr><td>中国发改委</td><td>叫停 Meta 收购 Manus</td><td>20 亿美元 AI 并购首例外资安全审查全面禁令</td><td>✅终局</td><td>政府公告</td><td>4月27日</td></tr><tr><td>DeepSeek</td><td>V4 API 再次降价</td><td>上线 4 天主动二次降价，引爆中国价格战 2.0</td><td>✅全量</td><td>deepseek.com/api</td><td>4月27日</td></tr><tr><td>Anthropic</td><td>Claude Code Week 15 摘要确认</td><td>`/team-onboarding`、Monitor 后台流、Ultraplan、`/autofix-pr`</td><td>✅全量</td><td>`claude --update`</td><td>4月27日确认</td></tr><tr><td>Anthropic</td><td>Opus 4.7 `xhigh` effort 等级</td><td>high 与 max 之间，新增交互式 `/effort` 滑块</td><td>✅全量</td><td>Claude Code</td><td>4月持续</td></tr><tr><td>Big Tech 4 大</td><td>Q1 财报集中发布</td><td>MSFT 解绑 OAI 后首报，Capex 验收时刻</td><td>⏳4/29 盘后</td><td>IR 公告</td><td>4月29日</td></tr><tr><td>Bloomberg 专文</td><td>China AI 三家威胁论</td><td>DeepSeek/Qwen/Kimi 性能+定价+开源三杀</td><td>—</td><td>评论分析</td><td>4月27日</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p><strong>旗舰对比表沿用上期（4/27）数据。</strong> 本周变化（24h 内）：</p><ul><li>🆕 <strong>DeepSeek V4-Pro / V4-Flash 二次降价</strong>——具体新价格未在 Bloomberg 报道中披露具体数字，待 5 月初稳定后回填对比表</li><li>⏳ <strong>MSFT-OAI 解绑对 GPT-5.5 可用性无直接影响</strong>——ChatGPT Plus/Pro 仍正常服务，但企业用户现可在 AWS/Google Cloud 选择 OpenAI 部署，<strong>云选型将多一个谈判筹码</strong></li><li>⏳ Claude Opus 4.7、Gemini 3.1 Pro、Qwen3.6-27B、Muse Spark 排名与上期一致</li></ul><p><strong>律所选型快速建议（与上期一致）：</strong>
+<hr class="sep"><div class="sec-title" id="sec-summary">60 秒速览</div><div class="summary"><ul><li><strong>【微软-OpenAI 解绑：IP 非独家、Azure 不再排他、微软不再向 OpenAI 付分成】</strong><span class="aside">——AI 行业最大双边合约重写，5 年合作进入"半离婚"状态；OpenAI 可走 AWS/Google Cloud，微软股价当日承压</span></li><li><strong>【中国发改委正式叫停 Meta 20 亿美元收购 Manus】</strong><span class="aside">——AI 领域首例援引"外资安全审查"全面禁止+要求撤销已完成交易；涉外 M&A 客户尤其要重审中国 AI 资产敞口</span></li><li><strong>【DeepSeek V4 上线 4 天后再降价，引爆中国 AI 价格战 2.0】</strong><span class="aside">——豆包/通义/Kimi 跟进概率高，企业 LLM 采购预算 5 月或大幅重估</span></li><li><strong>【Big Tech Q1 财报明晚 4/29 集中发布】</strong><span class="aside">——Meta/Microsoft/Google/Amazon 同夜披露，叠加 MSFT-OAI 解绑余震，AI 板块波动率拉满</span></li><li><strong>【Claude Code Week 17 跟进：`/team-onboarding` 已成新人入职标配】</strong><span class="aside">——4/10 上线后实测好评，律所知识传承场景值得本期 ⑤ 板块拆解</span></li></ul></div>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条一：微软-OpenAI 解绑——AI 行业最大双边合约改写，"独家排他时代"终结</h3><p>微软与 OpenAI 4 月 27 日联合宣布<strong>修订自 2019 年以来的全部合作核心条款</strong>，把这段曾被视为"AI 行业最重要联盟"的关系切换到"非独家+多云+营收上限"模式<span class="link-cluster"><a href="https://www.cnbc.com/2026/04/27/openai-microsoft-partnership-revenue-cap.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai">Bloomberg</a> | <a href="https://techcrunch.com/2026/04/27/openai-ends-microsoft-legal-peril-over:-its-50b-amazon-deal/">TechCrunch</a> | <a href="https://finance.yahoo.com/sectors/technology/article/microsoft-openai-rewrite-partnership-to-eliminate-exclusive-model-access-change-revenue-sharing-140522820.html">Yahoo Finance</a> | <a href="https://interestingengineering.com/ai-robotics/microsoft-openai-partnership-restructuring">Interesting Engineering</a></span>。一手信源 <a href="https://blogs.microsoft.com/blog/2026/04/27/the-next-phase-of-the-microsoft-openai-partnership/">Microsoft 官方博客</a>、<a href="https://openai.com/index/next-phase-of-microsoft-partnership/">OpenAI 官方介绍页</a> 今日 fetch 均返回 403，下文内容来自三方报道交叉验证。</p><p><strong>核心条款变化：</strong></p><div class="product-table"><table><thead><tr><th>维度</th><th>原条款（2019-2026.4）</th><th>新条款（2026.4.27 起）</th></tr></thead><tbody><tr><td><strong>微软对 OpenAI IP 授权</strong></td><td>独家、排他</td><td><strong>非独家</strong>，期限延至 <strong>2032 年</strong></td></tr><tr><td><strong>OpenAI 云服务部署</strong></td><td>Azure 独家承载</td><td>Azure 仍优先，但<strong>全产品线可上任意云</strong>（AWS/Google Cloud）</td></tr><tr><td><strong>微软向 OpenAI 营收分成</strong></td><td>持续支付</td><td><strong>彻底停止</strong></td></tr><tr><td><strong>OpenAI 向微软营收分成</strong></td><td>20% 比例长期支付</td><td>比例不变但<strong>封顶 cap</strong>，2030 年到期</td></tr><tr><td><strong>AGI 触发条款</strong></td><td>微软须就 OpenAI 自宣 AGI 做出商业反应</td><td><strong>删除</strong>——AGI 实现与否由独立专家组判定，不再绑定微软</td></tr></tbody></table></div><div class="callout"><div class="callout-intro"><strong>为什么重要：</strong></div><ul class="callout-list"><li><strong>Azure 排他终结，OpenAI 与 AWS 的 500 亿美元算力协议从"潜在违约"转为合规</strong>——OpenAI 4 月与 Amazon 签署的 $50B Azure-外算力订单终于落地（<a href="https://techcrunch.com/2026/04/27/openai-ends-microsoft-legal-peril-over-its-50b-amazon-deal/">TechCrunch</a>），这条结构性变化是触发本次重写的直接动因</li><li><strong>微软实质获得"AI 多供应商权利"</strong>——可继续推 Anthropic Claude、Mistral、自研 MAI 系列，不再被独家锁定</li><li><strong>20% 营收分成封顶</strong>对 OpenAI 是巨大现金流松绑——按当前 ARR ~$130B 估算，封顶后每年节省数十亿美元</li><li><strong>AGI 条款删除</strong>移除了微软最大法律风险——原条款下 OpenAI 一旦"自宣 AGI"可能触发微软义务对赌，此次改由独立专家组判定彻底拆雷</li><li><strong>法律视角</strong>：本次修订是教科书级的"超大型科技合约重写"案例——值得 M&A、TMT 业务部门以正式备忘录形式归档复盘，跨境 IP 授权 + 云服务非独家化 + 营收分成上限三件事的写法模板都是新的</li></ul></div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://blogs.microsoft.com/blog/2026/04/27/the-next-phase-of-the-microsoft-openai-partnership/">微软官方博客（403）</a> | <a href="https://openai.com/index/next-phase-of-microsoft-partnership/">OpenAI 官方介绍页（403）</a> | 中文整理见新浪财经（下方"中文解读"）</li><li>💡 上手：<strong>律所美股客户：</strong> MSFT 因失去独家性短期估值承压，OpenAI IPO 路径打通对 SoftBank/Thrive 等 PE LP 客户构成估值重置；<strong>TMT/合规部门：</strong> 把"AGI 客观判定独立专家组"条款收集为先例库参考</li></ul><div class="link-cluster "><a href="https://www.cnbc.com/2026/04/27/openai-microsoft-partnership-revenue-cap.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai">Bloomberg</a> | <a href="https://techcrunch.com/2026/04/27/openai-ends-microsoft-legal-peril-over-its-50b-amazon-deal/">TechCrunch</a> | <a href="https://seekingalpha.com/news/4579947-microsoft-falls-as-openai-partnership-evolves-says-it-will-no-longer-pay-revenue-share">Seeking Alpha</a> | <a href="https://www.eweek.com/news/microsoft-openai-deal-multi-cloud-ai-infrastructure/">eWeek</a> | <a href="https://www.theneuron.ai/explainer-articles/microsoft-and-openai-rewrote-their-marriage-contract/">The Neuron AI 详解</a></div><div class="link-cluster zh"><a href="https://finance.sina.com.cn/stock/usstock/c/2026-04-27/doc-inhvyeeu8927857.shtml">新浪财经（微软不再付分成）</a> | <a href="https://finance.sina.com.cn/stock/usstock/c/2026-04-27/doc-inhvyeex2202409.shtml">新浪财经（OpenAI 解绑独家）</a> | <a href="https://36kr.com/p/3785656214838530">36氪（开庭前夕分手了？）</a></div></div><div class="feature"><h3>头条二：中国发改委正式叫停 Meta 20 亿美元收购 Manus——AI 领域首例外资安全审查全面禁令</h3><p>国家发展改革委下属"<strong>外商投资安全审查工作机制办公室</strong>" 4 月 27 日就 <strong>Meta 收购 Manus 项目作出安全审查决定</strong>——<strong>禁止外资完成本次收购，要求双方撤销已签署的交易</strong><span class="link-cluster"><a href="https://finance.sina.com.cn/roll/2026-04-27/doc-inhvyefa7758572.shtml">新浪财经</a> | <a href="https://www.guancha.cn/economy/2026_04_27_815117.shtml">观察者网</a> | <a href="https://www.cnbc.com/2026/04/27/meta-manus-china-blocks-acquisition-ai-startup.html">CNBC</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-27/china-blocks-meta-s-2-billion-acquisition-of-ai-startup-manus">Bloomberg</a> | <a href="https://www.cnn.com/2026/04/27/tech/china-blocks-meta-manus-intl-hnk">CNN</a> | <a href="https://techcrunch.com/2026/04/27/china-vetoes-metas-2b-manus-deal-after-months-long-probe/">TechCrunch</a></span>。一手政府公告 <a href="https://zfxxgk.ndrc.gov.cn/web/iteminfo.jsp?id=20623">发改委政务公开页</a> 今日 fetch 返回 403，下文据交叉报道还原。</p><p><strong>事件全貌：</strong></p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li><strong>2025 年 12 月 30 日：</strong> Manus（新加坡注册、华人创始团队、北京研发主力）宣布被 Meta <strong>以约 20 亿美元收购</strong>——Meta 史上第三大并购案，创始人肖弘将出任 Meta 副总裁</li><li><strong>2026 年 1 月 8 日：</strong> 商务部启动评估调查，重点核查"出口管制+技术进出口+外商投资"三方面合规</li><li><strong>2026 年 4 月 27 日：</strong> 发改委下属安全审查办公室作出<strong>最终禁令</strong>，要求撤销交易</li><li><strong>行业揭示的三大触发因素：</strong> ① <strong>Manus 核心技术被认定为出口受限敏感类目</strong>——未走中国出口审批程序；② <strong>训练数据高度依赖境内数据</strong>——存在数据出境合规风险；③ <strong>外资收购环节本身</strong>未满足外商投资法相关合规要求</li></ul><div class="callout"><div class="callout-intro"><strong>为什么重要（律所视角）：</strong></div><ul class="callout-list"><li><strong>AI 领域首次援引"外商投资安全审查"全面禁令</strong>——此前同类案件多为附条件批准（如剥离子业务、技术隔离），本案是教科书级"全面禁止+撤销"先例，对所有涉中国 AI 资产的跨境 M&A 客户敲响警钟</li><li><strong>撤销路径极其复杂</strong>——按 Odaily <a href="https://www.odaily.news/zh-CN/post/5210509">独立解读</a>，<strong>20 亿美元价款需退回、数据需隔离与删除、已 onboard 至 Meta 的 Manus 团队需脱离</strong>，技术上"AI 收购怎么撤销"几乎无先例</li><li><strong>触及涉外业务两条红线</strong>：(a) <strong>AI 模型本身可能被列为"两用物项"出口管制对象</strong>——后续中国 AI 公司被海外收购需提前申请出口许可，律所要为客户预警这条新合规路径；(b) <strong>训练数据出境</strong>——《数据出境安全评估办法》《促进和规范数据跨境流动规定》在 AI 训练场景下首次成为否决依据</li><li><strong>预计未来 6-12 个月，类似案件会显著增加</strong>——任何"中国创始团队 + 海外注册主体 + 国内研发"结构（即典型 VIE/红筹+AI 公司）被外资收购，<strong>都需重做"国家安全 + 数据出境 + 出口管制"三重合规评估</strong></li></ul></div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://zfxxgk.ndrc.gov.cn/web/iteminfo.jsp?id=20623">发改委政务公开页（403）</a> | <a href="https://finance.sina.com.cn/roll/2026-04-27/doc-inhvyefa7758572.shtml">新浪财经全文</a></li><li>💡 上手：<strong>汉坤跨境 M&A、出海合规、数据合规三个组今日起把本案纳入培训案例库</strong>——尤其涉及"AI/数据中心/算力"标的的 outbound M&A 客户尽调清单需新增"安全审查+出口管制"专项；Meta 的法律团队可能寻求外部中国律所协助"撤销执行"——这是难得的逆向 inbound 业务窗口</li></ul><div class="link-cluster "><a href="https://www.cnbc.com/2026/04/27/meta-manus-china-blocks-acquisition-ai-startup.html">CNBC</a> | <a href="https://news.bloomberglaw.com/antitrust/china-blocks-metas-2-billion-acquisition-of-ai-startup-manus">Bloomberg Law（反垄断）</a> | <a href="https://www.cnn.com/2026/04/27/tech/china-blocks-meta-manus-intl-hnk">CNN</a> | <a href="https://www.washingtonpost.com/world/2026/04/27/china-ai-meta-manus/">Washington Post</a> | <a href="https://www.axios.com/2026/04/27/china-blocks-metas-acquisition-of-manus-ai">Axios</a> | <a href="https://techcrunch.com/2026/04/27/china-vetoes-metas-2b-manus-deal-after-months-long-probe/">TechCrunch</a> | <a href="https://www.npr.org/2026/04/27/g-s1-118892/china-blocks-meta-from-acquiring-ai-startup-manus">NPR</a></div><div class="link-cluster zh"><a href="https://finance.sina.com.cn/roll/2026-04-27/doc-inhvyefa7758572.shtml">新浪财经（发改委禁令全文）</a> | <a href="https://www.guancha.cn/economy/2026_04_27_815117.shtml">观察者网（最严格审查结论）</a> | <a href="https://www.odaily.news/zh-CN/post/5210509">Odaily（撤销路径详解）</a> | <a href="https://m.thepaper.cn/newsDetail_forward_32344411">澎湃新闻（商务部评估时间线）</a></div></div><div class="brief-item"><h4>DeepSeek V4 上线 4 天后再次降价——引爆中国 AI 价格战 2.0</h4><p>（4 月 27 日，<a href="https://www.bloomberg.com/news/articles/2026-04-27/deepseek-slashes-fees-for-new-ai-model-in-chinese-price-war">Bloomberg</a> | <a href="https://www.bloomberg.com/news/articles/2026-04-27/why-china-s-deepseek-qwen-and-moonshot-are-a-worry-for-us-ai-rivals">Bloomberg China AI 担忧专文</a>）：DeepSeek 在 V4-Pro/V4-Flash 4/24 发布后，<strong>4/27 进一步下调 API 调用费率</strong>，被 Bloomberg 描述为"主动挑起中国 AI 第二轮价格战"。同期 Bloomberg 专文点名 DeepSeek、阿里 Qwen、月之暗面 Kimi（Moonshot）三家是美国 AI 行业最现实的威胁——核心论点是"中国厂商以接近 SOTA 性能 + 非旗舰硬件 + 极致定价同时压低 OpenAI/Anthropic 的能力护城河和价差护城河"。</p><div class="insight"><strong>律所 IT 采购：</strong> 5 月若豆包/通义/Kimi 跟进降价，企业 LLM 月费预算应预留 30-50% 下浮空间，先签短约（季度合同）等价格落定再续；<strong>律所投融资部门：</strong> 美股 AI 概念股客户（Nvidia/Palantir/CRWD 等）需重检"中国不是真竞争对手"叙事，Bloomberg 这篇是新一轮空头报告的可能模板</div></div><div class="brief-item"><h4>Big Tech Q1 财报 4/29 当晚集中发布——叠加 MSFT-OAI 解绑余震</h4><p>（跟进上期，<a href="https://www.fool.com/investing/2026/04/26/meta-google-amazon-microsoft-and-sofi-all-report-o/">Motley Fool</a>）：上期"Q2 财报季验收 Capex"基础上的关键增量——Meta、Microsoft、Google、Amazon 4/29 同夜盘后报 Q1，Apple 4/30 跟进。<strong>MSFT 在解绑 OpenAI 当周报财报，分析师电话会大概率聚焦三件事</strong>：(a) Azure 增速是否因失去 OpenAI 独家承载权而预期下修；(b) 微软自研 MAI 模型 + Anthropic 合作占比；(c) 营收分成停止对 FY26 利润的瞬时影响（应正向）。Meta/Google/Amazon 三家则继续验收 $650B Capex 故事。</p><div class="insight"><strong>美股客户尽调与估值模型必须在 4/29 盘后到 4/30 开盘 6 小时内更新</strong>——MSFT 此次财报是 AI 板块最关键单一事件之一，建议律所投行客户预设两套估值场景（Azure 增速维持 vs 下修 5-8 个百分点）</div></div><div class="brief-item"><h4>Bloomberg 专文：DeepSeek + Qwen + Moonshot 已成 OpenAI/Anthropic 实质威胁</h4><p>（4 月 27 日，<a href="https://www.bloomberg.com/news/articles/2026-04-27/why-china-s-deepseek-qwen-and-moonshot-are-a-worry-for-us-ai-rivals">Bloomberg</a>）：除上文价格战角度外，文章给出三条实质论据：① <strong>开源 + Apache/MIT 许可</strong>意味着海外企业可以零成本本地部署中国模型，绕开"地缘风险"叙事；② <strong>硬件去耦</strong>——DeepSeek 已切到华为 Ascend 950，Qwen 长期混用国产+海外卡，<strong>减弱 Nvidia 在中国 AI 训练侧的卡脖子杠杆</strong>；③ <strong>国产开源模型全球累计下载量突破 100 亿次</strong>（<a href="https://finance.sina.com.cn/jjxw/2026-04-27/doc-inhvxtrh7810958.shtml">新浪财经</a>），生态网络效应已成。</p><div class="insight">合规视角——若客户使用 DeepSeek/Qwen 自部署版本，<strong>注意核查模型权重随附的 license 是否含 use restriction</strong>（如不得用于评估对抗中国国家利益的应用）以及训练数据的来源声明</div></div><div class="brief-item"><h4>Claude Code Week 17 跟进：v2.1.117-119 已稳定运行，xhigh effort + Monitor 工具流式后台事件</h4><p>（<a href="https://code.claude.com/docs/en/whats-new/2026-w15">官方 Week 15 摘要</a> | <a href="https://help.apiyi.com/en/claude-code-changelog-2026-april-updates-en.html">Apiyi 中文整理</a>）：4/22-23 三连版本更新已上期覆盖；本期增量：Anthropic 官方 Week 15 摘要确认 <strong>`/team-onboarding`（v2.1.101，4/10 上线）</strong>、<strong>Monitor 后台流式工具（v2.1.98）</strong>、<strong>Ultraplan 云端规划研究预览</strong>和 <strong>`/autofix-pr` 终端一键开 CI 自动修复</strong>四件功能稳定可用。<strong>Opus 4.7 现支持 `xhigh` effort 等级</strong>——介于 high 与 max 之间，在 `/effort` 交互式滑块中选择。</p><div class="insight"><strong>法律文书复杂推理任务可试 `xhigh` effort——比 high 更深，但比 max 省 token</strong>；本期 ⑤ 板块拆 `/team-onboarding` 给所内新人入职的具体路径</div></div>
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td>Microsoft / OpenAI</td><td>合作协议重写</td><td>IP 非独家、Azure 不再排他、微软停付分成、AGI 条款删除</td><td>✅生效</td><td>官方公告</td><td>4月27日</td></tr><tr><td>中国发改委</td><td>叫停 Meta 收购 Manus</td><td>20 亿美元 AI 并购首例外资安全审查全面禁令</td><td>✅终局</td><td>政府公告</td><td>4月27日</td></tr><tr><td>DeepSeek</td><td>V4 API 再次降价</td><td>上线 4 天主动二次降价，引爆中国价格战 2.0</td><td>✅全量</td><td>deepseek.com/api</td><td>4月27日</td></tr><tr><td>Anthropic</td><td>Claude Code Week 15 摘要确认</td><td>`/team-onboarding`、Monitor 后台流、Ultraplan、`/autofix-pr`</td><td>✅全量</td><td>`claude --update`</td><td>4月27日确认</td></tr><tr><td>Anthropic</td><td>Opus 4.7 `xhigh` effort 等级</td><td>high 与 max 之间，新增交互式 `/effort` 滑块</td><td>✅全量</td><td>Claude Code</td><td>4月持续</td></tr><tr><td>Big Tech 4 大</td><td>Q1 财报集中发布</td><td>MSFT 解绑 OAI 后首报，Capex 验收时刻</td><td>⏳4/29 盘后</td><td>IR 公告</td><td>4月29日</td></tr><tr><td>Bloomberg 专文</td><td>China AI 三家威胁论</td><td>DeepSeek/Qwen/Kimi 性能+定价+开源三杀</td><td>—</td><td>评论分析</td><td>4月27日</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p><strong>旗舰对比表沿用上期（4/27）数据。</strong> 本周变化（24h 内）：</p><ul><li>🆕 <strong>DeepSeek V4-Pro / V4-Flash 二次降价</strong>——具体新价格未在 Bloomberg 报道中披露具体数字，待 5 月初稳定后回填对比表</li><li>⏳ <strong>MSFT-OAI 解绑对 GPT-5.5 可用性无直接影响</strong>——ChatGPT Plus/Pro 仍正常服务，但企业用户现可在 AWS/Google Cloud 选择 OpenAI 部署，<strong>云选型将多一个谈判筹码</strong></li><li>⏳ Claude Opus 4.7、Gemini 3.1 Pro、Qwen3.6-27B、Muse Spark 排名与上期一致</li></ul><p><strong>律所选型快速建议（与上期一致）：</strong>
 - <strong>复杂法律推理 / 难案分析</strong>：Claude Opus 4.7（SWE-bench Pro 64.3% 仍居首；可叠加 `xhigh` effort）
 - <strong>Agent / Computer Use 自动化</strong>：GPT-5.5（OSWorld 78.7% + Terminal-Bench 2.0 82.7% 双 SOTA）
 - <strong>批量长文档 / 性价比首选</strong>：DeepSeek V4-Pro 或 V4-Flash（合规允许时；本周降价后差距进一步拉大）
 - <strong>本地自部署涉密场景</strong>：Qwen3.6-27B（Apache 2.0 + 16.8GB Q4 量化）</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">完整对比表（含中端、设计/可视化、网络安全、中文能力 8 维度）见 <a href="晨报_2026年04月27日.md">上期晨报</a> 与 <a href="晨报_2026年04月22日.md">4/22 完整版</a>；下次完整重出窗口为 DeepSeek V4 价格落定 + Big Tech Q1 财报后（预计 5/2-5/5）</p></div>
-<hr class="sep"><div class="sec-title">本期技巧</div><div class="tip"><h3>Claude Code `/team-onboarding` 把"老律师的 AI 工作流"打包给新人</h3><p><strong>场景：</strong> 你是汉坤一位习惯用 Claude Code 写法律备忘录的合伙人，过去三个月已经把"把客户长合同丢进 CLAUDE.md → 用 `/init` 建项目骨架 → 用自定义 skill 跑 citation cross-check → 用 MCP 连接威科先行检索"这套流程跑得顺手，准确率和效率都比手工高一截。新晋律师 Lucy 4 月 28 日刚入职，她的 Macbook 装好了 Claude Code，但面对你贡献到 git 的 30 多个项目目录，她不知道哪一个是"主力"，也不知道你常用哪些斜杠命令、哪些 MCP server、哪些 prompt 模板。<strong>过去通常的做法是你抽两小时一对一带教</strong>——但 Anthropic 4 月 10 日上线的 `/team-onboarding` 命令把这个时间成本基本降到零。</p><p><strong>为什么好用：</strong> Claude Code v2.1.101 起内置的 `/team-onboarding` 命令会<strong>扫描你最近 30 天的 Claude Code 使用记录</strong>——所有会话、命令、MCP server 调用、subagent 调用、自定义 skill 触发，自动生成一份<strong>可读的 Markdown 入职指南</strong>，新人拿过来就能复现你的工作环境。它的根本价值在于"知识传承不再依赖手写文档"——你怎么用 Claude Code 写东西，它就把"怎么用"反向工程出来。律所内部最稀缺的就是"把高级合伙人的隐性工作流显性化"的能力，这条命令直接戳中。</p><p><strong>操作路径（4 步）：</strong></p><ol><li><strong>在你的主力项目目录运行命令</strong>——必须是你最近 30 天<strong>真实用过 Claude Code 的项目</strong>（首次用、空 30 天的项目跑出来是空指南）：
+<hr class="sep"><div class="sec-title" id="sec-tip">本期技巧</div><div class="tip"><h3>Claude Code `/team-onboarding` 把"老律师的 AI 工作流"打包给新人</h3><p><strong>场景：</strong> 你是汉坤一位习惯用 Claude Code 写法律备忘录的合伙人，过去三个月已经把"把客户长合同丢进 CLAUDE.md → 用 `/init` 建项目骨架 → 用自定义 skill 跑 citation cross-check → 用 MCP 连接威科先行检索"这套流程跑得顺手，准确率和效率都比手工高一截。新晋律师 Lucy 4 月 28 日刚入职，她的 Macbook 装好了 Claude Code，但面对你贡献到 git 的 30 多个项目目录，她不知道哪一个是"主力"，也不知道你常用哪些斜杠命令、哪些 MCP server、哪些 prompt 模板。<strong>过去通常的做法是你抽两小时一对一带教</strong>——但 Anthropic 4 月 10 日上线的 `/team-onboarding` 命令把这个时间成本基本降到零。</p><p><strong>为什么好用：</strong> Claude Code v2.1.101 起内置的 `/team-onboarding` 命令会<strong>扫描你最近 30 天的 Claude Code 使用记录</strong>——所有会话、命令、MCP server 调用、subagent 调用、自定义 skill 触发，自动生成一份<strong>可读的 Markdown 入职指南</strong>，新人拿过来就能复现你的工作环境。它的根本价值在于"知识传承不再依赖手写文档"——你怎么用 Claude Code 写东西，它就把"怎么用"反向工程出来。律所内部最稀缺的就是"把高级合伙人的隐性工作流显性化"的能力，这条命令直接戳中。</p><p><strong>操作路径（4 步）：</strong></p><ol><li><strong>在你的主力项目目录运行命令</strong>——必须是你最近 30 天<strong>真实用过 Claude Code 的项目</strong>（首次用、空 30 天的项目跑出来是空指南）：
    ```
    cd ~/projects/汉坤合同主力库
    claude
    > /team-onboarding
-   ```</li><li><strong>审阅生成的 onboarding 指南</strong>——Claude Code 会输出一份 Markdown 文件，<strong>包含你常用的斜杠命令、MCP 服务器列表、subagent 配置、典型 prompt 模板，以及推荐的 CLAUDE.md 内容</strong>。<strong>先自己读一遍删掉敏感信息</strong>（具体客户名、未公开案号、内部 prompt 中的法律观点等）</li><li><strong>沉淀到 CLAUDE.md + 项目 settings</strong>——按官方文档建议（<a href="https://code.claude.com/docs/en/commands">Claude Code Commands 参考</a>），把生成指南中"稳定的规则"挑出来固化到项目根目录的 `CLAUDE.md`，把"团队共享的 MCP 配置"放进 `.claude/settings.json` 并通过 git 共享</li><li><strong>把指南交给新人</strong>——Lucy 拿到这份指南后，按文中"项目结构-常用命令-MCP 配置"三段，30 分钟内就能跑出第一份合规的客户备忘录初稿</li></ol><p><strong>注意事项：</strong> ① <strong>千万先脱敏</strong>——指南会包含你过去 30 天的具体 prompt 措辞，里面可能含客户身份、案件细节、内部法律意见，公开前必须人工过一遍；② <strong>`/team-onboarding` 不是 CLAUDE.md 替代品</strong>——它是"我现在怎么用"的快照，不是"应该怎么用"的规范；正确做法是<strong>用它发现稳定模式 → 提炼成 CLAUDE.md 规则</strong>；③ <strong>30 天窗口的局限</strong>——如果你最近一个月没有真正深度用 Claude Code 处理本类项目，生成出的指南会偏单薄，建议先自己跑两周再传承。</p><div class="sources">来源：<a href="https://code.claude.com/docs/en/whats-new/2026-w15">Claude Code 官方 Week 15 摘要（v2.1.101 上线）</a> | <a href="https://smartscope.blog/en/generative-ai/claude/claude-code-team-onboarding-guide/">Smartscope 上手指南</a> | <a href="https://medium.com/@joe.njenga/i-tested-claude-code-team-onboarding-and-it-fixes-team-setup-chaos-1111b15f2f18">Joe Njenga 实测笔记</a> | <a href="https://help.apiyi.com/en/claude-code-changelog-2026-april-updates-en.html">Apiyi 中文整理</a><p>*数据来源：CNBC、Bloomberg、TechCrunch、CNN、Washington Post、Axios、NPR、Seeking Alpha、Yahoo Finance、Microsoft 官方博客（403）、OpenAI 官方介绍页（403）、发改委政务公开页（403）、新浪财经、观察者网、36氪、Odaily、澎湃新闻、Motley Fool、Anthropic Claude Code Week 15 官方摘要、Smartscope、Apiyi 等 | 所有数据基于 2026 年 4 月 28 日搜索结果 | 多个一手信源（微软/OpenAI 官方 PR、发改委公告、Bloomberg、CNN）今日 fetch 返回 403，已在正文标注，内容据三方报道交叉验证 | 本简报由 AI 生成，不构成投资或法律建议*</p></div></div>
+   ```</li><li><strong>审阅生成的 onboarding 指南</strong>——Claude Code 会输出一份 Markdown 文件，<strong>包含你常用的斜杠命令、MCP 服务器列表、subagent 配置、典型 prompt 模板，以及推荐的 CLAUDE.md 内容</strong>。<strong>先自己读一遍删掉敏感信息</strong>（具体客户名、未公开案号、内部 prompt 中的法律观点等）</li><li><strong>沉淀到 CLAUDE.md + 项目 settings</strong>——按官方文档建议（<a href="https://code.claude.com/docs/en/commands">Claude Code Commands 参考</a>），把生成指南中"稳定的规则"挑出来固化到项目根目录的 `CLAUDE.md`，把"团队共享的 MCP 配置"放进 `.claude/settings.json` 并通过 git 共享</li><li><strong>把指南交给新人</strong>——Lucy 拿到这份指南后，按文中"项目结构-常用命令-MCP 配置"三段，30 分钟内就能跑出第一份合规的客户备忘录初稿</li></ol><p><strong>注意事项：</strong> ① <strong>千万先脱敏</strong>——指南会包含你过去 30 天的具体 prompt 措辞，里面可能含客户身份、案件细节、内部法律意见，公开前必须人工过一遍；② <strong>`/team-onboarding` 不是 CLAUDE.md 替代品</strong>——它是"我现在怎么用"的快照，不是"应该怎么用"的规范；正确做法是<strong>用它发现稳定模式 → 提炼成 CLAUDE.md 规则</strong>；③ <strong>30 天窗口的局限</strong>——如果你最近一个月没有真正深度用 Claude Code 处理本类项目，生成出的指南会偏单薄，建议先自己跑两周再传承。</p><div class="link-cluster "><a href="https://code.claude.com/docs/en/whats-new/2026-w15">Claude Code 官方 Week 15 摘要（v2.1.101 上线）</a> | <a href="https://smartscope.blog/en/generative-ai/claude/claude-code-team-onboarding-guide/">Smartscope 上手指南</a> | <a href="https://medium.com/@joe.njenga/i-tested-claude-code-team-onboarding-and-it-fixes-team-setup-chaos-1111b15f2f18">Joe Njenga 实测笔记</a> | <a href="https://help.apiyi.com/en/claude-code-changelog-2026-april-updates-en.html">Apiyi 中文整理</a><p>*数据来源：CNBC、Bloomberg、TechCrunch、CNN、Washington Post、Axios、NPR、Seeking Alpha、Yahoo Finance、Microsoft 官方博客（403）、OpenAI 官方介绍页（403）、发改委政务公开页（403）、新浪财经、观察者网、36氪、Odaily、澎湃新闻、Motley Fool、Anthropic Claude Code Week 15 官方摘要、Smartscope、Apiyi 等 | 所有数据基于 2026 年 4 月 28 日搜索结果 | 多个一手信源（微软/OpenAI 官方 PR、发改委公告、Bloomberg、CNN）今日 fetch 返回 403，已在正文标注，内容据三方报道交叉验证 | 本简报由 AI 生成，不构成投资或法律建议*</p></div></div>
 <div class="footer">数据来源：CNBC、Bloomberg、TechCrunch、CNN、Washington Post、Axios、NPR、Seeking Alpha、Yahoo Finance、Microsoft 官方博客（403）、OpenAI 官方介绍页（403）、发改委政务公开页（403）、新浪财经、观察者网、36氪、Odaily、澎湃新闻、Motley Fool、Anthropic Claude Code Week 15 官方摘要、Smartscope、Apiyi 等 <br> 所有数据基于 2026 年 4 月 28 日搜索结果 <br> 多个一手信源（微软/OpenAI 官方 PR、发改委公告、Bloomberg、CNN）今日 fetch 返回 403，已在正文标注，内容据三方报道交叉验证 <br> 本简报由 AI 生成，不构成投资或法律建议</div>
 </div>
 </body>

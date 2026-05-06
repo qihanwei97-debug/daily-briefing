@@ -5,20 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>每日AI简报 | </title>
 <style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--sans);
   color: #2d2a26;
   background: #f0eeeb;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
 }
 .page {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   background: #fff;
   min-height: 100vh;
-  padding: 0 28px;
+  padding: 0 36px;
+  position: relative;
 }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -46,9 +52,10 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .masthead h1 {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #1a1a2e;
   margin-bottom: 10px;
   position: relative;
@@ -69,12 +76,14 @@ a:hover { text-decoration: underline; }
 }
 
 .sec-title {
-  font-size: 17px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #2d2a26;
   padding-left: 14px;
   border-left: 3px solid #2563eb;
   margin-bottom: 18px;
+  scroll-margin-top: 24px;
 }
 
 .sep {
@@ -97,11 +106,13 @@ a:hover { text-decoration: underline; }
 
 .feature { margin-bottom: 28px; }
 .feature h3 {
-  font-size: 18px;
+  font-family: var(--serif);
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #1a1a2e;
   margin-bottom: 14px;
+  scroll-margin-top: 24px;
 }
 .feature p {
   font-size: 15px;
@@ -152,7 +163,7 @@ a:hover { text-decoration: underline; }
   color: #b5ada4;
   line-height: 1.7;
   margin-top: 6px;
-  padding-left: 18px;
+  padding-left: 22px;
   position: relative;
 }
 .link-cluster::before {
@@ -161,8 +172,49 @@ a:hover { text-decoration: underline; }
   left: 0;
   font-size: 11px;
 }
-.link-cluster a { color: #9a938a; }
-.link-cluster a:hover { color: #2563eb; }
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
 .sources {
   font-size: 12px;
   color: #b5ada4;
@@ -176,10 +228,12 @@ a:hover { text-decoration: underline; }
 }
 .brief-item:last-child { border-bottom: none; }
 .brief-item h4 {
-  font-size: 15px;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 6px;
+  line-height: 1.5;
 }
 .brief-item p {
   font-size: 14px;
@@ -199,6 +253,7 @@ a:hover { text-decoration: underline; }
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 .product-table th {
   background: #faf9f7;
@@ -223,7 +278,8 @@ a:hover { text-decoration: underline; }
 .changes strong { color: #1a1a2e; }
 
 .tip h3 {
-  font-size: 16px;
+  font-family: var(--serif);
+  font-size: 19px;
   font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
@@ -257,15 +313,19 @@ a:hover { text-decoration: underline; }
   margin-top: 36px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .page { max-width: 100%; padding: 0 22px; }
   .masthead { padding: 28px 0 16px; }
-  .feature h3 { font-size: 17px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
   .product-table table { font-size: 12px; }
 }
 </style>
 </head>
 <body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-------">一、今日要闻</a><a href="#sec-deep">深度报道</a><a href="#sec---------ai-">三、国际大事（非AI）</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec-------ai------13---">六、场景化 AI 工具推荐（13场景）</a><a href="#sec-------">七、本周前瞻</a></aside>
 <div class="page">
 <div class="masthead">
   <div class="en">Daily Briefing</div>
@@ -276,11 +336,11 @@ a:hover { text-decoration: underline; }
     <span></span>
   </div>
 </div>
-<hr class="sep"><div class="sec-title">一、今日要闻</div><p><strong>NVIDIA 豪掷40亿美元投资光子芯片公司 Lumentum 和 Coherent，锁定下一代AI数据中心光互联供应链；Apple 今日举办 March Event，发布 iPhone 17e、MacBook Air M5、全新低价 MacBook Neo 及新款 Studio Display；美以对伊朗军事打击进入第六天，已致美军6人阵亡、伊方报告787人死亡，以色列同步入侵黎巴嫩南部，中东局势全面恶化；中国"两会"今日正式开幕，AI 产业政策信号成为市场焦点。</strong>
+<hr class="sep"><div class="sec-title" id="sec-------">一、今日要闻</div><p><strong>NVIDIA 豪掷40亿美元投资光子芯片公司 Lumentum 和 Coherent，锁定下一代AI数据中心光互联供应链；Apple 今日举办 March Event，发布 iPhone 17e、MacBook Air M5、全新低价 MacBook Neo 及新款 Studio Display；美以对伊朗军事打击进入第六天，已致美军6人阵亡、伊方报告787人死亡，以色列同步入侵黎巴嫩南部，中东局势全面恶化；中国"两会"今日正式开幕，AI 产业政策信号成为市场焦点。</strong>
 
 ---</p>
-<hr class="sep"><div class="sec-title">深度报道</div><div class="feature"><h3>头条：NVIDIA 40亿美元押注光子互联，重塑AI基础设施供应链</h3><p>NVIDIA 于3月2日宣布分别向光子芯片公司 Lumentum 和 Coherent 各投资20亿美元，总计40亿美元。这不仅是财务投资——还包含数十亿美元的多年期采购承诺和未来产能优先权。NVIDIA 的战略意图清晰：从单纯的GPU供应商，向掌控整个AI数据中心基础设施（算力→网络→光互联组件）的方向转型。光子芯片是下一代数据中心内部高速通信的核心，传统铜缆在AI集群的带宽和能耗瓶颈日益明显。消息公布后 Lumentum 股价涨11.75%，Coherent 涨15.44%。（<a href="https://nvidianews.nvidia.com/news/nvidia-announces-strategic-partnership-with-lumentum-to-develop-state-of-the-art-optics-technology">NVIDIA Newsroom - Lumentum, 2026-03-02</a>; <a href="https://nvidianews.nvidia.com/news/nvidia-and-coherent-announce-strategic-partnership-to-develop-optics-technology-to-scale-next-generation-data-center-architecture">NVIDIA Newsroom - Coherent, 2026-03-02</a>; <a href="https://www.cnbc.com/2026/03/02/nvidia-investment-coherent-lumentum.html">CNBC, 2026-03-02</a>）</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>💡 <strong>上手提示</strong>: 关注光子互联（silicon photonics）赛道的投资机会，以及对AI算力成本长期下降的影响</li></ul></div><div class="feature"><h3>头条：Apple March Event 今日揭幕——M5芯片、MacBook Neo 与 AI Siri 新进展</h3><p>Apple 于3月2-4日在纽约、伦敦、上海同步举办"Special Apple Experience"，今日为正式发布日。确认发布的产品包括：搭载 M5 芯片的 MacBook Air、搭载 M5 Pro/M5 Max 的 MacBook Pro、全新低价入门级 MacBook Neo（售价或低于$999）、两款新 Studio Display、以及 iPhone 17e（3月4日开始预购，3月11日发售）。iPhone 17e 首次升级至 A19 处理器并新增 MagSafe 支持。M5 芯片据传 GPU 性能提升30-45%，每个 GPU 核心集成 Neural Accelerator 以加速AI工作负载。Siri AI 升级方面，基础版 Gemini 驱动的 Siri 预计随 iOS 26.4 推送，但高级功能（跨应用上下文理解）可能延期至 iOS 26.5 或 iOS 27。（<a href="https://www.macrumors.com/guide/apple-products-march-2026/">MacRumors, 2026-03</a>; <a href="https://www.tomsguide.com/news/live/apple-march-event-2026-live">Tom's Guide, 2026-03-04</a>; <a href="https://www.creativebloq.com/live/news/apple-event-march-2026">Creative Bloq, 2026-03-04</a>）</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 <strong>获取</strong>: apple.com，iPhone 17e 今日开放预购</li><li>💰 <strong>定价</strong>: MacBook Neo 预计 <$999；iPhone 17e 预计 $599 起</li><li>💡 <strong>上手提示</strong>: M5 芯片的 Neural Accelerator 对本地AI推理（如 Stable Diffusion、Whisper）有显著加速，值得关注开发者实测</li></ul></div><div class="brief-item"><h4>DeepSeek V4 发布倒计时</h4><p>— DeepSeek 首个多模态旗舰模型 V4 预计本周正式发布，支持文本、图片、视频生成，已针对华为 Ascend 和寒武纪芯片优化。两会开幕为发布增添政策背景。（<a href="https://malaysia.news.yahoo.com/deepseek-release-long-awaited-ai-162425050.html">Yahoo News, 2026-03</a>; <a href="https://www.pymnts.com/artificial-intelligence-2/2026/deepseek-poised-to-unveil-latest-ai-model/">PYMNTS, 2026-03</a>）</p></div><div class="brief-item"><h4>MiniMax M2.5 持续搅动市场</h4><p>— 2月12日发布的 MiniMax M2.5（230B MoE，10B 活跃参数）在 SWE-Bench Verified 达到 80.2%，多语言编程基准 Multi-SWE-Bench 行业第一，定价仅为 Claude Opus 4.6 的 1/20（输入$0.29/M，输出$1.20/M）。MiniMax 内部已有30%任务由 M2.5 完成，80%新代码由 M2.5 生成。（<a href="https://venturebeat.com/technology/minimaxs-new-open-m2-5-and-m2-5-lightning-near-state-of-the-art-while">VentureBeat, 2026-02</a>; <a href="https://www.minimax.io/news/minimax-m25">MiniMax 官网, 2026-02</a>）</p><div class="insight">编程和 Agent 场景下性价比极高，可作为 Claude/GPT 的低成本替代</div></div><div class="brief-item"><h4>美国考虑收紧对华AI芯片出口</h4><p>— 美国官员正考虑对单一中国买家设定 Nvidia H200 级AI加速器的出口上限，以阻断中国大型AI实验室集中采购高端芯片的路径。（[搜索综合, 2026-03]）</p></div><div class="brief-item"><h4>AI 推理安全成为2026年企业焦点</h4><p>— 专家指出，AI安全讨论过度集中在训练阶段，而推理阶段（模型被查询使用时）的安全风险被严重低估——专有模型逻辑和敏感提示词在此阶段暴露。调查显示46.2%的企业表示对现有AI系统满足2026安全标准"没有信心"。（<a href="https://thequantuminsider.com/2026/03/03/securing-ai-inference-the-overlooked-security-frontier-in-2026/">The Quantum Insider, 2026-03-03</a>）</p></div>
-<hr class="sep"><div class="sec-title">三、国际大事（非AI）</div><p>### 1. 美以对伊朗打击进入第六天，战事扩大至黎巴嫩
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条：NVIDIA 40亿美元押注光子互联，重塑AI基础设施供应链</h3><p>NVIDIA 于3月2日宣布分别向光子芯片公司 Lumentum 和 Coherent 各投资20亿美元，总计40亿美元。这不仅是财务投资——还包含数十亿美元的多年期采购承诺和未来产能优先权。NVIDIA 的战略意图清晰：从单纯的GPU供应商，向掌控整个AI数据中心基础设施（算力→网络→光互联组件）的方向转型。光子芯片是下一代数据中心内部高速通信的核心，传统铜缆在AI集群的带宽和能耗瓶颈日益明显。消息公布后 Lumentum 股价涨11.75%，Coherent 涨15.44%。（<a href="https://nvidianews.nvidia.com/news/nvidia-announces-strategic-partnership-with-lumentum-to-develop-state-of-the-art-optics-technology">NVIDIA Newsroom - Lumentum, 2026-03-02</a>; <a href="https://nvidianews.nvidia.com/news/nvidia-and-coherent-announce-strategic-partnership-to-develop-optics-technology-to-scale-next-generation-data-center-architecture">NVIDIA Newsroom - Coherent, 2026-03-02</a>; <a href="https://www.cnbc.com/2026/03/02/nvidia-investment-coherent-lumentum.html">CNBC, 2026-03-02</a>）</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>💡 <strong>上手提示</strong>: 关注光子互联（silicon photonics）赛道的投资机会，以及对AI算力成本长期下降的影响</li></ul></div><div class="feature"><h3>头条：Apple March Event 今日揭幕——M5芯片、MacBook Neo 与 AI Siri 新进展</h3><p>Apple 于3月2-4日在纽约、伦敦、上海同步举办"Special Apple Experience"，今日为正式发布日。确认发布的产品包括：搭载 M5 芯片的 MacBook Air、搭载 M5 Pro/M5 Max 的 MacBook Pro、全新低价入门级 MacBook Neo（售价或低于$999）、两款新 Studio Display、以及 iPhone 17e（3月4日开始预购，3月11日发售）。iPhone 17e 首次升级至 A19 处理器并新增 MagSafe 支持。M5 芯片据传 GPU 性能提升30-45%，每个 GPU 核心集成 Neural Accelerator 以加速AI工作负载。Siri AI 升级方面，基础版 Gemini 驱动的 Siri 预计随 iOS 26.4 推送，但高级功能（跨应用上下文理解）可能延期至 iOS 26.5 或 iOS 27。（<a href="https://www.macrumors.com/guide/apple-products-march-2026/">MacRumors, 2026-03</a>; <a href="https://www.tomsguide.com/news/live/apple-march-event-2026-live">Tom's Guide, 2026-03-04</a>; <a href="https://www.creativebloq.com/live/news/apple-event-march-2026">Creative Bloq, 2026-03-04</a>）</p><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 <strong>获取</strong>: apple.com，iPhone 17e 今日开放预购</li><li>💰 <strong>定价</strong>: MacBook Neo 预计 <$999；iPhone 17e 预计 $599 起</li><li>💡 <strong>上手提示</strong>: M5 芯片的 Neural Accelerator 对本地AI推理（如 Stable Diffusion、Whisper）有显著加速，值得关注开发者实测</li></ul></div><div class="brief-item"><h4>DeepSeek V4 发布倒计时</h4><p>— DeepSeek 首个多模态旗舰模型 V4 预计本周正式发布，支持文本、图片、视频生成，已针对华为 Ascend 和寒武纪芯片优化。两会开幕为发布增添政策背景。（<a href="https://malaysia.news.yahoo.com/deepseek-release-long-awaited-ai-162425050.html">Yahoo News, 2026-03</a>; <a href="https://www.pymnts.com/artificial-intelligence-2/2026/deepseek-poised-to-unveil-latest-ai-model/">PYMNTS, 2026-03</a>）</p></div><div class="brief-item"><h4>MiniMax M2.5 持续搅动市场</h4><p>— 2月12日发布的 MiniMax M2.5（230B MoE，10B 活跃参数）在 SWE-Bench Verified 达到 80.2%，多语言编程基准 Multi-SWE-Bench 行业第一，定价仅为 Claude Opus 4.6 的 1/20（输入$0.29/M，输出$1.20/M）。MiniMax 内部已有30%任务由 M2.5 完成，80%新代码由 M2.5 生成。（<a href="https://venturebeat.com/technology/minimaxs-new-open-m2-5-and-m2-5-lightning-near-state-of-the-art-while">VentureBeat, 2026-02</a>; <a href="https://www.minimax.io/news/minimax-m25">MiniMax 官网, 2026-02</a>）</p><div class="insight">编程和 Agent 场景下性价比极高，可作为 Claude/GPT 的低成本替代</div></div><div class="brief-item"><h4>美国考虑收紧对华AI芯片出口</h4><p>— 美国官员正考虑对单一中国买家设定 Nvidia H200 级AI加速器的出口上限，以阻断中国大型AI实验室集中采购高端芯片的路径。（[搜索综合, 2026-03]）</p></div><div class="brief-item"><h4>AI 推理安全成为2026年企业焦点</h4><p>— 专家指出，AI安全讨论过度集中在训练阶段，而推理阶段（模型被查询使用时）的安全风险被严重低估——专有模型逻辑和敏感提示词在此阶段暴露。调查显示46.2%的企业表示对现有AI系统满足2026安全标准"没有信心"。（<a href="https://thequantuminsider.com/2026/03/03/securing-ai-inference-the-overlooked-security-frontier-in-2026/">The Quantum Insider, 2026-03-03</a>）</p></div>
+<hr class="sep"><div class="sec-title" id="sec---------ai-">三、国际大事（非AI）</div><p>### 1. 美以对伊朗打击进入第六天，战事扩大至黎巴嫩
 
 美以联合军事打击持续升级。伊朗国家电视台报告美以袭击已造成787人死亡，打击覆盖153座城市、500多个目标。第六名美军阵亡。伊朗持续向以色列及海湾地区美军资产发射导弹和无人机反击。Trump 表示战争可能持续4-5周。同日，以色列军队入侵黎巴嫩南部，为2024年11月停火协议以来最大规模军事行动，并连续两天空袭贝鲁特，黎巴嫩卫生部报告51人死亡、154人受伤。中国外长王毅分别与俄、伊、法、阿曼外长通话，指出在伊美谈判进行中发动攻击"不可接受"。（<a href="https://www.aljazeera.com/news/liveblog/2026/3/3/iran-live-news-israel-bombs-tehran-beirut-trump-says-war-to-last-4-weeks">Al Jazeera, 2026-03-03</a>; <a href="https://www.cbsnews.com/live-updates/iran-us-war-day-3-american-deaths-israel-gulf-allies-hit-missile-strikes/">CBS News, 2026-03-03</a>）
 
@@ -293,8 +353,8 @@ a:hover { text-decoration: underline; }
 中东冲突持续导致霍尔木兹海峡通行受阻，国际油价维持高位。航空方面数千架国际航班因中东空域关闭而取消或改道。分析师警告若冲突持续，全球通胀可能重新抬头。
 
 ---</p>
-<hr class="sep"><div class="sec-title">产品速览</div><div class="product-table"><table><thead><tr><th>产品/模型</th><th>厂商</th><th>动态</th><th>时间</th></tr></thead><tbody><tr><td>NVIDIA 光子互联投资</td><td>NVIDIA × Lumentum/Coherent</td><td>40亿美元投资+多年采购承诺，锁定AI数据中心光互联</td><td>2026-03-02</td></tr><tr><td>DeepSeek V4</td><td>DeepSeek</td><td>多模态旗舰模型即将发布，适配华为/寒武纪芯片</td><td>本周</td></tr><tr><td>MiniMax M2.5</td><td>MiniMax</td><td>SWE-Bench 80.2%，Multi-SWE-Bench 行业第一，MIT开源</td><td>2026-02-12</td></tr><tr><td>GLM-5</td><td>智谱AI (Zhipu)</td><td>744B MoE，MIT开源，华为 Ascend 训练，SWE-Bench 77.8%</td><td>2026-02-13</td></tr><tr><td>Qwen 3.5</td><td>阿里巴巴</td><td>397B 参数，201种语言，价格降60%</td><td>2026-02</td></tr><tr><td>Doubao 2.0</td><td>字节跳动</td><td>复杂推理+多步骤执行，对标 ChatGPT/Gemini</td><td>2026-02</td></tr><tr><td>Gemini 3.1 Pro</td><td>Google DeepMind</td><td>1M token 上下文，ARC-AGI-2 得分 77.1%</td><td>2026-02-19</td></tr><tr><td>Apple M5 系列</td><td>Apple</td><td>MacBook Air/Pro/Neo 搭载 M5 芯片，GPU集成 Neural Accelerator</td><td>2026-03-04</td></tr><tr><td>iPhone 17e</td><td>Apple</td><td>A19 处理器 + MagSafe，今日开放预购</td><td>2026-03-04</td></tr></tbody></table></div>
-<hr class="sep"><div class="sec-title">模型对比动态</div><div class="changes"><p>### 旗舰模型（2026年3月）</p><p>| 模型 | 厂商 | 参数量 | 上下文窗口 | SWE-Bench | HLE | 开源 | API定价(输入/输出 per M tokens) |
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>产品/模型</th><th>厂商</th><th>动态</th><th>时间</th></tr></thead><tbody><tr><td>NVIDIA 光子互联投资</td><td>NVIDIA × Lumentum/Coherent</td><td>40亿美元投资+多年采购承诺，锁定AI数据中心光互联</td><td>2026-03-02</td></tr><tr><td>DeepSeek V4</td><td>DeepSeek</td><td>多模态旗舰模型即将发布，适配华为/寒武纪芯片</td><td>本周</td></tr><tr><td>MiniMax M2.5</td><td>MiniMax</td><td>SWE-Bench 80.2%，Multi-SWE-Bench 行业第一，MIT开源</td><td>2026-02-12</td></tr><tr><td>GLM-5</td><td>智谱AI (Zhipu)</td><td>744B MoE，MIT开源，华为 Ascend 训练，SWE-Bench 77.8%</td><td>2026-02-13</td></tr><tr><td>Qwen 3.5</td><td>阿里巴巴</td><td>397B 参数，201种语言，价格降60%</td><td>2026-02</td></tr><tr><td>Doubao 2.0</td><td>字节跳动</td><td>复杂推理+多步骤执行，对标 ChatGPT/Gemini</td><td>2026-02</td></tr><tr><td>Gemini 3.1 Pro</td><td>Google DeepMind</td><td>1M token 上下文，ARC-AGI-2 得分 77.1%</td><td>2026-02-19</td></tr><tr><td>Apple M5 系列</td><td>Apple</td><td>MacBook Air/Pro/Neo 搭载 M5 芯片，GPU集成 Neural Accelerator</td><td>2026-03-04</td></tr><tr><td>iPhone 17e</td><td>Apple</td><td>A19 处理器 + MagSafe，今日开放预购</td><td>2026-03-04</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p>### 旗舰模型（2026年3月）</p><p>| 模型 | 厂商 | 参数量 | 上下文窗口 | SWE-Bench | HLE | 开源 | API定价(输入/输出 per M tokens) |
 |---|---|---|---|---|---|---|---|
 | Claude Opus 4.6 | Anthropic | 未公开 | 200K | 80.2% | — | 否 | $15/$75 |
 | Claude Opus 4.5 | Anthropic | 未公开 | 200K | — | 43.4 | 否 | $15/$75 |
@@ -308,7 +368,7 @@ a:hover { text-decoration: underline; }
 | Claude Sonnet 4.6 | Anthropic | 未公开 | 平衡性能与成本 | 否 | — |
 | Qwen 3.5 | 阿里巴巴 | 397B | 201语言，多模态Agent，价格降60% | 部分开源 | 低价 |
 | Doubao 2.0 | 字节跳动 | 未公开 | 复杂推理对标一线 | 否 | 低价 |</p><p><strong>本周变化点评</strong>: NVIDIA 40亿美元光子投资标志着AI基础设施竞争从芯片延伸到互联层。MiniMax M2.5 以 SWE-Bench 80.2% 匹敌 Claude Opus 4.6，但定价仅为其 1/20，正在快速抢占开发者市场。DeepSeek V4 本周发布在即，将是今年中国AI赛道最重大的模型发布。主要实验室更新频率已从"月级"加速到"2-3周一次"。</p></div>
-<hr class="sep"><div class="sec-title">六、场景化 AI 工具推荐（13场景）</div><p>| # | 场景 | 推荐工具 | 本周变化 |
+<hr class="sep"><div class="sec-title" id="sec-------ai------13---">六、场景化 AI 工具推荐（13场景）</div><p>| # | 场景 | 推荐工具 | 本周变化 |
 |---|---|---|---|
 | 1 | 通用对话/研究 | ChatGPT, Claude, Gemini | Gemini 3.1 Pro 1M 上下文窗口业界最大 |
 | 2 | 代码编写/辅助 | GitHub Copilot, Cursor, Claude Code | MiniMax M2.5 以极低价格成为编程性价比新王 |
@@ -325,7 +385,7 @@ a:hover { text-decoration: underline; }
 | 13 | 多模态理解 | Gemini 3.1 Pro, Qwen 3.5 | 关注 DeepSeek V4 多模态能力 |
 
 ---</p>
-<hr class="sep"><div class="sec-title">七、本周前瞻</div><p>1. <strong>DeepSeek V4 正式发布</strong>（预计本周）— 首个适配国产芯片的多模态旗舰模型，关注与 GPT-4o/Gemini 的基准对比
+<hr class="sep"><div class="sec-title" id="sec-------">七、本周前瞻</div><p>1. <strong>DeepSeek V4 正式发布</strong>（预计本周）— 首个适配国产芯片的多模态旗舰模型，关注与 GPT-4o/Gemini 的基准对比
 2. <strong>两会 AI 政策信号</strong>（3月4日-5日）— 政府工作报告中关于AI产业、芯片自主的表述将影响市场情绪和产业方向
 3. <strong>Apple March Event 后续</strong>（3月4日起）— 关注 M5 芯片实际AI性能测试、MacBook Neo 定价策略、iPhone 17e 首批评测
 4. <strong>中东局势走向</strong> — Trump 称战争可能持续4-5周，霍尔木兹海峡封锁对全球供应链影响持续发酵
