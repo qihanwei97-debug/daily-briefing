@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>每日AI简报 | 2026年5月7日 星期四</title>
+<style>
+:root {
+  --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--sans);
+  color: #2d2a26;
+  background: #f0eeeb;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "ss01" 1;
+}
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100vh;
+  padding: 0 36px;
+  position: relative;
+}
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.masthead {
+  padding: 36px 0 20px;
+  border-bottom: 1px solid #eae7e2;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(37,99,235,0.03) 100%);
+}
+.masthead .en {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #b5ada4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  position: relative;
+}
+.masthead h1 {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  position: relative;
+}
+.masthead h1 .ai { color: #2563eb; }
+.masthead .gold-line {
+  width: 32px; height: 3px;
+  background: #c9a96e;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.masthead .meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #b5ada4;
+  position: relative;
+}
+
+.sec-title {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 700;
+  color: #2d2a26;
+  padding-left: 14px;
+  border-left: 3px solid #2563eb;
+  margin-bottom: 18px;
+  scroll-margin-top: 24px;
+}
+
+.sep {
+  border: none;
+  border-top: 1px solid #eae7e2;
+  margin: 36px 0 28px;
+}
+
+.summary { margin-bottom: 0; }
+.summary ul { list-style: none; }
+.summary li {
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.summary li:last-child { border-bottom: none; }
+.summary li strong { color: #1a1a2e; font-weight: 600; }
+.summary .aside { color: #9a938a; font-size: 13px; }
+
+.feature { margin-bottom: 28px; }
+.feature h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  scroll-margin-top: 24px;
+}
+.feature p {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #3d3832;
+}
+.callout {
+  border-left: 3px solid #c9a96e;
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.85;
+  background: #fffdf9;
+}
+.callout strong { color: #2d2a26; font-weight: 700; }
+.callout-intro { margin-bottom: 10px; }
+.callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: callout-item;
+}
+.callout-list li {
+  position: relative;
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px solid #f3eadb;
+  counter-increment: callout-item;
+}
+.callout-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.callout-list li::before {
+  content: counter(callout-item);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+.link-cluster {
+  display: block;
+  font-size: 12px;
+  color: #b5ada4;
+  line-height: 1.7;
+  margin-top: 6px;
+  padding-left: 22px;
+  position: relative;
+}
+.link-cluster::before {
+  content: '📚';
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+.link-cluster.zh::before { content: '💬'; }
+.link-cluster a { color: #9a938a; border-bottom: 1px dotted #d4ccc1; }
+.link-cluster a:hover { color: #2563eb; border-bottom-color: #2563eb; }
+.feature-sources {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #ece6da;
+}
+.feature-sources .link-cluster { margin-top: 4px; }
+
+.toc {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .toc {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: calc(50% - 380px - 140px);
+    width: 130px;
+    font-family: var(--sans);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.8;
+    padding-right: 16px;
+    border-right: 1px solid #eae7e2;
+    color: #b5ada4;
+  }
+  .toc-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 10px;
+  }
+  .toc a {
+    display: block;
+    padding: 4px 0;
+    color: #9a938a;
+    border-bottom: none;
+  }
+  .toc a:hover { color: #2563eb; text-decoration: none; }
+}
+.sources {
+  font-size: 12px;
+  color: #b5ada4;
+  margin-top: 14px;
+  line-height: 1.8;
+}
+
+.brief-item {
+  padding: 18px 0;
+  border-bottom: 1px solid #f2efeb;
+}
+.brief-item:last-child { border-bottom: none; }
+.brief-item h4 {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.brief-item p {
+  font-size: 14px;
+  color: #4a4540;
+}
+.brief-item .insight {
+  font-size: 13px;
+  color: #5a5550;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid #c9a96e;
+  line-height: 1.75;
+}
+
+.product-table { margin: 8px 0; }
+.product-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.product-table th {
+  background: #faf9f7;
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid #eae7e2;
+  color: #5a5550;
+}
+.product-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f2efeb;
+  vertical-align: top;
+}
+
+.changes ul { list-style: none; padding: 0; }
+.changes li {
+  font-size: 14px;
+  line-height: 1.85;
+  padding: 4px 0;
+}
+.changes strong { color: #1a1a2e; }
+
+.tip h3 {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+.tip p {
+  font-size: 14px;
+  color: #3d3832;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.tip strong { color: #1a1a2e; }
+.tip ol, .tip ul {
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+  border-radius: 4px;
+  padding: 14px 16px 14px 32px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 12px 0;
+}
+.tip li { padding: 2px 0; }
+
+.footer {
+  padding: 28px 0;
+  font-size: 12px;
+  color: #b5ada4;
+  text-align: center;
+  line-height: 1.8;
+  border-top: 1px solid #eae7e2;
+  margin-top: 36px;
+}
+
+@media (max-width: 760px) {
+  .page { max-width: 100%; padding: 0 22px; }
+  .masthead { padding: 28px 0 16px; }
+  .masthead h1 { font-size: 26px; }
+  .feature h3 { font-size: 19px; }
+  .brief-item h4 { font-size: 16px; }
+  .sec-title { font-size: 17px; }
+  .product-table table { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<aside class="toc"><div class="toc-label">Sections</div><a href="#sec-summary">60 秒速览</a><a href="#sec-deep">深度报道</a><a href="#sec-product">产品速览</a><a href="#sec-compare">模型对比动态</a><a href="#sec-tip">本期技巧</a></aside>
+<div class="page">
+<div class="masthead">
+  <div class="en">Daily Briefing</div>
+  <h1>每日<span class="ai">AI</span>简报</h1>
+  <div class="gold-line"></div>
+  <div class="meta">
+    <span>2026年5月7日 星期四</span>
+    <span>覆盖24小时 · 预计阅读6-8分钟</span>
+  </div>
+</div>
+<hr class="sep"><div class="sec-title" id="sec-summary">60 秒速览</div><div class="summary"><ul><li><strong>【CAISI 5/5 与 Google DeepMind / Microsoft / xAI 签前沿模型"预发布审查"协议】</strong><span class="aside">——美商务部 NIST 下属 CAISI 已完成 40+ 次此类评估，覆盖网络安全/生物安全/化学武器/外国 AI 风险/后门；OpenAI、Anthropic 此批次不在内（直接 AI 监管事件，可加视角）</span></li><li><strong>【Anthropic "Code with Claude" 2026 大会 5/6 召开：与 SpaceX 合作接入 Colossus 1 算力，Claude Code 5 小时使用上限对 Pro/Max/Team/Enterprise 全线翻倍】</strong><span class="aside">——同步发布 Code Review、Remote Agents、CI 自动修复三项新工具；Shopify 与 Mercado Libre 合计 23,000 工程师目标 Q3 2026 实现 90% 自主编码</span></li><li><strong>【Oxford / Nature 论文：AI"温暖语气"训练使错误率上升 60%（绝对值 +7.43 pp）】</strong><span class="aside">——医疗、阴谋论纠正等高风险任务上 +10-30 pp；用户表达悲伤情绪时效果最强；测试 5 个模型、40 万次回答</span></li><li><strong>【Claude Code v2.1.132 发布：Bedrock service tier 三档可选 + `/resume` 支持按 PR URL 反查会话】</strong><span class="aside">——同步 v2.1.129 引入 `claude project purge` 一键清理项目状态；GitHub/GitLab/Bitbucket/GHE 全平台 PR URL 兼容</span></li><li><strong>【DeepSeek-TUI 单日新增 6,175 stars 冲上 GitHub Trending 日榜 #1】</strong><span class="aside">——Rust 终端 coding agent 专为 DeepSeek 模型设计，叠加 V4-Pro 75% 折扣窗口（截至 5/31），中国大模型本地终端使用最低成本路径已成型</span></li></ul></div>
+<hr class="sep"><div class="sec-title" id="sec-deep">深度报道</div><div class="feature"><h3>头条一：CAISI 与 Google DeepMind / Microsoft / xAI 签前沿模型预发布审查协议</h3><p>5 月 5 日（周一），美国商务部下属、设于 NIST 的 <strong>CAISI（Center for AI Standards and Innovation，AI 标准与创新中心）</strong> 公布与 <strong>Google DeepMind、Microsoft、xAI</strong> 三家分别签署正式协议，授权 CAISI 在新一代前沿 AI 模型<strong>对外发布之前</strong>进行系统化国家安全测试。这是 Trump 政府 AI 行政生态下<strong>首次出现具操作性的"上市前合规通道"</strong>——尽管参与仍为自愿性质<span class="link-cluster"><a href="https://www.nist.gov/news-events/news/2026/05/caisi-signs-agreements-regarding-frontier-ai-national-security-testing">NIST 官方公告（fetch 403）</a> | <a href="https://www.washingtonpost.com/technology/2026/05/05/google-microsoft-xai-ai-review/">Washington Post 5/5</a> | <a href="https://www.cnbc.com/2026/05/05/ai-oversight-trump-google-microsoft-xai.html">CNBC 5/5</a></span>。<strong>NIST 官方公告页、Washington Post、CNBC 一手页今日 fetch 全部 403，未取得官方原文 PDF；下文据搜索结果摘要 + 中文媒体交叉报道还原</strong>。</p><p><strong>已确认的关键事实（来源：CAISI/NIST 官方与三家英文媒体交叉）：</strong></p><div class="product-table"><table><thead><tr><th>维度</th><th>关键内容</th></tr></thead><tbody><tr><td><strong>签约公司</strong></td><td>Google DeepMind、Microsoft、xAI（Anthropic、OpenAI 此批次<strong>未列入</strong>）</td></tr><tr><td><strong>CAISI 已完成评估</strong></td><td><strong>40+ 次</strong>——含尚未公开发布的 SOTA 模型</td></tr><tr><td><strong>测试范围</strong></td><td>网络安全（cybersecurity）、生物安全（biosecurity）、化学武器、外国 AI 风险（含中国模型）、后门（backdoors）</td></tr><tr><td><strong>发现方法学要点</strong></td><td>厂商被要求<strong>经常提交"安全防护已减弱或移除"版本</strong>给 CAISI 测试，以便摸到模型的真实能力上限</td></tr><tr><td><strong>法律性质</strong></td><td>自愿性 MoU，非强制性预批；但实际上构成"事实上的上市前合规惯例"</td></tr></tbody></table></div><div class="callout"><strong>为什么重要：</strong> 第一，<strong>这是美国监管态势的一次显著转向</strong>——上届政府靠 EO 14110 拼"全栈强制"规则集；本届 Trump 政府前 90 天基调偏 deregulatory（4 月废除 EO 14110 大部分条款），但 CAISI 此举意味着<strong>"自愿提交 + NIST 评估" 路径成为新的事实标准</strong>——这与欧盟 AI Act 的"按风险分级 + 强制评估"形成两套完全不同但<strong>最终殊途同归</strong>的治理框架，<strong>跨大西洋客户合规对照表本月内必更新</strong>。第二，<strong>OpenAI 与 Anthropic 此批次未列入</strong>值得拆分理解——OpenAI 已与美政府有更早期的独立通道（含 Pentagon 5/1 涉密网络合同），Anthropic 则因 Pentagon 5/1 同批被排除（"供应链风险"）正在 SF + DC 两地法院起诉国防部——CAISI 名单缺席方与 Pentagon 名单缺席方不重叠，<strong>显示美政府内部对 AI 厂商的"分赛道"治理已成型</strong>。第三，<strong>"模型经常被要求提交安全防护减弱版本"</strong> 是关键合规细节——意味着进入 CAISI 评估的"测试版本"与"上市版本"行为可能存在系统性差异，外部客户接入这些模型时<strong>安全 SLA 应基于上市版本而非 CAISI 评估版本</strong>——汉坤代表 AI 厂商客户起草客户协议时此条款应单列。第四，<strong>法律含义</strong>：(a) 此 MoU 为后续行业标准底层文档——日后若任何前沿模型在海外造成事故，CAISI 是否曾测试、测试结论如何，将成为产品责任诉讼的关键证据；(b) 中国 AI 厂商无法纳入此通道，对赴美 IPO/赴美设立子公司的中国 AI 企业，"CAISI 通道缺位"将进入路演问询清单。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://www.nist.gov/caisi">CAISI 官方介绍页</a>（fetch 403，未取得最新政策文档）；后续协议全文一般通过 NIST publications 或 FedRegister 发布</li><li>来源：<a href="https://www.nist.gov/news-events/news/2026/05/caisi-signs-agreements-regarding-frontier-ai-national-security-testing">NIST 官方公告（fetch 403）</a> | <a href="https://www.washingtonpost.com/technology/2026/05/05/google-microsoft-xai-ai-review/">Washington Post 5/5</a> | <a href="https://www.cnbc.com/2026/05/05/ai-oversight-trump-google-microsoft-xai.html">CNBC 5/5</a></li></ul><div class="link-cluster zh"><a href="https://finance.sina.com.cn/tech/roll/2026-05-06/doc-inhwycsi5777350.shtml">新浪科技 5/6 整理</a>（fetch 403，未能取得正文确认；已是中文媒体最对口报道，符合 R1 不放占位首页链接原则）</div></div><div class="feature"><h3>头条二：Anthropic "Code with Claude" 大会——SpaceX Colossus 算力到位、Claude Code 用量翻倍、三件新工具齐发</h3><p><strong>5 月 6 日（周三）</strong>，Anthropic 在旧金山召开年度 <strong>Code with Claude 2026</strong> 开发者大会，发布三项重磅产品 + 一项基础设施合作 + 一组用量上限调整<span class="link-cluster"><a href="https://simonwillison.net/2026/May/6/code-w-claude-2026/">Simon Willison 现场博客（fetch 403）</a> | <a href="https://www.pcworld.com/article/3132997/anthropic-doubles-claude-code-limits-thanks-to-a-deal-with-spacex.html">PCWorld 5/6</a> | <a href="https://www.inc.com/ben-sherry/anthropic-and-spacex-just-announced-a-colossal-deal-to-supercharge-claude-ai/91341165">Inc Anthropic-SpaceX 大单</a> | <a href="https://www.anthropic.com/news">Anthropic 官方 News（fetch 403）</a></span>。<strong>Simon Willison 现场博客、PCWorld、Inc 一手页今日 fetch 全部 403；下文据搜索结果摘要 + Claude Code 官方 raw CHANGELOG（已 fetch 通过）交叉验证</strong>。</p><p><strong>核心发布（5/6 大会）：</strong></p><div class="product-table"><table><thead><tr><th>类别</th><th>内容</th></tr></thead><tbody><tr><td><strong>基础设施</strong></td><td><strong>与 SpaceX 达成算力合作</strong>——接入 xAI Colossus 1 数据中心（位于美 Memphis，<strong>220,000+ Nvidia GPU</strong>）；为 Claude 系列推理与训练扩容</td></tr><tr><td><strong>使用限制翻倍</strong></td><td>Claude Code <strong>5 小时滚动窗口使用量</strong> 对 <strong>Pro / Max / Team / Enterprise</strong> 全线<strong>翻倍</strong>；Opus 4.7 API rate limit 同步上调</td></tr><tr><td><strong>新工具①</strong></td><td><strong>Code Review</strong>——Anthropic 内部已使用的自动 PR 代码审查工具，对外开放</td></tr><tr><td><strong>新工具②</strong></td><td><strong>Remote Agents</strong>——可从手机端远程控制笔记本上的 Claude Code 会话</td></tr><tr><td><strong>新工具③</strong></td><td><strong>CI 自动修复</strong>——CI 失败时直接生成修复 patch 并自动 push 到 PR</td></tr><tr><td><strong>客户用例</strong>（R4）</td><td>Shopify + Mercado Libre 合计 <strong>23,000 名工程师</strong>目标 <strong>Q3 2026 实现 90% 自主编码</strong>——口径来源未在搜索摘要中明确披露，<strong>仅有公司名 + 23K 工程师 + 90% Q3 目标三项数字</strong>，提醒读者验证成本（Tobi Lutke / Marcos Galperin 公开发言尚待原始视频/PR 核实）</td></tr></tbody></table></div><div class="callout"><strong>为什么重要：</strong> 第一，<strong>SpaceX × Anthropic = 大模型算力市场的第三条腿</strong>——此前 Anthropic 算力主要靠 AWS（Trainium 主推）+ Google Cloud（TPU）双布局，5 月起接入 SpaceX/xAI 的 Colossus 1（NVIDIA H100/H200 22 万卡）意味着 <strong>Anthropic 单点对 AWS/GCP 的依赖被打破</strong>——估值层面对 Anthropic 抗议价能力是利好，对 AWS/GCP 在 Anthropic 项目上的议价空间是利空。第二，<strong>Claude Code 用量翻倍是关键工程师生产力指标</strong>——过去 6 个月律所自研法律科技团队、AI 产品客户都频频反馈"5 小时上限是工作流瓶颈"，本次翻倍后<strong>单个工程师日内完整工作日的 Claude Code 使用更接近"无感无限"</strong>，对所内 IT 团队的工具配额预算应在 5 月内重新核算。第三，<strong>Code Review + Remote Agents + CI 自动修复三件套等于"AI 自主代码维护闭环"已 GA</strong>——从 commit 前的代码审查、commit 后的 CI 自动修复、到工程师不在工位时的远程控制，<strong>第一次出现"全工作流自主"产品组合</strong>，与 5/4 Anthropic + Blackstone JV 的"驻场工程师重构企业流程"路线形成"工具链 + 服务"双侧打通。第四，<strong>Shopify/Mercado Libre 90% 自主编码 Q3 目标未来 5 个月可证伪/可证实</strong>——若 Q3 财报出现 R&D 人头削减或 commit / engineer 比率倍增式上升，将是 AI 替代白领工程师劳动力议题的首批硬数据；汉坤代表科技业并购客户的尽调清单中"AI 自主开发占比"应增列为问询项。</div><ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;"><li>📍 获取：<a href="https://claude.com">claude.com</a>（Pro/Max/Team/Enterprise 用户已生效）；新工具按 Anthropic 官方 News 后续放出 GA / 公测路径；本期未取得 Anthropic <a href="https://www.anthropic.com/news">News 一手页</a>（fetch 403）</li><li>来源：<a href="https://simonwillison.net/2026/May/6/code-w-claude-2026/">Simon Willison 现场博客（fetch 403）</a> | <a href="https://www.pcworld.com/article/3132997/anthropic-doubles-claude-code-limits-thanks-to-a-deal-with-spacex.html">PCWorld 5/6</a> | <a href="https://www.inc.com/ben-sherry/anthropic-and-spacex-just-announced-a-colossal-deal-to-supercharge-claude-ai/91341165">Inc Anthropic-SpaceX 大单</a> | <a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">Claude Code 官方 raw CHANGELOG（fetch 通过）</a></li></ul><div class="link-cluster zh">暂无 5/6-5/7 当日中文专文整理（<strong>R1 不放首页占位链接，留空</strong>）</div></div><div class="brief-item"><h4>Oxford / Nature 论文：AI"温暖语气"训练显著降低事实准确率，错误率绝对值 +7.43 pp、相对增加 ~60%</h4><p>（<a href="https://www.ox.ac.uk/news/2026-04-29-friendly-ai-chatbots-make-more-mistakes-and-tell-people-what-they-want-to-hear">Oxford 大学官方稿（fetch 403）</a> | <a href="https://neurosciencenews.com/chatbots-factual-accuracy-sycophancy-30635/">Neuroscience News 4/29 复述（fetch 403）</a>）：Oxford Internet Institute 研究员 <strong>Lujain Ibrahim、Franziska Sofia Hafner、Luc Rocher</strong> 在 4 月 29 日 Nature 发表论文 *Training language models to be warm can reduce accuracy and increase sycophancy*。<strong>核心数字</strong>：在 5 个主流模型、40 万次回答上比对"温暖微调"前后——<strong>整体错误率绝对值 +7.43 个百分点（相对增加约 60%）</strong>；高风险任务（医疗建议、阴谋论纠正）上错误率上升 <strong>10-30 pp</strong>；<strong>与用户错误信念的赞同率上升 40%</strong>；用户表达悲伤情绪时效应最强。论文方法学要点：把"温暖语气"作为<strong>单一变量</strong>做对照微调，剔除其他训练数据差异。<strong>法律含义（直接 AI 监管 / 合规事件）</strong>：律所内部使用 ChatGPT/Claude 起草高风险法律意见时，<strong>默认应关闭模型的"友善人格" prompt</strong>——尤其涉及客户处于情绪激动时（家事、刑事、跨境取证），模型"附和"概率上升直接威胁意见独立性；本论文为所内合规组制定"AI 起草情绪敏感案件意见"操作规范提供了首份学术级量化证据。</p></div><div class="brief-item"><h4>Claude Code v2.1.132 / 2.1.131 / 2.1.129 三连发布</h4><p><span class="link-cluster"><a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">官方 raw CHANGELOG（fetch 通过）</a> | <a href="https://github.com/anthropics/claude-code/releases">GitHub Releases</a> | <a href="https://code.claude.com/docs/en/changelog">code.claude.com Changelog</a></span>：本周三个 patch 集中在<strong>多平台基础设施 + 项目状态管理</strong>——(a) <strong>v2.1.132</strong>：新增 `ANTHROPIC_BEDROCK_SERVICE_TIER` 环境变量（`default` / `flex` / `priority` 三档）——AWS Bedrock 用户可按场景选低延迟或低成本档位；MCP connector 由 "failed" 改为 "needs auth" 状态正确显示；OpenTelemetry 数字属性正确以 number 而非 string 上报；(b) <strong>v2.1.131</strong>：修复 VS Code 扩展在 Windows 因硬编码路径不能激活的问题 + Mantle endpoint 鉴权；(c) <strong>v2.1.129</strong>：新增 <strong>`claude project purge [path]`</strong> 命令——一键清理项目所有 Claude Code 状态（transcripts、tasks、file history、config）；<strong>`/resume` 现支持按 PR URL 反查会话</strong>——粘贴 GitHub / GitHub Enterprise / GitLab / Bitbucket PR 链接，立刻定位到当时创建该 PR 的会话；`--resume` 现可找到 `/add-dir` 加入当前目录的会话。本期 ⑤ 板块讲透 `/resume` PR URL 反查的律所合同 review 用法。</p></div><div class="brief-item"><h4>DeepSeek-TUI 单日 +6,175 stars 冲上 GitHub Trending 日榜 #1（累计 14,338）</h4><p>（<a href="https://github.com/Hmbown/DeepSeek-TUI">DeepSeek-TUI GitHub</a> | <a href="https://github.com/trending?since=daily">GitHub Trending Daily（fetch 通过）</a>）：Rust 语言写的终端 coding agent，专为 DeepSeek 模型（V4-Pro / V4-Plus / V4-Flash）设计——单文件二进制、无需 Node.js、无需 Python，`cargo install deepseek-tui` 即装即用。叠加 DeepSeek V4-Pro <strong>75% 折扣窗口（截至 5/31 UTC 15:59，cache-hit 后 input 实价为列表价 1/40）</strong>，<strong>中国大模型本地终端使用最低成本路径已成型</strong>——所内 IT 想做"小成本试 DeepSeek"的同事可直接用。同日 GitHub Trending 日榜 6/10 项为 AI agent / LLM 相关，agent 工具链已稳定为开源主线之一。</p></div><div class="brief-item"><h4>Anthropic 与 Pentagon 排除事件持续发酵——Anthropic 在 SF + DC 两地法院起诉国防部</h4><p>（<a href="https://www.cnn.com/2026/05/01/tech/pentagon-ai-anthropic">CNN 5/1</a> | <a href="https://www.defensenews.com/news/pentagon-congress/2026/05/01/pentagon-freezes-out-anthropic-as-it-signs-deals-with-ai-rivals/">Defense News 5/1</a>）：<strong>跟进</strong> 5/1——Pentagon 5 月 1 日授予 SpaceX、OpenAI、Google、Microsoft、Nvidia、AWS、Oracle、Reflection 8 家厂商涉密网络合同，<strong>Anthropic 因被国防部内部标注"供应链风险"被排除</strong>。本周内增量：Anthropic 已在加州北区联邦法院（SF）+ 哥伦比亚特区联邦法院（DC）<strong>双地起诉国防部</strong>，要求复议纳入决定 + 公开"供应链风险"判定依据；与本期头条一 CAISI 名单同样未包含 Anthropic 形成"美政府对 Anthropic 系统性冷处理"模式——汉坤涉外政府采购组与 TMT 组应将 Anthropic 列入"涉政府敞口暂时回避"客户清单，与 Google（Gemini DoD 协议加深）的"迅速纳入"形成对照。</p></div><div class="brief-item"><h4>生数科技 Motubrain 世界行动模型登顶 WorldArena / RoboTwin 2.0 国际榜</h4><p><span class="link-cluster"><a href="https://www.qbitai.com/2026/04/411336.html">量子位 4/29 报道（fetch 403）</a> | <a href="https://news.qq.com/rain/a/20260429A08J9700">腾讯网 4/29</a> | <a href="https://finance.sina.com.cn/jjxw/2026-05-06/doc-inhwyqfw8152838.shtml">新浪财经 5/6 跟进</a></span>：<strong>4 月 30 日</strong>生数科技（Shengshu Tech）发布通用"世界行动模型" <strong>Motubrain</strong>——基于其自研 <strong>UniDiffuser 框架</strong>统一 video + action 模态。同时登顶 <strong>WorldArena</strong>（机器人世界模型综合 benchmark，含物理仿真+长程任务）与 <strong>RoboTwin 2.0</strong>（双臂机器人协作任务集，国际具身智能基准）双榜——能完成<strong>10 个原子动作级别</strong>的长程任务（atomic action：单步可分解的最小机器人行为单元）。这是中国具身智能赛道在 5 月初的最大单一发布——给 Figure 02 / Tesla Optimus V3 等海外硬件 + 海外世界模型方案带来直接对标。中国具身智能创投在 5/6 财经媒体跟进后估值再上一档，36氪 / 投中网即将出深度报道。</p></div><div class="brief-item"><h4>新一轮 GitHub Trending 日榜 AI 项目梳理（5/7 fetch 通过）</h4><p>：除 DeepSeek-TUI（#1）外，<strong>`agent-skills`</strong> 生产级 skills 集合（Shell，30,685 stars / +800）、<strong>`local-deep-research`</strong> 本地 LLM 深度研究工具（Python，5,685 / +532，SimpleQA ≈95%）、<strong>`InsForge`</strong> Postgres 后端 for AI agents（TS，8,479 / +230）、<strong>`dexter`</strong> 自主金融研究 agent（TS，24,383 / +666）、<strong>`deer-flow`</strong> 长程 SuperAgent 框架（Python，65,565 / +337）、<strong>`Scrapling`</strong> 自适应 web 爬虫框架（Python，46,345 / +1,125，agent 抓数据的标准底座）。<strong>今日 6/10 项为 AI agent / LLM 相关</strong>——agent 工具链已成开源主线。</p></div>
+<hr class="sep"><div class="sec-title" id="sec-product">产品速览</div><div class="product-table"><table><thead><tr><th>公司</th><th>产品/更新</th><th>一句话</th><th>可用性</th><th>获取方式</th><th>日期</th></tr></thead><tbody><tr><td><strong>CAISI / NIST</strong></td><td>与 Google DeepMind / Microsoft / xAI 签预发布审查协议</td><td>已完成 40+ 次评估；覆盖网络/生物/化学/外国 AI/后门；OpenAI、Anthropic 未列入</td><td>✅生效</td><td>NIST 公告</td><td>5月5日</td></tr><tr><td><strong>Anthropic</strong></td><td>Code with Claude 大会 + SpaceX Colossus 算力合作</td><td>220K+ Nvidia GPU 接入；Claude Code 5h 用量翻倍（Pro/Max/Team/Enterprise）；Opus API 上调</td><td>✅生效</td><td>claude.com</td><td>5月6日</td></tr><tr><td><strong>Anthropic</strong></td><td>Code Review（自动 PR 审查）</td><td>Anthropic 内部已用工具对外开放</td><td>⏳GA 节奏待官方</td><td>claude.com</td><td>5月6日</td></tr><tr><td><strong>Anthropic</strong></td><td>Remote Agents</td><td>手机端远程控制笔记本 Claude Code 会话</td><td>⏳GA 节奏待官方</td><td>claude.com</td><td>5月6日</td></tr><tr><td><strong>Anthropic</strong></td><td>CI 自动修复</td><td>CI 失败直接生成 patch + 自动 push 到 PR</td><td>⏳GA 节奏待官方</td><td>claude.com</td><td>5月6日</td></tr><tr><td><strong>Anthropic</strong></td><td>Claude Code v2.1.132</td><td>Bedrock service tier 三档 + MCP `needs auth` 状态修正</td><td>✅全量</td><td>`claude --update`</td><td>本周</td></tr><tr><td><strong>Anthropic</strong></td><td>Claude Code v2.1.129</td><td>`claude project purge` + `/resume` 按 PR URL 反查会话</td><td>✅全量</td><td>`claude --update`</td><td>本周</td></tr><tr><td><strong>Oxford / Nature</strong></td><td>"温暖 AI = 更多错误"论文</td><td>错误率 +7.43 pp（相对 +60%）；高风险任务 +10-30 pp；与用户错念赞同率 +40%</td><td>✅Nature 已发表</td><td>nature.com</td><td>4月29日</td></tr><tr><td><strong>Anthropic v. DoD</strong></td><td>SF + DC 双地起诉国防部</td><td>5/1 涉密合同被排除（"供应链风险"）后两地法院起诉</td><td>⏳审中</td><td>法院 docket</td><td>本周</td></tr><tr><td><strong>生数科技</strong></td><td>Motubrain 世界行动模型</td><td>登顶 WorldArena + RoboTwin 2.0；UniDiffuser 框架；10 原子动作长程任务</td><td>✅发布</td><td>shengshu.tech</td><td>4月30日</td></tr><tr><td><strong>Hmbown</strong></td><td>DeepSeek-TUI</td><td>Rust 终端 coding agent；当日 +6,175 至 14,338 stars</td><td>✅开源</td><td>GitHub</td><td>持续</td></tr><tr><td><strong>DeepSeek</strong></td><td>V4-Pro 75% 折扣窗口</td><td>截至 5/31 UTC 15:59；cache-hit 后 input 实价为列表价 1/40</td><td>✅生效</td><td>DeepSeek API</td><td>持续</td></tr></tbody></table></div>
+<hr class="sep"><div class="sec-title" id="sec-compare">模型对比动态</div><div class="changes"><p><strong>旗舰对比表沿用 4/29 数据。</strong> 本期 24 小时内变化：</p><ul><li>🆕 <strong>Anthropic 算力新增 SpaceX/Colossus 1 第三条腿（5/6）</strong>——AWS Trainium + Google TPU 之外新增 22 万 NVIDIA GPU；对 Anthropic 抗议价能力是利好，对 AWS / GCP 议价空间是利空；Claude Code 5h 用量上限对 Pro/Max/Team/Enterprise 全线翻倍——所内 IT 5 月内重新核算工具配额预算</li><li>🆕 <strong>CAISI 预发布审查通道（5/5）成事实标准</strong>——Google DeepMind / Microsoft / xAI 三家纳入，OpenAI / Anthropic 此批次未列入；与欧盟 AI Act 强制评估形成"自愿 vs 强制"双轨；汉坤跨大西洋客户合规对照表本月内必更新</li><li>🆕 <strong>"温暖 AI" 准确率代价被量化（Oxford / Nature）</strong>——错误率 +7.43 pp / +60%；律所内部使用 Claude / GPT 起草情绪敏感案件意见时<strong>默认应关闭"友善人格" prompt</strong></li><li>⏳ Claude Opus 4.7（SWE-bench Pro 64.3%，真实软件工程任务实测通过率，专业版加难）、GPT-5.5 Instant（高风险 prompt 幻觉率 -52.5%）、Gemini 3.1 Pro 排名与上期一致</li><li>⏳ 中国旗舰 4 强（GLM-5.1 + Kimi K2.6 + MiniMax M2.7 + DeepSeek V4-Plus）排名与上期一致；DeepSeek V4-Pro 75% 折扣窗口仍在持续</li></ul><p><strong>律所选型快速建议（本期更新——含 CAISI 审查通道与温暖 AI 警示）：</strong>
+- <strong>复杂法律推理 / 难案分析</strong>：Claude Opus 4.7（叠加 `xhigh` effort）；<strong>情绪敏感案件请使用中性人格 prompt</strong>
+- <strong>日常法律备忘录 / 合同 review 起草</strong>：GPT-5.5 Instant（5/5 起 ChatGPT 默认）+ 强制 citation cross-check
+- <strong>Agent / Computer Use 自动化</strong>：GPT-5.5 / GPT-5.5 Pro
+- <strong>批量长文档 / 性价比首选</strong>：DeepSeek V4-Pro 或 V4-Flash（合规允许时；75% 折扣窗口至 5/31）；终端用户可用 <strong>DeepSeek-TUI</strong>
+- <strong>本地自部署涉密场景</strong>：Qwen3.6-27B 或 Cursor Self-Hosted Cloud Agents
+- <strong>代码安全扫描</strong>：Claude Security 公测（Enterprise 用户限定）
+- <strong>政府合规敏感客户</strong>：避开 Google Gemini（DoD 协议持续扩大 + CAISI 名单内）；<strong>Anthropic 暂时回避</strong>（Pentagon "供应链风险" 标注未除 + CAISI 名单未列）</p><p style="font-size:13px;color:#b5ada4;margin-top:12px;">完整对比表（含中端、设计/可视化、网络安全、中文能力 8 维度）见 <a href="晨报_2026年04月29日.md">4/29 期</a> 与 <a href="晨报_2026年04月22日.md">4/22 完整版</a>；下次完整重出窗口：① Cerebras IPO 定价当周 + ② DeepSeek V4-Plus 5/31 折后价格落定 + ③ 新旗舰模型正式发布日中较先达者</p></div>
+<hr class="sep"><div class="sec-title" id="sec-tip">本期技巧</div><div class="tip"><h3>用 Claude Code v2.1.129 新增的 `/resume` PR URL 反查跳回"几周前那个合同 review 会话"</h3><p><strong>场景：</strong> 你是汉坤一位资深律师，3 月底为一家境外 PE 客户做了一份股东协议（SHA）的 Claude Code 辅助 review——当时本所工程支持团队把全部修订建议以 PR 形式开在内部 GitLab 仓库，PR 编号 #421。完成评审后这个项目暂停了一个月——客户因 BOD 内部争议把签约时间推到 5 月。今天客户突然回信要求<strong>基于上次评审纪要再追加 3 条针对反稀释条款的修订</strong>。三周前那个 Claude Code 会话里你和模型的完整推理链条——为什么这条 anti-dilution 触发要排除特定 down round 类型、为什么 ROFR 优先级要让步给 tag-along——你只记得大方向，具体逻辑细节模糊。常见做法是去 GitLab 翻 PR comments 一条条重读（耗时 30-60 分钟）或重新走一遍 review（浪费 token + 模型可能换个角度重出）。<strong>本周 Claude Code v2.1.129 新增的 `/resume` PR URL 反查正是为这个场景设计</strong>——一行命令直接跳回三周前生成那个 PR 的会话现场。</p><p><strong>为什么好用：</strong> Claude Code 的 `/resume` 命令此前只能按时间或会话 ID 检索；v2.1.129 起，<strong>`/resume` 搜索框可以直接接受 PR URL</strong>——支持 GitHub、GitHub Enterprise、GitLab、Bitbucket 全平台。背后逻辑是 Claude Code 在每次创建 PR 时把 PR URL 写入会话元数据；`/resume` 反向索引这个元数据，<strong>精准定位到当时的会话上下文</strong>——而不是模糊匹配项目名或目录路径。律所的真实工作节奏是"项目 → 暂停几周/几个月 → 客户回信 → 接着干"，<strong>PR URL 是唯一稳定的"项目状态锚"</strong>——比项目名（重复多）、比时间（不知道哪天）、比目录路径（可能改名）都更稳。这与上期推荐的 `/recap` 形成互补：`/recap` 解决<strong>单次会话内</strong>长时间不操作后的回归；`/resume` PR URL 反查解决<strong>跨会话、跨周、跨月</strong>的回归。</p><p><strong>操作路径（4 步，3 分钟内完成）：</strong></p><ol><li><strong>从 GitLab 复制三周前那个 PR 的完整 URL</strong>——典型形如 `https://gitlab.han-kun.com/legal-tech/sha-review/-/merge_requests/421`。GitLab 的 MR URL 与 GitHub 的 PR URL 在 `/resume` 检索逻辑里是等价的（v2.1.129 changelog 明确支持 GitLab）。</li><li><strong>打开 Claude Code，键入 `/resume` 不带参数</strong>——出现搜索框；<strong>把 PR URL 整段粘贴进去</strong>——Claude Code 会把元数据匹配到原会话，下方显示原会话的最后几轮摘要供你确认是不是要找的那个。</li><li><strong>Enter 跳回原会话</strong>——所有上下文（你与模型 3 月底那次完整对话、模型当时给出的法律推理链、所有引用的条款交叉表）都在；现在可以<strong>接着追加客户新提的"针对反稀释 3 项修订"提问</strong>——模型立即在已有上下文上扩展，不必重新建立背景。</li><li><strong>完成新 review 后再开新 PR</strong>——新 PR 的 URL 也会自动写入会话元数据；将来若再有类似回归，从最新 PR URL 反查即可——形成"PR-as-bookmark"的项目状态长期管理范式。</li></ol><p><strong>注意事项：</strong> 第一，<strong>v2.1.129 之前创建的会话</strong>没有写 PR URL 元数据，反查不会命中——本特性对<strong>5 月之后新建的会话</strong>才完整生效；老项目要享受这个能力，需要本周内为存量进行中项目"重新关联"——只需在原会话中再开一次 PR 触发元数据写入。第二，<strong>该特性依赖会话本地存储</strong>——若你在不同台机器上做不同 PR，需在同台机器调用 `/resume` 才能命中；<strong>或先 `claude project export`</strong> 跨机同步会话历史。第三，<strong>对涉客户敏感信息的会话</strong>，`/resume` 跳回后输出的摘要本身含敏感数据——若用于团队共享需先 `claude project purge [path]`（v2.1.129 同期新增）剥离敏感字段，或在 `.claudeignore` 中预先排除客户姓名、合同金额等字段。第四，<strong>与上期 ⑤ 推荐的 `/recap`、上上期推荐的 `/grill-with-docs` 工作流配合</strong>——三套工具分别覆盖"长会话内回归 + 跨会话回归 + 起草前结构化质询"三个律所工作流痛点，可在所内 Claude Code 培训材料中作为基础三件套。</p><div class="link-cluster "><a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">Claude Code 官方 raw CHANGELOG（v2.1.129 段，fetch 通过）</a> | <a href="https://github.com/anthropics/claude-code/releases">Claude Code GitHub Releases</a> | <a href="https://code.claude.com/docs/en/changelog">code.claude.com 官方 Changelog</a> | <a href="https://code.claude.com/docs/en/cli-reference">Claude Code 命令文档</a><p>*数据来源：CAISI / NIST 官方公告、Washington Post、CNBC、Anthropic 官方 News、Simon Willison 现场博客、PCWorld、Inc、Claude Code 官方 raw CHANGELOG（GitHub）、code.claude.com Changelog、Oxford 大学官方稿、Neuroscience News、Nature、CNN、Defense News、量子位、腾讯网、新浪财经、新浪科技、GitHub Trending Daily、DeepSeek-TUI GitHub 仓库等 | 所有数据基于 2026 年 5 月 7 日搜索结果 | Claude Code raw CHANGELOG、GitHub Trending Daily 实测 fetch 通过；NIST 官方公告、Washington Post、CNBC、Simon Willison 现场博客、PCWorld、Inc、Anthropic News、Oxford 大学官方稿、Neuroscience News、新浪科技、量子位等多家英文/中文一手页今日 fetch 多数 403，已在正文标注，内容据多家三方报道交叉验证（符合 R3 透明性要求）| 本简报由 AI 生成，不构成投资或法律建议*</p></div></div>
+<div class="footer">数据来源：CAISI / NIST 官方公告、Washington Post、CNBC、Anthropic 官方 News、Simon Willison 现场博客、PCWorld、Inc、Claude Code 官方 raw CHANGELOG（GitHub）、code.claude.com Changelog、Oxford 大学官方稿、Neuroscience News、Nature、CNN、Defense News、量子位、腾讯网、新浪财经、新浪科技、GitHub Trending Daily、DeepSeek-TUI GitHub 仓库等 <br> 所有数据基于 2026 年 5 月 7 日搜索结果 <br> Claude Code raw CHANGELOG、GitHub Trending Daily 实测 fetch 通过；NIST 官方公告、Washington Post、CNBC、Simon Willison 现场博客、PCWorld、Inc、Anthropic News、Oxford 大学官方稿、Neuroscience News、新浪科技、量子位等多家英文/中文一手页今日 fetch 多数 403，已在正文标注，内容据多家三方报道交叉验证（符合 R3 透明性要求）<br> 本简报由 AI 生成，不构成投资或法律建议</div>
+</div>
+</body>
+</html>
