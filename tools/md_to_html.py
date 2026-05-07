@@ -447,51 +447,76 @@ def render_deep_report(content: str) -> str:
 
 
 def render_headline(title: str, body: str) -> str:
-    """渲染单条头条（含 callout 和 sources）。"""
+    """渲染单条头条。
+
+    来源就近策略：
+    - 段内 (...) 链接群已被 fold_link_clusters 折叠为紧凑 📚 块
+    - 文末的"来源：" / "中文解读：" / "⚠️ 一手信源：" 段落被收集起来
+      统一附加到首个正文段落的尾部，作为该段的扩展来源块；
+      不再作为独立尾部块出现，避免视觉堆叠
+    """
     # 清理 markdown ### 前缀（split 没切干净的首块）
     title = re.sub(r'^#+\s*', '', title)
     # 清理 emoji 前缀
     title = re.sub(r'^🔥\s*', '', title)
-    html = f'<div class="feature"><h3>{render_inline(title)}</h3>'
 
-    # 切分段落（空行分隔）
-    paragraphs = [p.strip() for p in body.split('\n\n') if p.strip()]
+    paragraphs = [p.strip() for p in body.split('\n\n') if p.strip() and p.strip() != '---']
+
+    rendered_blocks = []      # 顺序渲染好的 HTML 片段
+    first_body_idx = None     # 首个正文段落在 rendered_blocks 中的索引
+    tail_sources = []         # [(cls, content_only)] 待合并的来源块
+
     for p in paragraphs:
-        # 跳过分隔线
-        if p == '---':
-            continue
-        # callout：以 **对律所的影响** 或 **为什么重要** 开头
+        # callout
         if re.match(r'^\*\*(对律所|为什么重要|律师视角)', p):
             intro, items = split_callout_circled(p)
             if items:
-                html += '<div class="callout">'
+                block = '<div class="callout">'
                 if intro:
-                    html += f'<div class="callout-intro">{render_inline(intro)}</div>'
-                html += '<ul class="callout-list">'
+                    block += f'<div class="callout-intro">{render_inline(intro)}</div>'
+                block += '<ul class="callout-list">'
                 for it in items:
-                    html += f'<li>{fold_link_clusters(render_inline(it))}</li>'
-                html += '</ul></div>'
+                    block += f'<li>{fold_link_clusters(render_inline(it))}</li>'
+                block += '</ul></div>'
             else:
-                html += '<div class="callout">' + fold_link_clusters(render_inline(p)) + '</div>'
-        # 来源行：渲染为紧凑 link-cluster（📚 英文 / 💬 中文 / ⚠️ 一手）
+                block = '<div class="callout">' + fold_link_clusters(render_inline(p)) + '</div>'
+            rendered_blocks.append(block)
+        # 来源行：收集等待合并到首段
         elif p.startswith('来源') or p.startswith('中文解读') or p.startswith('⚠️ 一手信源'):
             cls = 'zh' if p.startswith('中文解读') else ''
-            # 去掉 "来源：" / "中文解读：" / "⚠️ 一手信源：" 前缀
             content_only = re.sub(r'^[^：:]{1,12}[：:]\s*', '', p)
-            html += f'<div class="link-cluster {cls}">{render_inline(content_only)}</div>'
-        # bullet list（- 开头）
+            tail_sources.append((cls, content_only))
+        # bullet list
         elif p.startswith('- '):
             items = re.findall(r'^- (.+?)$', p, re.M)
-            html += '<ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;">'
+            block = '<ul style="padding-left:24px;font-size:14px;line-height:1.85;color:#3d3832;">'
             for it in items:
-                html += f'<li>{fold_link_clusters(render_inline(it))}</li>'
-            html += '</ul>'
+                block += f'<li>{fold_link_clusters(render_inline(it))}</li>'
+            block += '</ul>'
+            rendered_blocks.append(block)
         # 表格
         elif p.startswith('|'):
-            html += render_table(p)
+            rendered_blocks.append(render_table(p))
+        # 普通正文段
         else:
-            html += f'<p>{fold_link_clusters(render_inline(p))}</p>'
+            block = f'<p>{fold_link_clusters(render_inline(p))}</p>'
+            rendered_blocks.append(block)
+            if first_body_idx is None:
+                first_body_idx = len(rendered_blocks) - 1
 
+    # 把收集到的来源块附加到首段正文末尾
+    if tail_sources and first_body_idx is not None:
+        sources_html = ''
+        for cls, content in tail_sources:
+            sources_html += f'<div class="link-cluster {cls}">{render_inline(content)}</div>'
+        rendered_blocks[first_body_idx] += sources_html
+    elif tail_sources:
+        # 没有正文段（罕见）：来源仍渲染但作为独立块
+        for cls, content in tail_sources:
+            rendered_blocks.append(f'<div class="link-cluster {cls}">{render_inline(content)}</div>')
+
+    html = f'<div class="feature"><h3>{render_inline(title)}</h3>'
+    html += ''.join(rendered_blocks)
     html += '</div>'
     return html
 
@@ -604,36 +629,51 @@ def render_changes(content: str) -> str:
 
 
 def render_tip(content: str) -> str:
-    """渲染本期技巧（自然段落，带步骤列表）。"""
-    html = '<div class="tip">'
-
+    """渲染本期技巧。来源就近：尾部 `来源：` 块合并到首段末，避免文末聚合。"""
     paragraphs = [p.strip() for p in content.split('\n\n') if p.strip() and p.strip() != '---']
+
+    rendered_blocks = []
+    first_para_idx = None
+    tail_sources = []
+
     for p in paragraphs:
         if p.startswith('来源') or p.startswith('中文解读'):
             cls = 'zh' if p.startswith('中文解读') else ''
             content_only = re.sub(r'^[^：:]{1,12}[：:]\s*', '', p)
-            html += f'<div class="link-cluster {cls}">{fold_link_clusters(render_inline(content_only))}</div>'
+            tail_sources.append((cls, content_only))
         elif re.match(r'^\d+\.', p, re.M) or p.count('\n1.') > 0 or p.startswith('1.'):
-            # 编号列表
             items = re.findall(r'^\d+\.\s*(.+?)(?=\n\d+\.|\Z)', p, re.M | re.S)
             if items:
-                html += '<ol>'
+                block = '<ol>'
                 for it in items:
-                    html += f'<li>{render_inline(it.strip())}</li>'
-                html += '</ol>'
+                    block += f'<li>{render_inline(it.strip())}</li>'
+                block += '</ol>'
             else:
-                html += f'<p>{render_inline(p)}</p>'
+                block = f'<p>{render_inline(p)}</p>'
+            rendered_blocks.append(block)
         elif p.startswith('- '):
             items = re.findall(r'^- (.+?)$', p, re.M)
-            html += '<ul>'
+            block = '<ul>'
             for it in items:
-                html += f'<li>{render_inline(it)}</li>'
-            html += '</ul>'
+                block += f'<li>{render_inline(it)}</li>'
+            block += '</ul>'
+            rendered_blocks.append(block)
         else:
-            html += f'<p>{render_inline(p)}</p>'
+            block = f'<p>{render_inline(p)}</p>'
+            rendered_blocks.append(block)
+            if first_para_idx is None:
+                first_para_idx = len(rendered_blocks) - 1
 
-    html += '</div>'
-    return html
+    if tail_sources and first_para_idx is not None:
+        sources_html = ''
+        for cls, content in tail_sources:
+            sources_html += f'<div class="link-cluster {cls}">{fold_link_clusters(render_inline(content))}</div>'
+        rendered_blocks[first_para_idx] += sources_html
+    elif tail_sources:
+        for cls, content in tail_sources:
+            rendered_blocks.append(f'<div class="link-cluster {cls}">{fold_link_clusters(render_inline(content))}</div>')
+
+    return '<div class="tip">' + ''.join(rendered_blocks) + '</div>'
 
 
 def render_section(title: str, content: str) -> str:
