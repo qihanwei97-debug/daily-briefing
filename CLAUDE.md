@@ -350,10 +350,36 @@ C. **任何把作者当作管理层、当作真人律师、可下命令或谈个
 - ❌ 不合格：`Barclays 分析师警告 FCF 下降 90%`、`分析师预计 Amazon 自由现金流转负`
 - 若仅查到机构名、找不到具体分析师+日期，必须显式说明"来源：XX（分析师姓名/日期未披露）"，提醒读者验证成本
 
-## 七、完成后执行步骤
+## 七、写入与 push 节奏（增量提交，防止单次失败全军覆没）
 
-1. 将晨报保存到 `briefings/晨报_YYYY年MM月DD日.md`
-2. 执行 `git add briefings/ && git commit -m "晨报 YYYY-MM-DD" && git push`，触发 GitHub Actions 自动邮件发送
-3. 输出 **3-5 句中文核心看点总结**
-4. 输出 **邮件主题行**，格式为：`晨报 M/D｜最重要事件短语一·短语二·短语三`（用 · 分隔，总长控制在 60 字以内，便于邮件客户端完整显示）
+**🛡️ 核心原则：每完成一个板块就 amend 一次 commit + push 一次**——这样若 Routine 中途断流（stream-idle-timeout、容器崩溃等），仓库里至少有一个不完整但可读的版本，不会丢。
+
+**具体节奏（每个步骤都执行：amend → push）：**
+
+```
+Step 1. Write 报头 + ② 头条
+        → git add briefings/ && git commit -m "晨报 YYYY-MM-DD" && git push origin main
+Step 2. Edit ② 速报（速报①②③ 编号）
+        → git add briefings/ && git commit --amend --no-edit && git push --force-with-lease origin main
+Step 3. Edit ③ 产品速览 + ④ 模型对比
+        → 同上 amend + force-with-lease push
+Step 4. Edit ⑤ 实用技巧
+        → 同上
+Step 5. Edit ① 60 秒速览（最后写，从 ②③④⑤ 提炼，每条带定位标签）
+        → 同上
+Step 6. Edit 页脚（如需）
+        → 同上
+```
+
+`--force-with-lease` 比 `--force` 安全：若期间他人推送（理论上不会，但保险），会拒绝而非覆盖。
+
+**WebFetch 防卡死规则：**
+- 单次 >30s 即放弃；403 / 超时 / 任何错误 = **跳过该来源，不重试不等待**
+- 同一 URL 被 fetch 失败一次后，本期不再尝试
+
+## 八、完成后执行步骤
+
+1. 上述增量节奏完成后，最终的 commit message 为 `晨报 YYYY-MM-DD`，触发 GitHub Actions 重建 HTML
+2. 输出 **3-5 句中文核心看点总结**
+3. 输出 **邮件主题行**，格式为：`晨报 M/D｜最重要事件短语一·短语二·短语三`（用 · 分隔，总长控制在 60 字以内，便于邮件客户端完整显示）
    - 示例：`晨报 4/22｜Trump 延长伊朗停火·Meta 豪掷$125B·Nebraska 律师因 AI 幻觉吊销`
