@@ -746,16 +746,12 @@ def render_masthead(meta: dict) -> str:
 
 
 def render_footer(md: str) -> str:
-    """提取末尾 *数据来源...*  斜体块作为页脚。
+    """页脚硬编码——markdown 末尾的 *数据来源：...* 长串一律忽略。
 
-    严格锚定 `*数据来源：` 开头，避免误匹配技巧段中含'数据来源'的 **bold** 文字
-    （bug：`**核查每家'训练数据来源'**` 会被旧 regex 错误捕获）。
+    所有具体来源已通过 link-cluster 就近附到正文段后，文末聚合是冗余装饰。
+    保留单行免责声明即可。
     """
-    matches = re.findall(r'\*(数据来源[:：][^*]+)\*', md)
-    if matches:
-        # 取最后一个（页脚总在文末）
-        return render_inline(matches[-1].replace('|', '<br>').replace('\n', ' '))
-    return '本简报由 AI 生成，不构成投资或法律建议'
+    return '本简报由 AI 自动生成 · 仅供参考，不构成投资或法律建议'
 
 
 def render_toc(toc_entries: list) -> str:

@@ -43,10 +43,34 @@ def markdown_to_html(md_text):
     """将 Markdown 转为美观的 HTML 邮件格式"""
     html = md_text
 
+    # 先提取链接，用占位符保护 URL 不被转义
+    links = []
+    def _save_link(m):
+        idx = len(links)
+        links.append((m.group(1), m.group(2)))
+        return f"\x00LINK{idx}\x00"
+    html = re.sub(r"\[(.+?)\]\((.+?)\)", _save_link, html)
+
+    # 提取行内代码，用占位符保护
+    codes = []
+    def _save_code(m):
+        idx = len(codes)
+        codes.append(m.group(1))
+        return f"\x00CODE{idx}\x00"
+    html = re.sub(r"`(.+?)`", _save_code, html)
+
     # 转义 HTML 特殊字符
     html = html.replace("&", "&amp;")
     html = html.replace("<", "&lt;")
     html = html.replace(">", "&gt;")
+
+    # 还原链接和代码
+    for i, (text, url) in enumerate(links):
+        text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        html = html.replace(f"\x00LINK{i}\x00", f'<a href="{url}" style="color:#0066cc;">{text}</a>')
+    for i, code in enumerate(codes):
+        code = code.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        html = html.replace(f"\x00CODE{i}\x00", f'<code style="background:#f0f0f0;padding:2px 5px;border-radius:3px;font-size:90%;">{code}</code>')
 
     # 标题
     html = re.sub(r"^####\s+(.+)$", r"<h4 style='color:#1a1a1a;margin:18px 0 8px;'>\1</h4>", html, flags=re.MULTILINE)
@@ -57,9 +81,6 @@ def markdown_to_html(md_text):
     # 粗体和斜体
     html = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", html)
     html = re.sub(r"\*(.+?)\*", r"<em>\1</em>", html)
-
-    # 链接
-    html = re.sub(r"\[(.+?)\]\((.+?)\)", r'<a href="\2" style="color:#0066cc;">\1</a>', html)
 
     # 表格处理
     lines = html.split("\n")

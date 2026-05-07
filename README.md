@@ -30,7 +30,7 @@ yaohuanjia1997@163.com
 ### 第1步：创建 GitHub 仓库 + 推送代码
 
 ```bash
-cd C:\Users\hanwei.qi\daily-briefing
+cd "D:\OneDrive - 北京市汉坤律师事务所\思考\daily-briefing"
 git init
 mkdir briefings
 echo "placeholder" > briefings/.gitkeep
@@ -77,7 +77,7 @@ git config --global credential.helper store
 
 手动 push 一个晨报文件测试：
 ```bash
-cd C:\Users\hanwei.qi\daily-briefing
+cd "D:\OneDrive - 北京市汉坤律师事务所\思考\daily-briefing"
 copy ..\晨报_2026年02月28日.md briefings\
 git add briefings/
 git commit -m "test: briefing email"
